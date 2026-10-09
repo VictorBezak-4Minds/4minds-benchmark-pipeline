@@ -24,8 +24,10 @@ Benchmark Datasets/
 ├── README.md               this file
 ├── AGENTS.md               rules for AI agents (and a checklist for people)
 ├── bench                   the entry point for every step (see "Run a step")
+├── metrics_cheatsheet.html the metrics of each benchmark: why and how (from pipeline/make_cheatsheet.py)
 ├── pipeline/               benchmark-agnostic core
 │   ├── bench_common.py     run loop, resume, retries, readiness, audit files, full-run guard
+│   ├── make_cheatsheet.py  writes metrics_cheatsheet.html; edit its text when a metric changes
 │   ├── report_html.py      4Minds HTML style for reports: CSS, logo, system colors, bar with CI,
 │   │                       quality vs. median latency scatter (plotly.js 4.1.2 from cdn.plot.ly, SRI-pinned)
 │   └── run_logged.sh       records each step in the benchmark's audit log
@@ -162,6 +164,7 @@ Known limits of the current contract (change them when a benchmark needs it):
    needs a change, apply it in memory and write the diff to `results/audit/patches/`.
 4. Make a stratified pilot question file in `data/`.
 5. Write `aggregate.py` and `make_report.py` (HTML report with `pipeline/report_html.py`).
+   Add the metrics to `pipeline/make_cheatsheet.py` and run it.
 6. Run the lifecycle above, from setup to the pilot HTML report. Stop and ask before a full run.
 
 ## Credentials

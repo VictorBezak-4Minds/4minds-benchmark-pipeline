@@ -1,0 +1,96 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Benchmark metrics cheat sheet · 4Minds</title>
+<link rel='stylesheet' href='https://use.typekit.net/ipe4ndc.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap'>
+<style>
+:root { --bg:#18181c; --card:#1c1c21; --accent:#543fed; --blue:#80aeff; --violet:#a78bfa;
+  --text:#fff; --muted:rgba(255,255,255,0.5); --border:rgba(255,255,255,0.08); }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text);
+  font-family:'neue-haas-grotesk-display','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+.wrap { max-width:1120px; margin:0 auto; padding:40px 24px 80px; }
+header { display:flex; align-items:center; justify-content:space-between; padding-bottom:32px;
+  border-bottom:1px solid var(--border); margin-bottom:48px; }
+header .meta { color:var(--muted); font-size:14px; text-align:right; }
+h1,h2,h3 { font-weight:400; margin:0; letter-spacing:-0.01em; }
+h1 { font-size:48px; line-height:1.1; margin-bottom:16px; }
+h2 { font-size:32px; margin-bottom:8px; }
+h3 { font-size:20px; margin-bottom:16px; }
+.label { color:var(--violet); text-transform:uppercase; letter-spacing:0.12em; font-size:12px; margin-bottom:12px; }
+.lead { color:var(--muted); font-size:18px; max-width:760px; }
+.pill { display:inline-block; padding:4px 12px; border-radius:999px; border:1px solid var(--border);
+  font-size:13px; color:var(--muted); margin:16px 8px 0 0; }
+.pill.warn { color:#fbbf24; border-color:rgba(251,191,36,0.4); }
+section { margin-top:64px; }
+.sub { color:var(--muted); margin-bottom:24px; max-width:820px; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:28px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; }
+.bar-row { display:grid; grid-template-columns:220px 1fr 130px; align-items:center; gap:16px; padding:10px 0;
+  border-bottom:1px solid var(--border); }
+.bar-row:last-child { border-bottom:none; }
+.grid .card { min-width:0; }
+.grid .bar-row { grid-template-columns:minmax(0,1fr) 120px; row-gap:6px; }
+.grid .bar-name { grid-column:1 / -1; }
+.card h3 { position:relative; }
+.info { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; margin-left:8px;
+  border-radius:50%; border:1px solid rgba(255,255,255,0.35); color:var(--muted); font-size:11px; line-height:1;
+  vertical-align:3px; cursor:help; }
+.info:hover, .info:focus { color:#fff; border-color:var(--violet); outline:none; }
+.info .tip { visibility:hidden; opacity:0; position:absolute; z-index:10; top:calc(100% + 10px); left:0; right:0;
+  padding:14px 16px; background:#26262d; border:1px solid rgba(255,255,255,0.14); border-radius:12px;
+  box-shadow:0 12px 32px rgba(0,0,0,0.5); color:rgba(255,255,255,0.85); font-size:13px; line-height:1.5;
+  letter-spacing:0; white-space:normal; transition:opacity .12s; pointer-events:none; }
+.info .tip span { display:block; margin-bottom:8px; } .info .tip span:last-child { margin-bottom:0; }
+.info .tip .src { color:var(--muted); font-size:12px; }
+.info .tip .h { margin-bottom:4px; color:var(--muted); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; }
+.info .tip .h:not(:first-child) { margin-top:14px; }
+.info:hover .tip, .info:focus .tip { visibility:visible; opacity:1; }
+.bar-name { font-size:15px; }
+.bar-name small { display:block; color:var(--muted); font-size:12px; }
+.track { position:relative; height:22px; background:rgba(255,255,255,0.04); border-radius:6px; }
+.fill { position:absolute; top:0; bottom:0; left:0; border-radius:6px; opacity:0.9; }
+.ci { position:absolute; top:50%; height:2px; background:rgba(255,255,255,0.85); transform:translateY(-50%); }
+.ci::before,.ci::after { content:''; position:absolute; top:-5px; width:2px; height:12px; background:rgba(255,255,255,0.85); }
+.ci::before { left:0; } .ci::after { right:0; }
+.zero { position:absolute; top:-4px; bottom:-4px; left:50%; width:1px; background:rgba(255,255,255,0.35); }
+.val { text-align:right; font-variant-numeric:tabular-nums; }
+.val small { display:block; color:var(--muted); font-size:12px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { text-align:left; font-weight:400; color:var(--muted); padding:12px 14px; border-bottom:1px solid var(--border); }
+td { padding:14px; border-bottom:1px solid var(--border); font-variant-numeric:tabular-nums; vertical-align:top; }
+tr:last-child td { border-bottom:none; }
+td small { color:var(--muted); }
+.dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:10px; vertical-align:middle; }
+ul.caveats { margin:0; padding-left:20px; color:rgba(255,255,255,0.8); }
+ul.caveats li { margin-bottom:10px; }
+a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+.legend { display:flex; flex-wrap:wrap; gap:16px; color:var(--muted); font-size:13px; margin-bottom:12px; }
+.note { color:var(--muted); font-size:13px; margin:14px 0 0; }
+.pos { color:#86efac; } .neg { color:#fca5a5; } .neutral { color:var(--muted); }
+footer { margin-top:80px; padding-top:24px; border-top:1px solid var(--border); color:var(--muted); font-size:13px; }
+@media (max-width:720px) { .bar-row { grid-template-columns:1fr; } h1 { font-size:34px; } }
+</style></head><body><div class='wrap'>
+<header><div><svg width="124" height="32" viewBox="0 0 124 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M46.0033 19.7379H39.7481V18.3939L45.6158 9.5563H47.664V18.265H49.3246V19.7379H47.664V22.4444H46.0033V19.7379ZM46.0033 18.265V11.3975H45.9664L41.5749 18.2282V18.265H46.0033Z" fill="#F7F6F3"/>
+<path d="M53.2733 9.5556H55.7828L59.6392 20.548H59.6761L63.5326 9.5556H66.042V22.4444H64.3629V13.4964C64.3629 13.2507 64.3693 13.0056 64.3814 12.7599V12.0235H64.3445L60.6356 22.4444H58.6797L54.9709 12.0235H54.934C54.9461 12.6247 54.9525 13.2266 54.9525 13.8278V22.4444H53.2733V9.5556Z" fill="#F7F6F3"/>
+<path d="M69.9907 9.5556H71.7067V22.4444H69.9907V9.5556Z" fill="#F7F6F3"/>
+<path d="M77.3906 11.857H77.3537L77.3722 14.0664V22.4437H75.6562V9.55489H77.9626L84.8267 20.1238H84.8636L84.8452 17.9144V9.55559H86.5427V22.4444H84.2547L77.3906 11.8577V11.857Z" fill="#F7F6F3"/>
+<path d="M90.4914 9.55559H95.252C96.4698 9.55559 97.5557 9.81052 98.5088 10.3197C99.4619 10.8288 100.209 11.5688 100.751 12.5383C101.292 13.5077 101.563 14.662 101.563 15.9996C101.563 17.3373 101.292 18.4916 100.751 19.461C100.209 20.4312 99.4619 21.1705 98.5088 21.6796C97.555 22.1888 96.4698 22.4437 95.252 22.4437H90.4914V9.55489V9.55559ZM97.5677 20.3547C98.2504 19.9808 98.7884 19.4221 99.1823 18.6792C99.5761 17.9364 99.7727 17.0378 99.7727 15.9819C99.7727 14.9261 99.5754 14.0459 99.1823 13.3031C98.7884 12.5602 98.2504 12.005 97.5677 11.6368C96.885 11.2686 96.1129 11.0845 95.252 11.0845H92.2075V20.9169H95.252C96.1129 20.9169 96.885 20.73 97.5677 20.3554V20.3547Z" fill="#F7F6F3"/>
+<path d="M106.591 22.1498C105.821 21.7695 105.234 21.2236 104.829 20.5112C104.423 19.7995 104.195 18.9582 104.146 17.9888H105.88C105.917 18.6644 106.077 19.2408 106.36 19.7195C106.642 20.1982 107.043 20.5636 107.559 20.815C108.076 21.0671 108.697 21.1924 109.423 21.1924C110.099 21.1924 110.684 21.0848 111.176 20.8702C111.668 20.6556 112.043 20.3519 112.302 19.9588C112.56 19.5658 112.689 19.1055 112.689 18.578C112.689 18.0015 112.498 17.5321 112.117 17.1695C111.736 16.8076 111.059 16.6263 110.087 16.6263H108.408C107.08 16.6263 106.068 16.3134 105.373 15.6874C104.677 15.0614 104.33 14.2392 104.33 13.2202C104.33 12.4469 104.53 11.7629 104.93 11.1673C105.33 10.5718 105.905 10.1087 106.655 9.77725C107.405 9.44584 108.279 9.28014 109.275 9.28014C110.333 9.28014 111.225 9.46708 111.951 9.84169C112.676 10.2163 113.227 10.7382 113.602 11.4067C113.978 12.0759 114.19 12.8584 114.239 13.7541H112.504C112.443 12.7847 112.145 12.0511 111.61 11.554C111.074 11.0569 110.284 10.8083 109.239 10.8083C108.586 10.8083 108.024 10.9032 107.55 11.0937C107.077 11.2842 106.711 11.5568 106.452 11.913C106.194 12.2692 106.065 12.6926 106.065 13.1834C106.065 13.7357 106.249 14.1719 106.618 14.4906C106.987 14.81 107.608 14.9693 108.482 14.9693H110.161C111.699 14.9693 112.793 15.3071 113.446 15.9819C114.097 16.6575 114.423 17.5101 114.423 18.5411C114.423 19.3881 114.221 20.1274 113.815 20.7597C113.409 21.3921 112.824 21.8772 112.062 22.2143C111.299 22.552 110.407 22.7206 109.386 22.7206C108.291 22.7206 107.359 22.5301 106.591 22.1498Z" fill="#F7F6F3"/>
+<path d="M19.0161 26.2747H20.7321V20.4751C20.7321 20.0998 20.5823 19.74 20.3169 19.4752L18.9671 18.129C18.4497 17.6128 17.6229 17.5745 17.0602 18.0412L15.1263 19.6423L16.2227 20.9594L19.0153 18.6452V26.2747H19.0161Z" fill="#F7F6F3"/>
+<path d="M20.7321 5.72528H19.0161V11.5249C19.0161 11.9002 19.1658 12.26 19.4312 12.5248L20.781 13.871C21.2984 14.3872 22.1252 14.4255 22.688 13.9588L24.6219 12.3577L23.5254 11.0406L20.7328 13.3547V5.72528H20.7321Z" fill="#F7F6F3"/>
+<path d="M9.57651 15.1442V16.8565H15.3888C15.765 16.8565 16.1255 16.7071 16.3909 16.4422L17.74 15.0954C18.2574 14.5791 18.2957 13.7541 17.828 13.1926L16.2234 11.2629L14.9034 12.357L17.2227 15.1435H9.57651V15.1442Z" fill="#F7F6F3"/>
+<path d="M30.1716 16.8558V15.1435H24.3593C23.9831 15.1435 23.6226 15.2929 23.3572 15.5578L22.0081 16.9046C21.4907 17.4209 21.4524 18.2459 21.9201 18.8074L23.5247 20.7371L24.8447 19.643L22.5255 16.8565H30.1716V16.8558Z" fill="#F7F6F3"/>
+</svg>
+</div><div class='meta'>Benchmark hub</div></header>
+<div class='label'>Cheat sheet</div><h1>Benchmark metrics</h1><p class='lead'>For each benchmark: the metrics, why we use them, and how the scorer calculates them. All scores are 0–100.</p>
+<section><div class='label'>Benchmark</div><h2>GraphRAG-Bench · Medical</h2><p class='sub'>Official generation_eval.py at commit fdbab59. Judge gpt-4o-mini-2024-07-18, embeddings BAAI/bge-large-en-v1.5. Each question type has its own metric set.</p>
+<div class='card'><table><tr><th>Metric</th><th>Used on</th><th>Why</th><th>How</th></tr><tr><td><strong>Answer correctness</strong></td><td>All types (headline)</td><td>The only official metric for all four types, so it is the headline. It checks facts, not wording.</td><td>0.75 × factuality F1 + 0.25 × similarity. The judge labels statements as TP, FP or FN against the gold answer: F1 = TP / (TP + (FP + FN) / 2). Similarity = (cosine of the embeddings + 1) / 2.</td></tr><tr><td><strong>ROUGE-L</strong></td><td>Fact Retrieval, Complex Reasoning</td><td>Official for the short-answer types. No LLM, so it is fully repeatable.</td><td>F-measure of the longest common word sequence between the answer and the gold answer (stemmed).</td></tr><tr><td><strong>Coverage</strong></td><td>Contextual Summarize, Creative Generation</td><td>Official for the long-answer types. It shows if the answer is complete.</td><td>The judge splits the gold answer into facts and marks each fact as covered or not. Score = covered / all. Extra text does not decrease it.</td></tr><tr><td><strong>Faithfulness (official)</strong></td><td>Creative Generation</td><td>The only metric that checks the answer against the retrieved context (grounding).</td><td>The judge gives each answer statement 1 or 0 against the context that the system returned (first 10,000 characters). Score = supported / all. Mostly NaN at this commit (the prompt does not ask for JSON).</td></tr><tr><td><strong>Faithfulness (JSON-format fix)</strong></td><td>Creative Generation</td><td>Gives a usable grounding number while the official one is NaN. Not official.</td><td>The same code and judge, plus one sentence in the verdict prompt that asks for JSON.</td></tr></table></div>
+</section>
+<section><div class='label'>Benchmark</div><h2>QASPER · answer-only</h2><p class='sub'>Official qasper_evaluator.py (v0.3 test release), unchanged, on the 25-question gold subset. No LLM judge.</p>
+<div class='card'><table><tr><th>Metric</th><th>Used on</th><th>Why</th><th>How</th></tr><tr><td><strong>Answer F1</strong></td><td>All questions (headline)</td><td>The official QASPER answer metric. It is deterministic, so runs are repeatable.</td><td>SQuAD token F1: lowercase, remove punctuation and articles, then F1 of the shared words. Each question takes the maximum over its reference answers. Missing prediction = 0.</td></tr><tr><td><strong>Answer F1 by answer type</strong></td><td>Extractive, abstractive, yes/no, unanswerable</td><td>Shows where a system is weak. The types behave differently (a yes/no answer is 0 or 1).</td><td>The same F1, grouped by the type of the reference answer that gave the maximum.</td></tr><tr><td><strong>Answer length</strong></td><td>All questions</td><td>Token F1 gives a low score to long answers. Use length to read F1 differences.</td><td>Median and maximum words per answer. Also a count of answers that say &quot;Unanswerable&quot;.</td></tr><tr><td><strong>Evidence F1</strong></td><td>Not used</td><td>Answer-only pilot: the systems do not return paragraph IDs in the gold format.</td><td>Not calculated (the evaluator input has empty evidence).</td></tr></table></div>
+</section>
+<section><div class='label'>All benchmarks</div><h2>Statistics and run data</h2><p class='sub'>The same for every benchmark. From the aggregator and the run manifests.</p>
+<div class='card'><table><tr><th>Item</th><th>Why</th><th>How</th></tr><tr><td><strong>95% confidence interval</strong></td><td>Pilot samples are small (10 and 25 questions). The interval shows how sure a mean is.</td><td>Bootstrap of the per-question scores: GraphRAG-Bench 2,000 resamples (seed 7), QASPER 10,000 (seed 0). GraphRAG-Bench also has a paired bootstrap for 4Minds minus each system on the same questions.</td></tr><tr><td><strong>Latency (median, p90)</strong></td><td>Speed is part of the product comparison. The median is not changed by a few slow calls.</td><td>Client wall-clock time from request to full answer, per answered question. p90 = the value that 90% of calls are below.</td></tr><tr><td><strong>Answered, failed, &quot;I don&#x27;t know&quot;</strong></td><td>A system that fails or refuses must not look better than it is.</td><td>Counts from the run manifest. Failed questions are not in predictions.json, so read these counts next to the scores. QASPER scoring stops until every question has an answer.</td></tr><tr><td><strong>Tokens and estimated cost</strong></td><td>Cost per question for systems with per-token prices.</td><td>Token counts from the API response × list prices. 4Minds is a subscription, so no cost.</td></tr></table></div>
+</section></div></body></html>
