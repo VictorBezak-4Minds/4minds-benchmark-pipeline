@@ -1,0 +1,51 @@
+system,question_type,metric,mean,ci_low,ci_high,n
+4Minds (Constellations),Fact Retrieval,rouge_score,0.2052,0.14,0.2649,5
+4Minds (Constellations),Fact Retrieval,answer_correctness,0.6845,0.4948,0.8518,5
+4Minds (Constellations),Complex Reasoning,rouge_score,0.171,0.0629,0.2791,2
+4Minds (Constellations),Complex Reasoning,answer_correctness,0.9101,0.8295,0.9908,2
+4Minds (Constellations),Contextual Summarize,answer_correctness,0.8363,0.681,0.9916,2
+4Minds (Constellations),Contextual Summarize,coverage_score,0.7986,0.7222,0.875,2
+4Minds (Constellations),Creative Generation,answer_correctness,0.9881,0.9881,0.9881,1
+4Minds (Constellations),Creative Generation,coverage_score,0.7083,0.7083,0.7083,1
+4Minds (Constellations),Creative Generation,faithfulness_jsonfix,0.0,0.0,0.0,1
+4Minds (Constellations),All questions,answer_correctness,0.7904,0.6653,0.9049,10
+4Minds (SYMI),Fact Retrieval,rouge_score,0.24,0.147,0.3472,5
+4Minds (SYMI),Fact Retrieval,answer_correctness,0.5688,0.3365,0.8269,5
+4Minds (SYMI),Complex Reasoning,rouge_score,0.1681,0.0695,0.2667,2
+4Minds (SYMI),Complex Reasoning,answer_correctness,0.8577,0.728,0.9873,2
+4Minds (SYMI),Contextual Summarize,answer_correctness,0.9177,0.842,0.9935,2
+4Minds (SYMI),Contextual Summarize,coverage_score,0.7778,0.5556,1.0,2
+4Minds (SYMI),Creative Generation,answer_correctness,0.9897,0.9897,0.9897,1
+4Minds (SYMI),Creative Generation,coverage_score,0.7083,0.7083,0.7083,1
+4Minds (SYMI),All questions,answer_correctness,0.7385,0.5672,0.8993,10
+Gemini + File Search,Fact Retrieval,rouge_score,0.5371,0.2833,0.8163,5
+Gemini + File Search,Fact Retrieval,answer_correctness,0.9115,0.8107,0.9929,5
+Gemini + File Search,Complex Reasoning,rouge_score,0.4476,0.2286,0.6667,2
+Gemini + File Search,Complex Reasoning,answer_correctness,0.8229,0.7458,0.9001,2
+Gemini + File Search,Contextual Summarize,answer_correctness,0.9622,0.9489,0.9754,2
+Gemini + File Search,Contextual Summarize,coverage_score,0.7667,0.7,0.8333,2
+Gemini + File Search,Creative Generation,answer_correctness,0.858,0.858,0.858,1
+Gemini + File Search,Creative Generation,coverage_score,0.6667,0.6667,0.6667,1
+Gemini + File Search,Creative Generation,faithfulness_jsonfix,1.0,1.0,1.0,1
+Gemini + File Search,All questions,answer_correctness,0.8986,0.8382,0.9518,10
+Gemini + RAG Engine,Fact Retrieval,rouge_score,0.5316,0.2722,0.8256,5
+Gemini + RAG Engine,Fact Retrieval,answer_correctness,0.8448,0.7052,0.9766,5
+Gemini + RAG Engine,Complex Reasoning,rouge_score,0.4427,0.2025,0.6829,2
+Gemini + RAG Engine,Complex Reasoning,answer_correctness,0.8424,0.7957,0.8891,2
+Gemini + RAG Engine,Contextual Summarize,answer_correctness,0.861,0.7315,0.9904,2
+Gemini + RAG Engine,Contextual Summarize,coverage_score,0.5833,0.5,0.6667,2
+Gemini + RAG Engine,Creative Generation,answer_correctness,0.7737,0.7737,0.7737,1
+Gemini + RAG Engine,Creative Generation,coverage_score,0.5417,0.5417,0.5417,1
+Gemini + RAG Engine,Creative Generation,faithfulness_jsonfix,0.5455,0.5455,0.5455,1
+Gemini + RAG Engine,All questions,answer_correctness,0.8404,0.7576,0.9171,10
+LightRAG + Gemini,Fact Retrieval,rouge_score,0.4835,0.3479,0.7048,5
+LightRAG + Gemini,Fact Retrieval,answer_correctness,0.8554,0.7044,0.9834,5
+LightRAG + Gemini,Complex Reasoning,rouge_score,0.5293,0.2254,0.8333,2
+LightRAG + Gemini,Complex Reasoning,answer_correctness,0.8748,0.8492,0.9003,2
+LightRAG + Gemini,Contextual Summarize,answer_correctness,0.85,0.7224,0.9776,2
+LightRAG + Gemini,Contextual Summarize,coverage_score,0.6556,0.6111,0.7,2
+LightRAG + Gemini,Creative Generation,answer_correctness,0.761,0.761,0.761,1
+LightRAG + Gemini,Creative Generation,coverage_score,0.44,0.44,0.44,1
+LightRAG + Gemini,Creative Generation,faithfulness,0.6364,0.6364,0.6364,1
+LightRAG + Gemini,Creative Generation,faithfulness_jsonfix,0.6364,0.6364,0.6364,1
+LightRAG + Gemini,All questions,answer_correctness,0.8488,0.7632,0.9254,10

@@ -1,0 +1,41 @@
+# step: test_dryrun_run_rag_engine
+# start: 2026-10-09T16:05:00Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag_engine.py --subset medical --questions-file data/Questions/pilot_questions.json --dry-run
+
+{
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "Are organ transplant recipients at higher risk for BCC?"
+        }
+      ]
+    }
+  ],
+  "systemInstruction": {
+    "parts": [
+      {
+        "text": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\"."
+      }
+    ]
+  },
+  "tools": [
+    {
+      "retrieval": {
+        "vertexRagStore": {
+          "ragResources": [
+            {
+              "ragCorpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904"
+            }
+          ],
+          "ragRetrievalConfig": {
+            "topK": 5
+          }
+        }
+      }
+    }
+  ]
+}
+
+# end: 2026-10-09T16:05:00Z  exit: 0  duration_s: 0

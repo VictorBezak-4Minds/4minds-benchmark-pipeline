@@ -1,0 +1,24 @@
+--- a/Examples/run_lightrag.py
++++ b/Examples/run_lightrag.py
+@@ -62,9 +62,9 @@
+ ) -> str:
+     """LLM interface function using OpenAI-compatible API"""
+     # Get API configuration from kwargs
+-    model_name = kwargs.get("model_name", "qwen2.5-14b-instruct")
+-    base_url = kwargs.get("base_url", "")
+-    api_key = kwargs.get("api_key", "")
++    model_name = kwargs.pop("model_name", "qwen2.5-14b-instruct")
++    base_url = kwargs.pop("base_url", "")
++    api_key = kwargs.pop("api_key", "")
+     
+     return await openai_complete_if_cache(
+         model_name,
+@@ -108,7 +108,7 @@
+             "api_key": llm_api_key
+         }
+ 
+-        llm_model_func_input = llm_model_func
++        llm_model_func = globals()["llm_model_func"]
+     elif mode == "ollama":
+         embedding_func = EmbeddingFunc(
+             embedding_dim=1024,

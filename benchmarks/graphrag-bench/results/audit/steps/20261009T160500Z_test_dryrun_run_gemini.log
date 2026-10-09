@@ -1,0 +1,21 @@
+# step: test_dryrun_run_gemini
+# start: 2026-10-09T16:05:00Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_gemini.py --subset medical --questions-file data/Questions/pilot_questions.json --dry-run
+
+{
+  "model": "gemini-3.8-flash",
+  "input": "Are organ transplant recipients at higher risk for BCC?",
+  "system_instruction": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\".",
+  "tools": [
+    {
+      "type": "file_search",
+      "file_search_store_names": [
+        "fileSearchStores/graphragbench-9lax22b99qlk"
+      ],
+      "metadata_filter": "source = \"Medical\"",
+      "top_k": 5
+    }
+  ]
+}
+
+# end: 2026-10-09T16:05:00Z  exit: 0  duration_s: 0

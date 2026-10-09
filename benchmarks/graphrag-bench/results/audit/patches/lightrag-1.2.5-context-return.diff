@@ -1,0 +1,81 @@
+--- a/lightrag/operate.py
++++ b/lightrag/operate.py
+@@ -672,7 +672,7 @@
+     global_config: dict[str, str],
+     hashing_kv: BaseKVStorage | None = None,
+     system_prompt: str | None = None,
+-) -> str | AsyncIterator[str]:
++) -> tuple[str, str] | tuple[AsyncIterator[str], str]:  # graphrag-bench context patch
+     # Handle cache
+     use_model_func = global_config["llm_model_func"]
+     args_hash = compute_args_hash(query_param.mode, query, cache_type="query")
+@@ -680,7 +680,7 @@
+         hashing_kv, args_hash, query, query_param.mode, cache_type="query"
+     )
+     if cached_response is not None:
+-        return cached_response
++        return cached_response, None
+ 
+     # Extract keywords using extract_keywords_only function which already supports conversation history
+     hl_keywords, ll_keywords = await extract_keywords_only(
+@@ -693,7 +693,7 @@
+     # Handle empty keywords
+     if hl_keywords == [] and ll_keywords == []:
+         logger.warning("low_level_keywords and high_level_keywords is empty")
+-        return PROMPTS["fail_response"]
++        return PROMPTS["fail_response"], None
+     if ll_keywords == [] and query_param.mode in ["local", "hybrid"]:
+         logger.warning(
+             "low_level_keywords is empty, switching from %s mode to global mode",
+@@ -722,9 +722,9 @@
+     )
+ 
+     if query_param.only_need_context:
+-        return context
++        return context, context
+     if context is None:
+-        return PROMPTS["fail_response"]
++        return PROMPTS["fail_response"], None
+ 
+     # Process conversation history
+     history_context = ""
+@@ -741,7 +741,7 @@
+     )
+ 
+     if query_param.only_need_prompt:
+-        return sys_prompt
++        return sys_prompt, context
+ 
+     len_of_prompts = len(encode_string_by_tiktoken(query + sys_prompt))
+     logger.debug(f"[kg_query]Prompt Tokens: {len_of_prompts}")
+@@ -776,7 +776,7 @@
+             cache_type="query",
+         ),
+     )
+-    return response
++    return response, context
+ 
+ 
+ async def extract_keywords_only(
+--- a/lightrag/lightrag.py
++++ b/lightrag/lightrag.py
+@@ -1252,8 +1252,9 @@
+         Returns:
+             str: The result of the query execution.
+         """
++        context = None  # graphrag-bench context patch
+         if param.mode in ["local", "global", "hybrid"]:
+-            response = await kg_query(
++            response, context = await kg_query(
+                 query.strip(),
+                 self.chunk_entity_relation_graph,
+                 self.entities_vdb,
+@@ -1290,7 +1291,7 @@
+         else:
+             raise ValueError(f"Unknown mode {param.mode}")
+         await self._query_done()
+-        return response
++        return response, context
+ 
+     def query_with_separate_keyword_extraction(
+         self, query: str, prompt: str, param: QueryParam = QueryParam()

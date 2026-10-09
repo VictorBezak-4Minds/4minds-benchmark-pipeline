@@ -1,0 +1,10 @@
+{
+  "name": "fileSearchStores/graphragbenchmedical-s380advlc8e7/upload/operations/novel30752json-lter848kpklp",
+  "response": {
+    "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.UploadToFileSearchStoreResponse",
+    "parent": "fileSearchStores/graphragbenchmedical-s380advlc8e7",
+    "documentName": "fileSearchStores/graphragbenchmedical-s380advlc8e7/documents/novel30752json-lter848kpklp",
+    "mimeType": "application/json",
+    "sizeBytes": "168426"
+  }
+}

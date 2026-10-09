@@ -1,0 +1,65 @@
+# step: score_test_gemini
+# start: 2026-10-09T14:58:42Z
+# command: .venv-eval/bin/python score.py --system-dir results/pilot/gemini/medical --num-samples 1
+
+scoring 10 predictions in /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/pilot/gemini/medical with gpt-4o-mini (gpt-4o-mini-2024-07-18)
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'presence_penalty', 'frequency_penalty', 'seed', 'top_p'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Evaluation/generation_eval.py:170: LangChainDeprecationWarning: The class `HuggingFaceBgeEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Traceback (most recent call last):
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/langchain_community/embeddings/huggingface.py", line 330, in __init__
+    import sentence_transformers
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/sentence_transformers/__init__.py", line 14, in <module>
+    from sentence_transformers.cross_encoder.CrossEncoder import CrossEncoder
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/sentence_transformers/cross_encoder/__init__.py", line 3, in <module>
+    from .CrossEncoder import CrossEncoder
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/sentence_transformers/cross_encoder/CrossEncoder.py", line 18, in <module>
+    from sentence_transformers.evaluation.SentenceEvaluator import SentenceEvaluator
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/sentence_transformers/evaluation/__init__.py", line 9, in <module>
+    from .NanoBEIREvaluator import NanoBEIREvaluator
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/sentence_transformers/evaluation/NanoBEIREvaluator.py", line 11, in <module>
+    from sentence_transformers import SentenceTransformer
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 33, in <module>
+    from sentence_transformers.model_card import SentenceTransformerModelCardData, generate_model_card
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/sentence_transformers/model_card.py", line 25, in <module>
+    from transformers.integrations import CodeCarbonCallback
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2317, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2347, in _get_module
+    raise e
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2345, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 44, in <module>
+    from .. import PreTrainedModel, TrainingArguments
+ImportError: cannot import name 'PreTrainedModel' from 'transformers' (/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/transformers/__init__.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/score_launcher.py", line 16, in <module>
+    runpy.run_module("Evaluation.generation_eval", run_name="__main__", alter_sys=True)
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/runpy.py", line 224, in run_module
+    return _run_module_code(code, init_globals, run_name, mod_spec)
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Evaluation/generation_eval.py", line 340, in <module>
+    asyncio.run(main(args))
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Evaluation/generation_eval.py", line 170, in main
+    embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/langchain_core/_api/deprecation.py", line 222, in warn_if_direct_instance
+    return wrapped(self, *args, **kwargs)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-eval/lib/python3.10/site-packages/langchain_community/embeddings/huggingface.py", line 333, in __init__
+    raise ImportError(
+ImportError: Could not import sentence_transformers python package. Please install it with `pip install sentence-transformers`.
+done in 3.7 s, exit 1, scored {}, failed samples 0
+
+# end: 2026-10-09T14:58:47Z  exit: 1  duration_s: 5

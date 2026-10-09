@@ -1,0 +1,12 @@
+{
+  "created": "2026-10-09T14:50:54+00:00",
+  "settings": {
+    "base_url": "https://api.4minds.ai",
+    "engine": "symi",
+    "model_id": 3592,
+    "dataset_id": 4033,
+    "persona_id": 1275,
+    "system_prompt_via": "persona.behavioralGuidelines",
+    "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\"."
+  }
+}

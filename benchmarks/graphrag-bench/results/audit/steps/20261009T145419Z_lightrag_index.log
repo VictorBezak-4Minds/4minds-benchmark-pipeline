@@ -1,0 +1,25 @@
+# step: lightrag_index
+# start: 2026-10-09T14:54:19Z
+# command: .venv-lightrag/bin/python run_lightrag_bench.py --subset medical --index-only
+
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1 examples [00:00, 65.04 examples/s]
+Traceback (most recent call last):
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/run_lightrag_bench.py", line 193, in <module>
+    main()
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/run_lightrag_bench.py", line 124, in main
+    engine = Engine(args, api_key, source)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/run_lightrag_bench.py", line 84, in __init__
+    self.rag = self.call(official.initialize_rag(
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/run_lightrag_bench.py", line 89, in call
+    return asyncio.run_coroutine_threadsafe(coroutine, self.loop).result(timeout)
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+    return self.__get_result()
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Examples/run_lightrag.py", line 111, in initialize_rag
+    llm_model_func_input = llm_model_func
+UnboundLocalError: local variable 'llm_model_func' referenced before assignment
+
+# end: 2026-10-09T14:54:32Z  exit: 1  duration_s: 13

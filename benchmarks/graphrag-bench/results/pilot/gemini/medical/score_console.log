@@ -1,0 +1,62 @@
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'presence_penalty', 'seed', 'top_p', 'frequency_penalty'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Evaluation/generation_eval.py:170: LangChainDeprecationWarning: The class `HuggingFaceBgeEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Evaluation/generation_eval.py:92: RuntimeWarning: Mean of empty slice
+  avg_results = {metric: np.nanmean(scores) for metric, scores in results.items()}
+Loading evaluation data from /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/pilot/gemini/medical/predictions.json...
+
+==================================================
+Evaluating question type: Fact Retrieval
+==================================================
+
+Starting evaluation of 5 samples...
+✅ Completed sample 1/5 - 20.0%
+✅ Completed sample 2/5 - 40.0%
+✅ Completed sample 3/5 - 60.0%
+✅ Completed sample 4/5 - 80.0%
+✅ Completed sample 5/5 - 100.0%
+
+Results for Fact Retrieval:
+  rouge_score: 0.5371
+  answer_correctness: 0.9115
+
+==================================================
+Evaluating question type: Complex Reasoning
+==================================================
+
+Starting evaluation of 2 samples...
+✅ Completed sample 1/2 - 50.0%
+✅ Completed sample 2/2 - 100.0%
+
+Results for Complex Reasoning:
+  rouge_score: 0.4476
+  answer_correctness: 0.8229
+
+==================================================
+Evaluating question type: Contextual Summarize
+==================================================
+
+Starting evaluation of 2 samples...
+✅ Completed sample 1/2 - 50.0%
+✅ Completed sample 2/2 - 100.0%
+
+Results for Contextual Summarize:
+  answer_correctness: 0.9622
+  coverage_score: 0.7667
+
+==================================================
+Evaluating question type: Creative Generation
+==================================================
+
+Starting evaluation of 1 samples...
+✅ Completed sample 1/1 - 100.0%
+
+Results for Creative Generation:
+  answer_correctness: 0.8580
+  coverage_score: 0.6667
+  faithfulness: nan
+
+Saving results to /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/pilot/gemini/medical/generation_scores.json...
+
+Evaluation complete.

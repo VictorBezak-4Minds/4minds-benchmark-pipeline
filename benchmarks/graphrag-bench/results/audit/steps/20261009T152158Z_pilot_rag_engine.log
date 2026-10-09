@@ -1,0 +1,15 @@
+# step: pilot_rag_engine
+# start: 2026-10-09T15:21:58Z
+# command: .venv-eval/bin/python run_rag_engine.py --subset medical --questions-file Questions/pilot_questions.json --out-dir results/pilot/rag_engine --workers 10 --max-attempts 2
+
+== gemini_rag_engine / medical: 10 questions, 0 already done, 10 to run, 10 workers
+  readiness: {"corpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904", "files": {"Medical.txt": "ACTIVE"}}
+  [10/10] ok (82 s)
+
+== summary -> results/pilot/rag_engine/medical/predictions.json
+  answered: 10 / 10   failed: 0   not run: 0
+  no context: 10   "I don't know": 0
+  tokens: {'promptTokenCount': 860, 'candidatesTokenCount': 2507, 'thoughtsTokenCount': 5350, 'toolUsePromptTokenCount': 0}
+  latency: {'n': 10, 'mean_s': 21.87, 'median_s': 8.22, 'p90_s': 82.32, 'max_s': 82.32}   estimated cost: 0.0301
+
+# end: 2026-10-09T15:23:22Z  exit: 0  duration_s: 84

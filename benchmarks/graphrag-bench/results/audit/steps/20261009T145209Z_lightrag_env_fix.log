@@ -1,0 +1,6 @@
+# step: lightrag_env_fix
+# start: 2026-10-09T14:52:09Z
+# command: .venv-lightrag/bin/pip install -q python-dotenv
+
+
+# end: 2026-10-09T14:52:09Z  exit: 0  duration_s: 0

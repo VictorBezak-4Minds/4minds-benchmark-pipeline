@@ -1,0 +1,1231 @@
+2026-10-09 10:02:26,115 - lightrag - INFO - Created new empty graph
+2026-10-09 10:02:26,118 - lightrag - INFO - Process 89439 KV load full_docs with 0 records
+2026-10-09 10:02:26,118 - lightrag - INFO - Process 89439 KV load text_chunks with 0 records
+2026-10-09 10:02:26,118 - lightrag - INFO - Process 89439 KV load llm_response_cache with 0 records
+2026-10-09 10:02:26,120 - lightrag - INFO - Process 89439 doc status load doc_status with 1 records
+2026-10-09 10:02:26,120 - lightrag - INFO - Storage Initialization completed!
+2026-10-09 10:02:26,125 - lightrag - INFO - No new unique documents were found.
+2026-10-09 10:02:26,125 - lightrag - INFO - Number of batches to process: 1.
+2026-10-09 10:02:26,125 - lightrag - INFO - Start processing batch 1 of 1.
+2026-10-09 10:02:26,258 - lightrag - INFO - Inserting 1 records to doc_status
+2026-10-09 10:02:26,259 - lightrag - INFO - Process 89439 doc status writting 1 records to doc_status
+2026-10-09 10:02:26,262 - lightrag - INFO - Inserting 199 to chunks
+2026-10-09 10:02:26,262 - lightrag - INFO - Inserting 1 records to full_docs
+2026-10-09 10:02:26,262 - lightrag - INFO - Inserting 199 records to text_chunks
+2026-10-09 10:02:50,549 - lightrag - INFO - Process 89439 reloading chunks due to update by another process
+2026-10-09 10:03:04,373 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:03:06,062 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:03:08,025 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:03:11,650 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:03:27,711 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:03:28,223 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:03:29,594 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:03:36,330 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:03:46,714 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:03:53,274 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:03:57,686 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:01,869 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:05,273 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:07,399 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:15,182 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:15,782 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:19,522 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:27,470 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:32,594 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:33,397 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:36,441 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:44,076 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:45,857 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:47,039 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:54,614 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:04:56,793 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:00,764 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:01,421 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:10,436 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:12,631 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:17,018 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:20,010 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:21,952 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:25,673 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:39,530 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:41,958 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:42,573 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:43,451 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:05:56,864 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:00,127 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:05,645 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:06,106 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:14,868 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:18,193 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:22,637 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:29,344 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:34,141 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:34,424 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:45,957 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:47,007 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:06:50,971 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:03,144 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:06,062 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:08,490 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:13,275 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:19,066 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:22,634 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:27,607 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:31,999 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:37,406 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:49,855 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:51,189 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:51,502 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:07:55,162 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:06,052 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:09,513 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:11,292 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:16,664 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:25,362 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:28,068 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:35,841 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:39,837 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:47,516 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:49,036 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:08:49,464 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:01,866 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:05,174 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:06,033 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:09,897 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:15,032 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:18,515 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:23,520 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:27,633 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:36,760 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:39,166 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:47,182 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:49,611 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:52,120 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:09:52,605 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:02,364 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:11,857 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:12,404 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:14,342 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:21,529 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:24,929 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:28,798 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:31,093 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:37,691 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:44,586 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:46,304 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:51,179 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:10:56,236 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:05,009 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:10,895 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:11,423 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:16,898 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:19,846 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:27,947 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:31,636 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:32,693 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:37,878 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:47,821 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:48,522 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:52,711 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:11:55,443 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:04,406 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:08,452 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:10,282 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:15,209 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:24,535 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:27,448 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:27,796 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:30,475 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:41,845 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:44,401 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:50,927 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:51,799 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:12:57,606 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:04,331 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:09,718 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:11,557 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:12,827 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:25,482 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:31,985 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:33,885 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:35,728 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:45,243 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:49,763 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:54,912 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:13:58,899 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:02,466 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:12,642 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:13,395 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:15,037 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:24,381 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:31,826 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:33,168 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:36,086 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:43,932 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:49,773 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:50,969 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:14:52,154 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:04,857 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:06,414 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:06,747 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:14,714 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:22,894 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:23,095 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:26,397 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:30,067 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:37,650 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:38,804 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:42,821 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:45,966 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:49,457 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:15:57,420 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:03,511 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:05,459 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:05,483 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:11,494 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:25,043 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:25,669 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:27,452 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:31,115 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:36,821 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:40,238 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:46,992 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:49,601 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:55,416 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:16:58,462 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:03,994 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:08,996 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:12,974 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:20,581 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:22,184 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:28,691 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:33,728 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:37,606 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:45,045 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:46,532 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:46,909 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:17:53,634 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:00,414 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:01,995 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:04,905 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:08,388 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:16,227 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:17,787 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:23,034 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:29,929 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:29,930 - lightrag - INFO -   Chunk 1/199: extracted 18 entities and 21 relationships (deduplicated)
+2026-10-09 10:18:32,176 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:32,177 - lightrag - INFO -   Chunk 2/199: extracted 22 entities and 20 relationships (deduplicated)
+2026-10-09 10:18:33,842 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:33,843 - lightrag - INFO -   Chunk 3/199: extracted 17 entities and 18 relationships (deduplicated)
+2026-10-09 10:18:34,554 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:34,555 - lightrag - INFO -   Chunk 4/199: extracted 28 entities and 9 relationships (deduplicated)
+2026-10-09 10:18:50,049 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:50,050 - lightrag - INFO -   Chunk 5/199: extracted 29 entities and 32 relationships (deduplicated)
+2026-10-09 10:18:52,087 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:52,088 - lightrag - INFO -   Chunk 6/199: extracted 29 entities and 28 relationships (deduplicated)
+2026-10-09 10:18:54,478 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:54,479 - lightrag - INFO -   Chunk 7/199: extracted 22 entities and 22 relationships (deduplicated)
+2026-10-09 10:18:55,113 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:18:55,114 - lightrag - INFO -   Chunk 8/199: extracted 21 entities and 30 relationships (deduplicated)
+2026-10-09 10:19:10,109 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:10,111 - lightrag - INFO -   Chunk 9/199: extracted 22 entities and 23 relationships (deduplicated)
+2026-10-09 10:19:10,679 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:10,680 - lightrag - INFO -   Chunk 10/199: extracted 26 entities and 27 relationships (deduplicated)
+2026-10-09 10:19:13,136 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:13,137 - lightrag - INFO -   Chunk 11/199: extracted 31 entities and 32 relationships (deduplicated)
+2026-10-09 10:19:16,931 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:16,931 - lightrag - INFO -   Chunk 12/199: extracted 21 entities and 22 relationships (deduplicated)
+2026-10-09 10:19:28,513 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:28,514 - lightrag - INFO -   Chunk 13/199: extracted 25 entities and 23 relationships (deduplicated)
+2026-10-09 10:19:29,487 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:29,488 - lightrag - INFO -   Chunk 14/199: extracted 22 entities and 26 relationships (deduplicated)
+2026-10-09 10:19:33,674 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:33,675 - lightrag - INFO -   Chunk 15/199: extracted 19 entities and 18 relationships (deduplicated)
+2026-10-09 10:19:33,931 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:33,932 - lightrag - INFO -   Chunk 16/199: extracted 22 entities and 27 relationships (deduplicated)
+2026-10-09 10:19:50,036 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:50,037 - lightrag - INFO -   Chunk 17/199: extracted 19 entities and 19 relationships (deduplicated)
+2026-10-09 10:19:51,722 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:51,722 - lightrag - INFO -   Chunk 18/199: extracted 24 entities and 26 relationships (deduplicated)
+2026-10-09 10:19:52,756 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:19:52,757 - lightrag - INFO -   Chunk 19/199: extracted 23 entities and 21 relationships (deduplicated)
+2026-10-09 10:20:00,339 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:00,340 - lightrag - INFO -   Chunk 20/199: extracted 26 entities and 24 relationships (deduplicated)
+2026-10-09 10:20:07,084 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:07,085 - lightrag - INFO -   Chunk 21/199: extracted 22 entities and 23 relationships (deduplicated)
+2026-10-09 10:20:10,386 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:10,387 - lightrag - INFO -   Chunk 22/199: extracted 24 entities and 25 relationships (deduplicated)
+2026-10-09 10:20:13,996 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:13,997 - lightrag - INFO -   Chunk 23/199: extracted 19 entities and 19 relationships (deduplicated)
+2026-10-09 10:20:17,578 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:17,579 - lightrag - INFO -   Chunk 24/199: extracted 20 entities and 21 relationships (deduplicated)
+2026-10-09 10:20:26,829 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:26,830 - lightrag - INFO -   Chunk 25/199: extracted 18 entities and 17 relationships (deduplicated)
+2026-10-09 10:20:33,146 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:33,147 - lightrag - INFO -   Chunk 26/199: extracted 22 entities and 21 relationships (deduplicated)
+2026-10-09 10:20:33,848 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:33,849 - lightrag - INFO -   Chunk 27/199: extracted 22 entities and 25 relationships (deduplicated)
+2026-10-09 10:20:39,508 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:39,509 - lightrag - INFO -   Chunk 28/199: extracted 25 entities and 25 relationships (deduplicated)
+2026-10-09 10:20:41,078 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:41,078 - lightrag - INFO -   Chunk 29/199: extracted 25 entities and 23 relationships (deduplicated)
+2026-10-09 10:20:49,195 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:49,195 - lightrag - INFO -   Chunk 30/199: extracted 18 entities and 17 relationships (deduplicated)
+2026-10-09 10:20:50,655 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:50,655 - lightrag - INFO -   Chunk 31/199: extracted 18 entities and 17 relationships (deduplicated)
+2026-10-09 10:20:58,800 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:20:58,800 - lightrag - INFO -   Chunk 32/199: extracted 27 entities and 28 relationships (deduplicated)
+2026-10-09 10:21:10,367 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:10,368 - lightrag - INFO -   Chunk 33/199: extracted 24 entities and 21 relationships (deduplicated)
+2026-10-09 10:21:11,443 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:11,445 - lightrag - INFO -   Chunk 34/199: extracted 26 entities and 29 relationships (deduplicated)
+2026-10-09 10:21:16,835 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:16,835 - lightrag - INFO -   Chunk 35/199: extracted 16 entities and 16 relationships (deduplicated)
+2026-10-09 10:21:21,847 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:21,848 - lightrag - INFO -   Chunk 36/199: extracted 22 entities and 20 relationships (deduplicated)
+2026-10-09 10:21:26,836 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:26,837 - lightrag - INFO -   Chunk 37/199: extracted 22 entities and 21 relationships (deduplicated)
+2026-10-09 10:21:30,102 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:30,104 - lightrag - INFO -   Chunk 38/199: extracted 27 entities and 27 relationships (deduplicated)
+2026-10-09 10:21:37,125 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:37,126 - lightrag - INFO -   Chunk 39/199: extracted 26 entities and 22 relationships (deduplicated)
+2026-10-09 10:21:44,099 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:44,100 - lightrag - INFO -   Chunk 40/199: extracted 19 entities and 20 relationships (deduplicated)
+2026-10-09 10:21:44,197 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:44,198 - lightrag - INFO -   Chunk 41/199: extracted 32 entities and 25 relationships (deduplicated)
+2026-10-09 10:21:46,308 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:46,308 - lightrag - INFO -   Chunk 42/199: extracted 20 entities and 28 relationships (deduplicated)
+2026-10-09 10:21:46,701 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:46,701 - lightrag - INFO -   Chunk 43/199: extracted 19 entities and 25 relationships (deduplicated)
+2026-10-09 10:21:56,699 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:21:56,699 - lightrag - INFO -   Chunk 44/199: extracted 24 entities and 27 relationships (deduplicated)
+2026-10-09 10:22:01,259 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:01,262 - lightrag - INFO -   Chunk 45/199: extracted 30 entities and 32 relationships (deduplicated)
+2026-10-09 10:22:03,452 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:03,453 - lightrag - INFO -   Chunk 46/199: extracted 25 entities and 27 relationships (deduplicated)
+2026-10-09 10:22:04,777 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:04,778 - lightrag - INFO -   Chunk 47/199: extracted 21 entities and 25 relationships (deduplicated)
+2026-10-09 10:22:08,171 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:08,172 - lightrag - INFO -   Chunk 48/199: extracted 13 entities and 16 relationships (deduplicated)
+2026-10-09 10:22:13,232 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:13,233 - lightrag - INFO -   Chunk 49/199: extracted 22 entities and 19 relationships (deduplicated)
+2026-10-09 10:22:20,327 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:20,328 - lightrag - INFO -   Chunk 50/199: extracted 21 entities and 24 relationships (deduplicated)
+2026-10-09 10:22:28,107 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:28,108 - lightrag - INFO -   Chunk 51/199: extracted 29 entities and 24 relationships (deduplicated)
+2026-10-09 10:22:32,280 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:32,281 - lightrag - INFO -   Chunk 52/199: extracted 25 entities and 26 relationships (deduplicated)
+2026-10-09 10:22:38,052 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:38,053 - lightrag - INFO -   Chunk 53/199: extracted 25 entities and 29 relationships (deduplicated)
+2026-10-09 10:22:39,441 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:39,442 - lightrag - INFO -   Chunk 54/199: extracted 26 entities and 25 relationships (deduplicated)
+2026-10-09 10:22:40,570 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:40,571 - lightrag - INFO -   Chunk 55/199: extracted 15 entities and 17 relationships (deduplicated)
+2026-10-09 10:22:49,308 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:49,309 - lightrag - INFO -   Chunk 56/199: extracted 19 entities and 16 relationships (deduplicated)
+2026-10-09 10:22:51,684 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:22:51,685 - lightrag - INFO -   Chunk 57/199: extracted 26 entities and 26 relationships (deduplicated)
+2026-10-09 10:23:01,266 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:01,267 - lightrag - INFO -   Chunk 58/199: extracted 22 entities and 26 relationships (deduplicated)
+2026-10-09 10:23:02,334 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:02,335 - lightrag - INFO -   Chunk 59/199: extracted 19 entities and 21 relationships (deduplicated)
+2026-10-09 10:23:03,523 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:03,524 - lightrag - INFO -   Chunk 60/199: extracted 21 entities and 22 relationships (deduplicated)
+2026-10-09 10:23:08,988 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:08,990 - lightrag - INFO -   Chunk 61/199: extracted 20 entities and 21 relationships (deduplicated)
+2026-10-09 10:23:18,057 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:18,058 - lightrag - INFO -   Chunk 62/199: extracted 21 entities and 28 relationships (deduplicated)
+2026-10-09 10:23:18,386 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:18,387 - lightrag - INFO -   Chunk 63/199: extracted 25 entities and 20 relationships (deduplicated)
+2026-10-09 10:23:20,209 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:20,210 - lightrag - INFO -   Chunk 64/199: extracted 15 entities and 16 relationships (deduplicated)
+2026-10-09 10:23:27,384 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:27,385 - lightrag - INFO -   Chunk 65/199: extracted 27 entities and 32 relationships (deduplicated)
+2026-10-09 10:23:37,841 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:37,842 - lightrag - INFO -   Chunk 66/199: extracted 23 entities and 22 relationships (deduplicated)
+2026-10-09 10:23:38,229 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:38,230 - lightrag - INFO -   Chunk 67/199: extracted 26 entities and 25 relationships (deduplicated)
+2026-10-09 10:23:42,088 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:42,089 - lightrag - INFO -   Chunk 68/199: extracted 17 entities and 18 relationships (deduplicated)
+2026-10-09 10:23:49,000 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:49,000 - lightrag - INFO -   Chunk 69/199: extracted 22 entities and 23 relationships (deduplicated)
+2026-10-09 10:23:59,739 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:23:59,739 - lightrag - INFO -   Chunk 70/199: extracted 25 entities and 22 relationships (deduplicated)
+2026-10-09 10:24:00,269 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:00,269 - lightrag - INFO -   Chunk 71/199: extracted 26 entities and 18 relationships (deduplicated)
+2026-10-09 10:24:01,639 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:01,639 - lightrag - INFO -   Chunk 72/199: extracted 24 entities and 24 relationships (deduplicated)
+2026-10-09 10:24:01,947 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:01,947 - lightrag - INFO -   Chunk 73/199: extracted 23 entities and 22 relationships (deduplicated)
+2026-10-09 10:24:24,008 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:24,009 - lightrag - INFO -   Chunk 74/199: extracted 31 entities and 35 relationships (deduplicated)
+2026-10-09 10:24:25,302 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:25,303 - lightrag - INFO -   Chunk 75/199: extracted 31 entities and 30 relationships (deduplicated)
+2026-10-09 10:24:25,549 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:25,550 - lightrag - INFO -   Chunk 76/199: extracted 28 entities and 27 relationships (deduplicated)
+2026-10-09 10:24:28,263 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:28,264 - lightrag - INFO -   Chunk 77/199: extracted 25 entities and 30 relationships (deduplicated)
+2026-10-09 10:24:30,733 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:30,733 - lightrag - INFO -   Chunk 78/199: extracted 13 entities and 13 relationships (deduplicated)
+2026-10-09 10:24:43,785 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:43,786 - lightrag - INFO -   Chunk 79/199: extracted 22 entities and 22 relationships (deduplicated)
+2026-10-09 10:24:47,557 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:47,558 - lightrag - INFO -   Chunk 80/199: extracted 30 entities and 39 relationships (deduplicated)
+2026-10-09 10:24:48,524 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:48,525 - lightrag - INFO -   Chunk 81/199: extracted 18 entities and 19 relationships (deduplicated)
+2026-10-09 10:24:51,254 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:51,255 - lightrag - INFO -   Chunk 82/199: extracted 21 entities and 24 relationships (deduplicated)
+2026-10-09 10:24:59,738 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:24:59,739 - lightrag - INFO -   Chunk 83/199: extracted 30 entities and 32 relationships (deduplicated)
+2026-10-09 10:25:01,788 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:01,788 - lightrag - INFO -   Chunk 84/199: extracted 29 entities and 31 relationships (deduplicated)
+2026-10-09 10:25:06,071 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:06,073 - lightrag - INFO -   Chunk 85/199: extracted 20 entities and 26 relationships (deduplicated)
+2026-10-09 10:25:07,010 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:07,010 - lightrag - INFO -   Chunk 86/199: extracted 17 entities and 21 relationships (deduplicated)
+2026-10-09 10:25:17,013 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:17,014 - lightrag - INFO -   Chunk 87/199: extracted 20 entities and 22 relationships (deduplicated)
+2026-10-09 10:25:20,261 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:20,262 - lightrag - INFO -   Chunk 88/199: extracted 26 entities and 25 relationships (deduplicated)
+2026-10-09 10:25:25,873 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:25,874 - lightrag - INFO -   Chunk 89/199: extracted 23 entities and 27 relationships (deduplicated)
+2026-10-09 10:25:29,854 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:29,855 - lightrag - INFO -   Chunk 90/199: extracted 28 entities and 31 relationships (deduplicated)
+2026-10-09 10:25:37,242 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:37,243 - lightrag - INFO -   Chunk 91/199: extracted 22 entities and 28 relationships (deduplicated)
+2026-10-09 10:25:38,933 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:38,934 - lightrag - INFO -   Chunk 92/199: extracted 29 entities and 25 relationships (deduplicated)
+2026-10-09 10:25:40,198 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:40,200 - lightrag - INFO -   Chunk 93/199: extracted 21 entities and 22 relationships (deduplicated)
+2026-10-09 10:25:41,974 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:41,976 - lightrag - INFO -   Chunk 94/199: extracted 25 entities and 26 relationships (deduplicated)
+2026-10-09 10:25:51,298 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:51,299 - lightrag - INFO -   Chunk 95/199: extracted 24 entities and 22 relationships (deduplicated)
+2026-10-09 10:25:54,171 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:25:54,172 - lightrag - INFO -   Chunk 96/199: extracted 19 entities and 19 relationships (deduplicated)
+2026-10-09 10:26:00,853 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:00,854 - lightrag - INFO -   Chunk 97/199: extracted 22 entities and 21 relationships (deduplicated)
+2026-10-09 10:26:06,461 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:06,462 - lightrag - INFO -   Chunk 98/199: extracted 22 entities and 22 relationships (deduplicated)
+2026-10-09 10:26:12,493 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:12,494 - lightrag - INFO -   Chunk 99/199: extracted 25 entities and 27 relationships (deduplicated)
+2026-10-09 10:26:13,214 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:13,215 - lightrag - INFO -   Chunk 100/199: extracted 24 entities and 24 relationships (deduplicated)
+2026-10-09 10:26:20,084 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:20,084 - lightrag - INFO -   Chunk 101/199: extracted 26 entities and 23 relationships (deduplicated)
+2026-10-09 10:26:26,446 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:26,446 - lightrag - INFO -   Chunk 102/199: extracted 26 entities and 21 relationships (deduplicated)
+2026-10-09 10:26:27,693 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:27,693 - lightrag - INFO -   Chunk 103/199: extracted 24 entities and 25 relationships (deduplicated)
+2026-10-09 10:26:28,118 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:28,119 - lightrag - INFO -   Chunk 104/199: extracted 22 entities and 25 relationships (deduplicated)
+2026-10-09 10:26:32,274 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:32,275 - lightrag - INFO -   Chunk 105/199: extracted 26 entities and 28 relationships (deduplicated)
+2026-10-09 10:26:48,910 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:48,912 - lightrag - INFO -   Chunk 106/199: extracted 31 entities and 32 relationships (deduplicated)
+2026-10-09 10:26:51,044 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:51,045 - lightrag - INFO -   Chunk 107/199: extracted 23 entities and 20 relationships (deduplicated)
+2026-10-09 10:26:53,145 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:53,146 - lightrag - INFO -   Chunk 108/199: extracted 27 entities and 24 relationships (deduplicated)
+2026-10-09 10:26:53,271 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:26:53,272 - lightrag - INFO -   Chunk 109/199: extracted 28 entities and 25 relationships (deduplicated)
+2026-10-09 10:27:06,509 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:06,510 - lightrag - INFO -   Chunk 110/199: extracted 21 entities and 19 relationships (deduplicated)
+2026-10-09 10:27:08,865 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:08,866 - lightrag - INFO -   Chunk 111/199: extracted 26 entities and 25 relationships (deduplicated)
+2026-10-09 10:27:08,888 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:08,888 - lightrag - INFO -   Chunk 112/199: extracted 21 entities and 20 relationships (deduplicated)
+2026-10-09 10:27:10,707 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:10,707 - lightrag - INFO -   Chunk 113/199: extracted 19 entities and 19 relationships (deduplicated)
+2026-10-09 10:27:26,457 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:26,459 - lightrag - INFO -   Chunk 114/199: extracted 25 entities and 24 relationships (deduplicated)
+2026-10-09 10:27:26,671 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:26,672 - lightrag - INFO -   Chunk 115/199: extracted 28 entities and 26 relationships (deduplicated)
+2026-10-09 10:27:28,816 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:28,817 - lightrag - INFO -   Chunk 116/199: extracted 17 entities and 16 relationships (deduplicated)
+2026-10-09 10:27:34,435 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:34,436 - lightrag - INFO -   Chunk 117/199: extracted 18 entities and 20 relationships (deduplicated)
+2026-10-09 10:27:35,609 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:35,610 - lightrag - INFO -   Chunk 118/199: extracted 18 entities and 21 relationships (deduplicated)
+2026-10-09 10:27:43,748 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:43,750 - lightrag - INFO -   Chunk 119/199: extracted 17 entities and 21 relationships (deduplicated)
+2026-10-09 10:27:52,196 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:52,197 - lightrag - INFO -   Chunk 120/199: extracted 17 entities and 24 relationships (deduplicated)
+2026-10-09 10:27:58,477 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:27:58,479 - lightrag - INFO -   Chunk 121/199: extracted 20 entities and 24 relationships (deduplicated)
+2026-10-09 10:28:00,584 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:00,586 - lightrag - INFO -   Chunk 122/199: extracted 33 entities and 26 relationships (deduplicated)
+2026-10-09 10:28:03,366 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:03,367 - lightrag - INFO -   Chunk 123/199: extracted 25 entities and 28 relationships (deduplicated)
+2026-10-09 10:28:08,264 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:08,264 - lightrag - INFO -   Chunk 124/199: extracted 26 entities and 25 relationships (deduplicated)
+2026-10-09 10:28:16,948 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:16,949 - lightrag - INFO -   Chunk 125/199: extracted 18 entities and 16 relationships (deduplicated)
+2026-10-09 10:28:21,034 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:21,035 - lightrag - INFO -   Chunk 126/199: extracted 26 entities and 33 relationships (deduplicated)
+2026-10-09 10:28:24,132 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:24,133 - lightrag - INFO -   Chunk 127/199: extracted 22 entities and 19 relationships (deduplicated)
+2026-10-09 10:28:30,172 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:30,173 - lightrag - INFO -   Chunk 128/199: extracted 22 entities and 20 relationships (deduplicated)
+2026-10-09 10:28:31,397 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:31,398 - lightrag - INFO -   Chunk 129/199: extracted 25 entities and 23 relationships (deduplicated)
+2026-10-09 10:28:40,531 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:40,533 - lightrag - INFO -   Chunk 130/199: extracted 27 entities and 26 relationships (deduplicated)
+2026-10-09 10:28:47,150 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:47,150 - lightrag - INFO -   Chunk 131/199: extracted 15 entities and 19 relationships (deduplicated)
+2026-10-09 10:28:47,162 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:47,163 - lightrag - INFO -   Chunk 132/199: extracted 20 entities and 21 relationships (deduplicated)
+2026-10-09 10:28:52,917 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:52,918 - lightrag - INFO -   Chunk 133/199: extracted 21 entities and 21 relationships (deduplicated)
+2026-10-09 10:28:59,912 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:28:59,913 - lightrag - INFO -   Chunk 134/199: extracted 25 entities and 26 relationships (deduplicated)
+2026-10-09 10:29:05,562 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:05,563 - lightrag - INFO -   Chunk 135/199: extracted 26 entities and 29 relationships (deduplicated)
+2026-10-09 10:29:08,117 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:08,118 - lightrag - INFO -   Chunk 136/199: extracted 27 entities and 28 relationships (deduplicated)
+2026-10-09 10:29:14,308 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:14,309 - lightrag - INFO -   Chunk 137/199: extracted 19 entities and 25 relationships (deduplicated)
+2026-10-09 10:29:17,083 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:17,084 - lightrag - INFO -   Chunk 138/199: extracted 23 entities and 26 relationships (deduplicated)
+2026-10-09 10:29:17,422 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:17,424 - lightrag - INFO -   Chunk 139/199: extracted 30 entities and 25 relationships (deduplicated)
+2026-10-09 10:29:23,094 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:23,095 - lightrag - INFO -   Chunk 140/199: extracted 28 entities and 31 relationships (deduplicated)
+2026-10-09 10:29:31,711 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:31,712 - lightrag - INFO -   Chunk 141/199: extracted 24 entities and 27 relationships (deduplicated)
+2026-10-09 10:29:39,041 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:39,043 - lightrag - INFO -   Chunk 142/199: extracted 33 entities and 40 relationships (deduplicated)
+2026-10-09 10:29:45,585 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:45,586 - lightrag - INFO -   Chunk 143/199: extracted 35 entities and 29 relationships (deduplicated)
+2026-10-09 10:29:49,022 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:49,022 - lightrag - INFO -   Chunk 144/199: extracted 32 entities and 29 relationships (deduplicated)
+2026-10-09 10:29:49,529 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:49,529 - lightrag - INFO -   Chunk 145/199: extracted 23 entities and 27 relationships (deduplicated)
+2026-10-09 10:29:57,431 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:29:57,432 - lightrag - INFO -   Chunk 146/199: extracted 21 entities and 21 relationships (deduplicated)
+2026-10-09 10:30:03,762 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:03,762 - lightrag - INFO -   Chunk 147/199: extracted 25 entities and 24 relationships (deduplicated)
+2026-10-09 10:30:09,608 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:09,609 - lightrag - INFO -   Chunk 148/199: extracted 24 entities and 23 relationships (deduplicated)
+2026-10-09 10:30:11,821 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:11,822 - lightrag - INFO -   Chunk 149/199: extracted 27 entities and 25 relationships (deduplicated)
+2026-10-09 10:30:12,805 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:12,806 - lightrag - INFO -   Chunk 150/199: extracted 26 entities and 22 relationships (deduplicated)
+2026-10-09 10:30:27,693 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:27,694 - lightrag - INFO -   Chunk 151/199: extracted 23 entities and 24 relationships (deduplicated)
+2026-10-09 10:30:31,503 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:31,503 - lightrag - INFO -   Chunk 152/199: extracted 20 entities and 20 relationships (deduplicated)
+2026-10-09 10:30:32,430 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:32,431 - lightrag - INFO -   Chunk 153/199: extracted 26 entities and 30 relationships (deduplicated)
+2026-10-09 10:30:34,187 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:34,188 - lightrag - INFO -   Chunk 154/199: extracted 23 entities and 22 relationships (deduplicated)
+2026-10-09 10:30:46,361 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:46,363 - lightrag - INFO -   Chunk 155/199: extracted 26 entities and 23 relationships (deduplicated)
+2026-10-09 10:30:46,702 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:46,702 - lightrag - INFO -   Chunk 156/199: extracted 23 entities and 23 relationships (deduplicated)
+2026-10-09 10:30:46,962 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:46,963 - lightrag - INFO -   Chunk 157/199: extracted 23 entities and 24 relationships (deduplicated)
+2026-10-09 10:30:54,655 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:54,656 - lightrag - INFO -   Chunk 158/199: extracted 24 entities and 24 relationships (deduplicated)
+2026-10-09 10:30:55,474 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:30:55,475 - lightrag - INFO -   Chunk 159/199: extracted 16 entities and 22 relationships (deduplicated)
+2026-10-09 10:31:01,487 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:01,487 - lightrag - INFO -   Chunk 160/199: extracted 24 entities and 20 relationships (deduplicated)
+2026-10-09 10:31:10,507 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:10,508 - lightrag - INFO -   Chunk 161/199: extracted 25 entities and 22 relationships (deduplicated)
+2026-10-09 10:31:14,666 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:14,667 - lightrag - INFO -   Chunk 162/199: extracted 20 entities and 17 relationships (deduplicated)
+2026-10-09 10:31:19,235 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:19,236 - lightrag - INFO -   Chunk 163/199: extracted 25 entities and 23 relationships (deduplicated)
+2026-10-09 10:31:23,625 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:23,626 - lightrag - INFO -   Chunk 164/199: extracted 19 entities and 20 relationships (deduplicated)
+2026-10-09 10:31:28,100 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:28,103 - lightrag - INFO -   Chunk 165/199: extracted 17 entities and 16 relationships (deduplicated)
+2026-10-09 10:31:34,727 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:34,728 - lightrag - INFO -   Chunk 166/199: extracted 24 entities and 27 relationships (deduplicated)
+2026-10-09 10:31:37,672 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:37,672 - lightrag - INFO -   Chunk 167/199: extracted 27 entities and 31 relationships (deduplicated)
+2026-10-09 10:31:42,528 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:42,529 - lightrag - INFO -   Chunk 168/199: extracted 20 entities and 23 relationships (deduplicated)
+2026-10-09 10:31:47,227 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:47,228 - lightrag - INFO -   Chunk 169/199: extracted 22 entities and 23 relationships (deduplicated)
+2026-10-09 10:31:49,491 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:49,492 - lightrag - INFO -   Chunk 170/199: extracted 20 entities and 20 relationships (deduplicated)
+2026-10-09 10:31:57,502 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:31:57,502 - lightrag - INFO -   Chunk 171/199: extracted 21 entities and 20 relationships (deduplicated)
+2026-10-09 10:32:00,094 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:00,095 - lightrag - INFO -   Chunk 172/199: extracted 19 entities and 18 relationships (deduplicated)
+2026-10-09 10:32:09,198 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:09,199 - lightrag - INFO -   Chunk 173/199: extracted 24 entities and 25 relationships (deduplicated)
+2026-10-09 10:32:14,602 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:14,603 - lightrag - INFO -   Chunk 174/199: extracted 19 entities and 21 relationships (deduplicated)
+2026-10-09 10:32:17,597 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:17,598 - lightrag - INFO -   Chunk 175/199: extracted 28 entities and 28 relationships (deduplicated)
+2026-10-09 10:32:23,877 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:23,878 - lightrag - INFO -   Chunk 176/199: extracted 25 entities and 24 relationships (deduplicated)
+2026-10-09 10:32:27,432 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:27,432 - lightrag - INFO -   Chunk 177/199: extracted 23 entities and 30 relationships (deduplicated)
+2026-10-09 10:32:30,776 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:30,777 - lightrag - INFO -   Chunk 178/199: extracted 25 entities and 27 relationships (deduplicated)
+2026-10-09 10:32:38,883 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:38,883 - lightrag - INFO -   Chunk 179/199: extracted 17 entities and 19 relationships (deduplicated)
+2026-10-09 10:32:40,794 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:40,794 - lightrag - INFO -   Chunk 180/199: extracted 25 entities and 25 relationships (deduplicated)
+2026-10-09 10:32:47,500 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:47,502 - lightrag - INFO -   Chunk 181/199: extracted 32 entities and 33 relationships (deduplicated)
+2026-10-09 10:32:48,427 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:48,428 - lightrag - INFO -   Chunk 182/199: extracted 28 entities and 28 relationships (deduplicated)
+2026-10-09 10:32:54,426 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:54,426 - lightrag - INFO -   Chunk 183/199: extracted 18 entities and 20 relationships (deduplicated)
+2026-10-09 10:32:55,223 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:32:55,224 - lightrag - INFO -   Chunk 184/199: extracted 23 entities and 22 relationships (deduplicated)
+2026-10-09 10:33:03,522 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:03,524 - lightrag - INFO -   Chunk 185/199: extracted 23 entities and 22 relationships (deduplicated)
+2026-10-09 10:33:09,255 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:09,259 - lightrag - INFO -   Chunk 186/199: extracted 25 entities and 23 relationships (deduplicated)
+2026-10-09 10:33:12,834 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:12,834 - lightrag - INFO -   Chunk 187/199: extracted 21 entities and 20 relationships (deduplicated)
+2026-10-09 10:33:14,768 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:14,770 - lightrag - INFO -   Chunk 188/199: extracted 27 entities and 38 relationships (deduplicated)
+2026-10-09 10:33:19,618 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:19,619 - lightrag - INFO -   Chunk 189/199: extracted 27 entities and 26 relationships (deduplicated)
+2026-10-09 10:33:26,104 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:26,105 - lightrag - INFO -   Chunk 190/199: extracted 30 entities and 28 relationships (deduplicated)
+2026-10-09 10:33:38,499 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:38,501 - lightrag - INFO -   Chunk 191/199: extracted 23 entities and 24 relationships (deduplicated)
+2026-10-09 10:33:39,424 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:39,425 - lightrag - INFO -   Chunk 192/199: extracted 26 entities and 19 relationships (deduplicated)
+2026-10-09 10:33:40,641 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:40,642 - lightrag - INFO -   Chunk 193/199: extracted 21 entities and 20 relationships (deduplicated)
+2026-10-09 10:33:48,662 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:48,663 - lightrag - INFO -   Chunk 194/199: extracted 25 entities and 25 relationships (deduplicated)
+2026-10-09 10:33:53,466 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:33:53,467 - lightrag - INFO -   Chunk 195/199: extracted 18 entities and 18 relationships (deduplicated)
+2026-10-09 10:34:03,120 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:34:03,121 - lightrag - INFO -   Chunk 196/199: extracted 24 entities and 25 relationships (deduplicated)
+2026-10-09 10:34:04,109 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:34:04,110 - lightrag - INFO -   Chunk 197/199: extracted 11 entities and 26 relationships (deduplicated)
+2026-10-09 10:34:05,575 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:34:05,576 - lightrag - INFO -   Chunk 198/199: extracted 24 entities and 23 relationships (deduplicated)
+2026-10-09 10:34:14,647 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:34:14,648 - lightrag - INFO -   Chunk 199/199: extracted 39 entities and 31 relationships (deduplicated)
+2026-10-09 10:34:14,661 - lightrag - INFO - Process 89439 reloading graph chunk_entity_relation due to update by another process
+2026-10-09 10:34:43,953 - lightrag - INFO - Extracted 1962 entities and 3766 relationships (deduplicated)
+2026-10-09 10:34:43,965 - lightrag - INFO - Inserting 1962 to entities
+2026-10-09 10:36:34,310 - lightrag - INFO - Process 89439 reloading entities due to update by another process
+2026-10-09 10:36:34,332 - lightrag - INFO - Inserting 3766 to relationships
+2026-10-09 10:38:14,647 - lightrag - INFO - Process 89439 reloading relationships due to update by another process
+2026-10-09 10:38:14,683 - lightrag - INFO - Inserting 1 records to doc_status
+2026-10-09 10:38:14,683 - lightrag - INFO - Process 89439 doc status writting 1 records to doc_status
+2026-10-09 10:38:14,688 - lightrag - INFO - Completed batch 1 of 1.
+2026-10-09 10:38:14,688 - lightrag - INFO - Process 89439 KV writting 1 records to full_docs
+2026-10-09 10:38:14,691 - lightrag - INFO - Process 89439 KV writting 199 records to text_chunks
+2026-10-09 10:38:14,696 - lightrag - INFO - Process 89439 KV writting 398 records to llm_response_cache
+2026-10-09 10:38:14,858 - lightrag - INFO - Writing graph with 1970 nodes, 3766 edges
+2026-10-09 10:38:15,102 - lightrag - INFO - All Insert done
+2026-10-09 10:38:15,102 - lightrag - INFO - Document processing pipeline completed
+2026-10-09 10:39:30,939 - lightrag - INFO - Loaded graph from /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/lightrag/workspace/Medical/graph_chunk_entity_relation.graphml with 1970 nodes, 3766 edges
+2026-10-09 10:39:31,025 - lightrag - INFO - Process 16399 KV load full_docs with 1 records
+2026-10-09 10:39:31,027 - lightrag - INFO - Process 16399 KV load text_chunks with 199 records
+2026-10-09 10:39:31,047 - lightrag - INFO - Process 16399 KV load llm_response_cache with 398 records
+2026-10-09 10:39:31,049 - lightrag - INFO - Process 16399 doc status load doc_status with 1 records
+2026-10-09 10:39:31,049 - lightrag - INFO - Storage Initialization completed!
+2026-10-09 10:39:35,328 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:35,329 - lightrag - INFO - Process 16399 buidling query context...
+2026-10-09 10:39:35,329 - lightrag - INFO - Query nodes: Stage 0 colon cancer, Carcinoma in situ, Mucosa, Tis, Abnormal cells, Polyps, top_k: 5, cosine: 0.2
+2026-10-09 10:39:35,438 - lightrag - INFO - Process 16399 reloading entities due to update by another process
+2026-10-09 10:39:35,466 - lightrag - INFO - Query edges: Colon cancer staging, Cancer classification, Oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:39:35,511 - lightrag - INFO - Process 16399 reloading relationships due to update by another process
+2026-10-09 10:39:35,566 - lightrag - INFO - Process 16399 reloading graph chunk_entity_relation due to update by another process
+2026-10-09 10:39:35,743 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:39:35,745 - lightrag - INFO - Local query uses 5 entites, 36 relations, 3 chunks
+2026-10-09 10:39:36,028 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:36,028 - lightrag - INFO - Process 16399 buidling query context...
+2026-10-09 10:39:36,029 - lightrag - INFO - Query nodes: Lungs, Bones, Lymph nodes, Adrenal glands, Peritoneum, Hepatocellular carcinoma, top_k: 5, cosine: 0.2
+2026-10-09 10:39:36,090 - lightrag - INFO - Query edges: Liver cancer, Cancer metastasis, Oncology, Disease progression, top_k: 5, cosine: 0.2
+2026-10-09 10:39:36,138 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:39:36,139 - lightrag - INFO - Local query uses 5 entites, 24 relations, 3 chunks
+2026-10-09 10:39:36,503 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:36,503 - lightrag - INFO - Process 16399 buidling query context...
+2026-10-09 10:39:36,503 - lightrag - INFO - Query nodes: Osteosarcoma, Chondrosarcoma, Ewing sarcoma, Mesenchymal stem cells, Genetic mutations, Bone tissue, top_k: 5, cosine: 0.2
+2026-10-09 10:39:36,553 - lightrag - INFO - Query edges: Primary bone cancer, Cancer etiology, Bone neoplasms, Pathogenesis, top_k: 5, cosine: 0.2
+2026-10-09 10:39:36,599 - lightrag - INFO - Global query uses 6 entites, 5 relations, 2 chunks
+2026-10-09 10:39:36,601 - lightrag - INFO - Local query uses 5 entites, 39 relations, 3 chunks
+2026-10-09 10:39:38,031 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:38,032 - lightrag - INFO - Process 16399 buidling query context...
+2026-10-09 10:39:38,032 - lightrag - INFO - Query nodes: Organ transplant recipients, BCC, Basal cell carcinoma, Non-melanoma skin cancer, Immunosuppressive therapy, top_k: 5, cosine: 0.2
+2026-10-09 10:39:38,087 - lightrag - INFO - Query edges: Organ transplantation, Cancer risk, Immunosuppression, Post-transplant complications, top_k: 5, cosine: 0.2
+2026-10-09 10:39:38,136 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:39:38,137 - lightrag - INFO - Local query uses 5 entites, 54 relations, 3 chunks
+2026-10-09 10:39:38,186 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:38,186 - lightrag - INFO - Process 16399 KV writting 403 records to llm_response_cache
+2026-10-09 10:39:39,694 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:39,694 - lightrag - INFO - Process 16399 KV writting 404 records to llm_response_cache
+2026-10-09 10:39:40,715 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:40,715 - lightrag - INFO - Process 16399 KV writting 405 records to llm_response_cache
+2026-10-09 10:39:42,721 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:42,721 - lightrag - INFO - Process 16399 buidling query context...
+2026-10-09 10:39:42,721 - lightrag - INFO - Query nodes: Adenocarcinoma, Stomach lining, Gastric mucosa, Tumor, Malignant cells, Helicobacter pylori, top_k: 5, cosine: 0.2
+2026-10-09 10:39:42,774 - lightrag - INFO - Query edges: Stomach cancer, Gastric cancer, Oncology, Gastrointestinal diseases, top_k: 5, cosine: 0.2
+2026-10-09 10:39:42,821 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:39:42,822 - lightrag - INFO - Local query uses 5 entites, 22 relations, 3 chunks
+2026-10-09 10:39:43,197 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:43,198 - lightrag - INFO - Process 16399 KV writting 407 records to llm_response_cache
+2026-10-09 10:39:44,526 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:44,527 - lightrag - INFO - Process 16399 buidling query context...
+2026-10-09 10:39:44,527 - lightrag - INFO - Query nodes: Lung nodule, CT scan, PET scan, Biopsy, Nodule size, Malignancy risk, Surveillance, top_k: 5, cosine: 0.2
+2026-10-09 10:39:44,591 - lightrag - INFO - Query edges: Diagnostic workflow, Lung cancer diagnosis, Medical imaging, Clinical decision-making, top_k: 5, cosine: 0.2
+2026-10-09 10:39:44,639 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:39:44,640 - lightrag - INFO - Local query uses 5 entites, 40 relations, 3 chunks
+2026-10-09 10:39:46,452 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:46,453 - lightrag - INFO - Process 16399 buidling query context...
+2026-10-09 10:39:46,453 - lightrag - INFO - Query nodes: Adenomas, Hyperplastic polyps, Inflammatory polyps, Non-neoplastic polyps, Polyp types, top_k: 5, cosine: 0.2
+2026-10-09 10:39:46,514 - lightrag - INFO - Query edges: Rectal cancer, Polyp progression, Colorectal carcinogenesis, Malignancy risk, top_k: 5, cosine: 0.2
+2026-10-09 10:39:46,568 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:39:46,569 - lightrag - INFO - Local query uses 5 entites, 18 relations, 3 chunks
+2026-10-09 10:39:47,918 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:47,919 - lightrag - INFO - Process 16399 KV writting 410 records to llm_response_cache
+2026-10-09 10:39:48,805 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:48,805 - lightrag - INFO - Process 16399 buidling query context...
+2026-10-09 10:39:48,805 - lightrag - INFO - Query nodes: NPC, Dental evaluation, Audiological assessment, Nutritional assessment, Psychosocial counseling, Smoking cessation, Speech and swallow evaluation, Fertility preservation, top_k: 5, cosine: 0.2
+2026-10-09 10:39:48,852 - lightrag - INFO - Query edges: Nasopharyngeal carcinoma, Pre-treatment assessment, Patient counseling, Oncology care, Clinical evaluation, top_k: 5, cosine: 0.2
+2026-10-09 10:39:48,890 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 10:39:48,891 - lightrag - INFO - Local query uses 5 entites, 16 relations, 3 chunks
+2026-10-09 10:39:50,138 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:50,138 - lightrag - INFO - Process 16399 KV writting 412 records to llm_response_cache
+2026-10-09 10:39:52,041 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:52,042 - lightrag - INFO - Process 16399 KV writting 413 records to llm_response_cache
+2026-10-09 10:39:53,731 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:53,731 - lightrag - INFO - Process 16399 buidling query context...
+2026-10-09 10:39:53,731 - lightrag - INFO - Query nodes: Mammography, Biopsy, Breast ultrasound, MRI, Breast lump, Nipple discharge, Skin dimpling, HER2-positive, Triple-negative breast cancer, Luminal A, Luminal B, top_k: 5, cosine: 0.2
+2026-10-09 10:39:53,797 - lightrag - INFO - Query edges: Breast cancer, Diagnostic methods, Cancer symptoms, Breast cancer subtypes, Oncological diagnosis, top_k: 5, cosine: 0.2
+2026-10-09 10:39:53,846 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:39:53,848 - lightrag - INFO - Local query uses 5 entites, 107 relations, 3 chunks
+2026-10-09 10:39:55,358 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:55,358 - lightrag - INFO - Process 16399 KV writting 415 records to llm_response_cache
+2026-10-09 10:39:57,288 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:39:57,288 - lightrag - INFO - Process 16399 buidling query context...
+2026-10-09 10:39:57,288 - lightrag - INFO - Query nodes: Risk factors, Cancer screening, Symptom awareness, Smoking cessation, Low-dose CT scan, Secondhand smoke, Radon exposure, top_k: 5, cosine: 0.2
+2026-10-09 10:39:57,337 - lightrag - INFO - Query edges: Public health advisory, Lung cancer prevention, Early detection, Community health, top_k: 5, cosine: 0.2
+2026-10-09 10:39:57,385 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:39:57,386 - lightrag - INFO - Local query uses 5 entites, 12 relations, 3 chunks
+2026-10-09 10:40:01,809 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:40:01,809 - lightrag - INFO - Process 16399 KV writting 417 records to llm_response_cache
+2026-10-09 10:40:07,133 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:40:07,134 - lightrag - INFO - Process 16399 KV writting 418 records to llm_response_cache
+2026-10-09 10:44:07,683 - lightrag - INFO - Loaded graph from /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/lightrag/workspace/Medical/graph_chunk_entity_relation.graphml with 1970 nodes, 3766 edges
+2026-10-09 10:44:07,768 - lightrag - INFO - Process 19771 KV load full_docs with 1 records
+2026-10-09 10:44:07,771 - lightrag - INFO - Process 19771 KV load text_chunks with 199 records
+2026-10-09 10:44:07,792 - lightrag - INFO - Process 19771 KV load llm_response_cache with 418 records
+2026-10-09 10:44:07,794 - lightrag - INFO - Process 19771 doc status load doc_status with 1 records
+2026-10-09 10:44:07,795 - lightrag - INFO - Storage Initialization completed!
+2026-10-09 10:44:11,990 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:11,990 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:11,991 - lightrag - INFO - Query nodes: Basal cell carcinoma, Basal cells, Epidermis, Stratum basale, Hair follicle stem cells, top_k: 5, cosine: 0.2
+2026-10-09 10:44:12,120 - lightrag - INFO - Process 19771 reloading entities due to update by another process
+2026-10-09 10:44:12,147 - lightrag - INFO - Query edges: Skin cancer, Cellular origin, Oncology, Dermatology, top_k: 5, cosine: 0.2
+2026-10-09 10:44:12,192 - lightrag - INFO - Process 19771 reloading relationships due to update by another process
+2026-10-09 10:44:12,246 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:12,246 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:12,246 - lightrag - INFO - Process 19771 reloading graph chunk_entity_relation due to update by another process
+2026-10-09 10:44:12,422 - lightrag - INFO - Query nodes: Basal cell carcinoma, Primary risk factor, Ultraviolet radiation, Sun exposure, UV light, top_k: 5, cosine: 0.2
+2026-10-09 10:44:12,468 - lightrag - INFO - Query edges: Skin cancer, Risk factors, Dermatology, Carcinogenesis, top_k: 5, cosine: 0.2
+2026-10-09 10:44:12,516 - lightrag - INFO - Global query uses 7 entites, 5 relations, 2 chunks
+2026-10-09 10:44:12,517 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:44:12,518 - lightrag - INFO - Local query uses 5 entites, 46 relations, 3 chunks
+2026-10-09 10:44:12,518 - lightrag - INFO - Local query uses 5 entites, 17 relations, 3 chunks
+2026-10-09 10:44:13,023 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:13,024 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:13,024 - lightrag - INFO - Query nodes: Head and neck, Face, Nose, Ears, Sun-exposed skin, Trunk, Scalp, top_k: 5, cosine: 0.2
+2026-10-09 10:44:13,092 - lightrag - INFO - Query edges: Basal cell carcinoma, Skin cancer, Anatomical distribution, Dermatology, top_k: 5, cosine: 0.2
+2026-10-09 10:44:13,140 - lightrag - INFO - Global query uses 7 entites, 5 relations, 2 chunks
+2026-10-09 10:44:13,141 - lightrag - INFO - Local query uses 5 entites, 11 relations, 3 chunks
+2026-10-09 10:44:13,726 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:13,726 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:13,726 - lightrag - INFO - Query nodes: Basal cell carcinoma, Squamous cell carcinoma, Melanoma, Non-melanoma skin cancer, top_k: 5, cosine: 0.2
+2026-10-09 10:44:13,782 - lightrag - INFO - Query edges: Skin cancer, Cancer prevalence, Dermatology, Oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:44:13,832 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:44:13,833 - lightrag - INFO - Local query uses 5 entites, 71 relations, 3 chunks
+2026-10-09 10:44:15,599 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:15,599 - lightrag - INFO - Process 19771 KV writting 423 records to llm_response_cache
+2026-10-09 10:44:15,665 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:15,665 - lightrag - INFO - Process 19771 KV writting 424 records to llm_response_cache
+2026-10-09 10:44:17,360 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:17,360 - lightrag - INFO - Process 19771 KV writting 425 records to llm_response_cache
+2026-10-09 10:44:18,378 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:18,378 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:18,378 - lightrag - INFO - Query nodes: Fair skin, BCC, Basal cell carcinoma, Melanin, Fitzpatrick skin type, Ultraviolet exposure, top_k: 5, cosine: 0.2
+2026-10-09 10:44:18,434 - lightrag - INFO - Query edges: Skin cancer risk, Dermatology, Risk factors, UV radiation susceptibility, top_k: 5, cosine: 0.2
+2026-10-09 10:44:18,483 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 10:44:18,484 - lightrag - INFO - Local query uses 5 entites, 71 relations, 3 chunks
+2026-10-09 10:44:19,040 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:19,041 - lightrag - INFO - Process 19771 KV writting 427 records to llm_response_cache
+2026-10-09 10:44:20,334 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:20,335 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:20,335 - lightrag - INFO - Query nodes: Older age, Basal cell carcinoma, BCC, Skin neoplasms, Cumulative UV exposure, top_k: 5, cosine: 0.2
+2026-10-09 10:44:20,392 - lightrag - INFO - Query edges: Aging and cancer risk, Skin cancer epidemiology, Disease risk factors, top_k: 5, cosine: 0.2
+2026-10-09 10:44:20,442 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:44:20,443 - lightrag - INFO - Local query uses 5 entites, 43 relations, 3 chunks
+2026-10-09 10:44:21,864 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:21,864 - lightrag - INFO - Process 19771 KV writting 429 records to llm_response_cache
+2026-10-09 10:44:23,117 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:23,118 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:23,118 - lightrag - INFO - Query nodes: Basal cell carcinoma (BCC), First-degree relatives, Gorlin syndrome, PTCH1 gene, Skin phenotype, Hereditary mutations, top_k: 5, cosine: 0.2
+2026-10-09 10:44:23,189 - lightrag - INFO - Query edges: Family history, Basal cell carcinoma, Cancer risk, Genetic predisposition, top_k: 5, cosine: 0.2
+2026-10-09 10:44:23,236 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:44:23,237 - lightrag - INFO - Local query uses 5 entites, 25 relations, 3 chunks
+2026-10-09 10:44:24,336 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:24,337 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:24,337 - lightrag - INFO - Query nodes: BCC, Immunosuppressive therapy, Organ transplant recipients, Immune deficiency, Non-melanoma skin cancer, top_k: 5, cosine: 0.2
+2026-10-09 10:44:24,391 - lightrag - INFO - Query edges: Immune suppression, Risk factors, Basal cell carcinoma, Skin cancer, top_k: 5, cosine: 0.2
+2026-10-09 10:44:24,437 - lightrag - INFO - Global query uses 7 entites, 5 relations, 2 chunks
+2026-10-09 10:44:24,438 - lightrag - INFO - Local query uses 5 entites, 44 relations, 3 chunks
+2026-10-09 10:44:24,630 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:24,630 - lightrag - INFO - Process 19771 KV writting 432 records to llm_response_cache
+2026-10-09 10:44:25,179 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:25,180 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:25,180 - lightrag - INFO - Query nodes: Pearly bump, Skin lesion, Bleeding sore, Pink growth, Scar-like patch, Telangiectasia, top_k: 5, cosine: 0.2
+2026-10-09 10:44:25,238 - lightrag - INFO - Query edges: Skin cancer, Basal cell carcinoma, Oncology, Clinical symptoms, top_k: 5, cosine: 0.2
+2026-10-09 10:44:25,286 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:44:25,287 - lightrag - INFO - Local query uses 5 entites, 16 relations, 3 chunks
+2026-10-09 10:44:27,270 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:27,271 - lightrag - INFO - Process 19771 KV writting 434 records to llm_response_cache
+2026-10-09 10:44:28,302 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:28,302 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:28,303 - lightrag - INFO - Query nodes: BCC, Skin biopsy, Dermoscopy, Histopathological examination, Punch biopsy, Shave biopsy, Reflectance confocal microscopy, top_k: 5, cosine: 0.2
+2026-10-09 10:44:28,369 - lightrag - INFO - Query edges: Diagnostic methods, Basal cell carcinoma, Skin cancer diagnosis, Oncological evaluation, top_k: 5, cosine: 0.2
+2026-10-09 10:44:28,414 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:44:28,415 - lightrag - INFO - Local query uses 5 entites, 25 relations, 3 chunks
+2026-10-09 10:44:29,578 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:29,579 - lightrag - INFO - Process 19771 KV writting 436 records to llm_response_cache
+2026-10-09 10:44:30,657 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:30,658 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:30,658 - lightrag - INFO - Query nodes: Mohs surgery, Surgical excision, Electrodesiccation and curettage, Cryotherapy, Radiation therapy, Topical chemotherapy, top_k: 5, cosine: 0.2
+2026-10-09 10:44:30,713 - lightrag - INFO - Query edges: Skin cancer treatment, Basal cell carcinoma, Oncology procedures, Cancer management, top_k: 5, cosine: 0.2
+2026-10-09 10:44:30,760 - lightrag - INFO - Global query uses 5 entites, 5 relations, 3 chunks
+2026-10-09 10:44:30,761 - lightrag - INFO - Local query uses 5 entites, 9 relations, 3 chunks
+2026-10-09 10:44:32,749 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:32,749 - lightrag - INFO - Process 19771 KV writting 438 records to llm_response_cache
+2026-10-09 10:44:32,930 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:32,930 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:32,930 - lightrag - INFO - Query nodes: BCC, Basal cell carcinoma, Radiotherapy, Inoperable tumors, Positive surgical margins, Recurrence, Adjuvant therapy, top_k: 5, cosine: 0.2
+2026-10-09 10:44:32,984 - lightrag - INFO - Query edges: Radiation therapy, Skin cancer treatment, Basal cell carcinoma management, Oncology indications, top_k: 5, cosine: 0.2
+2026-10-09 10:44:33,032 - lightrag - INFO - Global query uses 5 entites, 5 relations, 3 chunks
+2026-10-09 10:44:33,034 - lightrag - INFO - Local query uses 5 entites, 51 relations, 3 chunks
+2026-10-09 10:44:37,602 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:37,603 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:37,603 - lightrag - INFO - Query nodes: BCC, Tumor recurrence, Surgical margins, Incomplete excision, Mohs surgery, Local recurrence, top_k: 5, cosine: 0.2
+2026-10-09 10:44:37,658 - lightrag - INFO - Query edges: Basal cell carcinoma, Cancer recurrence, Oncology, Dermatology, Disease relapse, top_k: 5, cosine: 0.2
+2026-10-09 10:44:37,700 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:44:37,701 - lightrag - INFO - Local query uses 5 entites, 19 relations, 3 chunks
+2026-10-09 10:44:41,387 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:41,388 - lightrag - INFO - Process 19771 KV writting 441 records to llm_response_cache
+2026-10-09 10:44:41,650 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:41,650 - lightrag - INFO - Process 19771 KV writting 442 records to llm_response_cache
+2026-10-09 10:44:41,709 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:41,709 - lightrag - INFO - Process 19771 KV writting 443 records to llm_response_cache
+2026-10-09 10:44:45,494 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:45,495 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:45,495 - lightrag - INFO - Query nodes: Basal cells, Basal cell carcinoma, Epidermis, Stratum basale, top_k: 5, cosine: 0.2
+2026-10-09 10:44:45,549 - lightrag - INFO - Query edges: Skin cancer, Cancer subtypes, Dermatology, Oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:44:45,598 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:44:45,599 - lightrag - INFO - Local query uses 5 entites, 46 relations, 3 chunks
+2026-10-09 10:44:46,926 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:46,926 - lightrag - INFO - Process 19771 KV writting 445 records to llm_response_cache
+2026-10-09 10:44:47,674 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:47,674 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:47,674 - lightrag - INFO - Query nodes: Basal cells, Stratum basale, Epidermis, Epithelium, Basement membrane, top_k: 5, cosine: 0.2
+2026-10-09 10:44:47,710 - lightrag - INFO - Query edges: Human anatomy, Histology, Cellular biology, Tissue layers, top_k: 5, cosine: 0.2
+2026-10-09 10:44:47,761 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:44:47,761 - lightrag - INFO - Local query uses 5 entites, 12 relations, 2 chunks
+2026-10-09 10:44:48,398 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:48,400 - lightrag - INFO - Process 19771 KV writting 447 records to llm_response_cache
+2026-10-09 10:44:50,552 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:50,552 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:50,552 - lightrag - INFO - Query nodes: BCC, Skin examination, Tumor recurrence, Dermatologist visit, Full-body skin exam, Sun protection, top_k: 5, cosine: 0.2
+2026-10-09 10:44:50,595 - lightrag - INFO - Query edges: Basal cell carcinoma, Follow-up care, Cancer surveillance, Post-treatment monitoring, top_k: 5, cosine: 0.2
+2026-10-09 10:44:50,643 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:44:50,644 - lightrag - INFO - Local query uses 5 entites, 20 relations, 3 chunks
+2026-10-09 10:44:51,205 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:51,206 - lightrag - INFO - Process 19771 KV writting 449 records to llm_response_cache
+2026-10-09 10:44:53,136 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:53,137 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:53,137 - lightrag - INFO - Query nodes: Tanning beds, BCC, Basal cell carcinoma, Indoor tanning, UV rays, top_k: 5, cosine: 0.2
+2026-10-09 10:44:53,192 - lightrag - INFO - Query edges: Skin cancer risk, Ultraviolet radiation exposure, Carcinogenesis, Dermatological health, top_k: 5, cosine: 0.2
+2026-10-09 10:44:53,250 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:44:53,251 - lightrag - INFO - Local query uses 5 entites, 17 relations, 3 chunks
+2026-10-09 10:44:55,074 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:55,075 - lightrag - INFO - Process 19771 KV writting 451 records to llm_response_cache
+2026-10-09 10:44:56,819 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:56,819 - lightrag - INFO - Process 19771 KV writting 452 records to llm_response_cache
+2026-10-09 10:44:56,923 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:56,924 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:56,924 - lightrag - INFO - Query nodes: Hair color, Eye color, Red hair, Blonde hair, Blue eyes, Light-colored eyes, BCC risk, top_k: 5, cosine: 0.2
+2026-10-09 10:44:56,962 - lightrag - INFO - Query edges: Basal cell carcinoma, Skin cancer risk factors, Phenotypic traits, Pigmentation, top_k: 5, cosine: 0.2
+2026-10-09 10:44:57,008 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 10:44:57,010 - lightrag - INFO - Local query uses 5 entites, 15 relations, 3 chunks
+2026-10-09 10:44:59,028 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:44:59,028 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:44:59,028 - lightrag - INFO - Query nodes: BCC, Basal cell carcinoma, Ionizing radiation, Radiation exposure, History of radiation therapy, top_k: 5, cosine: 0.2
+2026-10-09 10:44:59,082 - lightrag - INFO - Query edges: Radiation therapy, Basal cell carcinoma risk, Skin cancer risk factors, Radiation-induced carcinogenesis, top_k: 5, cosine: 0.2
+2026-10-09 10:44:59,121 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:44:59,123 - lightrag - INFO - Local query uses 5 entites, 51 relations, 3 chunks
+2026-10-09 10:45:00,284 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:00,285 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:00,285 - lightrag - INFO - Query nodes: BCC, Basal cell carcinoma, UV radiation, Ultraviolet rays, Sunburn, top_k: 5, cosine: 0.2
+2026-10-09 10:45:00,349 - lightrag - INFO - Query edges: Sun exposure, Risk factors, Skin cancer, Etiology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:00,397 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:45:00,398 - lightrag - INFO - Local query uses 5 entites, 43 relations, 3 chunks
+2026-10-09 10:45:01,149 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:01,149 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:01,149 - lightrag - INFO - Query nodes: BCC, Pearly papule, Telangiectasia, Rolled borders, Skin lesion, Ulceration, top_k: 5, cosine: 0.2
+2026-10-09 10:45:01,205 - lightrag - INFO - Query edges: Basal cell carcinoma, Skin cancer, Clinical presentation, Dermatology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:01,253 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:45:01,254 - lightrag - INFO - Local query uses 5 entites, 73 relations, 3 chunks
+2026-10-09 10:45:02,243 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:02,243 - lightrag - INFO - Process 19771 KV writting 457 records to llm_response_cache
+2026-10-09 10:45:03,800 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:03,801 - lightrag - INFO - Process 19771 KV writting 458 records to llm_response_cache
+2026-10-09 10:45:03,943 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:03,943 - lightrag - INFO - Process 19771 KV writting 459 records to llm_response_cache
+2026-10-09 10:45:05,504 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:05,505 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:05,505 - lightrag - INFO - Query nodes: Biopsy, BCC, Punch biopsy, Shave biopsy, Histopathology, Tissue specimen, Tumor margins, top_k: 5, cosine: 0.2
+2026-10-09 10:45:05,561 - lightrag - INFO - Query edges: Basal cell carcinoma diagnosis, Skin cancer diagnostics, Histopathological evaluation, Diagnostic procedures, top_k: 5, cosine: 0.2
+2026-10-09 10:45:05,604 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:45:05,606 - lightrag - INFO - Local query uses 5 entites, 71 relations, 3 chunks
+2026-10-09 10:45:07,635 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:07,636 - lightrag - INFO - Process 19771 KV writting 461 records to llm_response_cache
+2026-10-09 10:45:07,792 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:07,792 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:07,792 - lightrag - INFO - Query nodes: BCC, Hedgehog pathway inhibitors, Vismodegib, Sonidegib, Cemiplimab, Immunotherapy, Targeted therapy, top_k: 5, cosine: 0.2
+2026-10-09 10:45:07,860 - lightrag - INFO - Query edges: Systemic therapy, Basal cell carcinoma, Skin cancer treatment, Oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:07,908 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:45:07,909 - lightrag - INFO - Local query uses 5 entites, 10 relations, 3 chunks
+2026-10-09 10:45:09,171 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:09,171 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:09,171 - lightrag - INFO - Query nodes: BCC, Basal cell carcinoma, Tumor recurrence, Mohs micrographic surgery, Surgical excision, Radiation therapy, Hedgehog pathway inhibitors, Vismodegib, Sonidegib, Biopsy, top_k: 5, cosine: 0.2
+2026-10-09 10:45:09,237 - lightrag - INFO - Query edges: BCC recurrence, Basal cell carcinoma management, Skin cancer treatment, Oncology follow-up, top_k: 5, cosine: 0.2
+2026-10-09 10:45:09,275 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:45:09,276 - lightrag - INFO - Local query uses 5 entites, 48 relations, 3 chunks
+2026-10-09 10:45:09,531 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:09,532 - lightrag - INFO - Process 19771 KV writting 464 records to llm_response_cache
+2026-10-09 10:45:14,740 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:14,741 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:14,741 - lightrag - INFO - Query nodes: BCC, Lymph nodes, Metastatic basal cell carcinoma, Regional metastasis, Lymphatic system, top_k: 5, cosine: 0.2
+2026-10-09 10:45:14,797 - lightrag - INFO - Query edges: Basal cell carcinoma, Cancer metastasis, Skin cancer progression, Oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:14,844 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:45:14,846 - lightrag - INFO - Local query uses 5 entites, 61 relations, 3 chunks
+2026-10-09 10:45:14,861 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:14,861 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:14,861 - lightrag - INFO - Query nodes: BCC, Full skin exam, Examination frequency, Total body skin examination, Follow-up interval, Recurrence monitoring, top_k: 5, cosine: 0.2
+2026-10-09 10:45:14,897 - lightrag - INFO - Query edges: Basal cell carcinoma management, Skin cancer surveillance, Post-treatment follow-up, top_k: 5, cosine: 0.2
+2026-10-09 10:45:14,941 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:45:14,942 - lightrag - INFO - Local query uses 5 entites, 11 relations, 3 chunks
+2026-10-09 10:45:17,478 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:17,479 - lightrag - INFO - Process 19771 KV writting 467 records to llm_response_cache
+2026-10-09 10:45:18,775 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:18,776 - lightrag - INFO - Process 19771 KV writting 468 records to llm_response_cache
+2026-10-09 10:45:20,255 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:20,255 - lightrag - INFO - Process 19771 KV writting 469 records to llm_response_cache
+2026-10-09 10:45:21,740 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:21,740 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:21,740 - lightrag - INFO - Query nodes: Brown bump, Glossy black bump, Rolled border, Basal cell carcinoma, Melanoma, Skin lesion, Pigmented lesion, top_k: 5, cosine: 0.2
+2026-10-09 10:45:21,780 - lightrag - INFO - Query edges: Dermatology, Skin cancer symptoms, Cutaneous lesions, Skin pathology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:21,828 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 10:45:21,830 - lightrag - INFO - Local query uses 5 entites, 75 relations, 3 chunks
+2026-10-09 10:45:23,996 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:23,997 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:23,997 - lightrag - INFO - Query nodes: Basal cell carcinoma, BCC, Immunosuppressive drugs, Solid organ transplant, Transplant recipients, Tumor risk, top_k: 5, cosine: 0.2
+2026-10-09 10:45:24,035 - lightrag - INFO - Query edges: Organ transplant, BCC risk, Skin cancer incidence, Post-transplant malignancy, top_k: 5, cosine: 0.2
+2026-10-09 10:45:24,082 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:45:24,083 - lightrag - INFO - Local query uses 5 entites, 19 relations, 3 chunks
+2026-10-09 10:45:24,861 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:24,861 - lightrag - INFO - Process 19771 KV writting 472 records to llm_response_cache
+2026-10-09 10:45:26,041 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:26,041 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:26,041 - lightrag - INFO - Query nodes: BCC, Basal cell carcinoma, Skin cancer, Autoimmunity, Immunosuppressive therapy, top_k: 5, cosine: 0.2
+2026-10-09 10:45:26,095 - lightrag - INFO - Query edges: Autoimmune disease, Cancer risk, Disease association, Immunology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:26,144 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 10:45:26,145 - lightrag - INFO - Local query uses 5 entites, 61 relations, 3 chunks
+2026-10-09 10:45:27,131 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:27,132 - lightrag - INFO - Process 19771 KV writting 474 records to llm_response_cache
+2026-10-09 10:45:29,053 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:29,053 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:29,054 - lightrag - INFO - Query nodes: BCC, Dermoscopy, Reflectance confocal microscopy, Optical coherence tomography, High-frequency ultrasound, Biopsy, top_k: 5, cosine: 0.2
+2026-10-09 10:45:29,110 - lightrag - INFO - Query edges: Basal cell carcinoma diagnosis, Medical imaging, Skin cancer detection, Diagnostic techniques, top_k: 5, cosine: 0.2
+2026-10-09 10:45:29,156 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:45:29,157 - lightrag - INFO - Local query uses 5 entites, 34 relations, 3 chunks
+2026-10-09 10:45:30,258 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:30,259 - lightrag - INFO - Process 19771 KV writting 476 records to llm_response_cache
+2026-10-09 10:45:32,089 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:32,089 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:32,089 - lightrag - INFO - Query nodes: BCC, Body locations, Sun-exposed areas, Non-sun-exposed skin, Skin lesions, top_k: 5, cosine: 0.2
+2026-10-09 10:45:32,146 - lightrag - INFO - Query edges: Basal cell carcinoma, Skin cancer, Anatomical distribution, Dermatology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:32,195 - lightrag - INFO - Global query uses 7 entites, 5 relations, 2 chunks
+2026-10-09 10:45:32,196 - lightrag - INFO - Local query uses 5 entites, 83 relations, 3 chunks
+2026-10-09 10:45:34,271 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:34,271 - lightrag - INFO - Process 19771 KV writting 478 records to llm_response_cache
+2026-10-09 10:45:34,700 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:34,700 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:34,701 - lightrag - INFO - Query nodes: Basal cell carcinoma, Basal cells, Stratum basale, Epidermis, Hair follicle stem cells, Keratinocytes, top_k: 5, cosine: 0.2
+2026-10-09 10:45:34,755 - lightrag - INFO - Query edges: Skin cancer, Cellular origin, Carcinoma pathogenesis, Oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:34,801 - lightrag - INFO - Global query uses 7 entites, 5 relations, 2 chunks
+2026-10-09 10:45:34,802 - lightrag - INFO - Local query uses 5 entites, 46 relations, 3 chunks
+2026-10-09 10:45:35,331 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:35,331 - lightrag - INFO - Process 19771 KV writting 480 records to llm_response_cache
+2026-10-09 10:45:35,391 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:35,391 - lightrag - INFO - Process 19771 KV writting 481 records to llm_response_cache
+2026-10-09 10:45:38,927 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:38,927 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:38,928 - lightrag - INFO - Query nodes: BCC, Head and neck, Face, Nose, Ears, Scalp, Trunk, Sun-exposed areas, top_k: 5, cosine: 0.2
+2026-10-09 10:45:38,983 - lightrag - INFO - Query edges: Basal cell carcinoma, Skin cancer, Anatomical distribution, Oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:39,030 - lightrag - INFO - Global query uses 7 entites, 5 relations, 2 chunks
+2026-10-09 10:45:39,031 - lightrag - INFO - Local query uses 5 entites, 72 relations, 3 chunks
+2026-10-09 10:45:40,261 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:40,261 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:40,261 - lightrag - INFO - Query nodes: Ultraviolet radiation, Sun exposure, UV rays, Tanning beds, Sunburn, top_k: 5, cosine: 0.2
+2026-10-09 10:45:40,324 - lightrag - INFO - Query edges: Basal cell carcinoma, Risk factors, Skin cancer, Etiology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:40,368 - lightrag - INFO - Global query uses 7 entites, 5 relations, 2 chunks
+2026-10-09 10:45:40,369 - lightrag - INFO - Local query uses 5 entites, 8 relations, 2 chunks
+2026-10-09 10:45:42,334 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:42,334 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:42,335 - lightrag - INFO - Query nodes: Fair skin, Basal cell carcinoma, Melanin, Ultraviolet radiation, Fitzpatrick scale, Sunburn, top_k: 5, cosine: 0.2
+2026-10-09 10:45:42,376 - lightrag - INFO - Query edges: Skin cancer risk, Phenotypic susceptibility, Dermatological oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:42,424 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 10:45:42,426 - lightrag - INFO - Local query uses 5 entites, 17 relations, 3 chunks
+2026-10-09 10:45:44,741 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:44,741 - lightrag - INFO - Process 19771 KV writting 485 records to llm_response_cache
+2026-10-09 10:45:45,586 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:45,587 - lightrag - INFO - Process 19771 KV writting 486 records to llm_response_cache
+2026-10-09 10:45:45,984 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:45,984 - lightrag - INFO - Process 19771 KV writting 487 records to llm_response_cache
+2026-10-09 10:45:48,810 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:48,811 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:48,811 - lightrag - INFO - Query nodes: BCC, Older age, Basal cell carcinoma, Risk factor, Elderly, top_k: 5, cosine: 0.2
+2026-10-09 10:45:48,864 - lightrag - INFO - Query edges: Age-related risk, Skin cancer susceptibility, Cancer epidemiology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:48,915 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:45:48,917 - lightrag - INFO - Local query uses 5 entites, 42 relations, 3 chunks
+2026-10-09 10:45:49,330 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:49,331 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:49,331 - lightrag - INFO - Query nodes: Basal cell carcinoma, Immunosuppression, Immunosuppressive therapy, BCC, Organ transplant recipients, top_k: 5, cosine: 0.2
+2026-10-09 10:45:49,383 - lightrag - INFO - Query edges: Immune suppression, Risk factors, Skin cancer etiology, Oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:45:49,432 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:45:49,433 - lightrag - INFO - Local query uses 5 entites, 49 relations, 3 chunks
+2026-10-09 10:45:50,000 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:50,001 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:50,001 - lightrag - INFO - Query nodes: BCC, Basal cell carcinoma, Skin cancer, First-degree relatives, Hereditary risk, top_k: 5, cosine: 0.2
+2026-10-09 10:45:50,055 - lightrag - INFO - Query edges: Family history, Skin cancer risk, Genetic predisposition, Cancer risk factors, top_k: 5, cosine: 0.2
+2026-10-09 10:45:50,100 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:45:50,102 - lightrag - INFO - Local query uses 5 entites, 43 relations, 3 chunks
+2026-10-09 10:45:51,574 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:51,574 - lightrag - INFO - Process 19771 KV writting 491 records to llm_response_cache
+2026-10-09 10:45:52,017 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:52,018 - lightrag - INFO - Process 19771 KV writting 492 records to llm_response_cache
+2026-10-09 10:45:53,135 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:53,136 - lightrag - INFO - Process 19771 KV writting 493 records to llm_response_cache
+2026-10-09 10:45:53,625 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:53,625 - lightrag - INFO - Process 19771 KV writting 494 records to llm_response_cache
+2026-10-09 10:45:57,029 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:57,029 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:57,030 - lightrag - INFO - Query nodes: Skin biopsy, Dermoscopy, Histopathology, Punch biopsy, Excisional biopsy, Reflectance confocal microscopy, Physical examination, top_k: 5, cosine: 0.2
+2026-10-09 10:45:57,090 - lightrag - INFO - Query edges: Basal cell carcinoma, BCC, Diagnostic methods, Skin cancer diagnosis, top_k: 5, cosine: 0.2
+2026-10-09 10:45:57,137 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:45:57,138 - lightrag - INFO - Local query uses 5 entites, 14 relations, 3 chunks
+2026-10-09 10:45:57,685 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:57,685 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:57,686 - lightrag - INFO - Query nodes: BCC, Local recurrence, Tumor regrowth, Surgical margins, Incomplete excision, Skin cancer, top_k: 5, cosine: 0.2
+2026-10-09 10:45:57,734 - lightrag - INFO - Query edges: Basal cell carcinoma, Cancer recurrence, Oncology, Disease prognosis, top_k: 5, cosine: 0.2
+2026-10-09 10:45:57,780 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:57,781 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:57,781 - lightrag - INFO - Query nodes: BCC, Radiation therapy, Systemic therapy, Basal cell carcinoma, Locally advanced BCC, Metastatic BCC, Surgical contraindications, top_k: 5, cosine: 0.2
+2026-10-09 10:45:57,817 - lightrag - INFO - Query edges: Basal cell carcinoma treatment, Radiation therapy indications, Systemic therapy indications, Advanced skin cancer management, top_k: 5, cosine: 0.2
+2026-10-09 10:45:57,863 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:45:57,866 - lightrag - INFO - Global query uses 5 entites, 5 relations, 3 chunks
+2026-10-09 10:45:57,866 - lightrag - INFO - Local query uses 5 entites, 47 relations, 3 chunks
+2026-10-09 10:45:57,878 - lightrag - INFO - Local query uses 5 entites, 51 relations, 3 chunks
+2026-10-09 10:45:59,162 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:45:59,163 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:45:59,163 - lightrag - INFO - Query nodes: BCC, Full-body skin examination, Recurrence, Follow-up schedule, Sun protection, Dermatologist visit, Skin self-exam, top_k: 5, cosine: 0.2
+2026-10-09 10:45:59,219 - lightrag - INFO - Query edges: Basal cell carcinoma, Post-treatment follow-up, Skin cancer surveillance, Cancer recurrence monitoring, top_k: 5, cosine: 0.2
+2026-10-09 10:45:59,257 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 10:45:59,258 - lightrag - INFO - Local query uses 5 entites, 20 relations, 3 chunks
+2026-10-09 10:46:00,602 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:00,603 - lightrag - INFO - Process 19771 KV writting 499 records to llm_response_cache
+2026-10-09 10:46:01,826 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:01,826 - lightrag - INFO - Process 19771 KV writting 500 records to llm_response_cache
+2026-10-09 10:46:03,418 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:03,419 - lightrag - INFO - Process 19771 KV writting 501 records to llm_response_cache
+2026-10-09 10:46:05,645 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:05,645 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:05,645 - lightrag - INFO - Query nodes: Basal cells, Stratum basale, Epidermis, Keratinocytes, Cell type, top_k: 5, cosine: 0.2
+2026-10-09 10:46:05,696 - lightrag - INFO - Query edges: Basal cell carcinoma, Skin cancer, Cellular pathology, Dermatology, top_k: 5, cosine: 0.2
+2026-10-09 10:46:05,745 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:46:05,746 - lightrag - INFO - Local query uses 5 entites, 21 relations, 3 chunks
+2026-10-09 10:46:07,820 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:07,820 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:07,820 - lightrag - INFO - Query nodes: Tanning beds, BCC, Basal cell carcinoma, Indoor tanning, UV radiation, top_k: 5, cosine: 0.2
+2026-10-09 10:46:07,884 - lightrag - INFO - Query edges: Skin cancer risk factors, Basal cell carcinoma etiology, Ultraviolet radiation exposure, top_k: 5, cosine: 0.2
+2026-10-09 10:46:07,934 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:46:07,935 - lightrag - INFO - Local query uses 5 entites, 17 relations, 3 chunks
+2026-10-09 10:46:08,955 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:08,955 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:08,955 - lightrag - INFO - Query nodes: Red hair, Blond hair, BCC, Basal cell carcinoma, Hair color, Pigmentation, Fair skin, top_k: 5, cosine: 0.2
+2026-10-09 10:46:09,005 - lightrag - INFO - Query edges: Skin cancer risk, Phenotypic risk factors, Carcinogenesis, Genetic predisposition, top_k: 5, cosine: 0.2
+2026-10-09 10:46:09,052 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:46:09,054 - lightrag - INFO - Local query uses 5 entites, 73 relations, 3 chunks
+2026-10-09 10:46:09,181 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:09,181 - lightrag - INFO - Process 19771 KV writting 505 records to llm_response_cache
+2026-10-09 10:46:10,372 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:10,373 - lightrag - INFO - Process 19771 KV writting 506 records to llm_response_cache
+2026-10-09 10:46:10,929 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:10,930 - lightrag - INFO - Process 19771 KV writting 507 records to llm_response_cache
+2026-10-09 10:46:13,225 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:13,225 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:13,225 - lightrag - INFO - Query nodes: BCC, Basal cell carcinoma, Immunosuppression, Immune system dysfunction, Autoimmunity, top_k: 5, cosine: 0.2
+2026-10-09 10:46:13,281 - lightrag - INFO - Query edges: Autoimmune disease, Risk factors, Skin cancer oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:46:13,327 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 10:46:13,328 - lightrag - INFO - Local query uses 5 entites, 32 relations, 3 chunks
+2026-10-09 10:46:14,219 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:14,219 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:14,219 - lightrag - INFO - Query nodes: BCC, Light eye color, Blue eyes, Green eyes, Iris pigmentation, UV susceptibility, top_k: 5, cosine: 0.2
+2026-10-09 10:46:14,274 - lightrag - INFO - Query edges: Basal cell carcinoma, Skin cancer risk, Phenotypic risk factors, Cancer epidemiology, top_k: 5, cosine: 0.2
+2026-10-09 10:46:14,311 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:46:14,312 - lightrag - INFO - Local query uses 5 entites, 24 relations, 3 chunks
+2026-10-09 10:46:16,090 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:16,091 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:16,091 - lightrag - INFO - Query nodes: Flat pale area, Yellow area, Skin lesion, BCC, Morpheaform BCC, Scar-like lesion, Infiltrative basal cell carcinoma, top_k: 5, cosine: 0.2
+2026-10-09 10:46:16,161 - lightrag - INFO - Query edges: Basal cell carcinoma, Skin cancer diagnosis, Dermatological symptoms, Clinical manifestations, top_k: 5, cosine: 0.2
+2026-10-09 10:46:16,207 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:46:16,208 - lightrag - INFO - Local query uses 5 entites, 96 relations, 3 chunks
+2026-10-09 10:46:16,387 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:16,387 - lightrag - INFO - Process 19771 KV writting 511 records to llm_response_cache
+2026-10-09 10:46:16,811 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:16,812 - lightrag - INFO - Process 19771 KV writting 512 records to llm_response_cache
+2026-10-09 10:46:17,019 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:17,020 - lightrag - INFO - Process 19771 KV writting 513 records to llm_response_cache
+2026-10-09 10:46:19,843 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:19,843 - lightrag - INFO - Process 19771 KV writting 514 records to llm_response_cache
+2026-10-09 10:46:21,375 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:21,376 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:21,377 - lightrag - INFO - Query nodes: Shiny bump, BCC, Pearly papule, Skin lesion, Nodular basal cell carcinoma, Translucent bump, top_k: 5, cosine: 0.2
+2026-10-09 10:46:21,432 - lightrag - INFO - Query edges: Basal cell carcinoma, Skin cancer symptoms, Dermatological diagnosis, Clinical presentation, top_k: 5, cosine: 0.2
+2026-10-09 10:46:21,483 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:46:21,484 - lightrag - INFO - Local query uses 5 entites, 83 relations, 3 chunks
+2026-10-09 10:46:21,520 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:21,520 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:21,520 - lightrag - INFO - Query nodes: Brown bump, Glossy black bump, Rolled border, Basal cell carcinoma, Pigmented lesion, Pearly papule, top_k: 5, cosine: 0.2
+2026-10-09 10:46:21,556 - lightrag - INFO - Query edges: Dermatology, Skin cancer, Skin lesion diagnosis, Clinical significance, top_k: 5, cosine: 0.2
+2026-10-09 10:46:21,602 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 10:46:21,603 - lightrag - INFO - Local query uses 5 entites, 72 relations, 3 chunks
+2026-10-09 10:46:24,487 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:24,487 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:24,488 - lightrag - INFO - Query nodes: Biopsy, BCC, Punch biopsy, Shave biopsy, Tissue sample, Pathology, Tumor margin, top_k: 5, cosine: 0.2
+2026-10-09 10:46:24,539 - lightrag - INFO - Query edges: Basal cell carcinoma diagnosis, Skin cancer diagnosis, Diagnostic procedure, Histopathological examination, top_k: 5, cosine: 0.2
+2026-10-09 10:46:24,585 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:24,585 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:24,585 - lightrag - INFO - Query nodes: BCC, Skin biopsy, Dermoscopy, Histopathology, Physical skin exam, top_k: 5, cosine: 0.2
+2026-10-09 10:46:24,621 - lightrag - INFO - Query edges: Basal cell carcinoma, Cancer diagnosis, Dermatological examination, Medical diagnostics, top_k: 5, cosine: 0.2
+2026-10-09 10:46:24,667 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:46:24,669 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:46:24,669 - lightrag - INFO - Local query uses 5 entites, 76 relations, 3 chunks
+2026-10-09 10:46:24,681 - lightrag - INFO - Local query uses 5 entites, 24 relations, 3 chunks
+2026-10-09 10:46:24,894 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:24,894 - lightrag - INFO - Process 19771 KV writting 519 records to llm_response_cache
+2026-10-09 10:46:25,812 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:25,812 - lightrag - INFO - Process 19771 KV writting 520 records to llm_response_cache
+2026-10-09 10:46:29,460 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:29,461 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:29,461 - lightrag - INFO - Query nodes: BCC, Topical chemotherapy, Imiquimod, 5-Fluorouracil, Photodynamic therapy, Cryotherapy, Radiation therapy, Curettage and electrodesiccation, Targeted therapy, top_k: 5, cosine: 0.2
+2026-10-09 10:46:29,528 - lightrag - INFO - Query edges: Basal cell carcinoma, Non-surgical cancer treatments, Dermatologic oncology, Skin cancer therapy, top_k: 5, cosine: 0.2
+2026-10-09 10:46:29,565 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:46:29,566 - lightrag - INFO - Local query uses 5 entites, 18 relations, 3 chunks
+2026-10-09 10:46:29,808 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:29,808 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:29,808 - lightrag - INFO - Query nodes: BCC, Dermoscopy, Ultrasound, Optical coherence tomography, Reflectance confocal microscopy, MRI, CT scan, top_k: 5, cosine: 0.2
+2026-10-09 10:46:29,860 - lightrag - INFO - Query edges: Basal cell carcinoma diagnosis, Diagnostic imaging, Skin cancer detection, Dermatology, top_k: 5, cosine: 0.2
+2026-10-09 10:46:29,904 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:29,904 - lightrag - INFO - Process 19771 KV writting 523 records to llm_response_cache
+2026-10-09 10:46:29,944 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:46:29,945 - lightrag - INFO - Local query uses 5 entites, 34 relations, 3 chunks
+2026-10-09 10:46:30,435 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:30,435 - lightrag - INFO - Process 19771 KV writting 524 records to llm_response_cache
+2026-10-09 10:46:33,569 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:33,569 - lightrag - INFO - Process 19771 KV writting 525 records to llm_response_cache
+2026-10-09 10:46:34,153 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:34,153 - lightrag - INFO - Process 19771 KV writting 526 records to llm_response_cache
+2026-10-09 10:46:35,513 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:35,514 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:35,514 - lightrag - INFO - Query nodes: BCC, Mohs micrographic surgery, Surgical excision, Radiation therapy, Hedgehog pathway inhibitors, Vismodegib, Sonidegib, Cryotherapy, Curettage and electrodesiccation, top_k: 5, cosine: 0.2
+2026-10-09 10:46:35,582 - lightrag - INFO - Query edges: Basal cell carcinoma management, Cancer recurrence, Dermatologic oncology, Secondary cancer treatment, top_k: 5, cosine: 0.2
+2026-10-09 10:46:35,622 - lightrag - INFO - Global query uses 6 entites, 5 relations, 2 chunks
+2026-10-09 10:46:35,623 - lightrag - INFO - Local query uses 5 entites, 48 relations, 3 chunks
+2026-10-09 10:46:36,750 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:36,750 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:36,751 - lightrag - INFO - Query nodes: Primary cancer type, Cancer type, Tumor type, Malignancy, top_k: 5, cosine: 0.2
+2026-10-09 10:46:36,797 - lightrag - INFO - Query edges: Oncology, Cancer classification, Disease diagnosis, top_k: 5, cosine: 0.2
+2026-10-09 10:46:36,843 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:36,843 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:36,843 - lightrag - INFO - Query nodes: BCC, Annual follow-up, Full-body skin examination, Recurrence detection, Skin cancer screening, Patient education, top_k: 5, cosine: 0.2
+2026-10-09 10:46:36,880 - lightrag - INFO - Query edges: Basal cell carcinoma, Follow-up care, Cancer surveillance, Post-treatment monitoring, top_k: 5, cosine: 0.2
+2026-10-09 10:46:36,928 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 10:46:36,931 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 10:46:36,931 - lightrag - INFO - Local query uses 5 entites, 95 relations, 3 chunks
+2026-10-09 10:46:36,945 - lightrag - INFO - Local query uses 5 entites, 11 relations, 3 chunks
+2026-10-09 10:46:39,268 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:39,269 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:39,269 - lightrag - INFO - Query nodes: PCNSL, B cells, B lymphocytes, Diffuse large B-cell lymphoma, DLBCL, Germinal center B cells, top_k: 5, cosine: 0.2
+2026-10-09 10:46:39,338 - lightrag - INFO - Query edges: Primary CNS lymphoma, Cellular origin, Central nervous system neoplasms, Hematologic oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:46:39,374 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 10:46:39,375 - lightrag - INFO - Local query uses 5 entites, 13 relations, 3 chunks
+2026-10-09 10:46:42,786 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:42,786 - lightrag - INFO - Process 19771 KV writting 531 records to llm_response_cache
+2026-10-09 10:46:46,269 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:46,270 - lightrag - INFO - Process 19771 KV writting 532 records to llm_response_cache
+2026-10-09 10:46:47,187 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:47,187 - lightrag - INFO - Process 19771 KV writting 533 records to llm_response_cache
+2026-10-09 10:46:48,389 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:48,389 - lightrag - INFO - Process 19771 KV writting 534 records to llm_response_cache
+2026-10-09 10:46:51,152 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:51,152 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:51,153 - lightrag - INFO - Query nodes: Primary intraocular lymphoma, Primary vitreoretinal lymphoma, Eyes, Retina, Vitreous, CNS lymphoma, top_k: 5, cosine: 0.2
+2026-10-09 10:46:51,220 - lightrag - INFO - Query edges: Primary CNS lymphoma, Ocular oncology, Cancer subtypes, Hematologic malignancy, top_k: 5, cosine: 0.2
+2026-10-09 10:46:51,258 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 10:46:51,259 - lightrag - INFO - Local query uses 5 entites, 71 relations, 3 chunks
+2026-10-09 10:46:51,855 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:51,855 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:51,855 - lightrag - INFO - Query nodes: Brain, Spinal cord, Leptomeninges, Meninges, Eyes, Vitreous, Retina, Cerebrospinal fluid, PCNSL, top_k: 5, cosine: 0.2
+2026-10-09 10:46:51,926 - lightrag - INFO - Query edges: Primary CNS lymphoma, Anatomical sites, Neuro-oncology, CNS lymphoma involvement, top_k: 5, cosine: 0.2
+2026-10-09 10:46:51,969 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 10:46:51,971 - lightrag - INFO - Local query uses 5 entites, 103 relations, 3 chunks
+2026-10-09 10:46:53,218 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:53,219 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:53,219 - lightrag - INFO - Query nodes: Brain parenchyma, Periventricular regions, Cerebral hemispheres, Deep gray matter, Corpus callosum, top_k: 5, cosine: 0.2
+2026-10-09 10:46:53,272 - lightrag - INFO - Query edges: Primary CNS lymphoma, Neuro-oncology, Tumor localization, Central nervous system diseases, top_k: 5, cosine: 0.2
+2026-10-09 10:46:53,312 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 10:46:53,313 - lightrag - INFO - Local query uses 5 entites, 42 relations, 3 chunks
+2026-10-09 10:46:53,771 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:53,771 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:53,771 - lightrag - INFO - Query nodes: Immunodeficiency, HIV/AIDS, Immunosuppression, Epstein-Barr virus, Organ transplantation, top_k: 5, cosine: 0.2
+2026-10-09 10:46:53,824 - lightrag - INFO - Query edges: Primary CNS lymphoma, Risk factors, Central nervous system neoplasms, Etiology, Oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:46:53,862 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 10:46:53,863 - lightrag - INFO - Local query uses 5 entites, 12 relations, 3 chunks
+2026-10-09 10:46:54,083 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:54,084 - lightrag - INFO - Process 19771 KV writting 539 records to llm_response_cache
+2026-10-09 10:46:55,912 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:55,912 - lightrag - INFO - Process 19771 KV writting 540 records to llm_response_cache
+2026-10-09 10:46:57,609 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:57,610 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:46:57,610 - lightrag - INFO - Query nodes: Primary CNS lymphoma, PCNSL, Epstein-Barr virus, EBV, HIV, Immunodeficiency, top_k: 5, cosine: 0.2
+2026-10-09 10:46:57,653 - lightrag - INFO - Query edges: Viral infections, Risk factors, Central nervous system malignancies, Neuro-oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:46:57,700 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 10:46:57,702 - lightrag - INFO - Local query uses 5 entites, 103 relations, 3 chunks
+2026-10-09 10:46:59,355 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:46:59,355 - lightrag - INFO - Process 19771 KV writting 542 records to llm_response_cache
+2026-10-09 10:47:01,501 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 10:47:01,501 - lightrag - INFO - Process 19771 buidling query context...
+2026-10-09 10:47:01,502 - lightrag - INFO - Query nodes: Primary CNS lymphoma, PCNSL, Systemic lupus erythematosus, Sjögren's syndrome, Rheumatoid arthritis, Immunodeficiency, top_k: 5, cosine: 0.2
+2026-10-09 10:47:01,569 - lightrag - INFO - Query edges: Autoimmune conditions, Risk factors, Central nervous system lymphoma, Oncology, top_k: 5, cosine: 0.2
+2026-10-09 10:47:01,618 - lightrag - INFO - Global query uses 6 entites, 5 relations, 2 chunks
+2026-10-09 10:47:01,620 - lightrag - INFO - Local query uses 5 entites, 103 relations, 3 chunks

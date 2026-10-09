@@ -1,0 +1,14 @@
+# step: pilot_4minds_symi
+# start: 2026-10-09T14:50:54Z
+# command: .venv-eval/bin/python run_4minds.py --engine symi --subset medical --questions-file Questions/pilot_questions.json --out-dir results/pilot/4minds_symi --workers 4
+
+== 4minds_symi / medical: 10 questions, 0 already done, 10 to run, 4 workers
+  readiness: {"dataset_id": 4033, "model_id": 3592, "status": "in_use", "graph_status": "ready", "graph_build_progress": 100, "files_processed_count": 2, "total_chunks_count": 204, "build_status": "enhancing", "etl_job_status": "completed", "error_message": null, "model_status": "ready"}
+  [1/10] FAILED Medical::Medical-2360f9dd: {"code": "RuntimeError", "message": "[{'type': 'symi.error', 'message': 'symi-gateway authentication failed', 'error_code': 'auth_failed', 'error_details': None}]"}
+  [2/10] FAILED Medical::Medical-de0b30b1: {"code": "RuntimeError", "message": "[{'type': 'symi.error', 'message': 'symi-gateway authentication failed', 'error_code': 'auth_failed', 'error_details': None}]"}
+  [3/10] FAILED Medical::Medical-edb040bb: {"code": "RuntimeError", "message": "[{'type': 'symi.error', 'message': 'symi-gateway authentication failed', 'error_code': 'auth_failed', 'error_details': None}]"}
+  [4/10] FAILED Medical::Medical-f4ba3ee9: {"code": "RuntimeError", "message": "[{'type': 'symi.error', 'message': 'symi-gateway authentication failed', 'error_code': 'auth_failed', 'error_details': None}]"}
+  [5/10] FAILED Medical::Medical-136a5739: {"code": "RuntimeError", "message": "[{'type': 'symi.error', 'message': 'symi-gateway authentication failed', 'error_code': 'auth_failed', 'error_details': None}]"}
+  [6/10] FAILED Medical::Medical-f79d978d: {"code": "RuntimeError", "message": "[{'type': 'symi.error', 'message': 'symi-gateway authentication failed', 'error_code': 'auth_failed', 'error_details': None}]"}
+  [7/10] FAILED Medical::Medical-0ae62420: {"code": "RuntimeError", "message": "[{'type': 'symi.error', 'message': 'symi-gateway authentication failed', 'error_code': 'auth_failed', 'error_details': None}]"}
+  [8/10] FAILED Medical::Medical-01f113f7: {"code": "RuntimeError", "message": "[{'type': 'symi.error', 'message': 'symi-gateway authentication failed', 'error_code': 'auth_failed', 'error_details': None}]"}

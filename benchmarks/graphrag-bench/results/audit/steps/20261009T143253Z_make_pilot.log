@@ -1,0 +1,18 @@
+# step: make_pilot
+# start: 2026-10-09T14:32:53Z
+# command: python3 make_pilot.py
+
+Medical-de0b30b1  Fact Retrieval         Are organ transplant recipients at higher risk for BCC?
+Medical-2360f9dd  Fact Retrieval         What defines Stage 0 colon cancer?
+Medical-f4ba3ee9  Fact Retrieval         What are common sites of liver cancer metastasis?
+Medical-edb040bb  Fact Retrieval         What is the origin of primary bone cancer?
+Medical-01f113f7  Fact Retrieval         What is stomach cancer?
+Medical-f79d978d  Complex Reasoning      How does the presence of a lung nodule on imaging affect the diagnosti
+Medical-136a5739  Complex Reasoning      Which two polyp types are unlikely to progress to rectal cancer, and h
+Medical-0ae62420  Contextual Summarize   What assessments and counseling are recommended for patients with naso
+Medical-97625b74  Contextual Summarize   What are the main diagnostic methods and common symptoms across major 
+Medical-d5964ccf  Creative Generation    As a public health officer, draft a community health advisory on lung 
+
+10 questions -> /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/Questions/pilot_questions.json  sha256 77f764ed2ec94e966461bb9b40f3eeae001e9ec3dc800092738ff45542f538dd
+
+# end: 2026-10-09T14:32:53Z  exit: 0  duration_s: 0

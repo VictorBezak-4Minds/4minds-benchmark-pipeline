@@ -1,0 +1,18 @@
+# step: score_pilot_gemini
+# start: 2026-10-09T14:54:20Z
+# command: .venv-eval/bin/python score.py --system-dir results/pilot/gemini/medical
+
+scoring 10 predictions in /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/pilot/gemini/medical with gpt-4o-mini (gpt-4o-mini-2024-07-18)
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'top_p', 'seed', 'frequency_penalty', 'presence_penalty'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Evaluation/generation_eval.py:170: LangChainDeprecationWarning: The class `HuggingFaceBgeEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 27848.54it/s]
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+done in 41.6 s, exit -11, scored {}, failed samples 0
+
+# end: 2026-10-09T14:55:04Z  exit: 245  duration_s: 44

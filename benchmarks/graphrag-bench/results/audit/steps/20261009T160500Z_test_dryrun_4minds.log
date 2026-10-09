@@ -1,0 +1,12 @@
+# step: test_dryrun_4minds
+# start: 2026-10-09T16:05:00Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_4minds.py --engine constellations --subset medical --questions-file data/Questions/pilot_questions.json --dry-run
+
+{
+  "type": "conversation_prompt",
+  "model_id": 3592,
+  "conversation_id": "<new per question>",
+  "prompt": "Are organ transplant recipients at higher risk for BCC?"
+}
+
+# end: 2026-10-09T16:05:00Z  exit: 0  duration_s: 0

@@ -1,0 +1,32 @@
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'frequency_penalty', 'seed', 'top_p', 'presence_penalty'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Evaluation/generation_eval.py:170: LangChainDeprecationWarning: The class `HuggingFaceBgeEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Loading evaluation data from /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/pilot/_shard_test/medical/score_shards/shard_01/predictions.json...
+
+==================================================
+Evaluating question type: Fact Retrieval
+==================================================
+
+Starting evaluation of 2 samples...
+✅ Completed sample 1/2 - 50.0%
+✅ Completed sample 2/2 - 100.0%
+
+Results for Fact Retrieval:
+  rouge_score: 0.3961
+  answer_correctness: 0.8608
+
+==================================================
+Evaluating question type: Contextual Summarize
+==================================================
+
+Starting evaluation of 1 samples...
+✅ Completed sample 1/1 - 100.0%
+
+Results for Contextual Summarize:
+  answer_correctness: 0.9776
+  coverage_score: 0.7000
+
+Saving results to /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/pilot/_shard_test/medical/score_shards/shard_01/generation_scores.json...
+
+Evaluation complete.

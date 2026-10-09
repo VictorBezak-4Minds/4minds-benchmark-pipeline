@@ -1,0 +1,8 @@
+# step: setup_envs
+# start: 2026-10-09T14:42:29Z
+# command: ./setup_envs.sh
+
+eval env ok
+lightrag env ok
+
+# end: 2026-10-09T14:43:30Z  exit: 0  duration_s: 61

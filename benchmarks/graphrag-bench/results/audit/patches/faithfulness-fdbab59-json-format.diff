@@ -1,0 +1,9 @@
+--- a/Evaluation/metrics/faithfulness.py:FAITHFULNESS_EVALUATION_PROMPT
++++ b/Evaluation/metrics/faithfulness.py:FAITHFULNESS_EVALUATION_PROMPT
+@@ -7,3 +7,6 @@
+ Current Analysis:
+ Context: {context}
+ Statements: {statements}
++
++Return only a JSON list of objects with the keys "statement", "reason" and "verdict", in the same format as the example outputs.
++Output:

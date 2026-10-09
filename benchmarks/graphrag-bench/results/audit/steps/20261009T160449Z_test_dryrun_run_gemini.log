@@ -1,0 +1,15 @@
+# step: test_dryrun_run_gemini
+# start: 2026-10-09T16:04:49Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_gemini.py --subset medical --questions-file data/Questions/pilot_questions.json --dry-run
+
+usage: run_gemini.py [-h] --subset {medical,novel}
+                     [--questions-file QUESTIONS_FILE] [--sample SAMPLE]
+                     [--full] [--workers WORKERS]
+                     [--max-attempts MAX_ATTEMPTS] [--backoff BACKOFF]
+                     [--timeout TIMEOUT] [--out-dir OUT_DIR] [--dry-run]
+                     [--store STORE] [--model MODEL] [--top-k TOP_K]
+                     [--temperature TEMPERATURE] [--seed SEED]
+                     [--thinking-level {minimal,low,medium,high}]
+run_gemini.py: error: the following arguments are required: --subset
+
+# end: 2026-10-09T16:04:49Z  exit: 2  duration_s: 0

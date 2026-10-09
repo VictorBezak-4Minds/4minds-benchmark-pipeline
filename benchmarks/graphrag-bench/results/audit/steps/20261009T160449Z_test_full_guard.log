@@ -1,0 +1,7 @@
+# step: test_full_guard
+# start: 2026-10-09T16:04:49Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_4minds.py --engine constellations --subset medical --dry-run
+
+This would run the full question set. Use --questions-file or --sample for pilots, or --full when the operator has approved a full run.
+
+# end: 2026-10-09T16:04:49Z  exit: 1  duration_s: 0

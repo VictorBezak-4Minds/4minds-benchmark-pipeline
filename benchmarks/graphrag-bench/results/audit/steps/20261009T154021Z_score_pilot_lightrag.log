@@ -1,0 +1,25 @@
+# step: score_pilot_lightrag
+# start: 2026-10-09T15:40:21Z
+# command: .venv-eval/bin/python score.py --system-dir results/pilot/lightrag/medical
+
+scoring 10 predictions in /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/pilot/lightrag/medical with gpt-4o-mini (gpt-4o-mini-2024-07-18), 1 shard(s)
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.4835
+  answer_correctness: 0.8554
+Results for Complex Reasoning:
+  rouge_score: 0.5293
+  answer_correctness: 0.8748
+Results for Contextual Summarize:
+  answer_correctness: 0.8500
+  coverage_score: 0.6556
+Results for Creative Generation:
+  answer_correctness: 0.7610
+  coverage_score: 0.4400
+  faithfulness: 0.6364
+Evaluation complete.
+
+done in 76.1 s, exit 0, scored {'Fact Retrieval': 5, 'Complex Reasoning': 2, 'Contextual Summarize': 2, 'Creative Generation': 1}, failed samples 0
+
+# end: 2026-10-09T15:41:39Z  exit: 0  duration_s: 78

@@ -1,0 +1,21 @@
+HTTP/2 200 
+content-type: text/plain; charset=utf-8
+x-guploader-uploadid: AP6rU83nPC9OvVCAxq68ILQKGoevi2-99lLj7kwq8TmJhG5Gmi0gw5ppC0HIIRGTo6yQvtqfhawAMMwrkXqhKKmpa02DH2Ba_K1Mapat7WOYWFI
+x-goog-upload-status: active
+x-goog-upload-url: https://generativelanguage.googleapis.com/upload/v1beta/fileSearchStores/graphragbench-9lax22b99qlk:uploadToFileSearchStore?upload_id=AP6rU83nPC9OvVCAxq68ILQKGoevi2-99lLj7kwq8TmJhG5Gmi0gw5ppC0HIIRGTo6yQvtqfhawAMMwrkXqhKKmpa02DH2Ba_K1Mapat7WOYWFI&upload_protocol=resumable
+x-goog-upload-control-url: https://generativelanguage.googleapis.com/upload/v1beta/fileSearchStores/graphragbench-9lax22b99qlk:uploadToFileSearchStore?upload_id=AP6rU83nPC9OvVCAxq68ILQKGoevi2-99lLj7kwq8TmJhG5Gmi0gw5ppC0HIIRGTo6yQvtqfhawAMMwrkXqhKKmpa02DH2Ba_K1Mapat7WOYWFI&upload_protocol=resumable
+x-goog-upload-chunk-granularity: 8388608
+x-goog-upload-header-x-google-esf-cloud-client-params: backend_service_name: "generativelanguage.googleapis.com" backend_fully_qualified_method: "google.ai.generativelanguage.v1beta.RetrieverService.UploadToFileSearchStore"
+x-goog-upload-header-x-google-session-info: GgQYECgLIAE6IxIhZ2VuZXJhdGl2ZWxhbmd1YWdlLmdvb2dsZWFwaXMuY29t
+x-goog-upload-header-x-google-backends: unix:/tmp/esfbackend.1791417271.112817.3151802
+x-goog-upload-header-content-type: application/json; charset=UTF-8
+x-goog-upload-header-x-google-security-signals: FRAMEWORK=ONE_PLATFORM,ENV=borg,ENV_DEBUG=borg_user:genai-api;borg_job:prod.genai-api
+x-goog-upload-header-vary: Origin
+x-goog-upload-header-vary: X-Origin
+x-goog-upload-header-vary: Referer
+x-goog-upload-header-x-google-gfe-backend-request-cost: 30.1500
+content-length: 0
+date: Thu, 08 Oct 2026 22:28:03 GMT
+server: UploadServer
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+

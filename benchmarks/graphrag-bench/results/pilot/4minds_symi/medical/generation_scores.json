@@ -1,0 +1,146 @@
+{
+  "Fact Retrieval": {
+    "average_scores": {
+      "rouge_score": 0.2399890172681196,
+      "answer_correctness": 0.5688184329925184
+    },
+    "detailed": [
+      {
+        "id": "Medical-f4ba3ee9",
+        "question": "What are common sites of liver cancer metastasis?",
+        "ground_truth": "Liver cancer most often metastasizes to the lung or bone.",
+        "generated_answer": "Liver cancer most frequently spreads to the\u202flung\u202fand\u202fbone. These are the common sites where metastatic liver cancer is found.",
+        "contexts": [],
+        "metrics": {
+          "rouge_score": 0.45161290322580644,
+          "answer_correctness": 0.9876490683400425
+        }
+      },
+      {
+        "id": "Medical-2360f9dd",
+        "question": "What defines Stage 0 colon cancer?",
+        "ground_truth": "Stage 0 colon cancer is carcinoma in situ.",
+        "generated_answer": "**Stage\u202f0 colon cancer is defined as carcinoma in situ of the colon.** It consists of abnormal cells confined to the innermost layer (the mucosa) of the colon wall. These cells have not invaded deeper layers of the colon wall or spread to lymph nodes or other organs.",
+        "contexts": [],
+        "metrics": {
+          "rouge_score": 0.2857142857142857,
+          "answer_correctness": 0.45186449225493064
+        }
+      },
+      {
+        "id": "Medical-edb040bb",
+        "question": "What is the origin of primary bone cancer?",
+        "ground_truth": "Primary bone cancer originates in bone or cartilage.",
+        "generated_answer": "**Primary bone cancer originates from the bone\u2019s own cells, most often as a sarcoma.**  \nSarcomas are malignant tumors that arise from mesenchymal (connective\u2011tissue) cells. In bone, these cancers develop from the cells that form bone or cartilage\u2014such as osteoblasts, chondrocytes, or other stromal cells within the bone marrow. Because they start in the bone itself, they are termed \u201cprimary\u201d bone cancers, distinguishing them from metastatic cancers that spread to bone from other organs.",
+        "contexts": [],
+        "metrics": {
+          "rouge_score": 0.1904761904761905,
+          "answer_correctness": 0.38219238650499626
+        }
+      },
+      {
+        "id": "Medical-de0b30b1",
+        "question": "Are organ transplant recipients at higher risk for BCC?",
+        "ground_truth": "Organ transplant is a risk factor for BCC.",
+        "generated_answer": "Yes. People whose immune systems are suppressed after an organ transplant have a higher risk of developing basal cell carcinoma. The immunosuppressive drugs used to prevent organ rejection reduce the body\u2019s ability to fight early cancerous changes in the skin, increasing the likelihood of BCC.",
+        "contexts": [],
+        "metrics": {
+          "rouge_score": 0.18518518518518517,
+          "answer_correctness": 0.7893484855513324
+        }
+      },
+      {
+        "id": "Medical-01f113f7",
+        "question": "What is stomach cancer?",
+        "ground_truth": "Stomach cancer is a type of cancer that arises in the stomach.",
+        "generated_answer": "Stomach cancer, also called gastric cancer, is a malignant disease that originates in the cells lining the inner wall of the stomach. Most stomach cancers are **adenocarcinomas**, which arise from the mucus\u2011secreting cells of the stomach\u2019s inner lining (the mucosa).  \n\n**Key characteristics**\n\n- **Origin and growth** \u2013 Cancer cells begin in the innermost layer (mucosa) and expand outward through the submucosa, muscle layer, subserosa, and eventually the outer serosa.  \n- **Types** \u2013 The two main adenocarcinoma subtypes are:  \n  - *Intestinal type*: forms gland\u2011like structures and often has targetable mutations.  \n  - *Diffuse type*: cells are scattered, do not form distinct glands, and are less common.  \n- **Spread (metastasis)** \u2013 Tumor cells can invade nearby lymph nodes, blood vessels, and adjacent organs such as the liver, pancreas, spleen, and peritoneum. Distant spread may involve the lungs or bone.  \n- **Stages** \u2013  \n  - *Early\u2011stage*: confined to the mucosa, usually a small tumor (\u22642\u202fcm) with no lymph\u2011node involvement.  \n  - *Locoregional (locally advanced)*: invasion into deeper layers and/or regional lymph\u2011node involvement.  \n  - *Metastatic*: cancer has spread to distant sites (commonly liver, peritoneum, distant lymph nodes, lungs, or bone).  \n\nStomach cancer typically develops slowly over many years, often preceded by precancerous changes in the mucosa that may be asymptomatic. Diagnosis is confirmed by endoscopic biopsy and imaging, and treatment decisions depend on the cancer\u2019s type, location, and stage.",
+        "contexts": [],
+        "metrics": {
+          "rouge_score": 0.08695652173913043,
+          "answer_correctness": 0.2330377323112905
+        }
+      }
+    ]
+  },
+  "Complex Reasoning": {
+    "average_scores": {
+      "rouge_score": 0.1680823680823681,
+      "answer_correctness": 0.8576734060049558
+    },
+    "detailed": [
+      {
+        "id": "Medical-136a5739",
+        "question": "Which two polyp types are unlikely to progress to rectal cancer, and how does this contrast with adenomas?",
+        "ground_truth": "Hyperplastic and inflammatory polyps rarely turn into cancer, while adenomas can become invasive rectal cancer over many years.",
+        "generated_answer": "Hyperplastic polyps and inflammatory polyps are the two types that are unlikely to progress to rectal cancer. In contrast, adenomas are the most common polyp type and, although it may take many years, they can evolve into invasive adenocarcinoma of the rectum.",
+        "contexts": [],
+        "metrics": {
+          "rouge_score": 0.26666666666666666,
+          "answer_correctness": 0.9873102874931792
+        }
+      },
+      {
+        "id": "Medical-f79d978d",
+        "question": "How does the presence of a lung nodule on imaging affect the diagnostic workflow for lung cancer?",
+        "ground_truth": "A lung nodule detected by imaging prompts further assessment, including biopsy, to confirm or exclude cancer.",
+        "generated_answer": "**A lung nodule on imaging triggers a structured, step\u2011wise diagnostic pathway to determine whether it represents cancer.**  \n\n**Risk assessment** \u2013 The care team (pulmonologist, thoracic radiologist, thoracic surgeon, oncologist) first evaluates the patient\u2019s risk factors (smoking history, age, occupational exposures, family history) and the nodule\u2019s characteristics (size, shape, density, growth pattern) on the initial scan.\n\n**Imaging review and follow\u2011up** \u2013  \n- If the nodule appears low\u2011risk (small, solid, stable), the team may schedule repeat low\u2011dose CT scans at defined intervals (e.g., 3\u20136\u202fmonths) to monitor for change.  \n- If the nodule shows suspicious features (\u226510\u202fmm, spiculated margins, subsolid component, rapid growth), additional imaging such as high\u2011resolution CT, PET\u2011CT, or contrast\u2011enhanced studies is ordered to better characterize it.\n\n**Biopsy decision** \u2013 When imaging suggests a higher probability of malignancy, a tissue sample is obtained. Options include:  \n- CT\u2011guided percutaneous needle biopsy,  \n- Bronchoscopy with transbronchial needle aspiration, or  \n- Endobronchial ultrasound\u2011guided biopsy for nodules near airways or lymph nodes.  \n\n**Multidisciplinary discussion** \u2013 All findings (risk assessment, imaging results, biopsy pathology) are reviewed in a tumor board or lung nodule conference. The team decides whether the nodule is cancer, requires further surveillance, or can be managed as a benign lesion.\n\n**Impact on overall workflow** \u2013 The presence of a nodule adds these specific steps to the standard lung\u2011cancer diagnostic algorithm, ensuring that patients receive timely, appropriate imaging, possible tissue confirmation, and coordinated specialist input before any treatment plan is formulated.",
+        "contexts": [],
+        "metrics": {
+          "rouge_score": 0.0694980694980695,
+          "answer_correctness": 0.7280365245167324
+        }
+      }
+    ]
+  },
+  "Contextual Summarize": {
+    "average_scores": {
+      "answer_correctness": 0.9177457230322498,
+      "coverage_score": 0.7777777777777778
+    },
+    "detailed": [
+      {
+        "id": "Medical-0ae62420",
+        "question": "What assessments and counseling are recommended for patients with nasopharyngeal carcinoma (NPC) prior to treatment?",
+        "ground_truth": "Before starting treatment, patients with nasopharyngeal carcinoma (NPC) should receive comprehensive assessments and counseling, including dental evaluation (as head and neck cancer and its treatment can affect oral health), nutrition assessment (to ensure adequate and sustained nutrition), and speech and swallowing assessment (to evaluate and address potential difficulties that may arise from the tumor or its treatment). Additionally, performance status evaluation is important to determine the patient's general fitness and ability to perform daily activities, which can influence treatment planning. Fertility counseling is also recommended, as treatments such as chemotherapy and radiation can impact fertility; patients interested in future fertility should be referred to a specialist to discuss preservation options. Other assessments that may be considered include eye exams, endocrine (hormone) tests, and hearing tests, depending on individual risk factors and planned therapies.",
+        "generated_answer": "**Assessments before starting treatment for nasopharyngeal carcinoma (NPC)**  \n\n- **Medical history and physical exam** \u2013 comprehensive review of past illnesses, medications, family history, and a complete head\u2011and\u2011neck examination (including mirror or fiberoptic scope as needed).  \n- **Performance\u2011status evaluation** \u2013 ECOG/PS scoring to gauge overall fitness for therapy.  \n- **Imaging studies** \u2013 MRI of the nasopharynx and neck (often with contrast), CT of the skull base and neck, and FDG\u2011PET/CT or chest CT to detect distant metastases.  \n- **Biopsy of the primary tumor** \u2013 tissue diagnosis with optional HPV (p16) testing and EBV DNA testing for prognostic information.  \n- **Dental examination** \u2013 baseline dental health assessment and necessary extractions before radiation or surgery.  \n- **Nutrition assessment** \u2013 evaluation by a dietitian to ensure adequate caloric intake and weight maintenance.  \n- **Speech and swallowing assessment** \u2013 evaluation by a speech\u2011language pathologist to establish baseline function.  \n- **Audiogram (hearing test)** \u2013 baseline hearing evaluation because NPC or its treatment can affect auditory function.  \n- **Eye examination** \u2013 to detect any ocular involvement prior to therapy.  \n- **Endocrine testing** \u2013 thyroid and pituitary hormone panels, especially if radiation to the head\u2011neck region is planned.  \n- **Pulmonary function testing** \u2013 if surgery or chemoradiation may impact lung capacity.  \n- **Distress screening / psychosocial assessment** \u2013 identification of anxiety, depression, or other emotional concerns.  \n- **Pre\u2011anesthesia evaluation** \u2013 airway and overall anesthesia risk assessment for any planned procedures.  \n\n**Counseling recommended before treatment**  \n\n- **Fertility counseling** \u2013 discussion of potential impacts of chemotherapy/radiation on fertility and referral to a fertility specialist for preservation options.  \n- **Pregnancy prevention** \u2013 guidance on effective contraception during and after treatment; pregnancy testing for patients with ovaries before therapy.  \n- **Smoking and alcohol cessation** \u2013 counseling, resources, and possible pharmacologic aids to stop tobacco and limit alcohol, which can impair treatment outcomes.  \n- **Nutrition counseling** \u2013 personalized dietary advice to maintain weight and support healing.  \n- **Speech, swallowing, and hearing counseling** \u2013 education on expected changes and strategies to preserve function.  \n- **Psychosocial support** \u2013 information on counseling services, support groups, and mind\u2011body therapies to manage distress.  \n- **Treatment\u2011preference discussion** \u2013 review of treatment options, side\u2011effect profiles, and alignment with the patient\u2019s values and goals.  \n\nThese assessments and counseling steps help create a personalized, safe, and well\u2011supported treatment plan for patients with NPC.",
+        "contexts": [],
+        "metrics": {
+          "answer_correctness": 0.993504812225493,
+          "coverage_score": 1.0
+        }
+      },
+      {
+        "id": "Medical-97625b74",
+        "question": "What are the main diagnostic methods and common symptoms across major subtypes of breast cancer?",
+        "ground_truth": "Breast cancer diagnosis commonly involves mammogram, ultrasound, MRI, CT scan, PET scan, biopsy, sentinel lymph node biopsy, blood tests, and physical exam, while symptoms include breast lump, pain, nipple discharge, skin changes, redness, swelling, peau d\u2019orange, and, in advanced cases, systemic symptoms such as bone pain or shortness of breath.",
+        "generated_answer": "**Primary diagnostic methods and typical symptoms for major breast cancer subtypes**\n\n| Subtype | Primary Diagnostic Methods | Common Symptoms |\n|--------|----------------------------|-----------------|\n| Invasive Ductal Carcinoma (IDC) / Ductal Carcinoma In Situ (DCIS) | Diagnostic mammogram (or 3\u2011D tomosynthesis), ultrasound, MRI as needed; image\u2011guided core needle or vacuum\u2011assisted biopsy; pathology with immunohistochemistry for hormone receptors and HER2 | Palpable lump (often the first sign); may be detected on screening mammogram before a lump is felt; DCIS is non\u2011invasive and usually presents only as an abnormal mammographic finding |\n| Invasive Lobular Carcinoma (ILC) | Diagnostic mammogram (often less conspicuous), ultrasound, MRI; core needle biopsy; pathology with hormone\u2011receptor and HER2 testing | May present as a subtle thickening or fullness rather than a distinct lump; sometimes discovered incidentally on imaging; can be bilateral |\n| Inflammatory Breast Cancer (IBC) | Clinical exam noting skin changes; diagnostic imaging (mammogram, ultrasound, MRI) to assess underlying mass; skin biopsy of inflamed area; full\u2011body imaging (CT/PET) for staging; hormone\u2011receptor and HER2 testing on biopsy | Rapid breast swelling, redness (erythema), warmth, peau d\u2019orange (dimpled skin), skin thickening, edema; often no discrete lump; can be mistaken for infection |\n| Triple\u2011Negative Breast Cancer (TNBC) | Same imaging work\u2011up as other invasive cancers (mammogram, ultrasound, MRI); core needle biopsy; pathology confirming lack of estrogen, progesterone, and HER2 receptors | Typically presents as a palpable, fast\u2011growing mass; may be larger at diagnosis; higher likelihood of early metastasis; symptoms similar to other invasive cancers (lump, possible skin changes) |\n| HER2\u2011Positive Breast Cancer | Imaging (mammogram, ultrasound, MRI); core needle biopsy; immunohistochemistry or in\u2011situ hybridization to determine HER2 overexpression/amplification; hormone\u2011receptor testing | Often presents as a palpable mass that may grow quickly; may have skin changes or ulceration in advanced cases; symptoms overlap with other invasive subtypes but HER2 positivity is identified through biomarker testing rather than clinical signs |",
+        "contexts": [],
+        "metrics": {
+          "answer_correctness": 0.8419866338390065,
+          "coverage_score": 0.5555555555555556
+        }
+      }
+    ]
+  },
+  "Creative Generation": {
+    "average_scores": {
+      "answer_correctness": 0.9897085029880863,
+      "coverage_score": 0.7083333333333334,
+      "faithfulness": 0.0
+    },
+    "detailed": [
+      {
+        "id": "Medical-d5964ccf",
+        "question": "As a public health officer, draft a community health advisory on lung cancer prevention and early detection, integrating key guideline facts on risk factors, screening, and symptom awareness.",
+        "ground_truth": "Community Health Advisory: Preventing and Detecting Lung Cancer Early\n\nLung cancer is a leading cause of cancer-related deaths, with non-small cell lung cancer (NSCLC) being the most common type. The primary risk factor for lung cancer is tobacco smoking, but exposure to secondhand smoke, radon, asbestos, air pollution, and certain occupational hazards (such as diesel fumes) also increase risk. While anyone can develop lung cancer, individuals with a history of heavy smoking or significant exposure to these risk factors are at higher risk and should discuss lung cancer screening with their healthcare provider. Screening, such as low-dose CT scans, is recommended for those at high risk and can detect lung cancer at an early, more treatable stage\u2014often before symptoms appear. Early symptoms may include a persistent cough, chest pain, shortness of breath, or unexplained weight loss. Quitting smoking and minimizing exposure to harmful substances are the most effective ways to reduce your risk. Regular checkups, updating your healthcare provider on your family and exposure history, and being aware of new or persistent respiratory symptoms are important for early detection. Participation in clinical trials and supportive care services may also improve outcomes for those diagnosed with lung cancer.",
+        "generated_answer": "**Community Health Advisory \u2013 Lung Cancer Prevention & Early Detection**\n\n**Why it matters**  \nLung cancer is the leading cause of cancer death. Detecting it early and reducing risk can save lives.\n\n**Major risk factors**  \n- **Smoking** \u2013 the single biggest cause; risk rises with the number of cigarettes and years smoked.  \n- **Second\u2011hand smoke** \u2013 inhaling smoke from others also increases risk.  \n- **Radon exposure** \u2013 invisible gas that can accumulate in homes; long\u2011term exposure is a known lung carcinogen.  \n- **Occupational hazards** \u2013 asbestos, silica, coal dust, diesel exhaust, and other fine particulates raise risk.  \n- **Air pollution** \u2013 fine particulate matter, ozone, nitrogen oxides, and sulfur dioxide contribute to lung cancer risk.  \n- **Age** \u2013 risk grows sharply after age\u202f50.  \n- **Family history & genetics** \u2013 a close relative with lung cancer or inherited mutations (e.g., EGFR, ALK) can increase susceptibility.  \n\n**Who should be screened**  \n- Adults **55\u202f\u2013\u202f80\u202fyears** old with a **30\u2011pack\u2011year** smoking history (one pack per day for 30\u202fyears or equivalent).  \n- Current smokers **or** former smokers who quit **within the past 15\u202fyears**.  \n- Individuals with additional high\u2011risk exposures (radon, asbestos, heavy occupational dust) may be screened earlier after consulting a health\u2011care provider.  \n- **Screening method:** Low\u2011dose computed tomography (LDCT) of the chest, performed **once a year**.  \n\n**Early\u2011symptom warning signs**  \n- Persistent cough that does not improve.  \n- Coughing up blood or rust\u2011colored sputum.  \n- Shortness of breath or wheezing.  \n- Chest pain that is new or worsening.  \n- Unexplained weight loss or loss of appetite.  \n- Hoarseness or a change in voice.  \n- Recurrent pneumonia or bronchitis that does not resolve.  \n\n**What you can do now**  \n\n| Action | How to take it |\n|--------|----------------|\n| **Quit smoking** | Seek counseling, nicotine\u2011replacement therapy, or prescription medications; ask your doctor for resources. |\n| **Avoid second\u2011hand smoke** | Stay away from indoor smoking areas and ask others not to smoke around you. |\n| **Test your home for radon** | Use a radon test kit (available at hardware stores) and mitigate high levels with professional ventilation. |\n| **Limit occupational exposures** | Use protective equipment, follow safety guidelines, and discuss exposure risks with your employer. |\n| **Stay active & maintain a healthy weight** | Regular moderate exercise (\u2265150\u202fminutes/week) and a diet rich in fruits, vegetables, and whole grains reduce overall cancer risk. |\n| **Schedule lung\u2011cancer screening** | If you meet the age and smoking criteria, talk to your primary\u2011care provider about an annual low\u2011dose CT scan. |\n| **Report symptoms promptly** | Contact your health\u2011care provider right away if you notice any of the warning signs above. |\n\n**Take the next step**  \nTalk to your health\u2011care provider today about your personal risk, screening eligibility, and a plan to quit smoking or reduce exposures. Early detection and prevention are the most powerful tools we have to combat lung cancer.",
+        "contexts": [],
+        "metrics": {
+          "answer_correctness": 0.9897085029880863,
+          "coverage_score": 0.7083333333333334,
+          "faithfulness": 0.0
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+# step: patch_lightrag
+# start: 2026-10-09T14:49:46Z
+# command: .venv-lightrag/bin/python patch_lightrag.py
+
+operate.py: patched
+lightrag.py: patched
+diff -> /Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/audit/patches/lightrag-1.2.5-context-return.diff
+
+# end: 2026-10-09T14:49:46Z  exit: 0  duration_s: 0

@@ -1,0 +1,98 @@
+{
+  "system": "4minds_constellations",
+  "subset": "medical",
+  "started": "2026-10-09T14:50:12+00:00",
+  "finished": "2026-10-09T14:50:54+00:00",
+  "wall_clock_s_this_invocation": 41.7,
+  "ran_this_invocation": 10,
+  "workers": 4,
+  "command": [
+    "run_4minds.py",
+    "--engine",
+    "constellations",
+    "--subset",
+    "medical",
+    "--questions-file",
+    "Questions/pilot_questions.json",
+    "--out-dir",
+    "results/pilot/4minds_constellations",
+    "--workers",
+    "4"
+  ],
+  "settings": {
+    "base_url": "https://api.4minds.ai",
+    "engine": "constellations",
+    "model_id": 3592,
+    "dataset_id": 4033,
+    "persona_id": 1275,
+    "system_prompt_via": "persona.behavioralGuidelines",
+    "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\"."
+  },
+  "readiness": {
+    "dataset_id": 4033,
+    "model_id": 3592,
+    "status": "in_use",
+    "graph_status": "ready",
+    "graph_build_progress": 100,
+    "files_processed_count": 2,
+    "total_chunks_count": 204,
+    "build_status": "enhancing",
+    "etl_job_status": "completed",
+    "error_message": null,
+    "model_status": "ready"
+  },
+  "inputs": {
+    "questions_file": "Questions/pilot_questions.json",
+    "questions_sha256": "77f764ed2ec94e966461bb9b40f3eeae001e9ec3dc800092738ff45542f538dd",
+    "corpus_file": "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/Corpus/corpus_txt/Medical.txt",
+    "corpus_sha256": "a076f9fc63b85aab51f899f63bf0437c44b445bcf49ef9991ebcbcadfd3a35a5"
+  },
+  "code": {
+    "run_4minds.py": "ee4b6172abbca872a9d5bc8e5d5b0059c7f970cc3d1b067405c03a1534f7ba26",
+    "bench_common.py": "5c8f1a56dd6e815aff9e95f885ca8b8845b149d4b84c372efa144e1347c2f3a0"
+  },
+  "python": "3.10.16",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "packages": {
+    "openai": "1.109.1",
+    "google-auth": "2.61.0",
+    "requests": "2.34.2",
+    "websockets": "16.1.1",
+    "transformers": "5.19.0",
+    "torch": "2.14.1"
+  },
+  "summary": {
+    "questions": 10,
+    "answered": 10,
+    "failed": 0,
+    "failed_keys": [],
+    "not_run": 0,
+    "no_context": 0,
+    "dont_know": 0,
+    "tokens": {
+      "total_tokens": 3222,
+      "tokens_used_today": 10732,
+      "tokens_used_this_month": 10732
+    },
+    "latency": {
+      "n": 10,
+      "mean_s": 12.65,
+      "median_s": 11.31,
+      "p90_s": 21.62,
+      "max_s": 21.62
+    }
+  },
+  "endpoint": "wss://api.4minds.ai/api/v1/user/inference",
+  "model": {
+    "id": "3592",
+    "name": "graphragbench-medical",
+    "base_model_name": "GPT-OSS-120B",
+    "base_model_id": 5,
+    "training_type_id": "sft",
+    "status": "ready",
+    "graph_status": "ready",
+    "dataset_id": 4033,
+    "personaId": 1275,
+    "trained_at": "2026-10-09T14:44:11.769139Z"
+  }
+}

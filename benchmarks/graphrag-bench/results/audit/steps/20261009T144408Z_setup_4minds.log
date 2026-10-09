@@ -1,0 +1,22 @@
+# step: setup_4minds
+# start: 2026-10-09T14:44:09Z
+# command: .venv-eval/bin/python setup_4minds.py
+
+dataset: 4033 {'status': 'preparing', 'graph_status': 'preparing', 'graph_build_progress': 0, 'files_processed_count': 0, 'total_chunks_count': 0, 'build_status': None, 'error_message': None}
+persona: 1275
+model: 3592 status=ready base=GPT-OSS-120B
+  2026-10-09T14:44:12+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 2, 'total_chunks_count': 204, 'build_status': 'enhancing', 'error_message': None, 'model_status': 'ready'}
+{
+  "id": "3592",
+  "name": "graphragbench-medical",
+  "base_model_name": "GPT-OSS-120B",
+  "base_model_id": 5,
+  "training_type_id": "sft",
+  "status": "ready",
+  "graph_status": "ready",
+  "dataset_id": 4033,
+  "personaId": 1275,
+  "trained_at": "2026-10-09T14:44:11.769139Z"
+}
+
+# end: 2026-10-09T14:44:12Z  exit: 0  duration_s: 4

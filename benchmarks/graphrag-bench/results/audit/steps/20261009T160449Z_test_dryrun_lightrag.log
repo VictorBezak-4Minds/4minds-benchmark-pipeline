@@ -1,0 +1,17 @@
+# step: test_dryrun_lightrag
+# start: 2026-10-09T16:04:49Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-lightrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/run_lightrag_bench.py --subset medical --questions-file data/Questions/pilot_questions.json --dry-run
+
+usage: run_lightrag_bench.py [-h] --subset {medical,novel}
+                             [--questions-file QUESTIONS_FILE]
+                             [--sample SAMPLE] [--full] [--workers WORKERS]
+                             [--max-attempts MAX_ATTEMPTS] [--backoff BACKOFF]
+                             [--timeout TIMEOUT] [--out-dir OUT_DIR]
+                             [--dry-run] [--base-dir BASE_DIR]
+                             [--model-name MODEL_NAME]
+                             [--embed-model EMBED_MODEL]
+                             [--llm-base-url LLM_BASE_URL]
+                             [--retrieve-topk RETRIEVE_TOPK] [--index-only]
+run_lightrag_bench.py: error: the following arguments are required: --subset
+
+# end: 2026-10-09T16:04:53Z  exit: 2  duration_s: 4

@@ -1,0 +1,9 @@
+# step: full_gemini_file_search
+# start: 2026-10-09T15:44:09Z
+# command: /opt/homebrew/bin/python3.14 run_gemini.py --subset medical --workers 10 --timeout 120
+
+== gemini_file_search / medical: 2062 questions, 0 already done, 2062 to run, 10 workers
+  readiness: {"store": "fileSearchStores/graphragbench-9lax22b99qlk", "activeDocumentsCount": 21, "pendingDocumentsCount": 0, "failedDocumentsCount": 0, "sources_active": ["Medical"]}
+  [25/2062] ok (47 s)
+  [50/2062] ok (92 s)
+  [75/2062] ok (140 s)

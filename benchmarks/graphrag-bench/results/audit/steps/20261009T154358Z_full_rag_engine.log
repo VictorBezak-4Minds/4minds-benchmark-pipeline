@@ -1,0 +1,9 @@
+# step: full_rag_engine
+# start: 2026-10-09T15:43:58Z
+# command: .venv-eval/bin/python run_rag_engine.py --subset medical --workers 10 --timeout 120
+
+== gemini_rag_engine / medical: 2062 questions, 0 already done, 2062 to run, 10 workers
+  readiness: {"corpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904", "files": {"Medical.txt": "ACTIVE"}}
+  [25/2062] ok (36 s)
+  [50/2062] ok (76 s)
+  [75/2062] ok (147 s)

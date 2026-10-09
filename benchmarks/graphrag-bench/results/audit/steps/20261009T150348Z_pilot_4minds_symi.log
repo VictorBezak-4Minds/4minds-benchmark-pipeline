@@ -1,0 +1,15 @@
+# step: pilot_4minds_symi
+# start: 2026-10-09T15:03:48Z
+# command: .venv-eval/bin/python run_4minds.py --engine symi --subset medical --questions-file Questions/pilot_questions.json --out-dir results/pilot/4minds_symi --workers 4 --max-attempts 3
+
+== 4minds_symi / medical: 10 questions, 0 already done, 10 to run, 4 workers
+  readiness: {"dataset_id": 4033, "model_id": 3592, "status": "in_use", "graph_status": "ready", "graph_build_progress": 100, "files_processed_count": 2, "total_chunks_count": 204, "build_status": "enhancing", "etl_job_status": "completed", "error_message": null, "model_status": "ready"}
+  [10/10] ok (43 s)
+
+== summary -> results/pilot/4minds_symi/medical/predictions.json
+  answered: 10 / 10   failed: 0   not run: 0
+  no context: 10   "I don't know": 0
+  tokens: {'total_tokens': 2801}
+  latency: {'n': 10, 'mean_s': 12.94, 'median_s': 10.84, 'p90_s': 24.56, 'max_s': 24.56}   estimated cost: None
+
+# end: 2026-10-09T15:04:32Z  exit: 0  duration_s: 44

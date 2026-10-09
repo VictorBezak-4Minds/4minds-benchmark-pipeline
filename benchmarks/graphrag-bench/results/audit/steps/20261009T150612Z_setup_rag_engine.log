@@ -1,0 +1,6 @@
+# step: setup_rag_engine
+# start: 2026-10-09T15:06:12Z
+# command: .venv-eval/bin/python setup_rag_engine.py
+
+
+# end: 2026-10-09T15:21:16Z  exit: 143  duration_s: 904

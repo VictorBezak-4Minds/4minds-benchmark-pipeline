@@ -1,0 +1,6 @@
+# step: lightrag_env_pin
+# start: 2026-10-09T14:52:59Z
+# command: .venv-lightrag/bin/pip install -q openai>=1.60,<2 httpx<0.29 transformers>=4.45,<5 datasets>=3,<4
+
+
+# end: 2026-10-09T14:53:04Z  exit: 0  duration_s: 6

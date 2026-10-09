@@ -1,0 +1,47 @@
+{
+  "checked": "2026-10-09T14:44:12+00:00",
+  "base_url": "https://api.4minds.ai",
+  "dataset_id": 4033,
+  "model_id": 3592,
+  "persona_id": 1275,
+  "ready": {
+    "dataset_id": 4033,
+    "model_id": 3592,
+    "status": "in_use",
+    "graph_status": "ready",
+    "graph_build_progress": 100,
+    "files_processed_count": 2,
+    "total_chunks_count": 204,
+    "build_status": "enhancing",
+    "error_message": null,
+    "model_status": "ready"
+  },
+  "wait_wall_clock_s": 2.7,
+  "model": {
+    "id": "3592",
+    "name": "graphragbench-medical",
+    "base_model_name": "GPT-OSS-120B",
+    "base_model_id": 5,
+    "training_type_id": "sft",
+    "status": "ready",
+    "graph_status": "ready",
+    "dataset_id": 4033,
+    "personaId": 1275,
+    "trained_at": "2026-10-09T14:44:11.769139Z"
+  },
+  "persona": {
+    "id": 1275,
+    "name": "GraphRAG-Bench official prompt",
+    "description": "The official GraphRAG-Bench system prompt (Role and Goal of Examples/run_lightrag.py).",
+    "toneOfVoice": "professional",
+    "keyTraits": [],
+    "behavioralGuidelines": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\".",
+    "exampleResponses": null,
+    "restrictions": null,
+    "status": "active",
+    "modelsApplied": 1,
+    "createdAt": "2026-10-09T14:44:11.414843Z",
+    "updatedAt": "2026-10-09T14:44:11.414843Z",
+    "isDefault": false
+  }
+}

@@ -1,0 +1,6 @@
+# step: lightrag_env_numpy
+# start: 2026-10-09T14:53:29Z
+# command: .venv-lightrag/bin/pip install -q --force-reinstall --no-deps numpy>=1.26,<2.3
+
+
+# end: 2026-10-09T14:53:30Z  exit: 0  duration_s: 1

@@ -1,0 +1,7 @@
+{
+  "name": "fileSearchStores/graphragbench-9lax22b99qlk",
+  "displayName": "graphrag-bench",
+  "createTime": "2026-10-08T22:26:30.856855Z",
+  "updateTime": "2026-10-08T22:26:30.856855Z",
+  "embeddingModel": "models/gemini-embedding-001"
+}

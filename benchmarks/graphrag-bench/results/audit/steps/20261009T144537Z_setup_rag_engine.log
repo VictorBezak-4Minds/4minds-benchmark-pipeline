@@ -1,0 +1,7 @@
+# step: setup_rag_engine
+# start: 2026-10-09T14:45:37Z
+# command: .venv-eval/bin/python setup_rag_engine.py
+
+Operation projects/1035005802258/locations/us-central1/operations/1531423997307125760 failed: {'code': 7, 'message': "Failed to create Vector Search Collection: <eye3 title='/VectorSearchService.CreateCollection, PERMISSION_DENIED'/> APPLICATION_ERROR;google.cloud.vectorsearch.v1main/VectorSearchService.CreateCollection;Vector Search API has not been used in project 1035005802258 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/vectorsearch.googleapis.com/overview?project=1035005802258 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.;AppErrorCode=7;StartTimeMs=1791557204026;unknown;ResFormat=uncompressed;ServerTimeSec=0.015163412;LogBytes=256;FailFast;EffSecLevel=none;ReqFormat=uncompressed;ReqID=c22e0565b4606bc5;GlobalID=0;Server=[2002:a05:693a:abd4:20b0:25e:cd0d:ec0b]:4002"}
+
+# end: 2026-10-09T14:46:45Z  exit: 1  duration_s: 68

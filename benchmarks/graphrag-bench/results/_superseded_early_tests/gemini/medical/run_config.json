@@ -1,0 +1,12 @@
+{
+  "created": "2026-10-09T12:13:04.425064+00:00",
+  "settings": {
+    "store": "fileSearchStores/graphragbench-9lax22b99qlk",
+    "model": "gemini-3.8-flash",
+    "top_k": 5,
+    "temperature": null,
+    "seed": null,
+    "thinking_level": null,
+    "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\"."
+  }
+}

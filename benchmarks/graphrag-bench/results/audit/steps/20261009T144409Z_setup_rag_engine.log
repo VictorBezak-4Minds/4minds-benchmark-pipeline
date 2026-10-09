@@ -1,0 +1,14 @@
+# step: setup_rag_engine
+# start: 2026-10-09T14:44:09Z
+# command: .venv-eval/bin/python setup_rag_engine.py
+
+POST https://us-central1-aiplatform.googleapis.com/v1/projects/minds-vs-gemini-benchmark/locations/us-central1/ragCorpora -> HTTP 400: {
+  "error": {
+    "code": 400,
+    "message": "For new projects, using Spanner mode with RAG Engine in us-central1, us-east1, and us-east4 is restricted to only allowlisted projects. due to capacity limitation. Please switch to Serverless mode in us-central1 (https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/switching-modes#switching_to_serverless_mode) or use other regions in https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview#supported-regions, or reach out to vertex-ai-rag-engine-support@google.com for assistance to onboard.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+
+# end: 2026-10-09T14:44:10Z  exit: 1  duration_s: 1

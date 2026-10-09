@@ -1,0 +1,92 @@
+[
+  {
+    "id": "Medical-de0b30b1",
+    "source": "Medical",
+    "question": "Are organ transplant recipients at higher risk for BCC?",
+    "answer": "Organ transplant is a risk factor for BCC.",
+    "question_type": "Fact Retrieval",
+    "evidence": "Organ transplant is a risk factor for BCC.",
+    "evidence_relations": "Organ transplant"
+  },
+  {
+    "id": "Medical-2360f9dd",
+    "source": "Medical",
+    "question": "What defines Stage 0 colon cancer?",
+    "answer": "Stage 0 colon cancer is carcinoma in situ.",
+    "question_type": "Fact Retrieval",
+    "evidence": "Stage 0 colon cancer is carcinoma in situ.",
+    "evidence_relations": "Stage 0 colon cancer is carcinoma in situ"
+  },
+  {
+    "id": "Medical-f4ba3ee9",
+    "source": "Medical",
+    "question": "What are common sites of liver cancer metastasis?",
+    "answer": "Liver cancer most often metastasizes to the lung or bone.",
+    "question_type": "Fact Retrieval",
+    "evidence": "Liver cancer most often metastasizes to the lung.; Liver cancer most often metastasizes to bone.",
+    "evidence_relations": "Liver cancer most often metastasizes to the lung or bone"
+  },
+  {
+    "id": "Medical-edb040bb",
+    "source": "Medical",
+    "question": "What is the origin of primary bone cancer?",
+    "answer": "Primary bone cancer originates in bone or cartilage.",
+    "question_type": "Fact Retrieval",
+    "evidence": "Primary bone cancer originates in bone.; Primary bone cancer originates in cartilage.",
+    "evidence_relations": "Primary bone cancer originates in bone or cartilage"
+  },
+  {
+    "id": "Medical-01f113f7",
+    "source": "Medical",
+    "question": "What is stomach cancer?",
+    "answer": "Stomach cancer is a type of cancer that arises in the stomach.",
+    "question_type": "Fact Retrieval",
+    "evidence": "Stomach cancer is a type of cancer.; Stomach cancer arises in the stomach.",
+    "evidence_relations": "Stomach cancer is a type of cancer that arises in the stomach"
+  },
+  {
+    "id": "Medical-f79d978d",
+    "source": "Medical",
+    "question": "How does the presence of a lung nodule on imaging affect the diagnostic workflow for lung cancer?",
+    "answer": "A lung nodule detected by imaging prompts further assessment, including biopsy, to confirm or exclude cancer.",
+    "question_type": "Complex Reasoning",
+    "evidence": "A lung nodule detected by imaging prompts further assessment.; Further assessment of a lung nodule includes a biopsy.; A biopsy is performed to confirm or exclude cancer in the presence of a lung nodule.",
+    "evidence_relations": "Lung nodules may be detected by imaging and require further assessment to determine malignancy; Biopsy is used to confirm lung cancer diagnosis"
+  },
+  {
+    "id": "Medical-136a5739",
+    "source": "Medical",
+    "question": "Which two polyp types are unlikely to progress to rectal cancer, and how does this contrast with adenomas?",
+    "answer": "Hyperplastic and inflammatory polyps rarely turn into cancer, while adenomas can become invasive rectal cancer over many years.",
+    "question_type": "Complex Reasoning",
+    "evidence": "Hyperplastic polyps rarely turn into rectal cancer.; Inflammatory polyps rarely turn into rectal cancer.; Adenomas can become invasive rectal cancer over many years.",
+    "evidence_relations": "Hyperplastic and inflammatory polyps rarely turn into cancer; Adenomas can become invasive rectal cancer over many years"
+  },
+  {
+    "id": "Medical-0ae62420",
+    "source": "Medical",
+    "question": "What assessments and counseling are recommended for patients with nasopharyngeal carcinoma (NPC) prior to treatment?",
+    "answer": "Before starting treatment, patients with nasopharyngeal carcinoma (NPC) should receive comprehensive assessments and counseling, including dental evaluation (as head and neck cancer and its treatment can affect oral health), nutrition assessment (to ensure adequate and sustained nutrition), and speech and swallowing assessment (to evaluate and address potential difficulties that may arise from the tumor or its treatment). Additionally, performance status evaluation is important to determine the patient's general fitness and ability to perform daily activities, which can influence treatment planning. Fertility counseling is also recommended, as treatments such as chemotherapy and radiation can impact fertility; patients interested in future fertility should be referred to a specialist to discuss preservation options. Other assessments that may be considered include eye exams, endocrine (hormone) tests, and hearing tests, depending on individual risk factors and planned therapies.",
+    "question_type": "Contextual Summarize",
+    "evidence": "Patients with NPC should undergo dental assessments.; Patients with NPC should undergo nutrition assessments.; Patients with NPC should undergo speech and swallowing assessments.; Patients with NPC should receive fertility counseling.; Patients with NPC should have performance status evaluated before treatment.",
+    "evidence_relations": "Dental health can be affected by head and neck cancer and its treatment; Nutrition assessment and speech and swallowing assessment are part of diagnostic methods; Performance status evaluation is included in diagnostic methods; Fertility counseling is recommended before therapy; Diagnostic Method includes: Dental exam, Nutrition assessment, Speech and swallowing assessment, Performance status evaluation, Fertility counseling"
+  },
+  {
+    "id": "Medical-97625b74",
+    "source": "Medical",
+    "question": "What are the main diagnostic methods and common symptoms across major subtypes of breast cancer?",
+    "answer": "Breast cancer diagnosis commonly involves mammogram, ultrasound, MRI, CT scan, PET scan, biopsy, sentinel lymph node biopsy, blood tests, and physical exam, while symptoms include breast lump, pain, nipple discharge, skin changes, redness, swelling, peau d’orange, and, in advanced cases, systemic symptoms such as bone pain or shortness of breath.",
+    "question_type": "Contextual Summarize",
+    "evidence": "Breast cancer diagnosis commonly involves mammogram.; Breast cancer diagnosis commonly involves ultrasound.; Breast cancer diagnosis commonly involves MRI.; Breast cancer diagnosis commonly involves CT scan.; Breast cancer diagnosis commonly involves PET scan.; Breast cancer diagnosis commonly involves biopsy.; Breast cancer diagnosis commonly involves sentinel lymph node biopsy.; Breast cancer diagnosis commonly involves blood tests.; Breast cancer diagnosis commonly involves physical exam.; Common symptoms of breast cancer include breast lump.; Common symptoms of breast cancer include pain.; Common symptoms of breast cancer include nipple discharge.; Common symptoms of breast cancer include skin changes.; Common symptoms of breast cancer include redness.; Common symptoms of breast cancer include swelling.; Common symptoms of breast cancer include peau d’orange.; In advanced cases of breast cancer, systemic symptoms may include bone pain.; In advanced cases of breast cancer, systemic symptoms may include shortness of breath.",
+    "evidence_relations": "Diagnosis involves imaging (mammogram, ultrasound, MRI, CT, PET), biopsy, and blood tests; Sentinel lymph node biopsy is used to assess lymph node involvement; Common symptoms include breast lump, pain, nipple discharge, skin changes, redness, swelling, and peau d’orange; Metastatic breast cancer (MBC) symptoms include bone pain, shortness of breath, liver dysfunction, and neurological symptoms; Inflammatory breast cancer (IBC) presents with redness, swelling, warmth, peau d’orange, skin thickening, edema, and erythema; Invasive ductal carcinoma symptoms include breast lump, breast pain, nipple discharge, skin thickening, redness, swelling, and peau d’orange; Diagnostic methods listed in the ontology include mammogram, ultrasound, MRI, CT scan, PET scan, biopsy, sentinel lymph node biopsy, blood tests, and physical exam"
+  },
+  {
+    "id": "Medical-d5964ccf",
+    "source": "Medical",
+    "question": "As a public health officer, draft a community health advisory on lung cancer prevention and early detection, integrating key guideline facts on risk factors, screening, and symptom awareness.",
+    "answer": "Community Health Advisory: Preventing and Detecting Lung Cancer Early\n\nLung cancer is a leading cause of cancer-related deaths, with non-small cell lung cancer (NSCLC) being the most common type. The primary risk factor for lung cancer is tobacco smoking, but exposure to secondhand smoke, radon, asbestos, air pollution, and certain occupational hazards (such as diesel fumes) also increase risk. While anyone can develop lung cancer, individuals with a history of heavy smoking or significant exposure to these risk factors are at higher risk and should discuss lung cancer screening with their healthcare provider. Screening, such as low-dose CT scans, is recommended for those at high risk and can detect lung cancer at an early, more treatable stage—often before symptoms appear. Early symptoms may include a persistent cough, chest pain, shortness of breath, or unexplained weight loss. Quitting smoking and minimizing exposure to harmful substances are the most effective ways to reduce your risk. Regular checkups, updating your healthcare provider on your family and exposure history, and being aware of new or persistent respiratory symptoms are important for early detection. Participation in clinical trials and supportive care services may also improve outcomes for those diagnosed with lung cancer.",
+    "question_type": "Creative Generation",
+    "evidence": "Lung cancer is a leading cause of cancer-related deaths.; The most common type of lung cancer is non-small cell lung cancer (NSCLC).; NSCLC is strongly linked to tobacco smoking.; Exposure to substances like radon, asbestos, and air pollution is also a risk factor for lung cancer.; Individuals with a history of heavy smoking should ask their healthcare provider about lung cancer screening.; Lung cancer screening can detect cancer at an early, more treatable stage.; Warning signs of lung cancer include persistent cough and chest pain.; Quitting smoking significantly lowers the risk of lung cancer.; Reducing exposure to harmful substances also lowers the risk.; Regular follow-up and participation in clinical trials may improve outcomes.",
+    "evidence_relations": "NSCLC is the most common type of lung cancer.; Tobacco smoking is the biggest risk factor for lung cancer.; Exposure to radon, asbestos, and air pollution are risk factors for lung cancer.; Lung cancer screening is recommended for people at high risk.; Lung cancer screening aims to detect cancer at an early, more treatable stage.; Symptoms of lung cancer may include cough, chest pain, and other respiratory symptoms.; Clinical trials are available for lung cancer treatment and prevention.; Supportive care extends and enhances life for people with lung cancer."
+  }
+]

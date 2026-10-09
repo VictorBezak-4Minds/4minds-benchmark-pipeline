@@ -1,0 +1,28 @@
+# step: cleanup_rag_engine
+# start: 2026-10-09T15:48:26Z
+# command: .venv-eval/bin/python cleanup_rag_engine.py
+
+deleted projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904
+{
+  "before": {
+    "name": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragEngineConfig",
+    "ragManagedDbConfig": {
+      "basic": {},
+      "spanner": {
+        "basic": {}
+      }
+    }
+  },
+  "after": {
+    "name": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragEngineConfig",
+    "ragManagedDbConfig": {
+      "unprovisioned": {},
+      "spanner": {
+        "unprovisioned": {}
+      }
+    }
+  },
+  "remaining_corpora": 0
+}
+
+# end: 2026-10-09T15:48:56Z  exit: 0  duration_s: 30

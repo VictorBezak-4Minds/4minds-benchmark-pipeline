@@ -1,0 +1,30 @@
+# step: lightrag_index
+# start: 2026-10-09T14:55:47Z
+# command: .venv-lightrag/bin/python run_lightrag_bench.py --subset medical --index-only
+
+INFO: Process 84484 Shared-Data created for Single Process
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/lightrag/workspace/Medical/vdb_entities.json'} 0 data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/lightrag/workspace/Medical/vdb_relationships.json'} 0 data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/lightrag/workspace/Medical/vdb_chunks.json'} 0 data
+INFO: Process 84484 initialized updated flags for namespace: [full_docs]
+INFO: Process 84484 ready to initialize storage namespace: [full_docs]
+INFO: Process 84484 initialized updated flags for namespace: [text_chunks]
+INFO: Process 84484 ready to initialize storage namespace: [text_chunks]
+INFO: Process 84484 initialized updated flags for namespace: [entities]
+INFO: Process 84484 initialized updated flags for namespace: [relationships]
+INFO: Process 84484 initialized updated flags for namespace: [chunks]
+INFO: Process 84484 initialized updated flags for namespace: [chunk_entity_relation]
+INFO: Process 84484 initialized updated flags for namespace: [llm_response_cache]
+INFO: Process 84484 ready to initialize storage namespace: [llm_response_cache]
+INFO: Process 84484 initialized updated flags for namespace: [doc_status]
+INFO: Process 84484 ready to initialize storage namespace: [doc_status]
+INFO: Process 84484 storage namespace already initialized: [full_docs]
+INFO: Process 84484 storage namespace already initialized: [text_chunks]
+INFO: Process 84484 storage namespace already initialized: [llm_response_cache]
+INFO: Process 84484 storage namespace already initialized: [doc_status]
+INFO: Process 84484 Pipeline namespace initialized
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/lightrag/workspace/Medical/vdb_chunks.json'} 0 data
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+
+# end: 2026-10-09T15:02:10Z  exit: 143  duration_s: 383

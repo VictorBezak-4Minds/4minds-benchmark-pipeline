@@ -1,0 +1,15 @@
+# step: pilot_gemini_file_search
+# start: 2026-10-09T14:34:04Z
+# command: python3 run_gemini.py --subset medical --questions-file Questions/pilot_questions.json --out-dir results/pilot/gemini --workers 10
+
+== gemini_file_search / medical: 10 questions, 9 already done, 1 to run, 10 workers
+  readiness: {"store": "fileSearchStores/graphragbench-9lax22b99qlk", "activeDocumentsCount": 21, "pendingDocumentsCount": 0, "failedDocumentsCount": 0, "sources_active": ["Medical"]}
+  [1/1] ok (9 s)
+
+== summary -> results/pilot/gemini/medical/predictions.json
+  answered: 10 / 10   failed: 0   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'total_input_tokens': 2554, 'total_output_tokens': 1606, 'total_tool_use_tokens': 158813, 'total_thought_tokens': 4788}
+  latency: {'n': 10, 'mean_s': 14.77, 'median_s': 10.25, 'p90_s': 41.57, 'max_s': 41.57}   estimated cost: 0.145
+
+# end: 2026-10-09T14:34:14Z  exit: 0  duration_s: 10

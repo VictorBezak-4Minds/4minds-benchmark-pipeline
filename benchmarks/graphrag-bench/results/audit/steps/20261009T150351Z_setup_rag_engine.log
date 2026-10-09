@@ -1,0 +1,7 @@
+# step: setup_rag_engine
+# start: 2026-10-09T15:03:51Z
+# command: .venv-eval/bin/python setup_rag_engine.py
+
+Operation projects/1035005802258/locations/us-central1/operations/6744410934732652544 failed: {'code': 13, 'message': 'No available indexing project found in us-central1. Please create new indexing projects.'}
+
+# end: 2026-10-09T15:04:38Z  exit: 1  duration_s: 47

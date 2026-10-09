@@ -1,0 +1,18 @@
+# step: lightrag_index
+# start: 2026-10-09T14:50:02Z
+# command: .venv-lightrag/bin/python run_lightrag_bench.py --subset medical --index-only
+
+Traceback (most recent call last):
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/run_lightrag_bench.py", line 31, in <module>
+    import run_lightrag as official  # noqa: E402
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Examples/run_lightrag.py", line 11, in <module>
+    from lightrag import LightRAG, QueryParam
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-lightrag/lib/python3.10/site-packages/lightrag/__init__.py", line 1, in <module>
+    from .lightrag import LightRAG as LightRAG, QueryParam as QueryParam
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-lightrag/lib/python3.10/site-packages/lightrag/lightrag.py", line 21, in <module>
+    from .base import (
+  File "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/.venv-lightrag/lib/python3.10/site-packages/lightrag/base.py", line 6, in <module>
+    from dotenv import load_dotenv
+ModuleNotFoundError: No module named 'dotenv'
+
+# end: 2026-10-09T14:50:16Z  exit: 1  duration_s: 14

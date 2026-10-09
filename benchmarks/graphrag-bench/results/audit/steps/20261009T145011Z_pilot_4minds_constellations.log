@@ -1,0 +1,15 @@
+# step: pilot_4minds_constellations
+# start: 2026-10-09T14:50:11Z
+# command: .venv-eval/bin/python run_4minds.py --engine constellations --subset medical --questions-file Questions/pilot_questions.json --out-dir results/pilot/4minds_constellations --workers 4
+
+== 4minds_constellations / medical: 10 questions, 0 already done, 10 to run, 4 workers
+  readiness: {"dataset_id": 4033, "model_id": 3592, "status": "in_use", "graph_status": "ready", "graph_build_progress": 100, "files_processed_count": 2, "total_chunks_count": 204, "build_status": "enhancing", "etl_job_status": "completed", "error_message": null, "model_status": "ready"}
+  [10/10] ok (42 s)
+
+== summary -> results/pilot/4minds_constellations/medical/predictions.json
+  answered: 10 / 10   failed: 0   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'total_tokens': 3222, 'tokens_used_today': 10732, 'tokens_used_this_month': 10732}
+  latency: {'n': 10, 'mean_s': 12.65, 'median_s': 11.31, 'p90_s': 21.62, 'max_s': 21.62}   estimated cost: None
+
+# end: 2026-10-09T14:50:54Z  exit: 0  duration_s: 43

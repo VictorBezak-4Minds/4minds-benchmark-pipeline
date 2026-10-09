@@ -1,0 +1,44 @@
+{
+  "created_or_checked": "2026-10-09T15:21:48+00:00",
+  "project": "minds-vs-gemini-benchmark",
+  "location": "europe-west4",
+  "corpus": {
+    "name": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904",
+    "displayName": "graphragbench-medical",
+    "createTime": "2026-10-09T15:08:44.664047Z",
+    "updateTime": "2026-10-09T15:08:44.664047Z",
+    "corpusStatus": {
+      "state": "ACTIVE"
+    },
+    "vectorDbConfig": {
+      "ragManagedDb": {
+        "knn": {}
+      },
+      "ragEmbeddingModelConfig": {
+        "vertexPredictionEndpoint": {
+          "endpoint": "projects/1035005802258/locations/europe-west4/publishers/google/models/text-embedding-005"
+        }
+      }
+    }
+  },
+  "files": [
+    {
+      "name": "projects/1035005802258/locations/europe-west4/ragCorpora/4611686018427387904/ragFiles/5805316673909492402",
+      "displayName": "Medical.txt",
+      "description": "GraphRAG-Bench Medical corpus",
+      "createTime": "2026-10-09T15:21:44.835858Z",
+      "updateTime": "2026-10-09T15:21:44.835858Z",
+      "directUploadSource": {},
+      "fileStatus": {
+        "state": "ACTIVE"
+      }
+    }
+  ],
+  "ready": {
+    "corpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904",
+    "files": {
+      "Medical.txt": "ACTIVE"
+    }
+  },
+  "setup_wall_clock_s": 29.5
+}

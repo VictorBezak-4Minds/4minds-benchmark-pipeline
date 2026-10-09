@@ -1,0 +1,12 @@
+{
+  "created": "2026-10-09T15:21:59+00:00",
+  "settings": {
+    "project": "minds-vs-gemini-benchmark",
+    "corpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904",
+    "model": "gemini-3.8-flash",
+    "model_location": "global",
+    "top_k": 5,
+    "temperature": null,
+    "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\"."
+  }
+}

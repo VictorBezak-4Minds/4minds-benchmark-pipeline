@@ -1,0 +1,121 @@
+# step: timing_pilot
+# start: 2026-10-09T16:05:12Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/make_timing.py --results results/pilot
+
+{
+  "generated": "2026-10-09T16:05:12+00:00",
+  "full_counts": {
+    "Fact Retrieval": 1098,
+    "Complex Reasoning": 509,
+    "Contextual Summarize": 289,
+    "Creative Generation": 166
+  },
+  "overhead_factor": 1.2,
+  "score_shards": 8,
+  "method": "From the 10-question pilot. Answering: per question type, full count x mean latency of the successful call, plus pilot retries per question x (planned timeout + 15 s), / workers x 1.2. Scoring: pilot time per judge round x rounds for 2,062 answers in 8 parallel shards. Costs scale the pilot cost to 2,062 questions.",
+  "systems": {
+    "gemini": {
+      "index_build": "built, reused",
+      "workers": 10,
+      "note": "Gemini Developer API (paid tier); --timeout 120",
+      "pilot_answered": 10,
+      "mean_latency_s": 14.8,
+      "mean_latency_s_by_type": {
+        "Fact Retrieval": 9.38,
+        "Contextual Summarize": 16.75,
+        "Complex Reasoning": 13.0,
+        "Creative Generation": 41.57
+      },
+      "retries_per_question": 0.2,
+      "timeout_s": 120,
+      "est_full_answer_h": 2.81,
+      "est_full_cost_usd": 29.98,
+      "pilot_score_wall_s": 76.5,
+      "est_full_score_h": 0.3
+    },
+    "rag_engine": {
+      "index_build": "built, reused (Medical.txt ACTIVE)",
+      "workers": 10,
+      "note": "Vertex AI, europe-west4 corpus; --timeout 120",
+      "pilot_answered": 10,
+      "mean_latency_s": 16.14,
+      "mean_latency_s_by_type": {
+        "Fact Retrieval": 7.44,
+        "Complex Reasoning": 38.66,
+        "Contextual Summarize": 13.58,
+        "Creative Generation": 19.72
+      },
+      "retries_per_question": 0.1,
+      "timeout_s": 120,
+      "est_full_answer_h": 2.1,
+      "est_full_cost_usd": 6.45,
+      "pilot_score_wall_s": 69.4,
+      "est_full_score_h": 0.27
+    },
+    "lightrag": {
+      "index_build": "36 min, reused",
+      "workers": 4,
+      "note": "official llm_model_max_async 4",
+      "pilot_answered": 10,
+      "mean_latency_s": 11.23,
+      "mean_latency_s_by_type": {
+        "Fact Retrieval": 9.5,
+        "Complex Reasoning": 10.89,
+        "Contextual Summarize": 13.03,
+        "Creative Generation": 16.99
+      },
+      "retries_per_question": 0.0,
+      "timeout_s": 300,
+      "est_full_answer_h": 1.88,
+      "est_full_cost_usd": 17.07,
+      "pilot_score_wall_s": 76.1,
+      "est_full_score_h": 0.3
+    },
+    "4minds_constellations": {
+      "index_build": "built, reused (dataset 4033)",
+      "workers": 4,
+      "note": "4 workers on prod; runs before SYMI",
+      "pilot_answered": 10,
+      "mean_latency_s": 12.65,
+      "mean_latency_s_by_type": {
+        "Fact Retrieval": 9.38,
+        "Complex Reasoning": 12.79,
+        "Contextual Summarize": 16.18,
+        "Creative Generation": 21.62
+      },
+      "retries_per_question": 0.0,
+      "timeout_s": 300,
+      "est_full_answer_h": 2.09,
+      "est_full_cost_usd": null,
+      "pilot_score_wall_s": 383.2,
+      "est_full_score_h": 1.8
+    },
+    "4minds_symi": {
+      "index_build": "same dataset as Constellations",
+      "workers": 4,
+      "note": "4 workers on prod; runs after Constellations",
+      "pilot_answered": 10,
+      "mean_latency_s": 12.94,
+      "mean_latency_s_by_type": {
+        "Fact Retrieval": 8.98,
+        "Complex Reasoning": 11.21,
+        "Contextual Summarize": 18.78,
+        "Creative Generation": 24.56
+      },
+      "retries_per_question": 0.0,
+      "timeout_s": 300,
+      "est_full_answer_h": 2.09,
+      "est_full_cost_usd": null,
+      "pilot_score_wall_s": 121.1,
+      "est_full_score_h": 0.52
+    }
+  },
+  "paths_h": {
+    "4Minds (Constellations, then SYMI)": 4.7,
+    "Gemini Developer API (File Search and LightRAG in parallel)": 3.12,
+    "Vertex AI (RAG Engine)": 2.37
+  },
+  "total": "All paths run at the same time. Slowest path: 4Minds (Constellations, then SYMI), about 4.7 h (answering plus scoring with 8 shards per system). The estimate does not include OpenAI rate-limit waits for the judge."
+}
+
+# end: 2026-10-09T16:05:12Z  exit: 0  duration_s: 0

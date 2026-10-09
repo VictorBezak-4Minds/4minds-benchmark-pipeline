@@ -1,0 +1,18 @@
+{
+  "finished": "2026-10-09T15:38:15+00:00",
+  "index_wall_clock_s": 2149.0,
+  "doc_status": {
+    "doc-3d7a4f05339f0e3f3870b407d21d9c8a": "processed"
+  },
+  "usage": {
+    "calls": 416,
+    "prompt_tokens": 1722633,
+    "completion_tokens": 444245,
+    "reasoning_tokens": 0
+  },
+  "estimated_cost_usd": 2.9579,
+  "model": "gemini-3.8-flash",
+  "embed_model": "BAAI/bge-large-en-v1.5",
+  "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Datasets/Corpus/medical.parquet",
+  "corpus_sha256": "e8e8a71eca466aecdc3d1705c4351027f2f260bc9ec2d59d736d8b69a88a6d7f"
+}

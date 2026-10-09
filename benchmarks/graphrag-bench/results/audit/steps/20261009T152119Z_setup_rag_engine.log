@@ -1,0 +1,22 @@
+# step: setup_rag_engine
+# start: 2026-10-09T15:21:19Z
+# command: .venv-eval/bin/python setup_rag_engine.py
+
+corpus: projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904
+uploaded: {"ragFile": {"name": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904/ragFiles/5805316673909492402", "displayName": "Medical.txt", "description": "GraphRAG-Bench Medical corpus", "directUploadSource": {}}}
+{
+  "corpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904",
+  "ready": {
+    "Medical.txt": "ACTIVE"
+  },
+  "embedding": {
+    "vertexPredictionEndpoint": {
+      "endpoint": "projects/1035005802258/locations/europe-west4/publishers/google/models/text-embedding-005"
+    }
+  },
+  "vector_db": [
+    "knn"
+  ]
+}
+
+# end: 2026-10-09T15:21:48Z  exit: 0  duration_s: 29

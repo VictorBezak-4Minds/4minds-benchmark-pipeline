@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-09T15:35:10+00:00",
+  "finished": "2026-10-09T15:35:28+00:00",
+  "wall_clock_s": 18.8,
+  "judge": "gpt-4o-mini",
+  "benchmark_commit": "fdbab5959b18c96532580877ffe27d112bccc0ec",
+  "predictions_sha256": "e77c99c97c8f8c2d789510a4a844731dd6517ae91abf88107adca4a01318721c",
+  "prompt_suffix": "\nReturn only a JSON list of objects with the keys \"statement\", \"reason\" and \"verdict\", in the same format as the example outputs.\nOutput:\n",
+  "patch": "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/audit/patches/faithfulness-fdbab59-json-format.diff",
+  "concurrency": 6,
+  "items": 1,
+  "scored": 1,
+  "nan": 0,
+  "mean": 0.5454545454545454,
+  "scores": {
+    "Medical-d5964ccf": 0.5454545454545454
+  }
+}
