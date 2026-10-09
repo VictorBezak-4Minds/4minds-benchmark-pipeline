@@ -1,0 +1,12 @@
+{
+  "created": "2026-10-09T17:03:46+00:00",
+  "settings": {
+    "store": "fileSearchStores/qaspertestpilot-jva5no5yqkow",
+    "model": "gemini-3.8-flash",
+    "top_k": 5,
+    "temperature": null,
+    "seed": null,
+    "thinking_level": null,
+    "system_prompt": "Answer the question with information from the knowledge base only.\nGive only the answer, with no explanation and no formatting:\n- a short phrase or sentence, or the words from the paper; separate several items with commas;\n- for a yes/no question, only \"Yes\" or \"No\";\n- if the paper does not answer the question, only \"Unanswerable\"."
+  }
+}

@@ -1,0 +1,41 @@
+# step: dryrun_rag_engine
+# start: 2026-10-09T17:03:27Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag_engine.py --subset test --questions-file data/pilot_questions.json --dry-run
+
+{
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "In the paper \"The Rapidly Changing Landscape of Conversational Agents\": Is there a benchmark to compare the different approaches?"
+        }
+      ]
+    }
+  ],
+  "systemInstruction": {
+    "parts": [
+      {
+        "text": "Answer the question with information from the knowledge base only.\nGive only the answer, with no explanation and no formatting:\n- a short phrase or sentence, or the words from the paper; separate several items with commas;\n- for a yes/no question, only \"Yes\" or \"No\";\n- if the paper does not answer the question, only \"Unanswerable\"."
+      }
+    ]
+  },
+  "tools": [
+    {
+      "retrieval": {
+        "vertexRagStore": {
+          "ragResources": [
+            {
+              "ragCorpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904"
+            }
+          ],
+          "ragRetrievalConfig": {
+            "topK": 5
+          }
+        }
+      }
+    }
+  ]
+}
+
+# end: 2026-10-09T17:03:27Z  exit: 0  duration_s: 0

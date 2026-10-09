@@ -1,0 +1,90 @@
+{
+  "system": "gemini_file_search",
+  "subset": "test",
+  "started": "2026-10-09T17:03:46+00:00",
+  "finished": "2026-10-09T17:07:51+00:00",
+  "wall_clock_s_this_invocation": 245.8,
+  "ran_this_invocation": 25,
+  "workers": 10,
+  "command": [
+    "/Users/victorbezak/Documents/Benchmark Datasets/systems/run_gemini.py",
+    "--subset",
+    "test",
+    "--questions-file",
+    "data/pilot_questions.json",
+    "--timeout",
+    "120",
+    "--out-dir",
+    "results/pilot/gemini",
+    "--workers",
+    "10"
+  ],
+  "settings": {
+    "store": "fileSearchStores/qaspertestpilot-jva5no5yqkow",
+    "model": "gemini-3.8-flash",
+    "top_k": 5,
+    "temperature": null,
+    "seed": null,
+    "thinking_level": null,
+    "system_prompt": "Answer the question with information from the knowledge base only.\nGive only the answer, with no explanation and no formatting:\n- a short phrase or sentence, or the words from the paper; separate several items with commas;\n- for a yes/no question, only \"Yes\" or \"No\";\n- if the paper does not answer the question, only \"Unanswerable\"."
+  },
+  "readiness": {
+    "store": "fileSearchStores/qaspertestpilot-jva5no5yqkow",
+    "activeDocumentsCount": 1,
+    "pendingDocumentsCount": 0,
+    "failedDocumentsCount": 0,
+    "sources_active": [
+      "qasper-test-pilot"
+    ]
+  },
+  "inputs": {
+    "questions_file": "data/pilot_questions.json",
+    "questions_sha256": "ab771bf5110a74ec9460eb337fbab79c774c18c507bbafa68908d9f6a6770b02",
+    "corpus_file": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/data/corpus_slice.txt",
+    "corpus_sha256": "46e1257b8b55761fbf50ff058a6b13945e5fa6013b99f89fd5d613ae2057c127"
+  },
+  "benchmark": "qasper",
+  "code": {
+    "run_gemini.py": "48dadd0702cfce038bf43e8c15855def2d128071b95b85fd091cd4039e3e54d0",
+    "bench_common.py": "124d404b806c255e35f60bf0e9ffa77c9257d3e3ced48a1d63c5cc133e6aee3c",
+    "benchmark_profile.py": "f48fb0afff39ccc7b587010c48e611b88bb1a0875fc57fc40e095de5277670fa"
+  },
+  "python": "3.10.16",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "packages": {
+    "openai": "1.109.1",
+    "google-auth": "2.61.0",
+    "requests": "2.34.2",
+    "websockets": "16.1.1",
+    "transformers": "4.57.6",
+    "torch": "2.14.1"
+  },
+  "summary": {
+    "questions": 25,
+    "answered": 25,
+    "failed": 0,
+    "failed_keys": [],
+    "not_run": 0,
+    "no_context": 14,
+    "dont_know": 0,
+    "tokens": {
+      "total_input_tokens": 25638,
+      "total_output_tokens": 5058,
+      "total_tool_use_tokens": 3276126,
+      "total_thought_tokens": 33247
+    },
+    "latency": {
+      "n": 25,
+      "mean_s": 37.04,
+      "median_s": 30.53,
+      "p90_s": 89.98,
+      "max_s": 108.96
+    },
+    "estimated_cost_usd": 2.62
+  },
+  "endpoint": "https://generativelanguage.googleapis.com/v1beta/interactions",
+  "price_usd_per_1m": {
+    "input": 0.75,
+    "output": 3.75
+  }
+}

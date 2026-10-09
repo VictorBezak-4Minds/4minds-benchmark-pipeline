@@ -1,0 +1,44 @@
+{
+  "created_or_checked": "2026-10-09T17:24:10+00:00",
+  "project": "minds-vs-gemini-benchmark",
+  "location": "europe-west4",
+  "corpus": {
+    "name": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904",
+    "displayName": "qasper-test-pilot",
+    "createTime": "2026-10-09T17:23:31.804604Z",
+    "updateTime": "2026-10-09T17:23:31.804604Z",
+    "corpusStatus": {
+      "state": "ACTIVE"
+    },
+    "vectorDbConfig": {
+      "ragManagedDb": {
+        "knn": {}
+      },
+      "ragEmbeddingModelConfig": {
+        "vertexPredictionEndpoint": {
+          "endpoint": "projects/1035005802258/locations/europe-west4/publishers/google/models/text-embedding-005"
+        }
+      }
+    }
+  },
+  "files": [
+    {
+      "name": "projects/1035005802258/locations/europe-west4/ragCorpora/4611686018427387904/ragFiles/5805378271368205814",
+      "displayName": "corpus_slice.txt",
+      "description": "QASPER v0.3 test, pilot corpus slice (64 papers), benchmark only",
+      "createTime": "2026-10-09T17:24:07.772410Z",
+      "updateTime": "2026-10-09T17:24:07.772410Z",
+      "directUploadSource": {},
+      "fileStatus": {
+        "state": "ACTIVE"
+      }
+    }
+  ],
+  "ready": {
+    "corpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904",
+    "files": {
+      "corpus_slice.txt": "ACTIVE"
+    }
+  },
+  "setup_wall_clock_s": 95.0
+}

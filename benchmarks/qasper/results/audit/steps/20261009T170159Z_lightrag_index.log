@@ -1,0 +1,129 @@
+# step: lightrag_index
+# start: 2026-10-09T17:01:59Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-lightrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_lightrag.py --subset test --index-only
+
+INFO: Process 75580 Shared-Data created for Single Process
+INFO: Created new empty graph
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_chunks.json'} 0 data
+INFO: Process 75580 initialized updated flags for namespace: [full_docs]
+INFO: Process 75580 ready to initialize storage namespace: [full_docs]
+INFO: Process 75580 KV load full_docs with 0 records
+INFO: Process 75580 initialized updated flags for namespace: [text_chunks]
+INFO: Process 75580 ready to initialize storage namespace: [text_chunks]
+INFO: Process 75580 KV load text_chunks with 0 records
+INFO: Process 75580 initialized updated flags for namespace: [entities]
+INFO: Process 75580 initialized updated flags for namespace: [relationships]
+INFO: Process 75580 initialized updated flags for namespace: [chunks]
+INFO: Process 75580 initialized updated flags for namespace: [chunk_entity_relation]
+INFO: Process 75580 initialized updated flags for namespace: [llm_response_cache]
+INFO: Process 75580 ready to initialize storage namespace: [llm_response_cache]
+INFO: Process 75580 KV load llm_response_cache with 0 records
+INFO: Process 75580 initialized updated flags for namespace: [doc_status]
+INFO: Process 75580 ready to initialize storage namespace: [doc_status]
+INFO: Process 75580 doc status load doc_status with 0 records
+INFO: Process 75580 storage namespace already initialized: [full_docs]
+INFO: Process 75580 storage namespace already initialized: [text_chunks]
+INFO: Process 75580 storage namespace already initialized: [llm_response_cache]
+INFO: Process 75580 storage namespace already initialized: [doc_status]
+INFO: Process 75580 Pipeline namespace initialized
+INFO: Storage Initialization completed!
+INFO: Inserting 1 records to doc_status
+INFO: Process 75580 doc status writting 1 records to doc_status
+INFO: Stored 1 new unique documents
+INFO: Number of batches to process: 1.
+INFO: Start processing batch 1 of 1.
+INFO: Inserting 1 records to doc_status
+INFO: Process 75580 doc status writting 1 records to doc_status
+INFO: Inserting 294 to chunks
+INFO: Inserting 1 records to full_docs
+INFO: Inserting 294 records to text_chunks
+INFO: Process 75580 reloading chunks due to update by another process
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_chunks.json'} 0 data
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+
+# end: 2026-10-09T17:09:41Z  exit: 143  duration_s: 462

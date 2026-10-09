@@ -1,0 +1,15 @@
+# step: pilot_gemini
+# start: 2026-10-09T17:03:45Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_gemini.py --subset test --questions-file data/pilot_questions.json --timeout 120 --out-dir results/pilot/gemini --workers 10
+
+== gemini_file_search / test: 25 questions, 0 already done, 25 to run, 10 workers
+  readiness: {"store": "fileSearchStores/qaspertestpilot-jva5no5yqkow", "activeDocumentsCount": 1, "pendingDocumentsCount": 0, "failedDocumentsCount": 0, "sources_active": ["qasper-test-pilot"]}
+  [25/25] ok (246 s)
+
+== summary -> results/pilot/gemini/test/predictions.json
+  answered: 25 / 25   failed: 0   not run: 0
+  no context: 14   "I don't know": 0
+  tokens: {'total_input_tokens': 25638, 'total_output_tokens': 5058, 'total_tool_use_tokens': 3276126, 'total_thought_tokens': 33247}
+  latency: {'n': 25, 'mean_s': 37.04, 'median_s': 30.53, 'p90_s': 89.98, 'max_s': 108.96}   estimated cost: 2.62
+
+# end: 2026-10-09T17:07:52Z  exit: 0  duration_s: 247

@@ -1,0 +1,43 @@
+# step: pilot_lightrag
+# start: 2026-10-09T17:27:29Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-lightrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_lightrag.py --subset test --questions-file data/pilot_questions.json --out-dir results/pilot/lightrag --workers 4
+
+INFO: Process 94421 Shared-Data created for Single Process
+INFO:nano-vectordb:Load (3494, 1024) data
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_entities.json'} 3494 data
+INFO:nano-vectordb:Load (5459, 1024) data
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_relationships.json'} 5459 data
+INFO:nano-vectordb:Load (294, 1024) data
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_chunks.json'} 294 data
+INFO: Process 94421 initialized updated flags for namespace: [full_docs]
+INFO: Process 94421 ready to initialize storage namespace: [full_docs]
+INFO: Process 94421 initialized updated flags for namespace: [text_chunks]
+INFO: Process 94421 ready to initialize storage namespace: [text_chunks]
+INFO: Process 94421 initialized updated flags for namespace: [entities]
+INFO: Process 94421 initialized updated flags for namespace: [relationships]
+INFO: Process 94421 initialized updated flags for namespace: [chunks]
+INFO: Process 94421 initialized updated flags for namespace: [chunk_entity_relation]
+INFO: Process 94421 initialized updated flags for namespace: [llm_response_cache]
+INFO: Process 94421 ready to initialize storage namespace: [llm_response_cache]
+INFO: Process 94421 initialized updated flags for namespace: [doc_status]
+INFO: Process 94421 ready to initialize storage namespace: [doc_status]
+INFO: Process 94421 storage namespace already initialized: [full_docs]
+INFO: Process 94421 storage namespace already initialized: [text_chunks]
+INFO: Process 94421 storage namespace already initialized: [llm_response_cache]
+INFO: Process 94421 storage namespace already initialized: [doc_status]
+INFO: Process 94421 Pipeline namespace initialized
+== lightrag_gemini / test: 25 questions, 0 already done, 25 to run, 4 workers
+  readiness: {"working_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot", "doc_status": {"doc-04573b1bd522bf03f5d9da5fdc603eee": "processed"}, "index": {"finished": "2026-10-09T17:26:31+00:00", "index_wall_clock_s": 973.5, "doc_status": {"doc-04573b1bd522bf03f5d9da5fdc603eee": "processed"}, "usage": {"calls": 594, "prompt_tokens": 2501033, "completion_tokens": 553669}, "estimated_cost_usd": 3.952, "model": "gemini-3.8-flash", "embed_model": "BAAI/bge-large-en-v1.5", "max_async": 16, "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/data/corpus_slice.txt", "corpus_sha256": "46e1257b8b55761fbf50ff058a6b13945e5fa6013b99f89fd5d613ae2057c127"}}
+INFO:nano-vectordb:Load (3494, 1024) data
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_entities.json'} 3494 data
+INFO:nano-vectordb:Load (5459, 1024) data
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_relationships.json'} 5459 data
+  [25/25] ok (74 s)
+
+== summary -> results/pilot/lightrag/test/predictions.json
+  answered: 25 / 25   failed: 0   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'calls': 50, 'prompt_tokens': 235940, 'completion_tokens': 2307}
+  latency: {'n': 25, 'mean_s': 10.8, 'median_s': 9.4, 'p90_s': 15.27, 'max_s': 24.29}   estimated cost: 0.1856
+
+# end: 2026-10-09T17:28:53Z  exit: 0  duration_s: 84

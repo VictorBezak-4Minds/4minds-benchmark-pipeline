@@ -1,0 +1,1 @@
+provisioned: {'name': 'projects/minds-vs-gemini-benchmark/locations/europe-west4/ragEngineConfig', 'ragManagedDbConfig': {'basic': {}, 'spanner': {'basic': {}}}}

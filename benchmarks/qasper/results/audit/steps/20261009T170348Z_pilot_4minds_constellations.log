@@ -1,0 +1,15 @@
+# step: pilot_4minds_constellations
+# start: 2026-10-09T17:03:48Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_4minds.py --engine constellations --subset test --questions-file data/pilot_questions.json --workers 4 --out-dir results/pilot/4minds_constellations
+
+== 4minds_constellations / test: 25 questions, 0 already done, 25 to run, 4 workers
+  readiness: {"dataset_id": 4039, "model_id": 3598, "status": "in_use", "graph_status": "ready", "graph_build_progress": 100, "files_processed_count": 2, "total_chunks_count": 330, "build_status": "enhancing", "etl_job_status": "completed", "error_message": null, "model_status": "ready"}
+  [25/25] ok (64 s)
+
+== summary -> results/pilot/4minds_constellations/test/predictions.json
+  answered: 25 / 25   failed: 0   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'total_tokens': 365, 'tokens_used_today': 4650, 'tokens_used_this_month': 4650}
+  latency: {'n': 25, 'mean_s': 9.53, 'median_s': 9.68, 'p90_s': 11.63, 'max_s': 11.82}   estimated cost: None
+
+# end: 2026-10-09T17:04:53Z  exit: 0  duration_s: 65

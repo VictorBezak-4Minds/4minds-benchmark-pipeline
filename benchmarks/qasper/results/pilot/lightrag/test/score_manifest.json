@@ -1,0 +1,27 @@
+{
+  "scored": "2026-10-09T17:28:58+00:00",
+  "command": [
+    "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python",
+    "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/upstream/qasper_evaluator.py",
+    "--predictions",
+    "results/pilot/lightrag/test/predictions.jsonl",
+    "--gold",
+    "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/data/pilot_gold.json"
+  ],
+  "evaluator_sha256": "781aba7cd8e524bef4f0a1b4bf3504e5b02cb1d8d5bf32a8f0a89dfa83e86bfe",
+  "gold": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/data/pilot_gold.json",
+  "gold_sha256": "25af8c436315c7ff030e27c728d7bd94e9c8634af0c585254d1fd2fa13c995bf",
+  "predictions_sha256": "5ad909dccc3571cc123de8b380eb307b4ab0162519fb445fe57f8479ea58f30b",
+  "questions": 25,
+  "official": {
+    "Answer F1": 0.6600901875901876,
+    "Answer F1 by type": {
+      "extractive": 0.6281926406926407,
+      "abstractive": 0.35978835978835977,
+      "boolean": 0.6666666666666666,
+      "none": 1.0
+    },
+    "Evidence F1": 0.32,
+    "Missing predictions": 0
+  }
+}

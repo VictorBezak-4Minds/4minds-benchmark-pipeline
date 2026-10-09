@@ -1,0 +1,202 @@
+[
+  {
+    "question_id": "e8cdeb3a081d51cc143c7090a54c82d393f1a2ca",
+    "paper_id": "1803.08419",
+    "question": "In the paper \"The Rapidly Changing Landscape of Conversational Agents\": Is there a benchmark to compare the different approaches?",
+    "answer_type": "boolean",
+    "context": [],
+    "generated_answer": "No"
+  },
+  {
+    "question_id": "d4b84f48460517bc0a6d4e0c38f6853c58081166",
+    "paper_id": "1804.01155",
+    "question": "In the paper \"Socioeconomic Dependencies of Linguistic Patterns in Twitter: A Multivariate Analysis\": How do they combine the socioeconomic maps with Twitter data? ",
+    "answer_type": "abstractive",
+    "context": [],
+    "generated_answer": "They assign each geolocated Twitter user to the nearest INSEE socioeconomic map patch (within 1 km), thereby attaching SES indicators to the users."
+  },
+  {
+    "question_id": "351f7b254e80348221e0654478663a5e53d3fe65",
+    "paper_id": "1810.12897",
+    "question": "In the paper \"Topic-Specific Sentiment Analysis Can Help Identify Political Ideology\": What were the baselines?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "Random Selection, Majority Class, bag‑of‑words, GloVe‑d2v, Tweet2vec, Network Features"
+  },
+  {
+    "question_id": "a7e03d24549961b38e15b5386d9df267900ef4c8",
+    "paper_id": "1711.11118",
+    "question": "In the paper \"Multimodal Attribute Extraction\": How many different semi-structured templates are represented in the data?",
+    "answer_type": "abstractive",
+    "context": [],
+    "generated_answer": "Unanswerable"
+  },
+  {
+    "question_id": "f2b1e87f61c65aaa99bcf9825de11ae237260270",
+    "paper_id": "1909.00786",
+    "question": "In the paper \"Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions\": What are state-of-the-art baselines?",
+    "answer_type": "abstractive",
+    "context": [],
+    "generated_answer": "Context-dependent Seq2Seq (CD-Seq2Seq), SyntaxSQL-con"
+  },
+  {
+    "question_id": "27d7a30e42921e77cfffafac5cb0d16ce5a7df99",
+    "paper_id": "1707.02892",
+    "question": "In the paper \"A Generalized Recurrent Neural Architecture for Text Classification with Multi-Task Learning\": What recurrent neural networks are explored?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "LSTM‑based Single Layer, Pair‑wise Coupling Layer, Local Fusion Layer, Global Fusion Layer"
+  },
+  {
+    "question_id": "b32de10d84b808886d7a91ab0c423d4fc751384c",
+    "paper_id": "1603.09381",
+    "question": "In the paper \"Clinical Information Extraction via Convolutional Neural Network\": How did they obtain part-of-speech tags?",
+    "answer_type": "abstractive",
+    "context": [],
+    "generated_answer": "They were obtained using an NLTK part‑of‑speech tagger."
+  },
+  {
+    "question_id": "7a60f29e28063f50c2a7afd1c2a7668fb615cd53",
+    "paper_id": "1910.09942",
+    "question": "In the paper \"Scalable Neural Dialogue State Tracking\": Do they consistently outperform existing systems in terms of accuracy?",
+    "answer_type": "boolean",
+    "context": [],
+    "generated_answer": "Yes"
+  },
+  {
+    "question_id": "47d54a6dd50cab8dab64bfa1f9a1947a8190080c",
+    "paper_id": "1805.07882",
+    "question": "In the paper \"Sentence Modeling via Multiple Word Embeddings and Multi-level Comparison for Semantic Textual Similarity\": what datasets where used?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "STS Benchmark, SICK, MRPC"
+  },
+  {
+    "question_id": "d38745a3910c380e6df97c7056a5dd9643fd365b",
+    "paper_id": "1606.02601",
+    "question": "In the paper \"A Joint Model for Word Embedding and Word Morphology\": Do they compare to other models that include subword information such as fastText?",
+    "answer_type": "boolean",
+    "context": [],
+    "generated_answer": "No."
+  },
+  {
+    "question_id": "3b9da1af1550e01d2e6ba2b9edf55a289f5fa8e2",
+    "paper_id": "2002.09616",
+    "question": "In the paper \"\"Wait, I'm Still Talking!\"Predicting the Dialogue Interaction Behavior Using Imagine-Then-Arbitrate Model\": By how much does their model outperform the baseline?",
+    "answer_type": "abstractive",
+    "context": [],
+    "generated_answer": "Approximately 2 – 3 percentage points higher accuracy than the baseline."
+  },
+  {
+    "question_id": "6e63db22a2a34c20ad341eb33f3422f40d0001d3",
+    "paper_id": "1909.02855",
+    "question": "In the paper \"Don't Forget the Long Tail! A Comprehensive Analysis of Morphological Generalization in Bilingual Lexicon Induction\": What is the morphological constraint added?",
+    "answer_type": "abstractive",
+    "context": [],
+    "generated_answer": "A hard morphological constraint that aligns two words only if they share the same morphosyntactic category."
+  },
+  {
+    "question_id": "a59e86a15405c8a11890db072b99fda3173e5ab2",
+    "paper_id": "1704.04451",
+    "question": "In the paper \"Optimizing Differentiable Relaxations of Coreference Evaluation Metrics\": How long is the training dataset?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "3,492 documents."
+  },
+  {
+    "question_id": "554d798e4ce58fd30820200c474d7e796dc8ba89",
+    "paper_id": "1810.02268",
+    "question": "In the paper \"A Large-Scale Test Set for the Evaluation of Context-Aware Pronoun Translation in Neural Machine Translation\": what languages did they experiment on?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "English, German"
+  },
+  {
+    "question_id": "3588988f2230f3329d7523fbb881b20bf177280d",
+    "paper_id": "1811.00051",
+    "question": "In the paper \"Generating Texts with Integer Linear Programming\": Which ontologies did they use?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "Wine Ontology, Consumer Electronics Ontology, Disease Ontology"
+  },
+  {
+    "question_id": "74cef0205e0f31d0ab28d0e4d96c1e8ef62d4cce",
+    "paper_id": "1903.04329",
+    "question": "In the paper \"Scaling in Words on Twitter\": What explanation do the authors offer for the super or sublinear urban scaling?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "They attribute superlinear scaling to words reflecting urban lifestyle and larger non‑English‑speaking populations, and sublinear scaling to words tied to weather, outdoor activities, certain slang and companies, indicating that word frequencies mirror physical and demographic aspects of city size."
+  },
+  {
+    "question_id": "cc78a08f5bfe233405c99cb3dac1f11f3a9268b1",
+    "paper_id": "1907.08540",
+    "question": "In the paper \"Predicting Human Activities from User-Generated Content\": what social media platform was the data collected from?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "Twitter"
+  },
+  {
+    "question_id": "1d10e069b4304fabfbed69acf409f0a311bdc441",
+    "paper_id": "1806.09652",
+    "question": "In the paper \"Neural Machine Translation for Low Resource Languages using Bilingual Lexicon Induced from Comparable Corpora\": Which models do they use for NMT?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "attention‑based encoder‑decoder NMT, transfer (parent‑child) NMT, ensemble of eight NMT models, NMT with unknown‑word replacement, NMT used for n‑best list re‑scoring"
+  },
+  {
+    "question_id": "d2d9c7177728987d9e8b0c44549bbe03c8c00ef2",
+    "paper_id": "1906.05685",
+    "question": "In the paper \"A Focus on Neural Machine Translation for African Languages\": What evaluation metrics did they use?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "The paper evaluates its translation models using:\n\n- **BLEU scores** (reported for each model and language)  \n- **Human judgment ratings** of **adequacy**, **fluency**, and **completeness** (as shown in the experimental figures)"
+  },
+  {
+    "question_id": "159025c44c0115ab4cdc253885384f72e592e83a",
+    "paper_id": "1911.03642",
+    "question": "In the paper \"Towards Understanding Gender Bias in Relation Extraction\": How does hard debiasing affect gender bias in prediction and performance?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "Hard debiasing (applying hard‑debiased word embeddings) markedly reduces the gender‑bias gap in model predictions—lowering the F1‑score difference between male and female test instances across all relations—and also raises the absolute F1 scores, albeit modestly less than gender‑swapping. In short, it both mitigates bias and yields a small overall performance gain."
+  },
+  {
+    "question_id": "1dc5bf9dca7de2ba21db10e9056d3906267ef5d5",
+    "paper_id": "1912.07940",
+    "question": "In the paper \"To What Extent are Name Variants Used as Named Entities in Turkish Tweets?\": How many tweets are in the dataset?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "670"
+  },
+  {
+    "question_id": "c0cebef0e29b9d13c165b6f19f6ca8393348c671",
+    "paper_id": "1910.10670",
+    "question": "In the paper \"Efficient Dynamic WFST Decoding for Personalized Language Models\": What languages is the model tested on?",
+    "answer_type": "none",
+    "context": [],
+    "generated_answer": "Unanswerable"
+  },
+  {
+    "question_id": "079ca5810060e1cdc12b5935d8c248492f0478b9",
+    "paper_id": "1810.02229",
+    "question": "In the paper \"Italian Event Detection Goes Deep Learning\": Can the model be extended to other languages?",
+    "answer_type": "none",
+    "context": [],
+    "generated_answer": "Yes"
+  },
+  {
+    "question_id": "bf5e80f1ab4eae2254b4f4d7651969a3cf945fb4",
+    "paper_id": "1610.06510",
+    "question": "In the paper \"Learning variable length units for SMT between related languages via Byte Pair Encoding\": How many steps of BPE do they experiment with?",
+    "answer_type": "extractive",
+    "context": [],
+    "generated_answer": "They experiment with BPE merge operations ranging from 1,000 to 4,000."
+  },
+  {
+    "question_id": "3dad6b792044018bb968ac0d0fd4628653f9e4b7",
+    "paper_id": "1906.05506",
+    "question": "In the paper \"Character n-gram Embeddings to Improve RNN Language Models\": Which word embeddings do they compare against?",
+    "answer_type": "none",
+    "context": [],
+    "generated_answer": "The baselines use the ordinary word embeddings of the AWD‑LSTM (for PTB and WikiText‑2) and QRNN (for WikiText‑103) language models."
+  }
+]

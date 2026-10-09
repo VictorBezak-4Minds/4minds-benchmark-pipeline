@@ -1,0 +1,14 @@
+{
+  "created": "2026-10-09T17:04:53+00:00",
+  "settings": {
+    "base_url": "https://api.4minds.ai",
+    "engine": "symi",
+    "endpoint": "https://api.4minds.ai/api/v1/user/inference",
+    "model_id": 3598,
+    "dataset_id": 4039,
+    "persona_id": 1283,
+    "system_prompt_via": "persona.behavioralGuidelines",
+    "system_prompt": "Answer the question with information from the knowledge base only.\nGive only the answer, with no explanation and no formatting:\n- a short phrase or sentence, or the words from the paper; separate several items with commas;\n- for a yes/no question, only \"Yes\" or \"No\";\n- if the paper does not answer the question, only \"Unanswerable\".",
+    "context_order": "4Minds chunk score, highest first, across all retrieval steps, no duplicates"
+  }
+}

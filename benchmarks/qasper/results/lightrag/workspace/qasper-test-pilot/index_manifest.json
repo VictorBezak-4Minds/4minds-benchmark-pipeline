@@ -1,0 +1,18 @@
+{
+  "finished": "2026-10-09T17:26:31+00:00",
+  "index_wall_clock_s": 973.5,
+  "doc_status": {
+    "doc-04573b1bd522bf03f5d9da5fdc603eee": "processed"
+  },
+  "usage": {
+    "calls": 594,
+    "prompt_tokens": 2501033,
+    "completion_tokens": 553669
+  },
+  "estimated_cost_usd": 3.952,
+  "model": "gemini-3.8-flash",
+  "embed_model": "BAAI/bge-large-en-v1.5",
+  "max_async": 16,
+  "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/data/corpus_slice.txt",
+  "corpus_sha256": "46e1257b8b55761fbf50ff058a6b13945e5fa6013b99f89fd5d613ae2057c127"
+}

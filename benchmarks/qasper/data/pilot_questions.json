@@ -1,0 +1,335 @@
+[
+  {
+    "id": "e8cdeb3a081d51cc143c7090a54c82d393f1a2ca",
+    "paper_id": "1803.08419",
+    "title": "The Rapidly Changing Landscape of Conversational Agents",
+    "original_question": "Is there a benchmark to compare the different approaches?",
+    "question": "In the paper \"The Rapidly Changing Landscape of Conversational Agents\": Is there a benchmark to compare the different approaches?",
+    "answer_type": "boolean",
+    "reference_types": [
+      "boolean",
+      "none",
+      "boolean"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "d4b84f48460517bc0a6d4e0c38f6853c58081166",
+    "paper_id": "1804.01155",
+    "title": "Socioeconomic Dependencies of Linguistic Patterns in Twitter: A Multivariate Analysis",
+    "original_question": "How do they combine the socioeconomic maps with Twitter data? ",
+    "question": "In the paper \"Socioeconomic Dependencies of Linguistic Patterns in Twitter: A Multivariate Analysis\": How do they combine the socioeconomic maps with Twitter data? ",
+    "answer_type": "abstractive",
+    "reference_types": [
+      "abstractive",
+      "abstractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "351f7b254e80348221e0654478663a5e53d3fe65",
+    "paper_id": "1810.12897",
+    "title": "Topic-Specific Sentiment Analysis Can Help Identify Political Ideology",
+    "original_question": "What were the baselines?",
+    "question": "In the paper \"Topic-Specific Sentiment Analysis Can Help Identify Political Ideology\": What were the baselines?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "a7e03d24549961b38e15b5386d9df267900ef4c8",
+    "paper_id": "1711.11118",
+    "title": "Multimodal Attribute Extraction",
+    "original_question": "How many different semi-structured templates are represented in the data?",
+    "question": "In the paper \"Multimodal Attribute Extraction\": How many different semi-structured templates are represented in the data?",
+    "answer_type": "abstractive",
+    "reference_types": [
+      "abstractive",
+      "none"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "f2b1e87f61c65aaa99bcf9825de11ae237260270",
+    "paper_id": "1909.00786",
+    "title": "Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions",
+    "original_question": "What are state-of-the-art baselines?",
+    "question": "In the paper \"Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions\": What are state-of-the-art baselines?",
+    "answer_type": "abstractive",
+    "reference_types": [
+      "extractive",
+      "abstractive",
+      "abstractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "27d7a30e42921e77cfffafac5cb0d16ce5a7df99",
+    "paper_id": "1707.02892",
+    "title": "A Generalized Recurrent Neural Architecture for Text Classification with Multi-Task Learning",
+    "original_question": "What recurrent neural networks are explored?",
+    "question": "In the paper \"A Generalized Recurrent Neural Architecture for Text Classification with Multi-Task Learning\": What recurrent neural networks are explored?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "abstractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "b32de10d84b808886d7a91ab0c423d4fc751384c",
+    "paper_id": "1603.09381",
+    "title": "Clinical Information Extraction via Convolutional Neural Network",
+    "original_question": "How did they obtain part-of-speech tags?",
+    "question": "In the paper \"Clinical Information Extraction via Convolutional Neural Network\": How did they obtain part-of-speech tags?",
+    "answer_type": "abstractive",
+    "reference_types": [
+      "abstractive",
+      "abstractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "7a60f29e28063f50c2a7afd1c2a7668fb615cd53",
+    "paper_id": "1910.09942",
+    "title": "Scalable Neural Dialogue State Tracking",
+    "original_question": "Do they consistently outperform existing systems in terms of accuracy?",
+    "question": "In the paper \"Scalable Neural Dialogue State Tracking\": Do they consistently outperform existing systems in terms of accuracy?",
+    "answer_type": "boolean",
+    "reference_types": [
+      "boolean",
+      "boolean"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "47d54a6dd50cab8dab64bfa1f9a1947a8190080c",
+    "paper_id": "1805.07882",
+    "title": "Sentence Modeling via Multiple Word Embeddings and Multi-level Comparison for Semantic Textual Similarity",
+    "original_question": "what datasets where used?",
+    "question": "In the paper \"Sentence Modeling via Multiple Word Embeddings and Multi-level Comparison for Semantic Textual Similarity\": what datasets where used?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "abstractive",
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "d38745a3910c380e6df97c7056a5dd9643fd365b",
+    "paper_id": "1606.02601",
+    "title": "A Joint Model for Word Embedding and Word Morphology",
+    "original_question": "Do they compare to other models that include subword information such as fastText?",
+    "question": "In the paper \"A Joint Model for Word Embedding and Word Morphology\": Do they compare to other models that include subword information such as fastText?",
+    "answer_type": "boolean",
+    "reference_types": [
+      "boolean",
+      "boolean"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "3b9da1af1550e01d2e6ba2b9edf55a289f5fa8e2",
+    "paper_id": "2002.09616",
+    "title": "\"Wait, I'm Still Talking!\"Predicting the Dialogue Interaction Behavior Using Imagine-Then-Arbitrate Model",
+    "original_question": "By how much does their model outperform the baseline?",
+    "question": "In the paper \"\"Wait, I'm Still Talking!\"Predicting the Dialogue Interaction Behavior Using Imagine-Then-Arbitrate Model\": By how much does their model outperform the baseline?",
+    "answer_type": "abstractive",
+    "reference_types": [
+      "abstractive",
+      "abstractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "6e63db22a2a34c20ad341eb33f3422f40d0001d3",
+    "paper_id": "1909.02855",
+    "title": "Don't Forget the Long Tail! A Comprehensive Analysis of Morphological Generalization in Bilingual Lexicon Induction",
+    "original_question": "What is the morphological constraint added?",
+    "question": "In the paper \"Don't Forget the Long Tail! A Comprehensive Analysis of Morphological Generalization in Bilingual Lexicon Induction\": What is the morphological constraint added?",
+    "answer_type": "abstractive",
+    "reference_types": [
+      "abstractive",
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "a59e86a15405c8a11890db072b99fda3173e5ab2",
+    "paper_id": "1704.04451",
+    "title": "Optimizing Differentiable Relaxations of Coreference Evaluation Metrics",
+    "original_question": "How long is the training dataset?",
+    "question": "In the paper \"Optimizing Differentiable Relaxations of Coreference Evaluation Metrics\": How long is the training dataset?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "abstractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "554d798e4ce58fd30820200c474d7e796dc8ba89",
+    "paper_id": "1810.02268",
+    "title": "A Large-Scale Test Set for the Evaluation of Context-Aware Pronoun Translation in Neural Machine Translation",
+    "original_question": "what languages did they experiment on?",
+    "question": "In the paper \"A Large-Scale Test Set for the Evaluation of Context-Aware Pronoun Translation in Neural Machine Translation\": what languages did they experiment on?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "extractive",
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "3588988f2230f3329d7523fbb881b20bf177280d",
+    "paper_id": "1811.00051",
+    "title": "Generating Texts with Integer Linear Programming",
+    "original_question": "Which ontologies did they use?",
+    "question": "In the paper \"Generating Texts with Integer Linear Programming\": Which ontologies did they use?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "74cef0205e0f31d0ab28d0e4d96c1e8ef62d4cce",
+    "paper_id": "1903.04329",
+    "title": "Scaling in Words on Twitter",
+    "original_question": "What explanation do the authors offer for the super or sublinear urban scaling?",
+    "question": "In the paper \"Scaling in Words on Twitter\": What explanation do the authors offer for the super or sublinear urban scaling?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "cc78a08f5bfe233405c99cb3dac1f11f3a9268b1",
+    "paper_id": "1907.08540",
+    "title": "Predicting Human Activities from User-Generated Content",
+    "original_question": "what social media platform was the data collected from?",
+    "question": "In the paper \"Predicting Human Activities from User-Generated Content\": what social media platform was the data collected from?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "extractive",
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "1d10e069b4304fabfbed69acf409f0a311bdc441",
+    "paper_id": "1806.09652",
+    "title": "Neural Machine Translation for Low Resource Languages using Bilingual Lexicon Induced from Comparable Corpora",
+    "original_question": "Which models do they use for NMT?",
+    "question": "In the paper \"Neural Machine Translation for Low Resource Languages using Bilingual Lexicon Induced from Comparable Corpora\": Which models do they use for NMT?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "d2d9c7177728987d9e8b0c44549bbe03c8c00ef2",
+    "paper_id": "1906.05685",
+    "title": "A Focus on Neural Machine Translation for African Languages",
+    "original_question": "What evaluation metrics did they use?",
+    "question": "In the paper \"A Focus on Neural Machine Translation for African Languages\": What evaluation metrics did they use?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "159025c44c0115ab4cdc253885384f72e592e83a",
+    "paper_id": "1911.03642",
+    "title": "Towards Understanding Gender Bias in Relation Extraction",
+    "original_question": "How does hard debiasing affect gender bias in prediction and performance?",
+    "question": "In the paper \"Towards Understanding Gender Bias in Relation Extraction\": How does hard debiasing affect gender bias in prediction and performance?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "none",
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "1dc5bf9dca7de2ba21db10e9056d3906267ef5d5",
+    "paper_id": "1912.07940",
+    "title": "To What Extent are Name Variants Used as Named Entities in Turkish Tweets?",
+    "original_question": "How many tweets are in the dataset?",
+    "question": "In the paper \"To What Extent are Name Variants Used as Named Entities in Turkish Tweets?\": How many tweets are in the dataset?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "extractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "c0cebef0e29b9d13c165b6f19f6ca8393348c671",
+    "paper_id": "1910.10670",
+    "title": "Efficient Dynamic WFST Decoding for Personalized Language Models",
+    "original_question": "What languages is the model tested on?",
+    "question": "In the paper \"Efficient Dynamic WFST Decoding for Personalized Language Models\": What languages is the model tested on?",
+    "answer_type": "none",
+    "reference_types": [
+      "none",
+      "none",
+      "abstractive"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "079ca5810060e1cdc12b5935d8c248492f0478b9",
+    "paper_id": "1810.02229",
+    "title": "Italian Event Detection Goes Deep Learning",
+    "original_question": "Can the model be extended to other languages?",
+    "question": "In the paper \"Italian Event Detection Goes Deep Learning\": Can the model be extended to other languages?",
+    "answer_type": "none",
+    "reference_types": [
+      "none",
+      "boolean",
+      "none",
+      "none"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "bf5e80f1ab4eae2254b4f4d7651969a3cf945fb4",
+    "paper_id": "1610.06510",
+    "title": "Learning variable length units for SMT between related languages via Byte Pair Encoding",
+    "original_question": "How many steps of BPE do they experiment with?",
+    "question": "In the paper \"Learning variable length units for SMT between related languages via Byte Pair Encoding\": How many steps of BPE do they experiment with?",
+    "answer_type": "extractive",
+    "reference_types": [
+      "extractive",
+      "none"
+    ],
+    "source": "qasper-test-pilot"
+  },
+  {
+    "id": "3dad6b792044018bb968ac0d0fd4628653f9e4b7",
+    "paper_id": "1906.05506",
+    "title": "Character n-gram Embeddings to Improve RNN Language Models",
+    "original_question": "Which word embeddings do they compare against?",
+    "question": "In the paper \"Character n-gram Embeddings to Improve RNN Language Models\": Which word embeddings do they compare against?",
+    "answer_type": "none",
+    "reference_types": [
+      "none",
+      "none"
+    ],
+    "source": "qasper-test-pilot"
+  }
+]

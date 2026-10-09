@@ -1,0 +1,102 @@
+{
+  "system": "4minds_constellations",
+  "subset": "test",
+  "started": "2026-10-09T17:03:48+00:00",
+  "finished": "2026-10-09T17:04:53+00:00",
+  "wall_clock_s_this_invocation": 64.3,
+  "ran_this_invocation": 25,
+  "workers": 4,
+  "command": [
+    "/Users/victorbezak/Documents/Benchmark Datasets/systems/run_4minds.py",
+    "--engine",
+    "constellations",
+    "--subset",
+    "test",
+    "--questions-file",
+    "data/pilot_questions.json",
+    "--workers",
+    "4",
+    "--out-dir",
+    "results/pilot/4minds_constellations"
+  ],
+  "settings": {
+    "base_url": "https://api.4minds.ai",
+    "engine": "constellations",
+    "endpoint": "wss://api.4minds.ai/api/v1/user/inference",
+    "model_id": 3598,
+    "dataset_id": 4039,
+    "persona_id": 1283,
+    "system_prompt_via": "persona.behavioralGuidelines",
+    "system_prompt": "Answer the question with information from the knowledge base only.\nGive only the answer, with no explanation and no formatting:\n- a short phrase or sentence, or the words from the paper; separate several items with commas;\n- for a yes/no question, only \"Yes\" or \"No\";\n- if the paper does not answer the question, only \"Unanswerable\".",
+    "context_order": "4Minds chunk score, highest first, across all retrieval steps, no duplicates"
+  },
+  "readiness": {
+    "dataset_id": 4039,
+    "model_id": 3598,
+    "status": "in_use",
+    "graph_status": "ready",
+    "graph_build_progress": 100,
+    "files_processed_count": 2,
+    "total_chunks_count": 330,
+    "build_status": "enhancing",
+    "etl_job_status": "completed",
+    "error_message": null,
+    "model_status": "ready"
+  },
+  "inputs": {
+    "questions_file": "data/pilot_questions.json",
+    "questions_sha256": "ab771bf5110a74ec9460eb337fbab79c774c18c507bbafa68908d9f6a6770b02",
+    "corpus_file": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/data/corpus_slice.txt",
+    "corpus_sha256": "46e1257b8b55761fbf50ff058a6b13945e5fa6013b99f89fd5d613ae2057c127"
+  },
+  "benchmark": "qasper",
+  "code": {
+    "run_4minds.py": "f421d5a10b9a8c9117b7f83a563a0e784b9cc623e8be4fee373ac0f4f844ba8f",
+    "bench_common.py": "124d404b806c255e35f60bf0e9ffa77c9257d3e3ced48a1d63c5cc133e6aee3c",
+    "benchmark_profile.py": "f48fb0afff39ccc7b587010c48e611b88bb1a0875fc57fc40e095de5277670fa"
+  },
+  "python": "3.10.16",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "packages": {
+    "openai": "1.109.1",
+    "google-auth": "2.61.0",
+    "requests": "2.34.2",
+    "websockets": "16.1.1",
+    "transformers": "4.57.6",
+    "torch": "2.14.1"
+  },
+  "summary": {
+    "questions": 25,
+    "answered": 25,
+    "failed": 0,
+    "failed_keys": [],
+    "not_run": 0,
+    "no_context": 0,
+    "dont_know": 0,
+    "tokens": {
+      "total_tokens": 365,
+      "tokens_used_today": 4650,
+      "tokens_used_this_month": 4650
+    },
+    "latency": {
+      "n": 25,
+      "mean_s": 9.53,
+      "median_s": 9.68,
+      "p90_s": 11.63,
+      "max_s": 11.82
+    }
+  },
+  "endpoint": "wss://api.4minds.ai/api/v1/user/inference",
+  "model": {
+    "id": "3598",
+    "name": "qasper-test-pilot",
+    "base_model_name": "GPT-OSS-120B",
+    "base_model_id": 5,
+    "training_type_id": "sft",
+    "status": "ready",
+    "graph_status": "ready",
+    "dataset_id": 4039,
+    "personaId": 1283,
+    "trained_at": "2026-10-09T16:59:47.947926Z"
+  }
+}

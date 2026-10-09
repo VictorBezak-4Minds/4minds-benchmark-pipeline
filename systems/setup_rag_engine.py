@@ -4,10 +4,11 @@
     ./bench graphrag-bench setup_rag_engine eval systems/setup_rag_engine.py
 
 Safe to run again: it reuses the corpus with the same display name and does not upload a
-file that is already in the corpus. It waits until every file of the corpus is ACTIVE and
-writes results/rag_engine/setup.json. RAG Engine defaults are used for chunking, the
+file that is already in the corpus. It waits until every file of the corpus is ACTIVE, sends
+3 retrieval queries (it stops if one fails) and writes results/rag_engine/setup.json. RAG Engine defaults are used for chunking, the
 embedding model and the vector database (Spanner mode, RagManagedDb, Basic tier in
-europe-west4); the script records what the API reports.
+europe-west4); the script records what the API reports. If the region is unprovisioned
+(after cleanup_rag_engine.py), it sets the Basic tier first: Spanner then bills every hour.
 """
 import argparse
 import json
@@ -99,6 +100,14 @@ def main():
     session = Session()
     started = time.monotonic()
 
+    config = session.call("GET", f"{API}/ragEngineConfig")
+    if "unprovisioned" in (config.get("ragManagedDbConfig") or {}):
+        # cleanup_rag_engine.py leaves the region unprovisioned; corpora need a Spanner tier.
+        bc.audit("rag_engine_provision", location=LOCATION, before=config, tier="basic")
+        session.wait(session.call("PATCH", f"{API}/ragEngineConfig",
+                                  json={"name": config["name"], "ragManagedDbConfig": {"basic": {}}}))
+        print(f"provisioned: {session.call('GET', f'{API}/ragEngineConfig')}")
+
     corpus = find_corpus(session)
     if corpus is None:
         body = {"displayName": DISPLAY_NAME}
@@ -127,10 +136,21 @@ def main():
         print("  waiting for RAG files to become ACTIVE ...")
         time.sleep(30)
 
+    # ACTIVE files do not prove that queries work: europe-west4 gave HTTP 500 from Spanner on ACTIVE corpora.
+    checks = []
+    for _ in range(3):
+        response = session.http.post(f"{API}:retrieveContexts", headers=session.headers(), timeout=120, json={
+            "vertexRagStore": {"ragResources": [{"ragCorpus": corpus["name"]}]},
+            "query": {"text": bc.profile.TITLE, "ragRetrievalConfig": {"topK": 1}}})
+        checks.append({"status": response.status_code, "error": (response.json().get("error") or {}).get("message")})
+    bc.audit("rag_engine_query_check", corpus=corpus["name"], checks=checks)
+    if any(c["status"] != 200 for c in checks):
+        sys.exit(f"Corpus files are ACTIVE, but retrieval fails: {checks}")
+
     corpus = session.call("GET", f"https://{LOCATION}-aiplatform.googleapis.com/v1/{corpus['name']}")
     files = corpus_files(session, corpus["name"])
     setup = {"created_or_checked": bc.now(), "project": PROJECT, "location": LOCATION, "corpus": corpus,
-             "files": files, "ready": ready, "setup_wall_clock_s": round(time.monotonic() - started, 1)}
+             "files": files, "ready": ready, "query_check": checks, "setup_wall_clock_s": round(time.monotonic() - started, 1)}
     SETUP_FILE.parent.mkdir(parents=True, exist_ok=True)
     SETUP_FILE.write_text(json.dumps(setup, indent=2))
     bc.audit("rag_engine_ready", corpus=corpus["name"], files=ready["files"])

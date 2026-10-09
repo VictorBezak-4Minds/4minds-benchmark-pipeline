@@ -1,0 +1,5 @@
+# step: lightrag_index
+# start: 2026-10-09T16:58:44Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-lightrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_lightrag.py --subset test --index-only
+
+INFO: Process 73097 Shared-Data created for Single Process

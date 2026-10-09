@@ -1,0 +1,218 @@
+{
+  "created": "2026-10-09T16:43:53+00:00",
+  "seed": 42,
+  "quota": {
+    "extractive": 13,
+    "abstractive": 6,
+    "boolean": 3,
+    "none": 3
+  },
+  "distractor_fraction": 0.1,
+  "official_test": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/upstream/qasper-test-v0.3.json",
+  "official_test_sha256": "6e29ad410e6e39aa1936017fb965b30a20eb2e7751997f55b97c9d281aa884e5",
+  "release_sha256": "72a52a41193e2838b8074f80ac074b94f956b84886c36a61c58a7df4171bdd72",
+  "test_papers": 416,
+  "test_questions": 1451,
+  "questions": [
+    {
+      "id": "e8cdeb3a081d51cc143c7090a54c82d393f1a2ca",
+      "paper_id": "1803.08419",
+      "answer_type": "boolean"
+    },
+    {
+      "id": "d4b84f48460517bc0a6d4e0c38f6853c58081166",
+      "paper_id": "1804.01155",
+      "answer_type": "abstractive"
+    },
+    {
+      "id": "351f7b254e80348221e0654478663a5e53d3fe65",
+      "paper_id": "1810.12897",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "a7e03d24549961b38e15b5386d9df267900ef4c8",
+      "paper_id": "1711.11118",
+      "answer_type": "abstractive"
+    },
+    {
+      "id": "f2b1e87f61c65aaa99bcf9825de11ae237260270",
+      "paper_id": "1909.00786",
+      "answer_type": "abstractive"
+    },
+    {
+      "id": "27d7a30e42921e77cfffafac5cb0d16ce5a7df99",
+      "paper_id": "1707.02892",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "b32de10d84b808886d7a91ab0c423d4fc751384c",
+      "paper_id": "1603.09381",
+      "answer_type": "abstractive"
+    },
+    {
+      "id": "7a60f29e28063f50c2a7afd1c2a7668fb615cd53",
+      "paper_id": "1910.09942",
+      "answer_type": "boolean"
+    },
+    {
+      "id": "47d54a6dd50cab8dab64bfa1f9a1947a8190080c",
+      "paper_id": "1805.07882",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "d38745a3910c380e6df97c7056a5dd9643fd365b",
+      "paper_id": "1606.02601",
+      "answer_type": "boolean"
+    },
+    {
+      "id": "3b9da1af1550e01d2e6ba2b9edf55a289f5fa8e2",
+      "paper_id": "2002.09616",
+      "answer_type": "abstractive"
+    },
+    {
+      "id": "6e63db22a2a34c20ad341eb33f3422f40d0001d3",
+      "paper_id": "1909.02855",
+      "answer_type": "abstractive"
+    },
+    {
+      "id": "a59e86a15405c8a11890db072b99fda3173e5ab2",
+      "paper_id": "1704.04451",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "554d798e4ce58fd30820200c474d7e796dc8ba89",
+      "paper_id": "1810.02268",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "3588988f2230f3329d7523fbb881b20bf177280d",
+      "paper_id": "1811.00051",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "74cef0205e0f31d0ab28d0e4d96c1e8ef62d4cce",
+      "paper_id": "1903.04329",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "cc78a08f5bfe233405c99cb3dac1f11f3a9268b1",
+      "paper_id": "1907.08540",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "1d10e069b4304fabfbed69acf409f0a311bdc441",
+      "paper_id": "1806.09652",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "d2d9c7177728987d9e8b0c44549bbe03c8c00ef2",
+      "paper_id": "1906.05685",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "159025c44c0115ab4cdc253885384f72e592e83a",
+      "paper_id": "1911.03642",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "1dc5bf9dca7de2ba21db10e9056d3906267ef5d5",
+      "paper_id": "1912.07940",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "c0cebef0e29b9d13c165b6f19f6ca8393348c671",
+      "paper_id": "1910.10670",
+      "answer_type": "none"
+    },
+    {
+      "id": "079ca5810060e1cdc12b5935d8c248492f0478b9",
+      "paper_id": "1810.02229",
+      "answer_type": "none"
+    },
+    {
+      "id": "bf5e80f1ab4eae2254b4f4d7651969a3cf945fb4",
+      "paper_id": "1610.06510",
+      "answer_type": "extractive"
+    },
+    {
+      "id": "3dad6b792044018bb968ac0d0fd4628653f9e4b7",
+      "paper_id": "1906.05506",
+      "answer_type": "none"
+    }
+  ],
+  "question_papers": [
+    "1603.09381",
+    "1606.02601",
+    "1610.06510",
+    "1704.04451",
+    "1707.02892",
+    "1711.11118",
+    "1803.08419",
+    "1804.01155",
+    "1805.07882",
+    "1806.09652",
+    "1810.02229",
+    "1810.02268",
+    "1810.12897",
+    "1811.00051",
+    "1903.04329",
+    "1906.05506",
+    "1906.05685",
+    "1907.08540",
+    "1909.00786",
+    "1909.02855",
+    "1910.09942",
+    "1910.10670",
+    "1911.03642",
+    "1912.07940",
+    "2002.09616"
+  ],
+  "distractor_papers": [
+    "1602.07563",
+    "1604.02201",
+    "1604.05559",
+    "1605.05156",
+    "1605.05166",
+    "1612.07486",
+    "1702.02367",
+    "1703.10090",
+    "1704.08390",
+    "1707.07212",
+    "1708.05521",
+    "1708.07690",
+    "1711.11017",
+    "1802.09059",
+    "1802.09233",
+    "1803.02914",
+    "1803.08614",
+    "1804.07445",
+    "1806.06571",
+    "1807.03674",
+    "1901.09501",
+    "1907.04072",
+    "1907.10676",
+    "1908.07721",
+    "1909.05190",
+    "1910.01340",
+    "1910.07924",
+    "1911.01248",
+    "1911.01770",
+    "1911.03854",
+    "1911.12559",
+    "1912.00342",
+    "2001.11316",
+    "2002.12699",
+    "2003.03131",
+    "2003.08769",
+    "2004.00809",
+    "2004.01970",
+    "2004.04124"
+  ],
+  "corpus_papers": 64,
+  "corpus_chars": 1567657,
+  "outputs": {
+    "pilot_questions.json": "ab771bf5110a74ec9460eb337fbab79c774c18c507bbafa68908d9f6a6770b02",
+    "pilot_gold.json": "25af8c436315c7ff030e27c728d7bd94e9c8634af0c585254d1fd2fa13c995bf",
+    "corpus_slice.txt": "46e1257b8b55761fbf50ff058a6b13945e5fa6013b99f89fd5d613ae2057c127"
+  }
+}

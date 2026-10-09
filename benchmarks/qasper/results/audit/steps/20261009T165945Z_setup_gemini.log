@@ -1,0 +1,17 @@
+# step: setup_gemini
+# start: 2026-10-09T16:59:45Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_gemini.py
+
+store: fileSearchStores/qaspertestpilot-jva5no5yqkow
+uploaded: {"name": "fileSearchStores/qaspertestpilot-jva5no5yqkow/upload/operations/corpusslicetxt-1j6vnvlswn4d", "response": {"@type": "type.googleapis.com/google.ai.generativelanguage.v1main.UploadToFileSearchStoreResponse", "parent": "fileSearchStores/qaspertestpilot-jva5no5yqkow", "documentName": "fileSearchStores/qaspertestpilot-jva5no5yqkow/documents/corpusslicetxt-1j6vnvlswn4d", "mimeType": "text/pla
+  2026-10-09T16:59:50+00:00 waiting: {'corpus_slice.txt': 'STATE_PENDING'}
+  2026-10-09T17:00:05+00:00 waiting: {'corpus_slice.txt': 'STATE_PENDING'}
+{
+  "store": "fileSearchStores/qaspertestpilot-jva5no5yqkow",
+  "documents": {
+    "corpus_slice.txt": "STATE_ACTIVE"
+  },
+  "wall_clock_s": 34.9
+}
+
+# end: 2026-10-09T17:00:20Z  exit: 0  duration_s: 35

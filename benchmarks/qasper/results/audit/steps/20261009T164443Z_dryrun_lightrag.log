@@ -1,0 +1,20 @@
+# step: dryrun_lightrag
+# start: 2026-10-09T16:44:43Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-lightrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_lightrag.py --subset test --questions-file data/pilot_questions.json --dry-run
+
+{
+  "working_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot",
+  "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/data/corpus_slice.txt",
+  "corpus_chars": 1567657,
+  "query": "In the paper \"The Rapidly Changing Landscape of Conversational Agents\": Is there a benchmark to compare the different approaches?",
+  "query_param": {
+    "mode": "hybrid",
+    "top_k": 5,
+    "max_token_for_text_unit": 4000,
+    "max_token_for_global_context": 4000,
+    "max_token_for_local_context": 4000
+  },
+  "system_prompt": "Answer the question with information from the knowledge base only.\nGive only the answer, with no explanation and no formatting:\n- a short phrase or sentence, or the words from the paper; separate several items with commas;\n- for a yes/no question, only \"Yes\" or \"No\";\n- if the paper does not answer the question, only \"Unanswerable\".\n\n---Conversation History---\n{history}\n\n---Knowledge Base---\n{context_data}\n"
+}
+
+# end: 2026-10-09T16:44:47Z  exit: 0  duration_s: 4

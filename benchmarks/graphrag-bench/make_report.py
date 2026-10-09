@@ -9,83 +9,113 @@ when offline). Links to the audit files are relative to the summary folder.
 """
 import argparse
 import json
-import os
 from html import escape
 from pathlib import Path
 
 import bench_common as bc
+from report_html import SYSTEM_COLORS, bar, head, header, pct, quality_latency, rel, title_with_info
 
-LOGO = Path("/Users/victorbezak/Documents/4minds-main/4minds-platform/frontend-backend/frontend/public/assets/fullLogoWhite.svg")
-SYSTEM_COLORS = {"4minds_constellations": "#543fed", "4minds_symi": "#a78bfa", "gemini": "#80aeff",
-                 "rag_engine": "#5eead4", "lightrag": "#fbbf24"}
+# From Evaluation/metrics/*.py and generation_eval.py at the pinned commit (judge and embeddings: see Method).
+METRIC_HELP = {
+    "rouge_score": (
+        ["Word overlap with the gold answer: the longest sequence of words that both texts have in the same order "
+         "(the words do not have to be next to each other). Words are stemmed. No LLM is used.",
+         "The score is the F-measure of precision (the share of the answer in that sequence) and recall (the share of the "
+         "gold answer in that sequence). It is 0 if one of the texts is empty.",
+         "A correct answer with different words gets a low score."],
+        "Evaluation/metrics/rouge.py: rouge_score RougeScorer('rougeL', use_stemmer=True), fmeasure"),
+    "answer_correctness": (
+        ["0.75 × factuality + 0.25 × semantic similarity.",
+         "Factuality: the judge splits the answer and the gold answer into statements. It labels each answer statement as "
+         "supported by the gold answer (TP) or not supported (FP), and each gold statement that the answer does not have as "
+         "missing (FN). The score is F1 = TP / (TP + (FP + FN) / 2). If the judge output is not valid JSON, factuality is 0.",
+         "Semantic similarity: the cosine similarity of the embeddings of the two texts, scaled to 0–1 as (cosine + 1) / 2. "
+         "This part is almost never below 0.5, so it raises all scores a little."],
+        "Evaluation/metrics/answer_accuracy.py: compute_answer_correctness, weights [0.75, 0.25], beta 1"),
+    "coverage_score": (
+        ["The share of the gold answer's facts that the answer contains (recall).",
+         "The judge splits the gold answer (first 3,000 characters) into facts. Then it marks each fact as covered (1) or "
+         "not covered (0) by the answer (first 3,000 characters). Score = covered facts / all facts.",
+         "Extra or wrong content in the answer does not decrease the score. If the judge output cannot be parsed, the "
+         "score is NaN and is not in the mean."],
+        "Evaluation/metrics/coverage.py: compute_coverage_score"),
+    "faithfulness": (
+        ["The share of the answer's statements that the retrieved context supports. The gold answer is not used.",
+         "The judge splits the answer (first 3,000 characters) into statements. Then it gives each statement a verdict, 1 "
+         "or 0, against the context that the system returned (first 10,000 characters). No context gives 0.",
+         "A correct answer from the model's own knowledge, without support in the context, gets a low score.",
+         "At this commit the verdict prompt does not ask for JSON, so most verdicts cannot be parsed and the score is NaN."],
+        "Evaluation/metrics/faithfulness.py: compute_faithfulness_score"),
+    "faithfulness_jsonfix": (
+        ["The same code, judge, context limit and answers as Faithfulness (official), with one sentence added to the end "
+         "of the verdict prompt. The sentence asks for the JSON format of the prompt's own examples.",
+         "Not part of the official protocol. The diff is in results/audit/patches/faithfulness-fdbab59-json-format.diff."],
+        "score_faithfulness.py (this repo)"),
+}
 
-CSS = """
-:root { --bg:#18181c; --card:#1c1c21; --accent:#543fed; --blue:#80aeff; --violet:#a78bfa;
-  --text:#fff; --muted:rgba(255,255,255,0.5); --border:rgba(255,255,255,0.08); }
-* { box-sizing:border-box; }
-body { margin:0; background:var(--bg); color:var(--text);
-  font-family:'neue-haas-grotesk-display','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased; }
-.wrap { max-width:1120px; margin:0 auto; padding:40px 24px 80px; }
-header { display:flex; align-items:center; justify-content:space-between; padding-bottom:32px;
-  border-bottom:1px solid var(--border); margin-bottom:48px; }
-header .meta { color:var(--muted); font-size:14px; text-align:right; }
-h1,h2,h3 { font-weight:400; margin:0; letter-spacing:-0.01em; }
-h1 { font-size:48px; line-height:1.1; margin-bottom:16px; }
-h2 { font-size:32px; margin-bottom:8px; }
-h3 { font-size:20px; margin-bottom:16px; }
-.label { color:var(--violet); text-transform:uppercase; letter-spacing:0.12em; font-size:12px; margin-bottom:12px; }
-.lead { color:var(--muted); font-size:18px; max-width:760px; }
-.pill { display:inline-block; padding:4px 12px; border-radius:999px; border:1px solid var(--border);
-  font-size:13px; color:var(--muted); margin:16px 8px 0 0; }
-.pill.warn { color:#fbbf24; border-color:rgba(251,191,36,0.4); }
-section { margin-top:64px; }
-.sub { color:var(--muted); margin-bottom:24px; max-width:820px; }
-.card { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:28px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; }
-.bar-row { display:grid; grid-template-columns:220px 1fr 130px; align-items:center; gap:16px; padding:10px 0;
-  border-bottom:1px solid var(--border); }
-.bar-row:last-child { border-bottom:none; }
-.bar-name { font-size:15px; }
-.bar-name small { display:block; color:var(--muted); font-size:12px; }
-.track { position:relative; height:22px; background:rgba(255,255,255,0.04); border-radius:6px; }
-.fill { position:absolute; top:0; bottom:0; left:0; border-radius:6px; opacity:0.9; }
-.ci { position:absolute; top:50%; height:2px; background:rgba(255,255,255,0.85); transform:translateY(-50%); }
-.ci::before,.ci::after { content:''; position:absolute; top:-5px; width:2px; height:12px; background:rgba(255,255,255,0.85); }
-.ci::before { left:0; } .ci::after { right:0; }
-.zero { position:absolute; top:-4px; bottom:-4px; left:50%; width:1px; background:rgba(255,255,255,0.35); }
-.val { text-align:right; font-variant-numeric:tabular-nums; }
-.val small { display:block; color:var(--muted); font-size:12px; }
-table { width:100%; border-collapse:collapse; font-size:14px; }
-th { text-align:left; font-weight:400; color:var(--muted); padding:12px 14px; border-bottom:1px solid var(--border); }
-td { padding:14px; border-bottom:1px solid var(--border); font-variant-numeric:tabular-nums; vertical-align:top; }
-tr:last-child td { border-bottom:none; }
-td small { color:var(--muted); }
-.dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:10px; vertical-align:middle; }
-ul.caveats { margin:0; padding-left:20px; color:rgba(255,255,255,0.8); }
-ul.caveats li { margin-bottom:10px; }
-a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-.legend { display:flex; flex-wrap:wrap; gap:16px; color:var(--muted); font-size:13px; margin-bottom:12px; }
-.note { color:var(--muted); font-size:13px; margin:14px 0 0; }
-.pos { color:#86efac; } .neg { color:#fca5a5; } .neutral { color:var(--muted); }
-footer { margin-top:80px; padding-top:24px; border-top:1px solid var(--border); color:var(--muted); font-size:13px; }
-@media (max-width:720px) { .bar-row { grid-template-columns:1fr; } h1 { font-size:34px; } }
-"""
+# Levels and metric sets: upstream README.md and generation_eval.py. Medians: data/Questions/medical_questions.json.
+TYPE_HELP = {
+    "Fact Retrieval": [
+        "Level 1 of 4. The question asks for one fact, which is usually in one location in the corpus.",
+        "Gold answers are short: median 10 words, 2 evidence statements (1,098 questions in the Medical set).",
+        "Example: \"Are organ transplant recipients at higher risk for BCC?\""],
+    "Complex Reasoning": [
+        "Level 2 of 4. The answer must connect facts from different locations (multi-hop) to explain a relation or a cause.",
+        "Gold answers: median 17 words, 3 evidence statements (509 questions).",
+        "Example: \"How does the presence of a lung nodule on imaging affect the diagnostic workflow for lung cancer?\""],
+    "Contextual Summarize": [
+        "Level 3 of 4. The answer must collect the related facts about one topic and summarize them.",
+        "Gold answers: median 29 words, 5 evidence statements (289 questions).",
+        "Example: \"What assessments and counseling are recommended for patients with nasopharyngeal carcinoma (NPC) prior "
+        "to treatment?\""],
+    "Creative Generation": [
+        "Level 4 of 4. The answer is a new text in a given role or format (for example an advisory or an article). It must "
+        "still contain the facts from the corpus.",
+        "Gold answers: median 120 words, 13 evidence statements (166 questions).",
+        "Example: \"As a public health officer, draft a community health advisory on lung cancer prevention and early "
+        "detection...\""],
+}
+
+TYPE_METRIC_NOTE = {
+    ("Fact Retrieval", "rouge_score"):
+        "The gold answer is short. A correct answer that adds more detail has low precision, so its score decreases.",
+    ("Fact Retrieval", "answer_correctness"):
+        "The gold answer has few statements. One missing or one extra statement changes the factuality part by a large "
+        "amount.",
+    ("Complex Reasoning", "rouge_score"):
+        "There are many correct ways to explain a relation. An answer that uses different words or a different order of "
+        "steps gets a low score.",
+    ("Complex Reasoning", "answer_correctness"):
+        "The judge checks each step of the explanation. A correct conclusion with a missing step gets a missing (FN) "
+        "statement.",
+    ("Contextual Summarize", "answer_correctness"):
+        "The gold summary has many statements. Each fact that the answer leaves out is FN. Each true fact that is not in "
+        "the gold summary is FP.",
+    ("Contextual Summarize", "coverage_score"):
+        "This metric shows how complete the summary is. A long answer that includes all gold facts gets a high score, "
+        "also if it contains extra text.",
+    ("Creative Generation", "answer_correctness"):
+        "Creative text contains framing and style statements that are not in the gold answer. The judge can label them "
+        "FP, and this decreases the factuality part.",
+    ("Creative Generation", "coverage_score"):
+        "The gold answer has many facts. The judge reads only the first 3,000 characters of the answer, so it does not "
+        "count facts after that point in a long answer.",
+    ("Creative Generation", "faithfulness"):
+        "Only this type uses this metric. It checks that the creative text does not add facts that the retrieved sources "
+        "do not support.",
+    ("Creative Generation", "faithfulness_jsonfix"):
+        "Only this type uses this metric. It checks that the creative text does not add facts that the retrieved sources "
+        "do not support.",
+}
 
 
-def pct(x, digits=1):
-    return "n/a" if x is None else f"{x * 100:.{digits}f}"
-
-
-def bar(name, sub, r, color, scale_max=1.0):
-    if not r:
-        return (f'<div class="bar-row"><div class="bar-name">{escape(name)}<small>{escape(sub)}</small></div>'
-                f'<div class="track"></div><div class="val">n/a</div></div>')
-    w = lambda v: max(0.0, min(100.0, v / scale_max * 100))
-    return (f'<div class="bar-row"><div class="bar-name">{escape(name)}<small>{escape(sub)}</small></div>'
-            f'<div class="track"><div class="fill" style="width:{w(r["mean"]):.2f}%;background:{color}"></div>'
-            f'<div class="ci" style="left:{w(r["ci_low"]):.2f}%;width:{w(r["ci_high"]) - w(r["ci_low"]):.2f}%"></div></div>'
-            f'<div class="val">{pct(r["mean"])}<small>95% CI {pct(r["ci_low"])}–{pct(r["ci_high"])} · n={r["n"]}</small></div></div>')
+def card_help(qt, metric):
+    """Tooltip blocks for one card: the question type, the metric on this type, then the metric."""
+    paragraphs, source = METRIC_HELP[metric]
+    blocks = [(f"Question type: {qt}", TYPE_HELP[qt])] if qt in TYPE_HELP else []
+    if (qt, metric) in TYPE_METRIC_NOTE:
+        blocks.append(("On this question type", [TYPE_METRIC_NOTE[(qt, metric)]]))
+    return blocks + [("Metric", paragraphs)], source
 
 
 def diff_bar(name, sub, r, color, span=0.5):
@@ -103,13 +133,6 @@ def diff_bar(name, sub, r, color, span=0.5):
             f'<div class="val {cls}">{d * 100:+.1f}<small>{pct(r["ci_low"])} to {pct(r["ci_high"])} · {verdict}</small></div></div>')
 
 
-def rel(path, base):
-    try:
-        return os.path.relpath(path, base)
-    except ValueError:
-        return str(path)
-
-
 def build(out, timing, summary_dir):
     systems = out["systems"]
     names = {s["key"]: s["name"] for s in systems}
@@ -120,14 +143,8 @@ def build(out, timing, summary_dir):
     n_questions = max((s["operations"].get("questions") or 0) for s in systems) if systems else 0
     ranked = sorted(systems, key=lambda s: -((out["overall"][s["key"]]["answer_correctness"] or {}).get("mean") or 0))
 
-    h = [f"<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>",
-         f"<title>GraphRAG-Bench Medical{(' · ' + escape(label)) if label else ''} · 4Minds</title>",
-         "<link rel='stylesheet' href='https://use.typekit.net/ipe4ndc.css'>",
-         "<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap'>",
-         f"<style>{CSS}</style></head><body><div class='wrap'>"]
-    logo = LOGO.read_text() if LOGO.exists() else "<strong>4Minds</strong>"
-    h.append(f"<header><div>{logo}</div><div class='meta'>Generated {escape(out['generated'])}<br>"
-             f"GraphRAG-Bench commit {escape(commit)}</div></header>")
+    h = head(f"GraphRAG-Bench Medical{(' · ' + escape(label)) if label else ''} · 4Minds")
+    h.append(header(f"Generated {escape(out['generated'])}<br>GraphRAG-Bench commit {escape(commit)}"))
 
     h.append("<div class='label'>Benchmark report</div>")
     h.append(f"<h1>GraphRAG-Bench · Medical{(' · ' + escape(label)) if label else ''}</h1>")
@@ -147,6 +164,22 @@ def build(out, timing, summary_dir):
         h.append(bar(s["name"], s["description"].split(",")[0], out["overall"][s["key"]]["answer_correctness"], color(s["key"])))
     h.append("</div></section>")
 
+    points = []
+    for s in ranked:
+        r, lat = out["overall"][s["key"]]["answer_correctness"] or {}, s["operations"].get("latency") or {}
+        cost = s["operations"].get("estimated_cost_usd")
+        points.append({"key": s["key"], "name": s["name"], "quality": r.get("mean"), "quality_low": r.get("ci_low"),
+                       "quality_high": r.get("ci_high"), "latency": lat.get("median_s"), "latency_p90": lat.get("p90_s"),
+                       "hover": [f"Est. cost: {'n/a (subscription)' if cost is None else f'${cost:.3f}'}"]})
+    h.append("<section><div class='label'>Quality and speed</div><h2>Answer correctness and latency</h2>"
+             "<p class='sub'>One point for each system: answer correctness and the median latency per question. Move the "
+             "pointer over a point for the 95% confidence interval, the 90th-percentile latency and the cost.</p>"
+             "<div class='card'>")
+    h.append(quality_latency("quality-latency", points, "Answer correctness"))
+    h.append(f"<p class='note'>With {n_questions} questions the confidence intervals overlap (see the headline chart). "
+             "Latency depends on the number of workers, the network and the load on each service during the run (see "
+             "Operations).</p></div></section>")
+
     if out.get("paired"):
         ref = names.get(out["reference_system"], out["reference_system"])
         h.append(f"<section><div class='label'>Head to head</div><h2>{escape(ref)} compared with each system</h2>"
@@ -162,7 +195,9 @@ def build(out, timing, summary_dir):
              "reads the retrieved context that each system returns.</p><div class='grid'>")
     for qt in out["types"]:
         for metric in out["metric_set"][qt]:
-            h.append(f"<div class='card'><h3>{escape(qt)} · {escape(out['metric_names'][metric])}</h3>")
+            title = f"{qt} · {out['metric_names'][metric]}"
+            title = title_with_info(title, *card_help(qt, metric)) if metric in METRIC_HELP else escape(title)
+            h.append(f"<div class='card'><h3>{title}</h3>")
             for s in systems:
                 r = out["metrics"][s["key"]][qt].get(metric)
                 if metric.startswith("faithfulness") and not s.get("faithfulness_available"):

@@ -1,0 +1,7 @@
+# step: report_pilot
+# start: 2026-10-09T17:54:44Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/make_report.py --results results/pilot
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/pilot/summary/report.html
+
+# end: 2026-10-09T17:54:45Z  exit: 0  duration_s: 1

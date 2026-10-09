@@ -1,0 +1,5 @@
+# step: setup_rag_engine
+# start: 2026-10-09T16:59:45Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_rag_engine.py
+
+provisioned: {'name': 'projects/minds-vs-gemini-benchmark/locations/europe-west4/ragEngineConfig', 'ragManagedDbConfig': {'basic': {}, 'spanner': {'basic': {}}}}

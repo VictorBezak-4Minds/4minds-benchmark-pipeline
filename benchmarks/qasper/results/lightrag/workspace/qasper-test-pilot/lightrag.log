@@ -1,0 +1,1222 @@
+2026-10-09 12:02:06,862 - lightrag - INFO - Created new empty graph
+2026-10-09 12:02:06,865 - lightrag - INFO - Process 75580 KV load full_docs with 0 records
+2026-10-09 12:02:06,865 - lightrag - INFO - Process 75580 KV load text_chunks with 0 records
+2026-10-09 12:02:06,865 - lightrag - INFO - Process 75580 KV load llm_response_cache with 0 records
+2026-10-09 12:02:06,865 - lightrag - INFO - Process 75580 doc status load doc_status with 0 records
+2026-10-09 12:02:06,865 - lightrag - INFO - Storage Initialization completed!
+2026-10-09 12:02:06,871 - lightrag - INFO - Inserting 1 records to doc_status
+2026-10-09 12:02:06,871 - lightrag - INFO - Process 75580 doc status writting 1 records to doc_status
+2026-10-09 12:02:06,875 - lightrag - INFO - Stored 1 new unique documents
+2026-10-09 12:02:06,875 - lightrag - INFO - Number of batches to process: 1.
+2026-10-09 12:02:06,876 - lightrag - INFO - Start processing batch 1 of 1.
+2026-10-09 12:02:07,035 - lightrag - INFO - Inserting 1 records to doc_status
+2026-10-09 12:02:07,035 - lightrag - INFO - Process 75580 doc status writting 1 records to doc_status
+2026-10-09 12:02:07,040 - lightrag - INFO - Inserting 294 to chunks
+2026-10-09 12:02:07,040 - lightrag - INFO - Inserting 1 records to full_docs
+2026-10-09 12:02:07,040 - lightrag - INFO - Inserting 294 records to text_chunks
+2026-10-09 12:02:45,846 - lightrag - INFO - Process 75580 reloading chunks due to update by another process
+2026-10-09 12:03:01,445 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:04,341 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:06,648 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:13,449 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:17,556 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:23,822 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:27,640 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:35,579 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:45,059 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:45,237 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:49,913 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:54,546 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:03:58,812 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:08,629 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:15,151 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:16,660 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:20,327 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:26,775 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:34,966 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:35,299 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:35,530 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:37,939 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:49,775 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:52,866 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:53,158 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:04:55,003 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:08,079 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:12,759 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:14,482 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:15,172 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:15,890 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:31,068 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:36,134 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:37,645 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:38,212 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:50,637 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:53,050 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:05:58,821 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:06:05,120 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:06:16,308 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:06:16,413 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:06:24,845 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:06:28,888 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:06:36,322 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:06:38,019 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:06:49,679 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:06:50,138 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:06:53,005 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:01,226 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:05,698 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:12,029 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:19,151 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:28,321 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:30,389 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:36,450 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:42,671 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:42,735 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:45,192 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:07:51,802 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:00,418 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:02,905 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:09,552 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:10,656 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:20,018 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:20,798 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:31,762 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:38,585 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:39,712 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:41,350 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:48,249 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:49,571 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:08:58,941 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:02,609 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:05,073 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:09,389 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:14,768 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:15,207 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:24,667 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:25,581 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:28,806 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:32,644 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:39,949 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:40,622 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:09:41,341 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:10:18,069 - lightrag - INFO - Created new empty graph
+2026-10-09 12:10:18,072 - lightrag - INFO - Process 81858 KV load full_docs with 0 records
+2026-10-09 12:10:18,072 - lightrag - INFO - Process 81858 KV load text_chunks with 0 records
+2026-10-09 12:10:18,072 - lightrag - INFO - Process 81858 KV load llm_response_cache with 0 records
+2026-10-09 12:10:18,075 - lightrag - INFO - Process 81858 doc status load doc_status with 1 records
+2026-10-09 12:10:18,075 - lightrag - INFO - Storage Initialization completed!
+2026-10-09 12:10:18,083 - lightrag - INFO - No new unique documents were found.
+2026-10-09 12:10:18,083 - lightrag - INFO - Number of batches to process: 1.
+2026-10-09 12:10:18,083 - lightrag - INFO - Start processing batch 1 of 1.
+2026-10-09 12:10:18,253 - lightrag - INFO - Inserting 1 records to doc_status
+2026-10-09 12:10:18,253 - lightrag - INFO - Process 81858 doc status writting 1 records to doc_status
+2026-10-09 12:10:18,259 - lightrag - INFO - Inserting 294 to chunks
+2026-10-09 12:10:18,262 - lightrag - INFO - Inserting 1 records to full_docs
+2026-10-09 12:10:18,263 - lightrag - INFO - Inserting 294 records to text_chunks
+2026-10-09 12:10:55,314 - lightrag - INFO - Process 81858 reloading chunks due to update by another process
+2026-10-09 12:11:08,698 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:09,041 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:09,400 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:10,821 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:11,447 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:12,783 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:13,521 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:13,780 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:14,127 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:14,235 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:16,744 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:17,280 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:17,376 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:17,633 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:21,190 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:21,843 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:23,403 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:23,632 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:24,134 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:24,375 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:26,401 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:26,558 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:26,858 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:28,347 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:32,049 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:32,179 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:33,910 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:34,410 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:35,561 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:36,580 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:38,075 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:40,226 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:41,143 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:42,000 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:42,872 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:43,382 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:44,244 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:45,037 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:46,572 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:49,263 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:49,429 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:49,955 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:51,857 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:52,001 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:53,991 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:54,602 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:57,643 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:57,967 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:11:59,466 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:00,402 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:00,569 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:00,620 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:02,220 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:03,427 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:03,870 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:04,434 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:05,126 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:06,761 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:08,927 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:09,246 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:12,682 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:13,325 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:15,369 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:17,058 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:17,272 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:18,005 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:20,295 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:22,141 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:22,466 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:23,596 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:23,905 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:24,268 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:24,333 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:24,543 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:24,561 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:25,047 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:30,739 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:31,009 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:32,107 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:32,841 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:33,807 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:34,349 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:34,474 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:36,501 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:39,191 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:39,815 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:40,048 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:43,071 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:43,508 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:43,759 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:45,030 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:46,222 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:48,133 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:48,434 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:51,103 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:51,927 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:51,947 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:52,222 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:53,178 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:53,511 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:53,533 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:54,282 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:12:54,982 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:00,344 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:00,675 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:03,761 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:04,663 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:04,745 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:06,078 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:08,030 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:08,768 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:09,692 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:11,075 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:11,099 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:11,184 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:12,978 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:15,471 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:16,469 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:17,725 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:20,365 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:20,860 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:21,051 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:21,753 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:22,953 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:23,463 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:25,582 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:26,723 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:26,966 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:27,359 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:29,462 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:30,938 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:31,541 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:33,440 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:33,714 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:35,285 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:35,773 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:38,071 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:39,813 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:39,901 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:40,409 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:41,200 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:42,277 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:42,591 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:42,943 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:47,409 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:47,605 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:47,717 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:49,774 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:52,089 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:52,261 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:53,365 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:54,341 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:55,173 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:55,915 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:56,123 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:56,631 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:56,702 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:57,550 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:57,734 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:13:58,266 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:05,947 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:06,341 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:07,010 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:07,641 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:11,036 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:11,222 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:12,835 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:12,893 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:13,051 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:13,910 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:14,332 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:15,338 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:16,159 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:16,959 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:16,975 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:17,650 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:19,673 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:22,335 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:25,481 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:26,449 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:27,230 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:27,281 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:28,221 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:29,339 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:30,229 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:30,473 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:31,545 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:32,075 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:35,601 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:35,721 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:37,875 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:37,932 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:38,780 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:39,723 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:41,643 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:42,168 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:42,386 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:42,553 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:43,038 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:43,637 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:43,846 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:44,834 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:50,466 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:53,309 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:54,319 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:54,524 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:55,458 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:55,685 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:56,565 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:56,733 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:57,743 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:58,264 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:58,746 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:14:58,770 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:00,355 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:02,186 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:04,235 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:05,216 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:08,328 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:09,413 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:09,875 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:11,172 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:11,496 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:11,978 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:12,167 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:12,216 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:12,857 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:13,264 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:13,444 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:15,490 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:17,936 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:18,481 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:19,564 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:19,861 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:22,815 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:25,946 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:26,123 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:27,455 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:27,911 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:29,380 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:29,812 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:30,285 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:30,470 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:31,634 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:32,044 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:33,724 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:33,734 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:35,037 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:35,781 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:39,318 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:39,926 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:41,465 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:43,026 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:44,210 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:45,084 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:45,127 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:45,379 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:45,962 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:46,351 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:47,627 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:47,707 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:47,749 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:47,994 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:48,838 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:52,456 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:55,794 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:56,744 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:58,027 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:15:58,495 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:03,952 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:03,988 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:04,117 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:04,444 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:04,564 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:04,672 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:06,655 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:06,921 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:09,002 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:09,474 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:10,644 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:10,724 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:11,640 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:12,006 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:13,849 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:18,458 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:18,827 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:20,100 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:21,998 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:23,552 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:23,898 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:24,432 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:24,432 - lightrag - INFO -   Chunk 1/294: extracted 18 entities and 16 relationships (deduplicated)
+2026-10-09 12:16:24,535 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:25,691 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:25,692 - lightrag - INFO -   Chunk 2/294: extracted 16 entities and 22 relationships (deduplicated)
+2026-10-09 12:16:26,817 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:27,072 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:27,772 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:27,772 - lightrag - INFO -   Chunk 3/294: extracted 16 entities and 17 relationships (deduplicated)
+2026-10-09 12:16:30,010 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:30,011 - lightrag - INFO -   Chunk 4/294: extracted 17 entities and 18 relationships (deduplicated)
+2026-10-09 12:16:30,459 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:30,687 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:30,688 - lightrag - INFO -   Chunk 5/294: extracted 17 entities and 17 relationships (deduplicated)
+2026-10-09 12:16:33,173 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:33,173 - lightrag - INFO -   Chunk 6/294: extracted 18 entities and 18 relationships (deduplicated)
+2026-10-09 12:16:40,833 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:40,834 - lightrag - INFO -   Chunk 7/294: extracted 26 entities and 34 relationships (deduplicated)
+2026-10-09 12:16:40,909 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:40,909 - lightrag - INFO -   Chunk 8/294: extracted 21 entities and 24 relationships (deduplicated)
+2026-10-09 12:16:42,291 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:42,292 - lightrag - INFO -   Chunk 9/294: extracted 25 entities and 22 relationships (deduplicated)
+2026-10-09 12:16:42,366 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:42,367 - lightrag - INFO -   Chunk 10/294: extracted 30 entities and 28 relationships (deduplicated)
+2026-10-09 12:16:42,471 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:42,471 - lightrag - INFO -   Chunk 11/294: extracted 15 entities and 17 relationships (deduplicated)
+2026-10-09 12:16:42,958 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:42,959 - lightrag - INFO -   Chunk 12/294: extracted 33 entities and 36 relationships (deduplicated)
+2026-10-09 12:16:46,589 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:46,589 - lightrag - INFO -   Chunk 13/294: extracted 15 entities and 16 relationships (deduplicated)
+2026-10-09 12:16:48,684 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:48,686 - lightrag - INFO -   Chunk 14/294: extracted 25 entities and 29 relationships (deduplicated)
+2026-10-09 12:16:50,050 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:50,051 - lightrag - INFO -   Chunk 15/294: extracted 19 entities and 19 relationships (deduplicated)
+2026-10-09 12:16:50,760 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:50,761 - lightrag - INFO -   Chunk 16/294: extracted 29 entities and 29 relationships (deduplicated)
+2026-10-09 12:16:50,775 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:50,776 - lightrag - INFO -   Chunk 17/294: extracted 13 entities and 17 relationships (deduplicated)
+2026-10-09 12:16:51,627 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:51,628 - lightrag - INFO -   Chunk 18/294: extracted 22 entities and 18 relationships (deduplicated)
+2026-10-09 12:16:51,766 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:51,767 - lightrag - INFO -   Chunk 19/294: extracted 34 entities and 36 relationships (deduplicated)
+2026-10-09 12:16:53,535 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:53,536 - lightrag - INFO -   Chunk 20/294: extracted 25 entities and 32 relationships (deduplicated)
+2026-10-09 12:16:53,879 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:53,879 - lightrag - INFO -   Chunk 21/294: extracted 17 entities and 18 relationships (deduplicated)
+2026-10-09 12:16:55,276 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:55,276 - lightrag - INFO -   Chunk 22/294: extracted 18 entities and 20 relationships (deduplicated)
+2026-10-09 12:16:57,422 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:57,423 - lightrag - INFO -   Chunk 23/294: extracted 20 entities and 21 relationships (deduplicated)
+2026-10-09 12:16:57,689 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:57,690 - lightrag - INFO -   Chunk 24/294: extracted 30 entities and 31 relationships (deduplicated)
+2026-10-09 12:16:58,273 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:58,274 - lightrag - INFO -   Chunk 25/294: extracted 15 entities and 20 relationships (deduplicated)
+2026-10-09 12:16:58,546 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:58,548 - lightrag - INFO -   Chunk 26/294: extracted 20 entities and 24 relationships (deduplicated)
+2026-10-09 12:16:58,612 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:16:58,612 - lightrag - INFO -   Chunk 27/294: extracted 14 entities and 17 relationships (deduplicated)
+2026-10-09 12:17:01,233 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:01,235 - lightrag - INFO -   Chunk 28/294: extracted 17 entities and 17 relationships (deduplicated)
+2026-10-09 12:17:02,681 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:02,681 - lightrag - INFO -   Chunk 29/294: extracted 22 entities and 18 relationships (deduplicated)
+2026-10-09 12:17:03,338 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:03,339 - lightrag - INFO -   Chunk 30/294: extracted 20 entities and 23 relationships (deduplicated)
+2026-10-09 12:17:05,740 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:05,741 - lightrag - INFO -   Chunk 31/294: extracted 21 entities and 23 relationships (deduplicated)
+2026-10-09 12:17:05,988 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:05,989 - lightrag - INFO -   Chunk 32/294: extracted 14 entities and 13 relationships (deduplicated)
+2026-10-09 12:17:06,356 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:06,357 - lightrag - INFO -   Chunk 33/294: extracted 20 entities and 13 relationships (deduplicated)
+2026-10-09 12:17:06,633 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:06,634 - lightrag - INFO -   Chunk 34/294: extracted 21 entities and 28 relationships (deduplicated)
+2026-10-09 12:17:07,344 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:07,345 - lightrag - INFO -   Chunk 35/294: extracted 20 entities and 20 relationships (deduplicated)
+2026-10-09 12:17:07,931 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:07,932 - lightrag - INFO -   Chunk 36/294: extracted 20 entities and 18 relationships (deduplicated)
+2026-10-09 12:17:08,942 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:08,943 - lightrag - INFO -   Chunk 37/294: extracted 15 entities and 13 relationships (deduplicated)
+2026-10-09 12:17:09,524 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:09,524 - lightrag - INFO -   Chunk 38/294: extracted 22 entities and 29 relationships (deduplicated)
+2026-10-09 12:17:11,524 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:11,525 - lightrag - INFO -   Chunk 39/294: extracted 13 entities and 16 relationships (deduplicated)
+2026-10-09 12:17:12,192 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:12,193 - lightrag - INFO -   Chunk 40/294: extracted 18 entities and 22 relationships (deduplicated)
+2026-10-09 12:17:18,376 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:18,376 - lightrag - INFO -   Chunk 41/294: extracted 16 entities and 16 relationships (deduplicated)
+2026-10-09 12:17:18,438 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:18,439 - lightrag - INFO -   Chunk 42/294: extracted 21 entities and 23 relationships (deduplicated)
+2026-10-09 12:17:20,639 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:20,639 - lightrag - INFO -   Chunk 43/294: extracted 22 entities and 28 relationships (deduplicated)
+2026-10-09 12:17:21,205 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:21,206 - lightrag - INFO -   Chunk 44/294: extracted 22 entities and 23 relationships (deduplicated)
+2026-10-09 12:17:21,940 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:21,940 - lightrag - INFO -   Chunk 45/294: extracted 22 entities and 18 relationships (deduplicated)
+2026-10-09 12:17:23,353 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:23,354 - lightrag - INFO -   Chunk 46/294: extracted 16 entities and 17 relationships (deduplicated)
+2026-10-09 12:17:25,182 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:25,184 - lightrag - INFO -   Chunk 47/294: extracted 27 entities and 25 relationships (deduplicated)
+2026-10-09 12:17:26,006 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:26,007 - lightrag - INFO -   Chunk 48/294: extracted 20 entities and 18 relationships (deduplicated)
+2026-10-09 12:17:26,641 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:26,642 - lightrag - INFO -   Chunk 49/294: extracted 30 entities and 30 relationships (deduplicated)
+2026-10-09 12:17:26,959 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:26,960 - lightrag - INFO -   Chunk 50/294: extracted 18 entities and 18 relationships (deduplicated)
+2026-10-09 12:17:27,952 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:27,953 - lightrag - INFO -   Chunk 51/294: extracted 20 entities and 20 relationships (deduplicated)
+2026-10-09 12:17:28,142 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:28,142 - lightrag - INFO -   Chunk 52/294: extracted 21 entities and 23 relationships (deduplicated)
+2026-10-09 12:17:31,341 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:31,342 - lightrag - INFO -   Chunk 53/294: extracted 16 entities and 17 relationships (deduplicated)
+2026-10-09 12:17:31,744 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:31,745 - lightrag - INFO -   Chunk 54/294: extracted 20 entities and 19 relationships (deduplicated)
+2026-10-09 12:17:33,592 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:33,593 - lightrag - INFO -   Chunk 55/294: extracted 19 entities and 19 relationships (deduplicated)
+2026-10-09 12:17:34,106 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:34,106 - lightrag - INFO -   Chunk 56/294: extracted 24 entities and 18 relationships (deduplicated)
+2026-10-09 12:17:35,892 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:35,893 - lightrag - INFO -   Chunk 57/294: extracted 24 entities and 26 relationships (deduplicated)
+2026-10-09 12:17:37,773 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:37,774 - lightrag - INFO -   Chunk 58/294: extracted 23 entities and 20 relationships (deduplicated)
+2026-10-09 12:17:38,044 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:38,045 - lightrag - INFO -   Chunk 59/294: extracted 15 entities and 19 relationships (deduplicated)
+2026-10-09 12:17:38,649 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:38,649 - lightrag - INFO -   Chunk 60/294: extracted 19 entities and 21 relationships (deduplicated)
+2026-10-09 12:17:39,562 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:39,563 - lightrag - INFO -   Chunk 61/294: extracted 16 entities and 20 relationships (deduplicated)
+2026-10-09 12:17:40,540 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:40,541 - lightrag - INFO -   Chunk 62/294: extracted 20 entities and 20 relationships (deduplicated)
+2026-10-09 12:17:41,285 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:41,286 - lightrag - INFO -   Chunk 63/294: extracted 21 entities and 22 relationships (deduplicated)
+2026-10-09 12:17:42,608 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:42,609 - lightrag - INFO -   Chunk 64/294: extracted 34 entities and 30 relationships (deduplicated)
+2026-10-09 12:17:43,257 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:43,257 - lightrag - INFO -   Chunk 65/294: extracted 20 entities and 26 relationships (deduplicated)
+2026-10-09 12:17:44,141 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:44,142 - lightrag - INFO -   Chunk 66/294: extracted 27 entities and 26 relationships (deduplicated)
+2026-10-09 12:17:45,126 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:45,127 - lightrag - INFO -   Chunk 67/294: extracted 22 entities and 28 relationships (deduplicated)
+2026-10-09 12:17:45,516 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:45,517 - lightrag - INFO -   Chunk 68/294: extracted 15 entities and 11 relationships (deduplicated)
+2026-10-09 12:17:46,516 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:46,517 - lightrag - INFO -   Chunk 69/294: extracted 35 entities and 31 relationships (deduplicated)
+2026-10-09 12:17:47,946 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:47,947 - lightrag - INFO -   Chunk 70/294: extracted 23 entities and 35 relationships (deduplicated)
+2026-10-09 12:17:48,534 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:48,534 - lightrag - INFO -   Chunk 71/294: extracted 18 entities and 17 relationships (deduplicated)
+2026-10-09 12:17:51,718 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:51,718 - lightrag - INFO -   Chunk 72/294: extracted 15 entities and 16 relationships (deduplicated)
+2026-10-09 12:17:51,924 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:51,925 - lightrag - INFO -   Chunk 73/294: extracted 13 entities and 12 relationships (deduplicated)
+2026-10-09 12:17:52,883 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:52,884 - lightrag - INFO -   Chunk 74/294: extracted 15 entities and 17 relationships (deduplicated)
+2026-10-09 12:17:58,953 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:58,955 - lightrag - INFO -   Chunk 75/294: extracted 27 entities and 27 relationships (deduplicated)
+2026-10-09 12:17:59,885 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:17:59,887 - lightrag - INFO -   Chunk 76/294: extracted 22 entities and 33 relationships (deduplicated)
+2026-10-09 12:18:00,797 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:00,798 - lightrag - INFO -   Chunk 77/294: extracted 18 entities and 18 relationships (deduplicated)
+2026-10-09 12:18:01,151 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:01,151 - lightrag - INFO -   Chunk 78/294: extracted 24 entities and 29 relationships (deduplicated)
+2026-10-09 12:18:01,937 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:01,938 - lightrag - INFO -   Chunk 79/294: extracted 12 entities and 12 relationships (deduplicated)
+2026-10-09 12:18:02,699 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:02,700 - lightrag - INFO -   Chunk 80/294: extracted 17 entities and 18 relationships (deduplicated)
+2026-10-09 12:18:03,185 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:03,186 - lightrag - INFO -   Chunk 81/294: extracted 26 entities and 22 relationships (deduplicated)
+2026-10-09 12:18:03,375 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:03,376 - lightrag - INFO -   Chunk 82/294: extracted 15 entities and 15 relationships (deduplicated)
+2026-10-09 12:18:03,916 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:03,916 - lightrag - INFO -   Chunk 83/294: extracted 13 entities and 13 relationships (deduplicated)
+2026-10-09 12:18:04,150 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:04,150 - lightrag - INFO -   Chunk 84/294: extracted 16 entities and 19 relationships (deduplicated)
+2026-10-09 12:18:05,341 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:05,342 - lightrag - INFO -   Chunk 85/294: extracted 18 entities and 25 relationships (deduplicated)
+2026-10-09 12:18:07,348 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:07,349 - lightrag - INFO -   Chunk 86/294: extracted 19 entities and 22 relationships (deduplicated)
+2026-10-09 12:18:07,372 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:07,372 - lightrag - INFO -   Chunk 87/294: extracted 14 entities and 15 relationships (deduplicated)
+2026-10-09 12:18:09,232 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:09,233 - lightrag - INFO -   Chunk 88/294: extracted 16 entities and 20 relationships (deduplicated)
+2026-10-09 12:18:10,989 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:10,990 - lightrag - INFO -   Chunk 89/294: extracted 22 entities and 22 relationships (deduplicated)
+2026-10-09 12:18:11,154 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:11,155 - lightrag - INFO -   Chunk 90/294: extracted 20 entities and 18 relationships (deduplicated)
+2026-10-09 12:18:17,261 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:17,262 - lightrag - INFO -   Chunk 91/294: extracted 16 entities and 12 relationships (deduplicated)
+2026-10-09 12:18:17,315 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:17,316 - lightrag - INFO -   Chunk 92/294: extracted 19 entities and 24 relationships (deduplicated)
+2026-10-09 12:18:18,419 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:18,419 - lightrag - INFO -   Chunk 93/294: extracted 25 entities and 29 relationships (deduplicated)
+2026-10-09 12:18:20,093 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:20,093 - lightrag - INFO -   Chunk 94/294: extracted 18 entities and 21 relationships (deduplicated)
+2026-10-09 12:18:21,110 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:21,110 - lightrag - INFO -   Chunk 95/294: extracted 25 entities and 26 relationships (deduplicated)
+2026-10-09 12:18:21,723 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:21,723 - lightrag - INFO -   Chunk 96/294: extracted 22 entities and 27 relationships (deduplicated)
+2026-10-09 12:18:23,741 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:23,742 - lightrag - INFO -   Chunk 97/294: extracted 18 entities and 23 relationships (deduplicated)
+2026-10-09 12:18:25,203 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:25,203 - lightrag - INFO -   Chunk 98/294: extracted 22 entities and 22 relationships (deduplicated)
+2026-10-09 12:18:26,430 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:26,430 - lightrag - INFO -   Chunk 99/294: extracted 18 entities and 18 relationships (deduplicated)
+2026-10-09 12:18:26,710 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:26,711 - lightrag - INFO -   Chunk 100/294: extracted 17 entities and 18 relationships (deduplicated)
+2026-10-09 12:18:26,874 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:26,874 - lightrag - INFO -   Chunk 101/294: extracted 13 entities and 15 relationships (deduplicated)
+2026-10-09 12:18:27,520 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:27,521 - lightrag - INFO -   Chunk 102/294: extracted 16 entities and 19 relationships (deduplicated)
+2026-10-09 12:18:27,842 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:27,843 - lightrag - INFO -   Chunk 103/294: extracted 18 entities and 21 relationships (deduplicated)
+2026-10-09 12:18:28,822 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:28,823 - lightrag - INFO -   Chunk 104/294: extracted 21 entities and 26 relationships (deduplicated)
+2026-10-09 12:18:32,548 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:32,549 - lightrag - INFO -   Chunk 105/294: extracted 14 entities and 15 relationships (deduplicated)
+2026-10-09 12:18:32,916 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:32,917 - lightrag - INFO -   Chunk 106/294: extracted 15 entities and 15 relationships (deduplicated)
+2026-10-09 12:18:33,806 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:33,807 - lightrag - INFO -   Chunk 107/294: extracted 15 entities and 14 relationships (deduplicated)
+2026-10-09 12:18:33,831 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:33,831 - lightrag - INFO -   Chunk 108/294: extracted 17 entities and 19 relationships (deduplicated)
+2026-10-09 12:18:35,585 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:35,587 - lightrag - INFO -   Chunk 109/294: extracted 26 entities and 28 relationships (deduplicated)
+2026-10-09 12:18:36,563 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:36,564 - lightrag - INFO -   Chunk 110/294: extracted 13 entities and 15 relationships (deduplicated)
+2026-10-09 12:18:37,557 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:37,557 - lightrag - INFO -   Chunk 111/294: extracted 20 entities and 23 relationships (deduplicated)
+2026-10-09 12:18:38,621 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:38,622 - lightrag - INFO -   Chunk 112/294: extracted 20 entities and 25 relationships (deduplicated)
+2026-10-09 12:18:40,155 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:40,156 - lightrag - INFO -   Chunk 113/294: extracted 24 entities and 25 relationships (deduplicated)
+2026-10-09 12:18:41,020 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:41,021 - lightrag - INFO -   Chunk 114/294: extracted 23 entities and 20 relationships (deduplicated)
+2026-10-09 12:18:44,572 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:44,573 - lightrag - INFO -   Chunk 115/294: extracted 22 entities and 24 relationships (deduplicated)
+2026-10-09 12:18:45,805 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:45,807 - lightrag - INFO -   Chunk 116/294: extracted 22 entities and 24 relationships (deduplicated)
+2026-10-09 12:18:46,405 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:46,405 - lightrag - INFO -   Chunk 117/294: extracted 22 entities and 20 relationships (deduplicated)
+2026-10-09 12:18:46,686 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:46,687 - lightrag - INFO -   Chunk 118/294: extracted 20 entities and 19 relationships (deduplicated)
+2026-10-09 12:18:46,735 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:46,735 - lightrag - INFO -   Chunk 119/294: extracted 18 entities and 17 relationships (deduplicated)
+2026-10-09 12:18:47,694 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:47,695 - lightrag - INFO -   Chunk 120/294: extracted 23 entities and 24 relationships (deduplicated)
+2026-10-09 12:18:48,550 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:48,551 - lightrag - INFO -   Chunk 121/294: extracted 14 entities and 15 relationships (deduplicated)
+2026-10-09 12:18:48,959 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:48,960 - lightrag - INFO -   Chunk 122/294: extracted 19 entities and 19 relationships (deduplicated)
+2026-10-09 12:18:53,328 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:53,329 - lightrag - INFO -   Chunk 123/294: extracted 20 entities and 0 relationships (deduplicated)
+2026-10-09 12:18:53,478 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:53,479 - lightrag - INFO -   Chunk 124/294: extracted 22 entities and 22 relationships (deduplicated)
+2026-10-09 12:18:54,790 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:54,791 - lightrag - INFO -   Chunk 125/294: extracted 17 entities and 21 relationships (deduplicated)
+2026-10-09 12:18:55,957 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:55,958 - lightrag - INFO -   Chunk 126/294: extracted 24 entities and 30 relationships (deduplicated)
+2026-10-09 12:18:56,037 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:56,037 - lightrag - INFO -   Chunk 127/294: extracted 16 entities and 19 relationships (deduplicated)
+2026-10-09 12:18:56,514 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:56,515 - lightrag - INFO -   Chunk 128/294: extracted 22 entities and 22 relationships (deduplicated)
+2026-10-09 12:18:56,747 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:56,748 - lightrag - INFO -   Chunk 129/294: extracted 20 entities and 22 relationships (deduplicated)
+2026-10-09 12:18:58,792 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:18:58,794 - lightrag - INFO -   Chunk 130/294: extracted 30 entities and 25 relationships (deduplicated)
+2026-10-09 12:19:02,128 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:02,129 - lightrag - INFO -   Chunk 131/294: extracted 19 entities and 16 relationships (deduplicated)
+2026-10-09 12:19:02,800 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:02,800 - lightrag - INFO -   Chunk 132/294: extracted 15 entities and 18 relationships (deduplicated)
+2026-10-09 12:19:04,593 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:04,593 - lightrag - INFO -   Chunk 133/294: extracted 20 entities and 24 relationships (deduplicated)
+2026-10-09 12:19:05,258 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:05,259 - lightrag - INFO -   Chunk 134/294: extracted 13 entities and 14 relationships (deduplicated)
+2026-10-09 12:19:06,594 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:06,595 - lightrag - INFO -   Chunk 135/294: extracted 16 entities and 18 relationships (deduplicated)
+2026-10-09 12:19:06,707 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:06,707 - lightrag - INFO -   Chunk 136/294: extracted 15 entities and 22 relationships (deduplicated)
+2026-10-09 12:19:06,775 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:06,776 - lightrag - INFO -   Chunk 137/294: extracted 21 entities and 25 relationships (deduplicated)
+2026-10-09 12:19:07,481 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:07,481 - lightrag - INFO -   Chunk 138/294: extracted 14 entities and 18 relationships (deduplicated)
+2026-10-09 12:19:07,789 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:07,790 - lightrag - INFO -   Chunk 139/294: extracted 13 entities and 16 relationships (deduplicated)
+2026-10-09 12:19:11,566 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:11,566 - lightrag - INFO -   Chunk 140/294: extracted 14 entities and 17 relationships (deduplicated)
+2026-10-09 12:19:12,727 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:12,728 - lightrag - INFO -   Chunk 141/294: extracted 20 entities and 19 relationships (deduplicated)
+2026-10-09 12:19:13,944 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:13,945 - lightrag - INFO -   Chunk 142/294: extracted 14 entities and 16 relationships (deduplicated)
+2026-10-09 12:19:14,763 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:14,764 - lightrag - INFO -   Chunk 143/294: extracted 21 entities and 28 relationships (deduplicated)
+2026-10-09 12:19:17,975 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:17,976 - lightrag - INFO -   Chunk 144/294: extracted 17 entities and 20 relationships (deduplicated)
+2026-10-09 12:19:18,537 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:18,539 - lightrag - INFO -   Chunk 145/294: extracted 30 entities and 30 relationships (deduplicated)
+2026-10-09 12:19:19,958 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:19,960 - lightrag - INFO -   Chunk 146/294: extracted 17 entities and 17 relationships (deduplicated)
+2026-10-09 12:19:20,221 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:20,222 - lightrag - INFO -   Chunk 147/294: extracted 18 entities and 18 relationships (deduplicated)
+2026-10-09 12:19:20,281 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:20,281 - lightrag - INFO -   Chunk 148/294: extracted 19 entities and 17 relationships (deduplicated)
+2026-10-09 12:19:20,708 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:20,709 - lightrag - INFO -   Chunk 149/294: extracted 16 entities and 17 relationships (deduplicated)
+2026-10-09 12:19:24,333 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:24,334 - lightrag - INFO -   Chunk 150/294: extracted 16 entities and 21 relationships (deduplicated)
+2026-10-09 12:19:25,932 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:25,932 - lightrag - INFO -   Chunk 151/294: extracted 15 entities and 17 relationships (deduplicated)
+2026-10-09 12:19:27,298 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:27,299 - lightrag - INFO -   Chunk 152/294: extracted 21 entities and 19 relationships (deduplicated)
+2026-10-09 12:19:27,404 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:27,404 - lightrag - INFO -   Chunk 153/294: extracted 16 entities and 16 relationships (deduplicated)
+2026-10-09 12:19:28,966 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:28,967 - lightrag - INFO -   Chunk 154/294: extracted 18 entities and 24 relationships (deduplicated)
+2026-10-09 12:19:29,048 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:29,049 - lightrag - INFO -   Chunk 155/294: extracted 25 entities and 23 relationships (deduplicated)
+2026-10-09 12:19:29,119 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:29,119 - lightrag - INFO -   Chunk 156/294: extracted 20 entities and 27 relationships (deduplicated)
+2026-10-09 12:19:30,814 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:30,815 - lightrag - INFO -   Chunk 157/294: extracted 13 entities and 18 relationships (deduplicated)
+2026-10-09 12:19:31,260 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:31,261 - lightrag - INFO -   Chunk 158/294: extracted 27 entities and 27 relationships (deduplicated)
+2026-10-09 12:19:32,701 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:32,702 - lightrag - INFO -   Chunk 159/294: extracted 17 entities and 22 relationships (deduplicated)
+2026-10-09 12:19:34,686 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:34,687 - lightrag - INFO -   Chunk 160/294: extracted 27 entities and 18 relationships (deduplicated)
+2026-10-09 12:19:35,141 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:35,142 - lightrag - INFO -   Chunk 161/294: extracted 16 entities and 20 relationships (deduplicated)
+2026-10-09 12:19:36,270 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:36,271 - lightrag - INFO -   Chunk 162/294: extracted 13 entities and 13 relationships (deduplicated)
+2026-10-09 12:19:36,336 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:36,337 - lightrag - INFO -   Chunk 163/294: extracted 23 entities and 24 relationships (deduplicated)
+2026-10-09 12:19:36,355 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:36,355 - lightrag - INFO -   Chunk 164/294: extracted 15 entities and 23 relationships (deduplicated)
+2026-10-09 12:19:41,288 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:41,289 - lightrag - INFO -   Chunk 165/294: extracted 14 entities and 14 relationships (deduplicated)
+2026-10-09 12:19:41,310 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:41,311 - lightrag - INFO -   Chunk 166/294: extracted 21 entities and 21 relationships (deduplicated)
+2026-10-09 12:19:42,209 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:42,210 - lightrag - INFO -   Chunk 167/294: extracted 25 entities and 23 relationships (deduplicated)
+2026-10-09 12:19:43,263 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:43,263 - lightrag - INFO -   Chunk 168/294: extracted 20 entities and 19 relationships (deduplicated)
+2026-10-09 12:19:44,261 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:44,262 - lightrag - INFO -   Chunk 169/294: extracted 22 entities and 23 relationships (deduplicated)
+2026-10-09 12:19:45,353 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:45,357 - lightrag - INFO -   Chunk 170/294: extracted 25 entities and 23 relationships (deduplicated)
+2026-10-09 12:19:45,732 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:45,732 - lightrag - INFO -   Chunk 171/294: extracted 21 entities and 22 relationships (deduplicated)
+2026-10-09 12:19:46,714 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:46,714 - lightrag - INFO -   Chunk 172/294: extracted 27 entities and 16 relationships (deduplicated)
+2026-10-09 12:19:47,766 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:47,767 - lightrag - INFO -   Chunk 173/294: extracted 20 entities and 18 relationships (deduplicated)
+2026-10-09 12:19:48,971 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:48,973 - lightrag - INFO -   Chunk 174/294: extracted 32 entities and 29 relationships (deduplicated)
+2026-10-09 12:19:49,206 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:49,207 - lightrag - INFO -   Chunk 175/294: extracted 16 entities and 22 relationships (deduplicated)
+2026-10-09 12:19:51,319 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:51,320 - lightrag - INFO -   Chunk 176/294: extracted 20 entities and 19 relationships (deduplicated)
+2026-10-09 12:19:53,165 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:53,165 - lightrag - INFO -   Chunk 177/294: extracted 20 entities and 18 relationships (deduplicated)
+2026-10-09 12:19:53,798 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:53,800 - lightrag - INFO -   Chunk 178/294: extracted 24 entities and 29 relationships (deduplicated)
+2026-10-09 12:19:56,751 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:56,752 - lightrag - INFO -   Chunk 179/294: extracted 19 entities and 24 relationships (deduplicated)
+2026-10-09 12:19:58,025 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:58,026 - lightrag - INFO -   Chunk 180/294: extracted 18 entities and 21 relationships (deduplicated)
+2026-10-09 12:19:58,491 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:58,492 - lightrag - INFO -   Chunk 181/294: extracted 18 entities and 18 relationships (deduplicated)
+2026-10-09 12:19:58,667 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:19:58,667 - lightrag - INFO -   Chunk 182/294: extracted 15 entities and 11 relationships (deduplicated)
+2026-10-09 12:20:00,139 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:00,140 - lightrag - INFO -   Chunk 183/294: extracted 21 entities and 28 relationships (deduplicated)
+2026-10-09 12:20:01,236 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:01,237 - lightrag - INFO -   Chunk 184/294: extracted 14 entities and 15 relationships (deduplicated)
+2026-10-09 12:20:02,460 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:02,461 - lightrag - INFO -   Chunk 185/294: extracted 17 entities and 17 relationships (deduplicated)
+2026-10-09 12:20:05,417 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:05,418 - lightrag - INFO -   Chunk 186/294: extracted 16 entities and 12 relationships (deduplicated)
+2026-10-09 12:20:06,586 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:06,587 - lightrag - INFO -   Chunk 187/294: extracted 23 entities and 25 relationships (deduplicated)
+2026-10-09 12:20:06,599 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:06,599 - lightrag - INFO -   Chunk 188/294: extracted 18 entities and 14 relationships (deduplicated)
+2026-10-09 12:20:09,233 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:09,234 - lightrag - INFO -   Chunk 189/294: extracted 31 entities and 36 relationships (deduplicated)
+2026-10-09 12:20:09,434 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:09,435 - lightrag - INFO -   Chunk 190/294: extracted 15 entities and 13 relationships (deduplicated)
+2026-10-09 12:20:09,758 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:09,759 - lightrag - INFO -   Chunk 191/294: extracted 22 entities and 29 relationships (deduplicated)
+2026-10-09 12:20:10,671 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:10,671 - lightrag - INFO -   Chunk 192/294: extracted 10 entities and 12 relationships (deduplicated)
+2026-10-09 12:20:10,768 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:10,769 - lightrag - INFO -   Chunk 193/294: extracted 30 entities and 36 relationships (deduplicated)
+2026-10-09 12:20:12,468 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:12,469 - lightrag - INFO -   Chunk 194/294: extracted 10 entities and 10 relationships (deduplicated)
+2026-10-09 12:20:13,645 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:13,646 - lightrag - INFO -   Chunk 195/294: extracted 10 entities and 9 relationships (deduplicated)
+2026-10-09 12:20:13,771 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:13,772 - lightrag - INFO -   Chunk 196/294: extracted 8 entities and 11 relationships (deduplicated)
+2026-10-09 12:20:15,933 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:15,933 - lightrag - INFO -   Chunk 197/294: extracted 22 entities and 21 relationships (deduplicated)
+2026-10-09 12:20:17,661 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:17,662 - lightrag - INFO -   Chunk 198/294: extracted 10 entities and 10 relationships (deduplicated)
+2026-10-09 12:20:18,881 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:18,883 - lightrag - INFO -   Chunk 199/294: extracted 18 entities and 27 relationships (deduplicated)
+2026-10-09 12:20:19,400 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:19,400 - lightrag - INFO -   Chunk 200/294: extracted 17 entities and 20 relationships (deduplicated)
+2026-10-09 12:20:19,431 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:19,431 - lightrag - INFO -   Chunk 201/294: extracted 11 entities and 10 relationships (deduplicated)
+2026-10-09 12:20:20,682 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:20,683 - lightrag - INFO -   Chunk 202/294: extracted 25 entities and 26 relationships (deduplicated)
+2026-10-09 12:20:20,972 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:20,973 - lightrag - INFO -   Chunk 203/294: extracted 16 entities and 18 relationships (deduplicated)
+2026-10-09 12:20:26,403 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:26,405 - lightrag - INFO -   Chunk 204/294: extracted 19 entities and 20 relationships (deduplicated)
+2026-10-09 12:20:27,718 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:27,718 - lightrag - INFO -   Chunk 205/294: extracted 13 entities and 14 relationships (deduplicated)
+2026-10-09 12:20:28,218 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:28,220 - lightrag - INFO -   Chunk 206/294: extracted 14 entities and 18 relationships (deduplicated)
+2026-10-09 12:20:28,342 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:28,343 - lightrag - INFO -   Chunk 207/294: extracted 17 entities and 19 relationships (deduplicated)
+2026-10-09 12:20:28,522 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:28,522 - lightrag - INFO -   Chunk 208/294: extracted 18 entities and 19 relationships (deduplicated)
+2026-10-09 12:20:29,813 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:29,814 - lightrag - INFO -   Chunk 209/294: extracted 11 entities and 13 relationships (deduplicated)
+2026-10-09 12:20:29,834 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:29,834 - lightrag - INFO -   Chunk 210/294: extracted 20 entities and 22 relationships (deduplicated)
+2026-10-09 12:20:30,047 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:30,047 - lightrag - INFO -   Chunk 211/294: extracted 20 entities and 23 relationships (deduplicated)
+2026-10-09 12:20:31,427 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:31,427 - lightrag - INFO -   Chunk 212/294: extracted 18 entities and 19 relationships (deduplicated)
+2026-10-09 12:20:33,821 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:33,822 - lightrag - INFO -   Chunk 213/294: extracted 9 entities and 10 relationships (deduplicated)
+2026-10-09 12:20:34,295 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:34,295 - lightrag - INFO -   Chunk 214/294: extracted 13 entities and 16 relationships (deduplicated)
+2026-10-09 12:20:35,834 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:35,835 - lightrag - INFO -   Chunk 215/294: extracted 13 entities and 15 relationships (deduplicated)
+2026-10-09 12:20:38,564 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:38,565 - lightrag - INFO -   Chunk 216/294: extracted 31 entities and 29 relationships (deduplicated)
+2026-10-09 12:20:39,112 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:39,112 - lightrag - INFO -   Chunk 217/294: extracted 17 entities and 22 relationships (deduplicated)
+2026-10-09 12:20:40,090 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:40,091 - lightrag - INFO -   Chunk 218/294: extracted 10 entities and 11 relationships (deduplicated)
+2026-10-09 12:20:40,119 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:40,119 - lightrag - INFO -   Chunk 219/294: extracted 19 entities and 28 relationships (deduplicated)
+2026-10-09 12:20:40,607 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:40,608 - lightrag - INFO -   Chunk 220/294: extracted 19 entities and 24 relationships (deduplicated)
+2026-10-09 12:20:42,627 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:42,628 - lightrag - INFO -   Chunk 221/294: extracted 18 entities and 18 relationships (deduplicated)
+2026-10-09 12:20:44,469 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:44,470 - lightrag - INFO -   Chunk 222/294: extracted 24 entities and 27 relationships (deduplicated)
+2026-10-09 12:20:45,467 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:45,468 - lightrag - INFO -   Chunk 223/294: extracted 21 entities and 24 relationships (deduplicated)
+2026-10-09 12:20:45,581 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:45,582 - lightrag - INFO -   Chunk 224/294: extracted 15 entities and 20 relationships (deduplicated)
+2026-10-09 12:20:47,966 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:47,967 - lightrag - INFO -   Chunk 225/294: extracted 15 entities and 17 relationships (deduplicated)
+2026-10-09 12:20:51,389 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:51,390 - lightrag - INFO -   Chunk 226/294: extracted 23 entities and 26 relationships (deduplicated)
+2026-10-09 12:20:51,814 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:51,815 - lightrag - INFO -   Chunk 227/294: extracted 16 entities and 15 relationships (deduplicated)
+2026-10-09 12:20:52,816 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:52,817 - lightrag - INFO -   Chunk 228/294: extracted 29 entities and 30 relationships (deduplicated)
+2026-10-09 12:20:54,604 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:54,605 - lightrag - INFO -   Chunk 229/294: extracted 17 entities and 21 relationships (deduplicated)
+2026-10-09 12:20:54,862 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:54,863 - lightrag - INFO -   Chunk 230/294: extracted 20 entities and 24 relationships (deduplicated)
+2026-10-09 12:20:54,978 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:54,978 - lightrag - INFO -   Chunk 231/294: extracted 21 entities and 20 relationships (deduplicated)
+2026-10-09 12:20:55,690 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:55,692 - lightrag - INFO -   Chunk 232/294: extracted 20 entities and 20 relationships (deduplicated)
+2026-10-09 12:20:55,963 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:55,964 - lightrag - INFO -   Chunk 233/294: extracted 19 entities and 21 relationships (deduplicated)
+2026-10-09 12:20:56,157 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:56,157 - lightrag - INFO -   Chunk 234/294: extracted 19 entities and 21 relationships (deduplicated)
+2026-10-09 12:20:56,246 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:56,247 - lightrag - INFO -   Chunk 235/294: extracted 20 entities and 23 relationships (deduplicated)
+2026-10-09 12:20:57,475 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:57,476 - lightrag - INFO -   Chunk 236/294: extracted 25 entities and 20 relationships (deduplicated)
+2026-10-09 12:20:58,905 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:20:58,907 - lightrag - INFO -   Chunk 237/294: extracted 20 entities and 23 relationships (deduplicated)
+2026-10-09 12:21:01,773 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:01,773 - lightrag - INFO -   Chunk 238/294: extracted 15 entities and 20 relationships (deduplicated)
+2026-10-09 12:21:02,087 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:02,089 - lightrag - INFO -   Chunk 239/294: extracted 22 entities and 20 relationships (deduplicated)
+2026-10-09 12:21:06,288 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:06,289 - lightrag - INFO -   Chunk 240/294: extracted 21 entities and 21 relationships (deduplicated)
+2026-10-09 12:21:06,554 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:06,554 - lightrag - INFO -   Chunk 241/294: extracted 16 entities and 20 relationships (deduplicated)
+2026-10-09 12:21:09,311 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:09,311 - lightrag - INFO -   Chunk 242/294: extracted 27 entities and 29 relationships (deduplicated)
+2026-10-09 12:21:11,094 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:11,094 - lightrag - INFO -   Chunk 243/294: extracted 18 entities and 14 relationships (deduplicated)
+2026-10-09 12:21:11,500 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:11,501 - lightrag - INFO -   Chunk 244/294: extracted 11 entities and 11 relationships (deduplicated)
+2026-10-09 12:21:11,515 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:11,516 - lightrag - INFO -   Chunk 245/294: extracted 20 entities and 21 relationships (deduplicated)
+2026-10-09 12:21:12,585 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:12,586 - lightrag - INFO -   Chunk 246/294: extracted 27 entities and 31 relationships (deduplicated)
+2026-10-09 12:21:12,652 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:12,652 - lightrag - INFO -   Chunk 247/294: extracted 18 entities and 15 relationships (deduplicated)
+2026-10-09 12:21:12,940 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:12,940 - lightrag - INFO -   Chunk 248/294: extracted 16 entities and 19 relationships (deduplicated)
+2026-10-09 12:21:13,447 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:13,447 - lightrag - INFO -   Chunk 249/294: extracted 12 entities and 16 relationships (deduplicated)
+2026-10-09 12:21:14,459 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:14,460 - lightrag - INFO -   Chunk 250/294: extracted 25 entities and 31 relationships (deduplicated)
+2026-10-09 12:21:15,355 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:15,355 - lightrag - INFO -   Chunk 251/294: extracted 33 entities and 32 relationships (deduplicated)
+2026-10-09 12:21:15,800 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:15,801 - lightrag - INFO -   Chunk 252/294: extracted 14 entities and 14 relationships (deduplicated)
+2026-10-09 12:21:17,239 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:17,240 - lightrag - INFO -   Chunk 253/294: extracted 23 entities and 24 relationships (deduplicated)
+2026-10-09 12:21:17,350 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:17,351 - lightrag - INFO -   Chunk 254/294: extracted 12 entities and 17 relationships (deduplicated)
+2026-10-09 12:21:17,820 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:17,820 - lightrag - INFO -   Chunk 255/294: extracted 14 entities and 17 relationships (deduplicated)
+2026-10-09 12:21:19,953 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:19,954 - lightrag - INFO -   Chunk 256/294: extracted 18 entities and 18 relationships (deduplicated)
+2026-10-09 12:21:20,754 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:20,755 - lightrag - INFO -   Chunk 257/294: extracted 19 entities and 24 relationships (deduplicated)
+2026-10-09 12:21:24,123 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:24,123 - lightrag - INFO -   Chunk 258/294: extracted 13 entities and 16 relationships (deduplicated)
+2026-10-09 12:21:24,607 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:24,607 - lightrag - INFO -   Chunk 259/294: extracted 18 entities and 22 relationships (deduplicated)
+2026-10-09 12:21:25,417 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:25,417 - lightrag - INFO -   Chunk 260/294: extracted 22 entities and 22 relationships (deduplicated)
+2026-10-09 12:21:25,780 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:25,781 - lightrag - INFO -   Chunk 261/294: extracted 20 entities and 22 relationships (deduplicated)
+2026-10-09 12:21:29,380 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:29,381 - lightrag - INFO -   Chunk 262/294: extracted 16 entities and 16 relationships (deduplicated)
+2026-10-09 12:21:30,036 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:30,037 - lightrag - INFO -   Chunk 263/294: extracted 22 entities and 25 relationships (deduplicated)
+2026-10-09 12:21:30,756 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:30,757 - lightrag - INFO -   Chunk 264/294: extracted 17 entities and 21 relationships (deduplicated)
+2026-10-09 12:21:30,777 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:30,778 - lightrag - INFO -   Chunk 265/294: extracted 18 entities and 17 relationships (deduplicated)
+2026-10-09 12:21:33,419 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:33,420 - lightrag - INFO -   Chunk 266/294: extracted 24 entities and 17 relationships (deduplicated)
+2026-10-09 12:21:35,724 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:35,725 - lightrag - INFO -   Chunk 267/294: extracted 17 entities and 22 relationships (deduplicated)
+2026-10-09 12:21:36,131 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:36,131 - lightrag - INFO -   Chunk 268/294: extracted 15 entities and 16 relationships (deduplicated)
+2026-10-09 12:21:36,359 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:36,359 - lightrag - INFO -   Chunk 269/294: extracted 19 entities and 18 relationships (deduplicated)
+2026-10-09 12:21:36,482 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:36,483 - lightrag - INFO -   Chunk 270/294: extracted 20 entities and 19 relationships (deduplicated)
+2026-10-09 12:21:38,162 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:38,162 - lightrag - INFO -   Chunk 271/294: extracted 20 entities and 18 relationships (deduplicated)
+2026-10-09 12:21:38,706 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:38,707 - lightrag - INFO -   Chunk 272/294: extracted 20 entities and 21 relationships (deduplicated)
+2026-10-09 12:21:44,054 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:44,055 - lightrag - INFO -   Chunk 273/294: extracted 21 entities and 23 relationships (deduplicated)
+2026-10-09 12:21:45,954 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:45,954 - lightrag - INFO -   Chunk 274/294: extracted 15 entities and 16 relationships (deduplicated)
+2026-10-09 12:21:47,813 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:47,814 - lightrag - INFO -   Chunk 275/294: extracted 15 entities and 17 relationships (deduplicated)
+2026-10-09 12:21:48,231 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:48,232 - lightrag - INFO -   Chunk 276/294: extracted 20 entities and 24 relationships (deduplicated)
+2026-10-09 12:21:49,705 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:49,705 - lightrag - INFO -   Chunk 277/294: extracted 15 entities and 20 relationships (deduplicated)
+2026-10-09 12:21:52,014 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:52,015 - lightrag - INFO -   Chunk 278/294: extracted 16 entities and 18 relationships (deduplicated)
+2026-10-09 12:21:52,063 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:52,063 - lightrag - INFO -   Chunk 279/294: extracted 25 entities and 27 relationships (deduplicated)
+2026-10-09 12:21:52,712 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:52,713 - lightrag - INFO -   Chunk 280/294: extracted 19 entities and 21 relationships (deduplicated)
+2026-10-09 12:21:53,497 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:53,498 - lightrag - INFO -   Chunk 281/294: extracted 18 entities and 17 relationships (deduplicated)
+2026-10-09 12:21:54,111 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:54,112 - lightrag - INFO -   Chunk 282/294: extracted 22 entities and 25 relationships (deduplicated)
+2026-10-09 12:21:54,930 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:54,931 - lightrag - INFO -   Chunk 283/294: extracted 22 entities and 28 relationships (deduplicated)
+2026-10-09 12:21:55,890 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:55,891 - lightrag - INFO -   Chunk 284/294: extracted 15 entities and 19 relationships (deduplicated)
+2026-10-09 12:21:58,748 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:21:58,749 - lightrag - INFO -   Chunk 285/294: extracted 16 entities and 18 relationships (deduplicated)
+2026-10-09 12:22:00,436 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:22:00,437 - lightrag - INFO -   Chunk 286/294: extracted 29 entities and 30 relationships (deduplicated)
+2026-10-09 12:22:00,718 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:22:00,719 - lightrag - INFO -   Chunk 287/294: extracted 23 entities and 23 relationships (deduplicated)
+2026-10-09 12:22:01,123 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:22:01,124 - lightrag - INFO -   Chunk 288/294: extracted 23 entities and 20 relationships (deduplicated)
+2026-10-09 12:22:02,206 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:22:02,207 - lightrag - INFO -   Chunk 289/294: extracted 26 entities and 21 relationships (deduplicated)
+2026-10-09 12:22:02,617 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:22:02,619 - lightrag - INFO -   Chunk 290/294: extracted 20 entities and 19 relationships (deduplicated)
+2026-10-09 12:22:06,517 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:22:06,520 - lightrag - INFO -   Chunk 291/294: extracted 17 entities and 20 relationships (deduplicated)
+2026-10-09 12:22:06,670 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:22:06,671 - lightrag - INFO -   Chunk 292/294: extracted 14 entities and 17 relationships (deduplicated)
+2026-10-09 12:22:14,591 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:22:14,592 - lightrag - INFO -   Chunk 293/294: extracted 30 entities and 21 relationships (deduplicated)
+2026-10-09 12:22:16,269 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:22:16,270 - lightrag - INFO -   Chunk 294/294: extracted 15 entities and 13 relationships (deduplicated)
+2026-10-09 12:22:16,477 - lightrag - INFO - Process 81858 reloading graph chunk_entity_relation due to update by another process
+2026-10-09 12:22:22,259 - lightrag - INFO - Extracted 3494 entities and 5459 relationships (deduplicated)
+2026-10-09 12:22:22,280 - lightrag - INFO - Inserting 3494 to entities
+2026-10-09 12:24:39,960 - lightrag - INFO - Process 81858 reloading entities due to update by another process
+2026-10-09 12:24:40,004 - lightrag - INFO - Inserting 5459 to relationships
+2026-10-09 12:26:31,062 - lightrag - INFO - Process 81858 reloading relationships due to update by another process
+2026-10-09 12:26:31,124 - lightrag - INFO - Inserting 1 records to doc_status
+2026-10-09 12:26:31,124 - lightrag - INFO - Process 81858 doc status writting 1 records to doc_status
+2026-10-09 12:26:31,130 - lightrag - INFO - Completed batch 1 of 1.
+2026-10-09 12:26:31,130 - lightrag - INFO - Process 81858 KV writting 1 records to full_docs
+2026-10-09 12:26:31,135 - lightrag - INFO - Process 81858 KV writting 294 records to text_chunks
+2026-10-09 12:26:31,144 - lightrag - INFO - Process 81858 KV writting 588 records to llm_response_cache
+2026-10-09 12:26:31,410 - lightrag - INFO - Writing graph with 3496 nodes, 5459 edges
+2026-10-09 12:26:31,510 - lightrag - INFO - All Insert done
+2026-10-09 12:26:31,511 - lightrag - INFO - Document processing pipeline completed
+2026-10-09 12:27:37,802 - lightrag - INFO - Loaded graph from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/graph_chunk_entity_relation.graphml with 3496 nodes, 5459 edges
+2026-10-09 12:27:37,963 - lightrag - INFO - Process 94421 KV load full_docs with 1 records
+2026-10-09 12:27:37,967 - lightrag - INFO - Process 94421 KV load text_chunks with 294 records
+2026-10-09 12:27:38,002 - lightrag - INFO - Process 94421 KV load llm_response_cache with 588 records
+2026-10-09 12:27:38,006 - lightrag - INFO - Process 94421 doc status load doc_status with 1 records
+2026-10-09 12:27:38,006 - lightrag - INFO - Storage Initialization completed!
+2026-10-09 12:27:40,393 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:40,394 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:27:40,394 - lightrag - INFO - Query nodes: Semi-structured templates, Data representation, Template count, top_k: 5, cosine: 0.2
+2026-10-09 12:27:41,948 - lightrag - INFO - Process 94421 reloading entities due to update by another process
+2026-10-09 12:27:42,015 - lightrag - INFO - Query edges: Multimodal Attribute Extraction, Information extraction, Dataset characteristics, top_k: 5, cosine: 0.2
+2026-10-09 12:27:42,064 - lightrag - INFO - Process 94421 reloading relationships due to update by another process
+2026-10-09 12:27:42,167 - lightrag - INFO - Process 94421 reloading graph chunk_entity_relation due to update by another process
+2026-10-09 12:27:42,377 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 12:27:42,378 - lightrag - INFO - Local query uses 5 entites, 11 relations, 3 chunks
+2026-10-09 12:27:42,873 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:42,873 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:27:42,874 - lightrag - INFO - Query nodes: The Rapidly Changing Landscape of Conversational Agents, Benchmark, Approaches comparison, Evaluation metrics, Performance evaluation, top_k: 5, cosine: 0.2
+2026-10-09 12:27:42,931 - lightrag - INFO - Query edges: Conversational agents, Benchmark comparison, Evaluation methodology, Landscape of conversational agents, top_k: 5, cosine: 0.2
+2026-10-09 12:27:42,981 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 12:27:42,982 - lightrag - INFO - Local query uses 5 entites, 9 relations, 3 chunks
+2026-10-09 12:27:43,258 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:43,258 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:27:43,259 - lightrag - INFO - Query nodes: Socioeconomic Dependencies of Linguistic Patterns in Twitter: A Multivariate Analysis, Socioeconomic maps, Twitter data, Geolocated tweets, Spatial mapping, top_k: 5, cosine: 0.2
+2026-10-09 12:27:43,331 - lightrag - INFO - Query edges: Socioeconomic analysis, Linguistic patterns, Multivariate analysis, Data integration, Social media analytics, top_k: 5, cosine: 0.2
+2026-10-09 12:27:43,382 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 12:27:43,383 - lightrag - INFO - Local query uses 5 entites, 15 relations, 3 chunks
+2026-10-09 12:27:43,530 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:43,530 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:27:43,530 - lightrag - INFO - Query nodes: Topic-Specific Sentiment Analysis Can Help Identify Political Ideology, Baselines, Baseline models, Experimental setup, Benchmark models, top_k: 5, cosine: 0.2
+2026-10-09 12:27:43,578 - lightrag - INFO - Query edges: Sentiment analysis, Political ideology identification, Model evaluation, Comparative analysis, top_k: 5, cosine: 0.2
+2026-10-09 12:27:43,626 - lightrag - INFO - Global query uses 7 entites, 5 relations, 2 chunks
+2026-10-09 12:27:43,627 - lightrag - INFO - Local query uses 5 entites, 24 relations, 3 chunks
+2026-10-09 12:27:46,255 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:46,255 - lightrag - INFO - Process 94421 KV writting 593 records to llm_response_cache
+2026-10-09 12:27:46,714 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:46,714 - lightrag - INFO - Process 94421 KV writting 594 records to llm_response_cache
+2026-10-09 12:27:47,114 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:47,114 - lightrag - INFO - Process 94421 KV writting 595 records to llm_response_cache
+2026-10-09 12:27:49,211 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:49,211 - lightrag - INFO - Process 94421 KV writting 596 records to llm_response_cache
+2026-10-09 12:27:50,661 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:50,662 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:27:50,662 - lightrag - INFO - Query nodes: Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions, State-of-the-art baselines, Baselines, SQL, Editing-based approach, top_k: 5, cosine: 0.2
+2026-10-09 12:27:50,724 - lightrag - INFO - Query edges: SQL query generation, Semantic parsing, Cross-domain context-dependent questions, Model evaluation, top_k: 5, cosine: 0.2
+2026-10-09 12:27:50,771 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 12:27:50,772 - lightrag - INFO - Local query uses 5 entites, 14 relations, 3 chunks
+2026-10-09 12:27:51,777 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:51,778 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:27:51,778 - lightrag - INFO - Query nodes: A Generalized Recurrent Neural Architecture for Text Classification with Multi-Task Learning, Recurrent neural networks, RNN variants, LSTM, GRU, top_k: 5, cosine: 0.2
+2026-10-09 12:27:51,829 - lightrag - INFO - Query edges: Text classification, Multi-task learning, Recurrent neural architectures, Deep learning, top_k: 5, cosine: 0.2
+2026-10-09 12:27:51,877 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 12:27:51,879 - lightrag - INFO - Local query uses 5 entites, 58 relations, 3 chunks
+2026-10-09 12:27:52,696 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:52,696 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:27:52,696 - lightrag - INFO - Query nodes: Clinical Information Extraction via Convolutional Neural Network, Part-of-speech tags, POS tags, POS tagger, Feature extraction, top_k: 5, cosine: 0.2
+2026-10-09 12:27:52,744 - lightrag - INFO - Query edges: Clinical information extraction, Natural language processing, Part-of-speech tagging, Convolutional neural networks, top_k: 5, cosine: 0.2
+2026-10-09 12:27:52,787 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 12:27:52,789 - lightrag - INFO - Local query uses 5 entites, 28 relations, 3 chunks
+2026-10-09 12:27:55,027 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:55,027 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:27:55,027 - lightrag - INFO - Query nodes: Scalable Neural Dialogue State Tracking, Accuracy, Existing systems, Baseline comparison, Dialogue states, top_k: 5, cosine: 0.2
+2026-10-09 12:27:55,093 - lightrag - INFO - Query edges: Dialogue state tracking, Performance comparison, Neural dialogue systems, Model evaluation, top_k: 5, cosine: 0.2
+2026-10-09 12:27:55,141 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 12:27:55,142 - lightrag - INFO - Local query uses 5 entites, 25 relations, 3 chunks
+2026-10-09 12:27:56,094 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:56,095 - lightrag - INFO - Process 94421 KV writting 601 records to llm_response_cache
+2026-10-09 12:27:57,377 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:27:57,378 - lightrag - INFO - Process 94421 KV writting 602 records to llm_response_cache
+2026-10-09 12:28:01,716 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:01,717 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:01,717 - lightrag - INFO - Query nodes: Sentence Modeling via Multiple Word Embeddings and Multi-level Comparison for Semantic Textual Similarity, Multiple word embeddings, Multi-level comparison, Datasets used, Evaluation datasets, top_k: 5, cosine: 0.2
+2026-10-09 12:28:01,788 - lightrag - INFO - Query edges: Semantic Textual Similarity, Sentence modeling, Natural Language Processing, Benchmark evaluation, top_k: 5, cosine: 0.2
+2026-10-09 12:28:01,837 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:01,837 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:01,837 - lightrag - INFO - Query nodes: A Joint Model for Word Embedding and Word Morphology, fastText, Subwords, Morphological analysis, Baseline models, top_k: 5, cosine: 0.2
+2026-10-09 12:28:01,874 - lightrag - INFO - Query edges: Word embedding, Word morphology, Subword information, Comparative analysis, Natural language processing, top_k: 5, cosine: 0.2
+2026-10-09 12:28:01,919 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 12:28:01,922 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 12:28:01,922 - lightrag - INFO - Local query uses 5 entites, 18 relations, 3 chunks
+2026-10-09 12:28:01,933 - lightrag - INFO - Local query uses 5 entites, 56 relations, 3 chunks
+2026-10-09 12:28:03,665 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:03,665 - lightrag - INFO - Process 94421 KV writting 605 records to llm_response_cache
+2026-10-09 12:28:09,502 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:09,503 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:09,503 - lightrag - INFO - Query nodes: Wait, I'm Still Talking!, Imagine-Then-Arbitrate Model, Baseline, Performance gain, Evaluation metrics, top_k: 5, cosine: 0.2
+2026-10-09 12:28:09,559 - lightrag - INFO - Query edges: Dialogue interaction behavior, Model performance comparison, Turn-taking prediction, Conversational AI, top_k: 5, cosine: 0.2
+2026-10-09 12:28:09,606 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 12:28:09,607 - lightrag - INFO - Local query uses 5 entites, 26 relations, 3 chunks
+2026-10-09 12:28:10,562 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:10,562 - lightrag - INFO - Process 94421 KV writting 607 records to llm_response_cache
+2026-10-09 12:28:11,603 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:11,604 - lightrag - INFO - Process 94421 KV writting 608 records to llm_response_cache
+2026-10-09 12:28:13,596 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:13,597 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:13,597 - lightrag - INFO - Query nodes: Don't Forget the Long Tail! A Comprehensive Analysis of Morphological Generalization in Bilingual Lexicon Induction, Morphological constraint, Long tail, Word morphology, Lexicon induction, top_k: 5, cosine: 0.2
+2026-10-09 12:28:13,665 - lightrag - INFO - Query edges: Morphological generalization, Bilingual lexicon induction, Natural language processing, Cross-lingual representation, top_k: 5, cosine: 0.2
+2026-10-09 12:28:13,712 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 12:28:13,713 - lightrag - INFO - Local query uses 5 entites, 14 relations, 3 chunks
+2026-10-09 12:28:14,609 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:14,610 - lightrag - INFO - Process 94421 KV writting 610 records to llm_response_cache
+2026-10-09 12:28:15,642 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:15,642 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:15,643 - lightrag - INFO - Query nodes: Optimizing Differentiable Relaxations of Coreference Evaluation Metrics, Training dataset, Dataset length, Differentiable relaxations, Evaluation metrics, top_k: 5, cosine: 0.2
+2026-10-09 12:28:15,698 - lightrag - INFO - Query edges: Coreference resolution, Machine learning evaluation metrics, Dataset characteristics, top_k: 5, cosine: 0.2
+2026-10-09 12:28:15,744 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 12:28:15,745 - lightrag - INFO - Local query uses 5 entites, 7 relations, 2 chunks
+2026-10-09 12:28:15,921 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:15,921 - lightrag - INFO - Process 94421 KV writting 612 records to llm_response_cache
+2026-10-09 12:28:17,502 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:17,502 - lightrag - INFO - Process 94421 KV writting 613 records to llm_response_cache
+2026-10-09 12:28:20,301 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:20,301 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:20,301 - lightrag - INFO - Query nodes: A Large-Scale Test Set for the Evaluation of Context-Aware Pronoun Translation in Neural Machine Translation, Experiment languages, Language pairs, Source language, Target language, Pronoun resolution, top_k: 5, cosine: 0.2
+2026-10-09 12:28:20,372 - lightrag - INFO - Query edges: Neural Machine Translation, Context-Aware Translation, Pronoun Translation, Machine Translation Evaluation, top_k: 5, cosine: 0.2
+2026-10-09 12:28:20,419 - lightrag - INFO - Global query uses 5 entites, 5 relations, 3 chunks
+2026-10-09 12:28:20,420 - lightrag - INFO - Local query uses 5 entites, 16 relations, 2 chunks
+2026-10-09 12:28:20,632 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:20,632 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:20,633 - lightrag - INFO - Query nodes: Generating Texts with Integer Linear Programming, Ontologies, Integer Linear Programming, ILP, Domain ontologies, top_k: 5, cosine: 0.2
+2026-10-09 12:28:20,679 - lightrag - INFO - Query edges: Natural language generation, Text generation, Integer linear programming, Knowledge representation, top_k: 5, cosine: 0.2
+2026-10-09 12:28:20,728 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 12:28:20,729 - lightrag - INFO - Local query uses 5 entites, 43 relations, 3 chunks
+2026-10-09 12:28:22,802 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:22,802 - lightrag - INFO - Process 94421 KV writting 616 records to llm_response_cache
+2026-10-09 12:28:23,343 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:23,343 - lightrag - INFO - Process 94421 KV writting 617 records to llm_response_cache
+2026-10-09 12:28:23,541 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:23,542 - lightrag - INFO - Process 94421 KV writting 618 records to llm_response_cache
+2026-10-09 12:28:25,889 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:25,889 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:25,890 - lightrag - INFO - Query nodes: Neural Machine Translation for Low Resource Languages using Bilingual Lexicon Induced from Comparable Corpora, NMT models, Bilingual lexicon, Baseline models, Translation models, top_k: 5, cosine: 0.2
+2026-10-09 12:28:25,944 - lightrag - INFO - Query edges: Neural Machine Translation, Low-resource languages, Bilingual lexicon induction, Comparable corpora, Model architecture, top_k: 5, cosine: 0.2
+2026-10-09 12:28:25,981 - lightrag - INFO - Global query uses 8 entites, 5 relations, 3 chunks
+2026-10-09 12:28:25,982 - lightrag - INFO - Local query uses 5 entites, 19 relations, 3 chunks
+2026-10-09 12:28:26,351 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:26,352 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:26,352 - lightrag - INFO - Query nodes: Predicting Human Activities from User-Generated Content, Social media platform, Paper, Data source, top_k: 5, cosine: 0.2
+2026-10-09 12:28:26,414 - lightrag - INFO - Query edges: Human activity prediction, User-generated content, Social media analysis, Data collection, top_k: 5, cosine: 0.2
+2026-10-09 12:28:26,461 - lightrag - INFO - Global query uses 5 entites, 5 relations, 3 chunks
+2026-10-09 12:28:26,462 - lightrag - INFO - Local query uses 5 entites, 16 relations, 3 chunks
+2026-10-09 12:28:27,106 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:27,107 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:27,107 - lightrag - INFO - Query nodes: A Focus on Neural Machine Translation for African Languages, Evaluation metrics, BLEU, chrF, TER, Translation quality, top_k: 5, cosine: 0.2
+2026-10-09 12:28:27,151 - lightrag - INFO - Query edges: Neural machine translation, Evaluation methodology, African languages NLP, Machine translation evaluation, top_k: 5, cosine: 0.2
+2026-10-09 12:28:27,200 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 12:28:27,202 - lightrag - INFO - Local query uses 5 entites, 75 relations, 3 chunks
+2026-10-09 12:28:27,262 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:27,262 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:27,262 - lightrag - INFO - Query nodes: Scaling in Words on Twitter, Twitter, Superlinear scaling, Sublinear scaling, Author explanations, City population, Word frequency, top_k: 5, cosine: 0.2
+2026-10-09 12:28:27,301 - lightrag - INFO - Query edges: Urban scaling, Scaling laws, Linguistic dynamics, Complex systems, top_k: 5, cosine: 0.2
+2026-10-09 12:28:27,348 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 12:28:27,349 - lightrag - INFO - Local query uses 5 entites, 16 relations, 3 chunks
+2026-10-09 12:28:29,350 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:29,351 - lightrag - INFO - Process 94421 KV writting 623 records to llm_response_cache
+2026-10-09 12:28:30,380 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:30,381 - lightrag - INFO - Process 94421 KV writting 624 records to llm_response_cache
+2026-10-09 12:28:30,974 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:30,974 - lightrag - INFO - Process 94421 KV writting 625 records to llm_response_cache
+2026-10-09 12:28:32,161 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:32,162 - lightrag - INFO - Process 94421 KV writting 626 records to llm_response_cache
+2026-10-09 12:28:33,357 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:33,357 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:33,358 - lightrag - INFO - Query nodes: To What Extent are Name Variants Used as Named Entities in Turkish Tweets?, Turkish tweets, Name variants, Named entities, Dataset, Number of tweets, top_k: 5, cosine: 0.2
+2026-10-09 12:28:33,424 - lightrag - INFO - Query edges: Dataset size, Named entity recognition, Natural language processing, Social media analysis, top_k: 5, cosine: 0.2
+2026-10-09 12:28:33,470 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 12:28:33,471 - lightrag - INFO - Local query uses 5 entites, 12 relations, 3 chunks
+2026-10-09 12:28:33,614 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:33,615 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:33,615 - lightrag - INFO - Query nodes: Towards Understanding Gender Bias in Relation Extraction, Hard debiasing, Prediction performance, Prediction bias, Debiasing effects, top_k: 5, cosine: 0.2
+2026-10-09 12:28:33,658 - lightrag - INFO - Query edges: Gender bias, Relation extraction, Bias mitigation, Model performance, Algorithmic fairness, top_k: 5, cosine: 0.2
+2026-10-09 12:28:33,705 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 12:28:33,706 - lightrag - INFO - Local query uses 5 entites, 26 relations, 3 chunks
+2026-10-09 12:28:33,940 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:33,940 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:33,940 - lightrag - INFO - Query nodes: Efficient Dynamic WFST Decoding for Personalized Language Models, Tested languages, WFST, Decoding algorithm, Evaluation benchmarks, top_k: 5, cosine: 0.2
+2026-10-09 12:28:33,994 - lightrag - INFO - Query edges: Language models, Personalized language models, Dynamic WFST decoding, Model evaluation, Automated speech recognition, top_k: 5, cosine: 0.2
+2026-10-09 12:28:34,032 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 12:28:34,033 - lightrag - INFO - Local query uses 5 entites, 18 relations, 3 chunks
+2026-10-09 12:28:35,876 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:35,877 - lightrag - INFO - Process 94421 KV writting 630 records to llm_response_cache
+2026-10-09 12:28:36,636 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:36,636 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:36,636 - lightrag - INFO - Query nodes: Italian Event Detection Goes Deep Learning, Italian language, Multilingual extension, Neural network architecture, Language transfer, top_k: 5, cosine: 0.2
+2026-10-09 12:28:36,682 - lightrag - INFO - Query edges: Deep learning, Event detection, Natural language processing, Cross-lingual adaptation, Model generalizability, top_k: 5, cosine: 0.2
+2026-10-09 12:28:36,722 - lightrag - INFO - Global query uses 9 entites, 5 relations, 3 chunks
+2026-10-09 12:28:36,723 - lightrag - INFO - Local query uses 5 entites, 40 relations, 3 chunks
+2026-10-09 12:28:37,139 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:37,139 - lightrag - INFO - Process 94421 KV writting 632 records to llm_response_cache
+2026-10-09 12:28:39,034 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:39,034 - lightrag - INFO - Process 94421 KV writting 633 records to llm_response_cache
+2026-10-09 12:28:40,894 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:40,895 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:40,895 - lightrag - INFO - Query nodes: Learning variable length units for SMT between related languages via Byte Pair Encoding, BPE steps, Number of merge operations, Variable length units, Experimental evaluation, top_k: 5, cosine: 0.2
+2026-10-09 12:28:40,952 - lightrag - INFO - Query edges: Statistical Machine Translation, Byte Pair Encoding, Subword segmentation, Related languages, top_k: 5, cosine: 0.2
+2026-10-09 12:28:40,999 - lightrag - INFO - Global query uses 6 entites, 5 relations, 3 chunks
+2026-10-09 12:28:41,001 - lightrag - INFO - Local query uses 5 entites, 45 relations, 3 chunks
+2026-10-09 12:28:41,604 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:41,604 - lightrag - INFO - Process 94421 buidling query context...
+2026-10-09 12:28:41,605 - lightrag - INFO - Query nodes: Character n-gram Embeddings to Improve RNN Language Models, Character n-gram embeddings, Word embeddings, RNN language models, Baseline models, top_k: 5, cosine: 0.2
+2026-10-09 12:28:41,671 - lightrag - INFO - Query edges: Language modeling, Word representations, Embedding comparison, Recurrent neural networks, top_k: 5, cosine: 0.2
+2026-10-09 12:28:41,725 - lightrag - INFO - Global query uses 7 entites, 5 relations, 3 chunks
+2026-10-09 12:28:41,726 - lightrag - INFO - Local query uses 5 entites, 39 relations, 3 chunks
+2026-10-09 12:28:43,806 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:43,807 - lightrag - INFO - Process 94421 KV writting 636 records to llm_response_cache
+2026-10-09 12:28:46,670 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:46,671 - lightrag - INFO - Process 94421 KV writting 637 records to llm_response_cache
+2026-10-09 12:28:52,404 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2026-10-09 12:28:52,405 - lightrag - INFO - Process 94421 KV writting 638 records to llm_response_cache

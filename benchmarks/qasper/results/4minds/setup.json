@@ -1,0 +1,48 @@
+{
+  "checked": "2026-10-09T16:59:48+00:00",
+  "base_url": "https://api.4minds.ai",
+  "dataset_id": 4039,
+  "model_id": 3598,
+  "persona_id": 1283,
+  "ready": {
+    "dataset_id": 4039,
+    "model_id": 3598,
+    "status": "in_use",
+    "graph_status": "ready",
+    "graph_build_progress": 100,
+    "files_processed_count": 2,
+    "total_chunks_count": 330,
+    "build_status": "enhancing",
+    "etl_job_status": "completed",
+    "error_message": null,
+    "model_status": "ready"
+  },
+  "wait_wall_clock_s": 2.8,
+  "model": {
+    "id": "3598",
+    "name": "qasper-test-pilot",
+    "base_model_name": "GPT-OSS-120B",
+    "base_model_id": 5,
+    "training_type_id": "sft",
+    "status": "ready",
+    "graph_status": "ready",
+    "dataset_id": 4039,
+    "personaId": 1283,
+    "trained_at": "2026-10-09T16:59:47.947926Z"
+  },
+  "persona": {
+    "id": 1283,
+    "name": "QASPER official prompt",
+    "description": "The official QASPER system prompt, benchmark only.",
+    "toneOfVoice": "professional",
+    "keyTraits": [],
+    "behavioralGuidelines": "Answer the question with information from the knowledge base only.\nGive only the answer, with no explanation and no formatting:\n- a short phrase or sentence, or the words from the paper; separate several items with commas;\n- for a yes/no question, only \"Yes\" or \"No\";\n- if the paper does not answer the question, only \"Unanswerable\".",
+    "exampleResponses": null,
+    "restrictions": null,
+    "status": "active",
+    "modelsApplied": 1,
+    "createdAt": "2026-10-09T16:59:47.582805Z",
+    "updatedAt": "2026-10-09T16:59:47.582805Z",
+    "isDefault": false
+  }
+}

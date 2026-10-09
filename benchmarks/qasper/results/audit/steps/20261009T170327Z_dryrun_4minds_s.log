@@ -1,0 +1,12 @@
+# step: dryrun_4minds_s
+# start: 2026-10-09T17:03:27Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_4minds.py --engine symi --subset test --questions-file data/pilot_questions.json --dry-run
+
+{
+  "type": "symi.conversation_prompt",
+  "model_id": 3598,
+  "conversation_id": "<new per question>",
+  "prompt": "In the paper \"The Rapidly Changing Landscape of Conversational Agents\": Is there a benchmark to compare the different approaches?"
+}
+
+# end: 2026-10-09T17:03:27Z  exit: 0  duration_s: 0

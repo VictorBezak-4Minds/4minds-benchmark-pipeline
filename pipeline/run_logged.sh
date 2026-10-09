@@ -14,7 +14,8 @@ STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
 LOG="$AUDIT/steps/${STAMP}_${STEP}.log"
 
 record() {
-  python3 -c 'import json,sys; print(json.dumps(dict(zip(sys.argv[1::2], sys.argv[2::2]))))' "$@" >> "$AUDIT/audit.log"
+  # One write per record: steps that start at the same time append to the same file.
+  python3 -c 'import json,sys; sys.stdout.write(json.dumps(dict(zip(sys.argv[1::2], sys.argv[2::2]))) + "\n")' "$@" >> "$AUDIT/audit.log"
 }
 
 START_EPOCH="$(date +%s)"

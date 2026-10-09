@@ -1,0 +1,22 @@
+# step: setup_rag_engine
+# start: 2026-10-09T17:17:29Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_rag_engine.py
+
+corpus: projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/6917529027641081856
+uploaded: {"ragFile": {"name": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/6917529027641081856/ragFiles/5805375290188968097", "displayName": "corpus_slice.txt", "description": "QASPER v0.3 test, pilot corpus slice (64 papers), benchmark only", "directUploadSource": {}}}
+{
+  "corpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/6917529027641081856",
+  "ready": {
+    "corpus_slice.txt": "ACTIVE"
+  },
+  "embedding": {
+    "vertexPredictionEndpoint": {
+      "endpoint": "projects/1035005802258/locations/europe-west4/publishers/google/models/text-embedding-005"
+    }
+  },
+  "vector_db": [
+    "knn"
+  ]
+}
+
+# end: 2026-10-09T17:18:15Z  exit: 0  duration_s: 46

@@ -1,0 +1,3 @@
+{
+  "rag_engine": "blocked. Vertex RAG Engine (europe-west4, Spanner Basic) returned HTTP 500 \"Failed to fetch corpus status from spanner\" on 3 new corpora, also after a tier cycle. Retrieval passed 2 of 20 tests. Partial output: results/pilot/_superseded_rag_engine_blocked."
+}

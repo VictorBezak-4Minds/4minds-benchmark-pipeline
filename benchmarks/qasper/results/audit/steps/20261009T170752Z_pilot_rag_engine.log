@@ -1,0 +1,16 @@
+# step: pilot_rag_engine
+# start: 2026-10-09T17:07:52Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag_engine.py --subset test --questions-file data/pilot_questions.json --timeout 120 --out-dir results/pilot/rag_engine --workers 10
+
+== gemini_rag_engine / test: 25 questions, 0 already done, 25 to run, 10 workers
+  readiness: {"corpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904", "files": {"corpus_slice.txt": "ACTIVE"}}
+  [5/25] FAILED 27d7a30e42921e77cfffafac5cb0d16ce5a7df99: {"code": 500, "message": "Failed to fetch corpus status from spanner for rag_corpus 4611686018427387904", "status": "INTERNAL", "http_status": 500}
+  [6/25] FAILED d4b84f48460517bc0a6d4e0c38f6853c58081166: {"code": 500, "message": "Failed to fetch corpus status from spanner for rag_corpus 4611686018427387904", "status": "INTERNAL", "http_status": 500}
+  [7/25] FAILED 47d54a6dd50cab8dab64bfa1f9a1947a8190080c: {"code": 500, "message": "Failed to fetch corpus status from spanner for rag_corpus 4611686018427387904", "status": "INTERNAL", "http_status": 500}
+  [8/25] FAILED 7a60f29e28063f50c2a7afd1c2a7668fb615cd53: {"code": 500, "message": "Failed to fetch corpus status from spanner for rag_corpus 4611686018427387904", "status": "INTERNAL", "http_status": 500}
+  [9/25] FAILED 6e63db22a2a34c20ad341eb33f3422f40d0001d3: {"code": 500, "message": "Failed to fetch corpus status from spanner for rag_corpus 4611686018427387904", "status": "INTERNAL", "http_status": 500}
+  [10/25] FAILED a7e03d24549961b38e15b5386d9df267900ef4c8: {"code": 500, "message": "Failed to fetch corpus status from spanner for rag_corpus 4611686018427387904", "status": "INTERNAL", "http_status": 500}
+  [11/25] FAILED a59e86a15405c8a11890db072b99fda3173e5ab2: {"code": 500, "message": "Failed to fetch corpus status from spanner for rag_corpus 4611686018427387904", "status": "INTERNAL", "http_status": 500}
+  [12/25] FAILED d38745a3910c380e6df97c7056a5dd9643fd365b: {"code": 500, "message": "Failed to fetch corpus status from spanner for rag_corpus 4611686018427387904", "status": "INTERNAL", "http_status": 500}
+
+# end: 2026-10-09T17:16:02Z  exit: 143  duration_s: 490

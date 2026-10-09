@@ -1,0 +1,30 @@
+# step: make_pilot
+# start: 2026-10-09T16:43:53Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/make_pilot.py
+
+{
+  "created": "2026-10-09T16:43:53+00:00",
+  "seed": 42,
+  "quota": {
+    "extractive": 13,
+    "abstractive": 6,
+    "boolean": 3,
+    "none": 3
+  },
+  "distractor_fraction": 0.1,
+  "official_test": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/upstream/qasper-test-v0.3.json",
+  "official_test_sha256": "6e29ad410e6e39aa1936017fb965b30a20eb2e7751997f55b97c9d281aa884e5",
+  "release_sha256": "72a52a41193e2838b8074f80ac074b94f956b84886c36a61c58a7df4171bdd72",
+  "test_papers": 416,
+  "test_questions": 1451,
+  "corpus_papers": 64,
+  "corpus_chars": 1567657,
+  "outputs": {
+    "pilot_questions.json": "ab771bf5110a74ec9460eb337fbab79c774c18c507bbafa68908d9f6a6770b02",
+    "pilot_gold.json": "25af8c436315c7ff030e27c728d7bd94e9c8634af0c585254d1fd2fa13c995bf",
+    "corpus_slice.txt": "46e1257b8b55761fbf50ff058a6b13945e5fa6013b99f89fd5d613ae2057c127"
+  }
+}
+Counter({'extractive': 13, 'abstractive': 6, 'boolean': 3, 'none': 3})
+
+# end: 2026-10-09T16:43:53Z  exit: 0  duration_s: 0

@@ -1,0 +1,960 @@
+# step: lightrag_index
+# start: 2026-10-09T17:10:10Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-lightrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_lightrag.py --subset test --index-only
+
+INFO: Process 81858 Shared-Data created for Single Process
+INFO: Created new empty graph
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_chunks.json'} 0 data
+INFO: Process 81858 initialized updated flags for namespace: [full_docs]
+INFO: Process 81858 ready to initialize storage namespace: [full_docs]
+INFO: Process 81858 KV load full_docs with 0 records
+INFO: Process 81858 initialized updated flags for namespace: [text_chunks]
+INFO: Process 81858 ready to initialize storage namespace: [text_chunks]
+INFO: Process 81858 KV load text_chunks with 0 records
+INFO: Process 81858 initialized updated flags for namespace: [entities]
+INFO: Process 81858 initialized updated flags for namespace: [relationships]
+INFO: Process 81858 initialized updated flags for namespace: [chunks]
+INFO: Process 81858 initialized updated flags for namespace: [chunk_entity_relation]
+INFO: Process 81858 initialized updated flags for namespace: [llm_response_cache]
+INFO: Process 81858 ready to initialize storage namespace: [llm_response_cache]
+INFO: Process 81858 KV load llm_response_cache with 0 records
+INFO: Process 81858 initialized updated flags for namespace: [doc_status]
+INFO: Process 81858 ready to initialize storage namespace: [doc_status]
+INFO: Process 81858 doc status load doc_status with 1 records
+INFO: Process 81858 storage namespace already initialized: [full_docs]
+INFO: Process 81858 storage namespace already initialized: [text_chunks]
+INFO: Process 81858 storage namespace already initialized: [llm_response_cache]
+INFO: Process 81858 storage namespace already initialized: [doc_status]
+INFO: Process 81858 Pipeline namespace initialized
+INFO: Storage Initialization completed!
+INFO: No new unique documents were found.
+INFO: Number of batches to process: 1.
+INFO: Start processing batch 1 of 1.
+INFO: Inserting 1 records to doc_status
+INFO: Process 81858 doc status writting 1 records to doc_status
+INFO: Inserting 294 to chunks
+INFO: Inserting 1 records to full_docs
+INFO: Inserting 294 records to text_chunks
+INFO: Process 81858 reloading chunks due to update by another process
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_chunks.json'} 0 data
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 1/294: extracted 18 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 2/294: extracted 16 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 3/294: extracted 16 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 4/294: extracted 17 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 5/294: extracted 17 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 6/294: extracted 18 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 7/294: extracted 26 entities and 34 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 8/294: extracted 21 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 9/294: extracted 25 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 10/294: extracted 30 entities and 28 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 11/294: extracted 15 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 12/294: extracted 33 entities and 36 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 13/294: extracted 15 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 14/294: extracted 25 entities and 29 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 15/294: extracted 19 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 16/294: extracted 29 entities and 29 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 17/294: extracted 13 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 18/294: extracted 22 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 19/294: extracted 34 entities and 36 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 20/294: extracted 25 entities and 32 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 21/294: extracted 17 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 22/294: extracted 18 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 23/294: extracted 20 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 24/294: extracted 30 entities and 31 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 25/294: extracted 15 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 26/294: extracted 20 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 27/294: extracted 14 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 28/294: extracted 17 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 29/294: extracted 22 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 30/294: extracted 20 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 31/294: extracted 21 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 32/294: extracted 14 entities and 13 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 33/294: extracted 20 entities and 13 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 34/294: extracted 21 entities and 28 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 35/294: extracted 20 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 36/294: extracted 20 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 37/294: extracted 15 entities and 13 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 38/294: extracted 22 entities and 29 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 39/294: extracted 13 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 40/294: extracted 18 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 41/294: extracted 16 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 42/294: extracted 21 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 43/294: extracted 22 entities and 28 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 44/294: extracted 22 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 45/294: extracted 22 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 46/294: extracted 16 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 47/294: extracted 27 entities and 25 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 48/294: extracted 20 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 49/294: extracted 30 entities and 30 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 50/294: extracted 18 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 51/294: extracted 20 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 52/294: extracted 21 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 53/294: extracted 16 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 54/294: extracted 20 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 55/294: extracted 19 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 56/294: extracted 24 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 57/294: extracted 24 entities and 26 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 58/294: extracted 23 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 59/294: extracted 15 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 60/294: extracted 19 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 61/294: extracted 16 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 62/294: extracted 20 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 63/294: extracted 21 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 64/294: extracted 34 entities and 30 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 65/294: extracted 20 entities and 26 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 66/294: extracted 27 entities and 26 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 67/294: extracted 22 entities and 28 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 68/294: extracted 15 entities and 11 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 69/294: extracted 35 entities and 31 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 70/294: extracted 23 entities and 35 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 71/294: extracted 18 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 72/294: extracted 15 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 73/294: extracted 13 entities and 12 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 74/294: extracted 15 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 75/294: extracted 27 entities and 27 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 76/294: extracted 22 entities and 33 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 77/294: extracted 18 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 78/294: extracted 24 entities and 29 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 79/294: extracted 12 entities and 12 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 80/294: extracted 17 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 81/294: extracted 26 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 82/294: extracted 15 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 83/294: extracted 13 entities and 13 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 84/294: extracted 16 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 85/294: extracted 18 entities and 25 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 86/294: extracted 19 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 87/294: extracted 14 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 88/294: extracted 16 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 89/294: extracted 22 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 90/294: extracted 20 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 91/294: extracted 16 entities and 12 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 92/294: extracted 19 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 93/294: extracted 25 entities and 29 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 94/294: extracted 18 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 95/294: extracted 25 entities and 26 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 96/294: extracted 22 entities and 27 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 97/294: extracted 18 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 98/294: extracted 22 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 99/294: extracted 18 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 100/294: extracted 17 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 101/294: extracted 13 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 102/294: extracted 16 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 103/294: extracted 18 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 104/294: extracted 21 entities and 26 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 105/294: extracted 14 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 106/294: extracted 15 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 107/294: extracted 15 entities and 14 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 108/294: extracted 17 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 109/294: extracted 26 entities and 28 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 110/294: extracted 13 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 111/294: extracted 20 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 112/294: extracted 20 entities and 25 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 113/294: extracted 24 entities and 25 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 114/294: extracted 23 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 115/294: extracted 22 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 116/294: extracted 22 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 117/294: extracted 22 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 118/294: extracted 20 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 119/294: extracted 18 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 120/294: extracted 23 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 121/294: extracted 14 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 122/294: extracted 19 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 123/294: extracted 20 entities and 0 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 124/294: extracted 22 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 125/294: extracted 17 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 126/294: extracted 24 entities and 30 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 127/294: extracted 16 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 128/294: extracted 22 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 129/294: extracted 20 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 130/294: extracted 30 entities and 25 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 131/294: extracted 19 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 132/294: extracted 15 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 133/294: extracted 20 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 134/294: extracted 13 entities and 14 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 135/294: extracted 16 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 136/294: extracted 15 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 137/294: extracted 21 entities and 25 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 138/294: extracted 14 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 139/294: extracted 13 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 140/294: extracted 14 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 141/294: extracted 20 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 142/294: extracted 14 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 143/294: extracted 21 entities and 28 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 144/294: extracted 17 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 145/294: extracted 30 entities and 30 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 146/294: extracted 17 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 147/294: extracted 18 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 148/294: extracted 19 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 149/294: extracted 16 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 150/294: extracted 16 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 151/294: extracted 15 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 152/294: extracted 21 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 153/294: extracted 16 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 154/294: extracted 18 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 155/294: extracted 25 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 156/294: extracted 20 entities and 27 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 157/294: extracted 13 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 158/294: extracted 27 entities and 27 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 159/294: extracted 17 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 160/294: extracted 27 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 161/294: extracted 16 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 162/294: extracted 13 entities and 13 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 163/294: extracted 23 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 164/294: extracted 15 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 165/294: extracted 14 entities and 14 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 166/294: extracted 21 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 167/294: extracted 25 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 168/294: extracted 20 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 169/294: extracted 22 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 170/294: extracted 25 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 171/294: extracted 21 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 172/294: extracted 27 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 173/294: extracted 20 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 174/294: extracted 32 entities and 29 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 175/294: extracted 16 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 176/294: extracted 20 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 177/294: extracted 20 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 178/294: extracted 24 entities and 29 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 179/294: extracted 19 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 180/294: extracted 18 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 181/294: extracted 18 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 182/294: extracted 15 entities and 11 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 183/294: extracted 21 entities and 28 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 184/294: extracted 14 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 185/294: extracted 17 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 186/294: extracted 16 entities and 12 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 187/294: extracted 23 entities and 25 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 188/294: extracted 18 entities and 14 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 189/294: extracted 31 entities and 36 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 190/294: extracted 15 entities and 13 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 191/294: extracted 22 entities and 29 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 192/294: extracted 10 entities and 12 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 193/294: extracted 30 entities and 36 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 194/294: extracted 10 entities and 10 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 195/294: extracted 10 entities and 9 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 196/294: extracted 8 entities and 11 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 197/294: extracted 22 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 198/294: extracted 10 entities and 10 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 199/294: extracted 18 entities and 27 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 200/294: extracted 17 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 201/294: extracted 11 entities and 10 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 202/294: extracted 25 entities and 26 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 203/294: extracted 16 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 204/294: extracted 19 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 205/294: extracted 13 entities and 14 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 206/294: extracted 14 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 207/294: extracted 17 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 208/294: extracted 18 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 209/294: extracted 11 entities and 13 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 210/294: extracted 20 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 211/294: extracted 20 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 212/294: extracted 18 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 213/294: extracted 9 entities and 10 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 214/294: extracted 13 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 215/294: extracted 13 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 216/294: extracted 31 entities and 29 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 217/294: extracted 17 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 218/294: extracted 10 entities and 11 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 219/294: extracted 19 entities and 28 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 220/294: extracted 19 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 221/294: extracted 18 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 222/294: extracted 24 entities and 27 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 223/294: extracted 21 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 224/294: extracted 15 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 225/294: extracted 15 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 226/294: extracted 23 entities and 26 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 227/294: extracted 16 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 228/294: extracted 29 entities and 30 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 229/294: extracted 17 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 230/294: extracted 20 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 231/294: extracted 21 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 232/294: extracted 20 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 233/294: extracted 19 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 234/294: extracted 19 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 235/294: extracted 20 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 236/294: extracted 25 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 237/294: extracted 20 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 238/294: extracted 15 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 239/294: extracted 22 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 240/294: extracted 21 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 241/294: extracted 16 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 242/294: extracted 27 entities and 29 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 243/294: extracted 18 entities and 14 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 244/294: extracted 11 entities and 11 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 245/294: extracted 20 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 246/294: extracted 27 entities and 31 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 247/294: extracted 18 entities and 15 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 248/294: extracted 16 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 249/294: extracted 12 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 250/294: extracted 25 entities and 31 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 251/294: extracted 33 entities and 32 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 252/294: extracted 14 entities and 14 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 253/294: extracted 23 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 254/294: extracted 12 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 255/294: extracted 14 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 256/294: extracted 18 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 257/294: extracted 19 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 258/294: extracted 13 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 259/294: extracted 18 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 260/294: extracted 22 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 261/294: extracted 20 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 262/294: extracted 16 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 263/294: extracted 22 entities and 25 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 264/294: extracted 17 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 265/294: extracted 18 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 266/294: extracted 24 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 267/294: extracted 17 entities and 22 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 268/294: extracted 15 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 269/294: extracted 19 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 270/294: extracted 20 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 271/294: extracted 20 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 272/294: extracted 20 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 273/294: extracted 21 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 274/294: extracted 15 entities and 16 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 275/294: extracted 15 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 276/294: extracted 20 entities and 24 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 277/294: extracted 15 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 278/294: extracted 16 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 279/294: extracted 25 entities and 27 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 280/294: extracted 19 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 281/294: extracted 18 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 282/294: extracted 22 entities and 25 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 283/294: extracted 22 entities and 28 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 284/294: extracted 15 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 285/294: extracted 16 entities and 18 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 286/294: extracted 29 entities and 30 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 287/294: extracted 23 entities and 23 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 288/294: extracted 23 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 289/294: extracted 26 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 290/294: extracted 20 entities and 19 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 291/294: extracted 17 entities and 20 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 292/294: extracted 14 entities and 17 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 293/294: extracted 30 entities and 21 relationships (deduplicated)
+INFO: Inserting 1 records to llm_response_cache
+INFO:   Chunk 294/294: extracted 15 entities and 13 relationships (deduplicated)
+INFO: Process 81858 reloading graph chunk_entity_relation due to update by another process
+INFO: Extracted 3494 entities and 5459 relationships (deduplicated)
+INFO: Inserting 3494 to entities
+INFO: Process 81858 reloading entities due to update by another process
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_entities.json'} 0 data
+INFO: Inserting 5459 to relationships
+INFO: Process 81858 reloading relationships due to update by another process
+INFO:nano-vectordb:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results/lightrag/workspace/qasper-test-pilot/vdb_relationships.json'} 0 data
+INFO: Inserting 1 records to doc_status
+INFO: Process 81858 doc status writting 1 records to doc_status
+INFO: Completed batch 1 of 1.
+INFO: Process 81858 KV writting 1 records to full_docs
+INFO: Process 81858 KV writting 294 records to text_chunks
+INFO: Process 81858 KV writting 588 records to llm_response_cache
+INFO: Writing graph with 3496 nodes, 5459 edges
+INFO: All Insert done
+INFO: Document processing pipeline completed
+{
+  "finished": "2026-10-09T17:26:31+00:00",
+  "index_wall_clock_s": 973.5,
+  "doc_status": {
+    "doc-04573b1bd522bf03f5d9da5fdc603eee": "processed"
+  },
+  "usage": {
+    "calls": 594,
+    "prompt_tokens": 2501033,
+    "completion_tokens": 553669
+  },
+  "estimated_cost_usd": 3.952,
+  "model": "gemini-3.8-flash",
+  "embed_model": "BAAI/bge-large-en-v1.5",
+  "max_async": 16,
+  "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/data/corpus_slice.txt",
+  "corpus_sha256": "46e1257b8b55761fbf50ff058a6b13945e5fa6013b99f89fd5d613ae2057c127"
+}
+
+# end: 2026-10-09T17:26:32Z  exit: 0  duration_s: 982

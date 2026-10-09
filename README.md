@@ -15,6 +15,7 @@ Agents: read [AGENTS.md](AGENTS.md) before you do any work here.
 | Benchmark | Folder | Status |
 |---|---|---|
 | GraphRAG-Bench (Medical) | [benchmarks/graphrag-bench](benchmarks/graphrag-bench/README.md) | Pilot complete (10 questions, 5 systems). Full run not approved. |
+| QASPER (answer-only) | [benchmarks/qasper](benchmarks/qasper/README.md) | Pilot complete (25 questions, 4 systems; RAG Engine blocked). Full run not approved. |
 
 ## Layout
 
@@ -25,12 +26,16 @@ Benchmark Datasets/
 ├── bench                   the entry point for every step (see "Run a step")
 ├── pipeline/               benchmark-agnostic core
 │   ├── bench_common.py     run loop, resume, retries, readiness, audit files, full-run guard
+│   ├── report_html.py      4Minds HTML style for reports: CSS, logo, system colors, bar with CI,
+│   │                       quality vs. median latency scatter (plotly.js 4.1.2 from cdn.plot.ly, SRI-pinned)
 │   └── run_logged.sh       records each step in the benchmark's audit log
 ├── systems/                adapters for the systems under test (shared by all benchmarks)
 │   ├── setup_4minds.py     4Minds prod: dataset + persona + model, waits for the graph build
 │   ├── run_4minds.py       4Minds Constellations (WebSocket) and SYMI (REST/SSE)
+│   ├── setup_gemini.py     Gemini File Search store: creates it and uploads the corpus
 │   ├── run_gemini.py       Gemini Developer API + File Search
-│   ├── setup_rag_engine.py Vertex AI RAG Engine corpus (europe-west4)
+│   ├── run_lightrag.py     LightRAG 1.2.5 + Gemini: builds the local index (--index-only) and answers
+│   ├── setup_rag_engine.py Vertex AI RAG Engine: provisions Spanner Basic if necessary, creates the corpus (europe-west4)
 │   ├── run_rag_engine.py   Gemini + RAG Engine retrieval
 │   └── cleanup_rag_engine.py  deletes the corpus and stops Spanner billing
 ├── envs/                   Python environments (.venv-eval, .venv-lightrag) and setup_envs.sh
@@ -51,12 +56,11 @@ The split between `pipeline/`, `systems/` and `benchmarks/` is the main idea:
   questions or the scorer. It gets names, the corpus and the system prompt from the profile.
 - **benchmarks/<name>/** knows the questions, the corpus, the scorer and the metrics.
 
-Some code is still in a benchmark folder because only one benchmark uses it now:
-`aggregate.py`, `make_report.py` and `make_timing.py` in `benchmarks/graphrag-bench/` have
-GraphRAG-Bench metric sets and text. When a second benchmark needs a report, move the
-shared parts (bootstrap statistics, the 4Minds HTML style) to `pipeline/` and keep the
-benchmark text in the benchmark folder. Do not generalize before the second benchmark
-shows what is really shared.
+Each benchmark has its own `aggregate.py` and `make_report.py`, because the metrics and the
+text are different. The HTML style is shared: `pipeline/report_html.py`. Every benchmark
+writes `results/<run>/summary/report.html` as the final result. Move more code to
+`pipeline/` only when two benchmarks use the same code (the bootstrap is still a copy in
+each `aggregate.py`).
 
 ## Run a step
 
@@ -67,6 +71,10 @@ sets `PYTHONPATH`, runs the step in the benchmark folder and records it in the a
 ./bench <benchmark> <step-name> <env> <script> [args...]
 ./bench --bg <benchmark> <step-name> <env> <script> [args...]    # detached; keeps the Mac awake
 ```
+
+**Warning: do not use `--bg` from an agent shell.** The agent tool stops the process group
+when its shell call ends, and this also stops `nohup` jobs. Two steps stopped this way
+(audit event `step_killed`). Run long steps in a terminal that stays open.
 
 - `benchmark`: a folder in `benchmarks/` (for example `graphrag-bench`).
 - `step-name`: a short name for the audit log (for example `pilot_4minds_constellations`).
@@ -153,7 +161,8 @@ Known limits of the current contract (change them when a benchmark needs it):
 3. Write a scorer wrapper that runs the official scorer unchanged. If the official code
    needs a change, apply it in memory and write the diff to `results/audit/patches/`.
 4. Make a stratified pilot question file in `data/`.
-5. Run the lifecycle above, from setup to pilot report. Stop and ask before a full run.
+5. Write `aggregate.py` and `make_report.py` (HTML report with `pipeline/report_html.py`).
+6. Run the lifecycle above, from setup to the pilot HTML report. Stop and ask before a full run.
 
 ## Credentials
 
@@ -176,9 +185,15 @@ Resources that exist now, and what they cost:
 |---|---|---|
 | 4Minds dataset 4033, model 3592, persona 1275 (prod) | none | GraphRAG-Bench Medical. Many benchmark conversations also exist. |
 | Gemini File Search store `graphragbench-9lax22b99qlk` | storage only | GraphRAG-Bench corpus |
-| RAG Engine, project `minds-vs-gemini-benchmark`, europe-west4 | none | Unprovisioned on 2026-10-09; no corpus. `setup_rag_engine.py` provisions Spanner Basic again, which costs money every hour. |
+| 4Minds dataset 4039, model 3598, persona 1283 (prod) | none | QASPER pilot slice. |
+| Gemini File Search store `qaspertestpilot-jva5no5yqkow` | storage only | QASPER pilot slice |
+| RAG Engine, project `minds-vs-gemini-benchmark`, europe-west4 | none | Unprovisioned again on 2026-10-09 after the QASPER pilot; no corpus. `setup_rag_engine.py` provisions Spanner Basic, which costs money every hour. Run `cleanup_rag_engine.py` after use. |
 | RAG Engine us-central1 config (Serverless), Vector Search API | none | |
-| LightRAG index | none (local) | `benchmarks/graphrag-bench/results/lightrag/workspace/` |
+| LightRAG indexes | none (local) | `benchmarks/<benchmark>/results/lightrag/workspace/` |
+
+**RAG Engine check:** "ACTIVE" in the control plane does not prove that queries work. In the
+QASPER pilot, europe-west4 returned HTTP 500 "Failed to fetch corpus status from spanner" for
+3 new corpora. Send one real retrieval query before a run.
 
 ## Environments
 

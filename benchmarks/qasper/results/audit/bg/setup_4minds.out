@@ -1,0 +1,16 @@
+dataset: 4039 {'status': 'preparing', 'graph_status': 'preparing', 'graph_build_progress': 0, 'files_processed_count': 0, 'total_chunks_count': 0, 'build_status': None, 'etl_job_status': None, 'error_message': None}
+persona: 1283
+model: 3598 status=ready base=GPT-OSS-120B
+  2026-10-09T16:59:48+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 2, 'total_chunks_count': 330, 'build_status': 'enhancing', 'etl_job_status': 'completed', 'error_message': None, 'model_status': 'ready'}
+{
+  "id": "3598",
+  "name": "qasper-test-pilot",
+  "base_model_name": "GPT-OSS-120B",
+  "base_model_id": 5,
+  "training_type_id": "sft",
+  "status": "ready",
+  "graph_status": "ready",
+  "dataset_id": 4039,
+  "personaId": 1283,
+  "trained_at": "2026-10-09T16:59:47.947926Z"
+}
