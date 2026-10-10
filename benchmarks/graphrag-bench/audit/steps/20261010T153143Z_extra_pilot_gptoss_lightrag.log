@@ -1,0 +1,19 @@
+# step: extra_pilot_gptoss_lightrag
+# start: 2026-10-10T15:31:43Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score_extra.py score --config metrics/extra_v1.json --system-dir results/gptoss/gptoss_lightrag/medical --questions-file data/Questions/pilot_questions.json --out-dir results/_tests/extra_pilot/gptoss_lightrag
+
+== extra_v1 on results/gptoss/gptoss_lightrag/medical/predictions.json: 10 answers, 0 items done, 32 to score
+/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score_extra.py:131: DeprecationWarning: 'HallucinationMetric' now scores in the same direction as every other deepeval metric: 1 is a pass, 0 is a failure, and 'threshold' is the MINIMUM passing score. It previously scored the proportion of violations, where 'threshold' was a maximum. Review any 'threshold' you pass and any code reading '.score' - a threshold of 0.2 that used to mean 'at most 20% violations' should now be 0.8. This notice will be removed in a future release.
+  scorer = HallucinationMetric(model=judge.deepeval_model(), include_reason=False, async_mode=True, **metric["params"])
+  [32/32] ragas_factual_correctness Medical-d5964ccf
+done: 32/32 items scored, not scored 0, cost this run $0.0195, total $0.0195
+  ragas_answer_accuracy: mean 0.45 (n=10)
+  ragas_factual_correctness_precision: mean 0.435 (n=10)
+  ragas_factual_correctness_recall: mean 0.748 (n=10)
+  ragas_factual_correctness_f1: mean 0.487 (n=10)
+  deepeval_summarization: mean 0.5 (n=2)
+  deepeval_summarization_alignment: mean 0.5444 (n=2)
+  deepeval_summarization_coverage: mean 0.8 (n=2)
+  deepeval_hallucination: mean 0.7444 (n=10)
+
+# end: 2026-10-10T15:32:22Z  exit: 0  duration_s: 39

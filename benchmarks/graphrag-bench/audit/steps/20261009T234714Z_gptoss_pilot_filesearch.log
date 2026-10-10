@@ -1,0 +1,15 @@
+# step: gptoss_pilot_filesearch
+# start: 2026-10-09T23:47:14Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag.py --subset medical --questions-file data/Questions/pilot_questions.json --llm bedrock-gpt-oss-120b --timeout 120 --workers 4 --retriever gemini_file_search --retrieval-instruction cite_each --out-dir results/gptoss_pilot/gptoss_filesearch
+
+== gemini_file_search+bedrock-gpt-oss-120b / medical: 10 questions, 0 already done, 10 to run, 4 workers
+  readiness: {"retriever": "gemini_file_search", "store": "fileSearchStores/graphragbench-9lax22b99qlk", "activeDocumentsCount": 21, "pendingDocumentsCount": 0, "failedDocumentsCount": 0, "query_check_chunks": 5, "llm_check": {"finish_reason": "stop", "usage": {"completion_tokens": 103, "prompt_tokens": 145, "total_tokens": 248}}}
+  [10/10] ok (68 s)
+
+== summary -> results/gptoss_pilot/gptoss_filesearch/medical/predictions.json
+  answered: 10 / 10   failed: 0   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'retrieval_promptTokenCount': 2477, 'retrieval_candidatesTokenCount': 3852, 'retrieval_thoughtsTokenCount': 13608, 'retrieval_toolUsePromptTokenCount': 46507, 'completion_tokens': 3001, 'prompt_tokens': 16747, 'total_tokens': 19748}
+  latency: {'n': 10, 'mean_s': 22.0, 'median_s': 15.26, 'p90_s': 42.97, 'max_s': 42.97}   estimated cost: 0.1065
+
+# end: 2026-10-09T23:48:34Z  exit: 0  duration_s: 80

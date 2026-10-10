@@ -1,0 +1,19 @@
+# step: faith_full_gptoss_filesearch
+# start: 2026-10-10T13:46:08Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score_faithfulness.py --system-dir results/gptoss/gptoss_filesearch/medical
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'frequency_penalty', 'top_p', 'seed', 'presence_penalty'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+faithfulness (JSON-format fix) for 166 Creative Generation answers in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/gptoss/gptoss_filesearch/medical; 0 already scored, 166 to score
+  20/166
+  40/166
+  60/166
+  80/166
+  100/166
+  120/166
+  140/166
+  160/166
+  166/166
+done: scored 165/166, NaN 1, errors 0 (rerun to retry), mean 0.5373844857608527
+
+# end: 2026-10-10T13:54:49Z  exit: 0  duration_s: 521

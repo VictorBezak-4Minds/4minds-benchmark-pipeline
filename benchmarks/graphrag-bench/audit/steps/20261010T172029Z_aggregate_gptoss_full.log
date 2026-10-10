@@ -1,0 +1,7 @@
+# step: aggregate_gptoss_full
+# start: 2026-10-10T17:20:29Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/aggregate.py --matrix gptoss --run runs/2026-10-10_gptoss-full
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-full/summary/scores.json, scores.csv, paired.csv, report.md for ['4minds_constellations', 'gptoss_lightrag', 'gptoss_filesearch', 'gptoss_norag']
+
+# end: 2026-10-10T17:20:30Z  exit: 0  duration_s: 1

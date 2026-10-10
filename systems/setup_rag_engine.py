@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Create the Vertex AI RAG Engine corpus for the active benchmark and upload its corpus file (once).
 
-    ./bench graphrag-bench setup_rag_engine eval systems/setup_rag_engine.py
+    ./bench graphrag-bench setup_rag_engine eval systems/setup_rag_engine.py [--location us-central1]
 
 Safe to run again: it reuses the corpus with the same display name and does not upload a
 file that is already in the corpus. It waits until every file of the corpus is ACTIVE, sends
-3 retrieval queries (it stops if one fails) and writes results/rag_engine/setup.json. RAG Engine defaults are used for chunking, the
-embedding model and the vector database (Spanner mode, RagManagedDb, Basic tier in
-europe-west4); the script records what the API reports. If the region is unprovisioned
-(after cleanup_rag_engine.py), it sets the Basic tier first: Spanner then bills every hour.
+3 retrieval queries (it stops if one fails) and writes shared/rag_engine/setup.json (with
+the location; the runners read it from there). RAG Engine defaults are used for chunking, the
+embedding model and the vector database (Spanner mode, RagManagedDb, Basic tier); the script
+records what the API reports. If the region is unprovisioned (after cleanup_rag_engine.py),
+it sets the Basic tier first: Spanner then bills every hour.
 """
 import argparse
 import json
@@ -22,17 +23,19 @@ import requests
 import bench_common as bc
 
 PROJECT = "minds-vs-gemini-benchmark"
-# us-central1/us-east1/us-east4 are allowlist-only for new projects (Spanner mode refused), and
-# Serverless mode in us-central1 failed with "No available indexing project". europe-west4 is GA.
+# Default location. In Sep 2026 us-central1/us-east1/us-east4 were allowlist-only for new
+# projects (Spanner mode refused), and Serverless mode in us-central1 failed with "No available
+# indexing project". europe-west4 is GA.
 LOCATION = "europe-west4"
 DISPLAY_NAME = bc.profile.RESOURCE_NAME
-API = f"https://{LOCATION}-aiplatform.googleapis.com/v1/projects/{PROJECT}/locations/{LOCATION}"
-UPLOAD_API = f"https://{LOCATION}-aiplatform.googleapis.com/upload/v1"
-SETUP_FILE = bc.RESULTS / "rag_engine" / "setup.json"
+SETUP_FILE = bc.SHARED / "rag_engine" / "setup.json"
 
 
 class Session:
-    def __init__(self):
+    def __init__(self, location=LOCATION):
+        self.location = location
+        self.host = f"https://{location}-aiplatform.googleapis.com"
+        self.api = f"{self.host}/v1/projects/{PROJECT}/locations/{location}"
         self.creds, _ = google.auth.default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
         self.http = requests.Session()
 
@@ -51,7 +54,7 @@ class Session:
         name = operation["name"]
         while not operation.get("done"):
             time.sleep(5)
-            operation = self.call("GET", f"https://{LOCATION}-aiplatform.googleapis.com/v1/{name}")
+            operation = self.call("GET", f"{self.host}/v1/{name}")
         if "error" in operation:
             sys.exit(f"Operation {name} failed: {operation['error']}")
         return operation.get("response", {})
@@ -68,14 +71,14 @@ def list_all(session, url, field):
 
 
 def find_corpus(session):
-    for corpus in list_all(session, f"{API}/ragCorpora", "ragCorpora"):
+    for corpus in list_all(session, f"{session.api}/ragCorpora", "ragCorpora"):
         if corpus.get("displayName") == DISPLAY_NAME:
             return corpus
     return None
 
 
 def corpus_files(session, corpus_name):
-    return list_all(session, f"https://{LOCATION}-aiplatform.googleapis.com/v1/{corpus_name}/ragFiles", "ragFiles")
+    return list_all(session, f"{session.host}/v1/{corpus_name}/ragFiles", "ragFiles")
 
 
 def readiness(session, corpus_name):

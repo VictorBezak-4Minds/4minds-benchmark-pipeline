@@ -1,0 +1,7 @@
+# step: describe_pilot
+# start: 2026-10-10T17:20:17Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py --run runs/2026-10-09_pilot --title QASPER pilot (25 questions, answer only) --purpose Answer F1 of 4Minds Constellations and SYMI, Gemini File Search, LightRAG + Gemini and Gemini + RAG Engine on 25 questions. --status Complete for 4 of 5 systems; RAG Engine is blocked (blocked.json). A full run is not approved.
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/runs/2026-10-09_pilot/README.md
+
+# end: 2026-10-10T17:20:17Z  exit: 0  duration_s: 0

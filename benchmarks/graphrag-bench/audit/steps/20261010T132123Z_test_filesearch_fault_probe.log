@@ -1,0 +1,8 @@
+# step: test_filesearch_fault_probe
+# start: 2026-10-10T13:21:23Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag.py --subset medical --questions-file results/_tests/filesearch_fault_probe/questions.json --llm bedrock-gpt-oss-120b --retriever gemini_file_search --retrieval-instruction cite_each --out-dir results/_tests/filesearch_fault_probe/run --workers 3 --timeout 120 --max-attempts 3
+
+== gemini_file_search+bedrock-gpt-oss-120b / medical: 3 questions, 0 already done, 3 to run, 3 workers
+Readiness: File Search query on fileSearchStores/graphragbench-9lax22b99qlk returned no chunks: {'code': 'incomplete_response', 'finish_reason': None, 'message': 'File Search reply has no chunks and no normal finish reason', 'usage': {'retrieval_promptTokenCount': 4990, 'retrieval_candidatesTokenCount': 474, 'retrieval_thoughtsTokenCount': 4974, 'retrieval_toolUsePromptTokenCount': 419660}}
+
+# end: 2026-10-10T13:23:04Z  exit: 1  duration_s: 101

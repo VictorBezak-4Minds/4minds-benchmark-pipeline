@@ -1,0 +1,127 @@
+# step: full_gptoss_lightrag
+# start: 2026-10-10T11:36:12Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-lightrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/run_lightrag_bench.py --subset medical --full --llm bedrock-gpt-oss-120b --repair-delimiters --out-dir results/gptoss/gptoss_lightrag --workers 4 --timeout 300
+
+INFO:Found credentials in shared credentials file: ~/.aws/credentials
+INFO: Process 9139 Shared-Data created for Single Process
+INFO:Load (4697, 1024) data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_entities.json'} 4697 data
+INFO:Load (7710, 1024) data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_relationships.json'} 7710 data
+INFO:Load (199, 1024) data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_chunks.json'} 199 data
+INFO: Process 9139 initialized updated flags for namespace: [full_docs]
+INFO: Process 9139 ready to initialize storage namespace: [full_docs]
+INFO: Process 9139 initialized updated flags for namespace: [text_chunks]
+INFO: Process 9139 ready to initialize storage namespace: [text_chunks]
+INFO: Process 9139 initialized updated flags for namespace: [entities]
+INFO: Process 9139 initialized updated flags for namespace: [relationships]
+INFO: Process 9139 initialized updated flags for namespace: [chunks]
+INFO: Process 9139 initialized updated flags for namespace: [chunk_entity_relation]
+INFO: Process 9139 initialized updated flags for namespace: [llm_response_cache]
+INFO: Process 9139 ready to initialize storage namespace: [llm_response_cache]
+INFO: Process 9139 initialized updated flags for namespace: [doc_status]
+INFO: Process 9139 ready to initialize storage namespace: [doc_status]
+INFO: Process 9139 storage namespace already initialized: [full_docs]
+INFO: Process 9139 storage namespace already initialized: [text_chunks]
+INFO: Process 9139 storage namespace already initialized: [llm_response_cache]
+INFO: Process 9139 storage namespace already initialized: [doc_status]
+INFO: Process 9139 Pipeline namespace initialized
+== lightrag_bedrock-gpt-oss-120b / medical: 2062 questions, 0 already done, 2062 to run, 4 workers
+  readiness: {"working_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical", "doc_status": {"doc-3d7a4f05339f0e3f3870b407d21d9c8a": "processed"}, "index": {"finished": "2026-10-10T00:27:30+00:00", "index_wall_clock_s": 809.2, "doc_status": {"doc-3d7a4f05339f0e3f3870b407d21d9c8a": "processed"}, "usage": {"calls": 56, "prompt_tokens": 64008, "completion_tokens": 26989, "reasoning_tokens": 0}, "estimated_cost_usd": 0.0258, "model": "openai.gpt-oss-120b-1:0", "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1", "llm_backend": "bedrock-gpt-oss-120b", "repair_delimiters": true, "repair_patch": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/audit/patches/lightrag-1.2.5-gptoss-delimiter-repair.py", "reused_llm_cache": {"from": "results/lightrag/workspace_bedrock-gpt-oss-120b/Medical/kv_store_llm_response_cache.json", "sha256": "12bd8180ecd95f28fdb7cd734226624ff7adfb9e54e1dec8e0bd89bbade34e13"}, "embed_model": "BAAI/bge-large-en-v1.5", "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/upstream/Datasets/Corpus/medical.parquet", "corpus_sha256": "e8e8a71eca466aecdc3d1705c4351027f2f260bc9ec2d59d736d8b69a88a6d7f"}}
+INFO:Load (4697, 1024) data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_entities.json'} 4697 data
+INFO:Load (7710, 1024) data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_relationships.json'} 7710 data
+  [25/2062] ok (32 s)
+  [50/2062] ok (47 s)
+  [75/2062] ok (73 s)
+  [100/2062] ok (101 s)
+  [125/2062] ok (134 s)
+  [150/2062] ok (158 s)
+  [175/2062] ok (187 s)
+  [200/2062] ok (212 s)
+  [225/2062] ok (242 s)
+  [250/2062] ok (275 s)
+  [275/2062] ok (301 s)
+  [300/2062] ok (330 s)
+  [325/2062] ok (355 s)
+  [350/2062] ok (380 s)
+  [375/2062] ok (409 s)
+  [400/2062] ok (432 s)
+  [425/2062] ok (457 s)
+  [450/2062] ok (477 s)
+  [475/2062] ok (499 s)
+  [500/2062] ok (526 s)
+  [525/2062] ok (554 s)
+  [550/2062] ok (581 s)
+  [575/2062] ok (608 s)
+  [600/2062] ok (633 s)
+  [625/2062] ok (662 s)
+  [650/2062] ok (699 s)
+  [675/2062] ok (726 s)
+  [700/2062] ok (757 s)
+  [725/2062] ok (786 s)
+  [750/2062] ok (816 s)
+  [775/2062] ok (839 s)
+  [800/2062] ok (866 s)
+  [825/2062] ok (890 s)
+  [850/2062] ok (919 s)
+  [875/2062] ok (945 s)
+  [900/2062] ok (969 s)
+  [925/2062] ok (995 s)
+  [950/2062] ok (1021 s)
+  [975/2062] ok (1050 s)
+  [1000/2062] ok (1072 s)
+  [1025/2062] ok (1099 s)
+  [1050/2062] ok (1122 s)
+  [1075/2062] ok (1145 s)
+  [1100/2062] ok (1173 s)
+  [1125/2062] ok (1205 s)
+  [1150/2062] ok (1245 s)
+  [1175/2062] ok (1279 s)
+  [1200/2062] ok (1316 s)
+  [1225/2062] ok (1352 s)
+  [1250/2062] ok (1385 s)
+  [1275/2062] ok (1416 s)
+  [1300/2062] ok (1449 s)
+  [1325/2062] ok (1481 s)
+  [1350/2062] ok (1517 s)
+  [1375/2062] ok (1557 s)
+  [1400/2062] ok (1593 s)
+  [1425/2062] ok (1622 s)
+  [1450/2062] ok (1657 s)
+  [1475/2062] ok (1687 s)
+  [1500/2062] ok (1723 s)
+  [1525/2062] ok (1756 s)
+INFO:Found credentials in shared credentials file: ~/.aws/credentials
+  [1550/2062] ok (1797 s)
+  [1575/2062] ok (1829 s)
+  [1600/2062] ok (1860 s)
+  [1625/2062] ok (1902 s)
+  [1650/2062] ok (1946 s)
+  [1675/2062] ok (1977 s)
+  [1700/2062] ok (2013 s)
+  [1725/2062] ok (2052 s)
+  [1750/2062] ok (2095 s)
+  [1775/2062] ok (2136 s)
+  [1800/2062] ok (2176 s)
+  [1825/2062] ok (2210 s)
+  [1850/2062] ok (2246 s)
+  [1875/2062] ok (2283 s)
+  [1900/2062] ok (2321 s)
+  [1925/2062] ok (2368 s)
+  [1950/2062] ok (2430 s)
+  [1975/2062] ok (2487 s)
+  [2000/2062] ok (2561 s)
+  [2025/2062] ok (2633 s)
+  [2050/2062] ok (2697 s)
+  [2062/2062] ok (2724 s)
+
+== summary -> results/gptoss/gptoss_lightrag/medical/predictions.json
+  answered: 2062 / 2062   failed: 0   not run: 0
+  no context: 16   "I don't know": 49
+  tokens: {'calls': 4092, 'prompt_tokens': 23304639, 'completion_tokens': 1277659, 'reasoning_tokens': 0}
+  latency: {'n': 2062, 'mean_s': 5.28, 'median_s': 4.36, 'p90_s': 9.3, 'max_s': 59.54}   estimated cost: 4.2623
+
+# end: 2026-10-10T12:21:50Z  exit: 0  duration_s: 2738

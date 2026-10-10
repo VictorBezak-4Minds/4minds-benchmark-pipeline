@@ -1,0 +1,12 @@
+# step: preflight_gemini_key
+# start: 2026-10-09T23:03:38Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/preflight.py gemini-key-project
+
+key length 53, starts with AQ.Ab8
+https://generativelanguage.googleapis.com/v1beta/tunedModels: HTTP 501, no consumer project in the answer (UNIMPLEMENTED [] Operation is not implemented, or supported, or enabled.)
+https://generativelanguage.googleapis.com/v1beta/corpora: HTTP 401, no consumer project in the answer (UNAUTHENTICATED [] The request does not have valid authentication credentials.)
+https://texttospeech.googleapis.com/v1/voices: HTTP 401, no consumer project in the answer (UNAUTHENTICATED ['CREDENTIALS_MISSING'] API keys are not supported by this API. Expected OAuth2 access token or other authentication credentials that assert a principal. See https://cloud.google.com/d)
+https://translation.googleapis.com/language/translate/v2/languages: HTTP 401, no consumer project in the answer (UNAUTHENTICATED ['CREDENTIALS_MISSING'] API keys are not supported by this API. Expected OAuth2 access token or other authentication credentials that assert a principal. See https://cloud.google.com/d)
+No probe named the project. Check the key in AI Studio (API keys page).
+
+# end: 2026-10-09T23:03:39Z  exit: 1  duration_s: 1

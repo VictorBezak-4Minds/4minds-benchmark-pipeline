@@ -1,0 +1,7 @@
+# step: report_pilot
+# start: 2026-10-10T17:20:30Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/scripts/make_report.py --run runs/2026-10-09_pilot
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/runs/2026-10-09_pilot/summary/report.html
+
+# end: 2026-10-10T17:20:30Z  exit: 0  duration_s: 0

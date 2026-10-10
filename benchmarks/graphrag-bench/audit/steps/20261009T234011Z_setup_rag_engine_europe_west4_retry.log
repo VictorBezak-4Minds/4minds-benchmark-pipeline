@@ -1,0 +1,8 @@
+# step: setup_rag_engine_europe_west4_retry
+# start: 2026-10-09T23:40:11Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_rag_engine.py --location europe-west4
+
+corpus: projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/6917529027641081856
+Corpus files are ACTIVE, but retrieval fails: [{'status': 500, 'error': 'Failed to fetch corpus status from spanner for rag_corpus 6917529027641081856'}, {'status': 500, 'error': 'Failed to fetch corpus status from spanner for rag_corpus 6917529027641081856'}, {'status': 500, 'error': 'Failed to fetch corpus status from spanner for rag_corpus 6917529027641081856'}]
+
+# end: 2026-10-09T23:40:20Z  exit: 1  duration_s: 9

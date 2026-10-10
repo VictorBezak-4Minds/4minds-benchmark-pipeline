@@ -1,0 +1,7 @@
+# step: aggregate_gptoss_pilot
+# start: 2026-10-10T00:31:15Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/aggregate.py --matrix matrices/gptoss.json --results results/gptoss_pilot --label PILOT
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/gptoss_pilot/summary/scores.json, scores.csv, paired.csv, report.md for ['4minds_constellations', 'gptoss_lightrag', 'gptoss_filesearch', 'gptoss_norag']
+
+# end: 2026-10-10T00:31:15Z  exit: 0  duration_s: 0

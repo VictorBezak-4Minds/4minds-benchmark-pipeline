@@ -1,0 +1,47 @@
+# step: test_score_resume_1
+# start: 2026-10-09T23:15:46Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score.py --system-dir /tmp/score_resume_test --shard-size 4 --parallel 2
+
+scoring 10 predictions in /private/tmp/score_resume_test with gpt-4o-mini (gpt-4o-mini-2024-07-18), 3 shard(s); 0 already complete, 3 to score, 2 at a time
+  shard_001: exit 0, failed samples 0
+  shard_000: exit 0, failed samples 0
+  shard_002: exit 0, failed samples 0
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.5656
+  answer_correctness: 0.7963
+Results for Complex Reasoning:
+  rouge_score: 0.6667
+  answer_correctness: 0.7458
+  avg_results = {metric: np.nanmean(scores) for metric, scores in results.items()}
+Results for Creative Generation:
+  answer_correctness: 0.8669
+  coverage_score: 0.6250
+  faithfulness: nan
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.2772
+  answer_correctness: 0.6075
+Results for Contextual Summarize:
+  answer_correctness: 0.9754
+  coverage_score: 0.8750
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 1.0000
+  answer_correctness: 1.0000
+Results for Complex Reasoning:
+  rouge_score: 0.2286
+  answer_correctness: 0.9001
+Results for Contextual Summarize:
+  answer_correctness: 0.9502
+  coverage_score: 0.7778
+Evaluation complete.
+
+done in 85.5 s, exit 0, scored {'Fact Retrieval': 5, 'Complex Reasoning': 2, 'Creative Generation': 1, 'Contextual Summarize': 2}, failed samples 0
+
+# end: 2026-10-09T23:17:14Z  exit: 0  duration_s: 88

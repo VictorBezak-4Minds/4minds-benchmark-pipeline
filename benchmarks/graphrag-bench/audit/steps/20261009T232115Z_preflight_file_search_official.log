@@ -1,0 +1,38 @@
+# step: preflight_file_search_official
+# start: 2026-10-09T23:21:15Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/preflight.py file-search --subset medical --questions-file data/Questions/pilot_questions.json --retrieval-instruction official
+
+{"id": "Medical-de0b30b1", "type": "Fact Retrieval", "latency_s": 9.5, "chunks": 1, "chunk_chars": [1177], "grounding_chunks_raw": 1, "usage": {"retrieval_promptTokenCount": 163, "retrieval_candidatesTokenCount": 45, "retrieval_thoughtsTokenCount": 235, "retrieval_toolUsePromptTokenCount": 1813}, "cost_usd": 0.00253}
+{"id": "Medical-2360f9dd", "type": "Fact Retrieval", "latency_s": 7.57, "chunks": 1, "chunk_chars": [1072], "grounding_chunks_raw": 1, "usage": {"retrieval_promptTokenCount": 248, "retrieval_candidatesTokenCount": 75, "retrieval_thoughtsTokenCount": 331, "retrieval_toolUsePromptTokenCount": 1944}, "cost_usd": 0.00317}
+{"id": "Medical-f4ba3ee9", "type": "Fact Retrieval", "latency_s": 6.87, "chunks": 1, "chunk_chars": [1189], "grounding_chunks_raw": 1, "usage": {"retrieval_promptTokenCount": 203, "retrieval_candidatesTokenCount": 37, "retrieval_thoughtsTokenCount": 266, "retrieval_toolUsePromptTokenCount": 1865}, "cost_usd": 0.00269}
+{"id": "Medical-edb040bb", "type": "Fact Retrieval", "latency_s": 6.31, "chunks": 1, "chunk_chars": [1228], "grounding_chunks_raw": 1, "usage": {"retrieval_promptTokenCount": 111, "retrieval_candidatesTokenCount": 32, "retrieval_thoughtsTokenCount": 176, "retrieval_toolUsePromptTokenCount": 1820}, "cost_usd": 0.00223}
+{"id": "Medical-01f113f7", "type": "Fact Retrieval", "latency_s": 8.43, "chunks": 2, "chunk_chars": [1217, 1217], "grounding_chunks_raw": 2, "usage": {"retrieval_promptTokenCount": 192, "retrieval_candidatesTokenCount": 83, "retrieval_thoughtsTokenCount": 378, "retrieval_toolUsePromptTokenCount": 1904}, "cost_usd": 0.0033}
+{"id": "Medical-f79d978d", "type": "Complex Reasoning", "latency_s": 9.77, "chunks": 1, "chunk_chars": [1112], "grounding_chunks_raw": 1, "usage": {"retrieval_promptTokenCount": 280, "retrieval_candidatesTokenCount": 135, "retrieval_thoughtsTokenCount": 464, "retrieval_toolUsePromptTokenCount": 5058}, "cost_usd": 0.00625}
+{"id": "Medical-136a5739", "type": "Complex Reasoning", "latency_s": 7.86, "chunks": 1, "chunk_chars": [1211], "grounding_chunks_raw": 1, "usage": {"retrieval_promptTokenCount": 196, "retrieval_candidatesTokenCount": 51, "retrieval_thoughtsTokenCount": 372, "retrieval_toolUsePromptTokenCount": 1920}, "cost_usd": 0.00317}
+{"id": "Medical-0ae62420", "type": "Contextual Summarize", "latency_s": 10.34, "chunks": 4, "chunk_chars": [1225, 1187, 1229, 1226], "grounding_chunks_raw": 4, "usage": {"retrieval_promptTokenCount": 135, "retrieval_candidatesTokenCount": 136, "retrieval_thoughtsTokenCount": 625, "retrieval_toolUsePromptTokenCount": 1767}, "cost_usd": 0.00428}
+{"id": "Medical-97625b74", "type": "Contextual Summarize", "latency_s": 17.18, "chunks": 7, "chunk_chars": [1140, 1194, 1127, 1252, 1197, 1176, 1245], "grounding_chunks_raw": 7, "usage": {"retrieval_promptTokenCount": 245, "retrieval_candidatesTokenCount": 285, "retrieval_thoughtsTokenCount": 1148, "retrieval_toolUsePromptTokenCount": 9676}, "cost_usd": 0.01281}
+{"id": "Medical-d5964ccf", "type": "Creative Generation", "latency_s": 27.78, "chunks": 8, "chunk_chars": [1196, 1154, 1189, 1184, 1154, 1112, 1149, 1200], "grounding_chunks_raw": 8, "usage": {"retrieval_promptTokenCount": 455, "retrieval_candidatesTokenCount": 542, "retrieval_thoughtsTokenCount": 1781, "retrieval_toolUsePromptTokenCount": 32512}, "cost_usd": 0.03344}
+{
+  "store": "fileSearchStores/graphragbench-9lax22b99qlk",
+  "top_k": 5,
+  "retrieval_instruction": "official",
+  "questions": 10,
+  "errors": 0,
+  "chunks_per_question": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    1,
+    1,
+    4,
+    7,
+    8
+  ],
+  "mean_chunks": 2.7,
+  "questions_with_top_k": 0,
+  "total_cost_usd": 0.0739
+}
+
+# end: 2026-10-09T23:23:07Z  exit: 1  duration_s: 112

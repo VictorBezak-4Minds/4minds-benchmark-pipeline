@@ -1,0 +1,33 @@
+# step: preflight_file_search
+# start: 2026-10-09T23:04:12Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/preflight.py file-search --subset medical --questions-file data/Questions/pilot_questions.json
+
+{
+  "question": "Are organ transplant recipients at higher risk for BCC?",
+  "store": "fileSearchStores/graphragbench-9lax22b99qlk",
+  "top_k": 5,
+  "latency_s": 7.17,
+  "chunks": 1,
+  "chunk_chars": [
+    1177
+  ],
+  "retrieval_chunks": 1,
+  "grounding_chunks_raw": 1,
+  "retrieval_titles": [
+    "Medical.txt"
+  ],
+  "searched": true,
+  "grounding_keys": [
+    "groundingChunks",
+    "groundingSupports"
+  ],
+  "retrieval_finish_reason": "STOP",
+  "usage": {
+    "retrieval_promptTokenCount": 212,
+    "retrieval_candidatesTokenCount": 42,
+    "retrieval_thoughtsTokenCount": 293,
+    "retrieval_toolUsePromptTokenCount": 1855
+  }
+}
+
+# end: 2026-10-09T23:04:19Z  exit: 1  duration_s: 7

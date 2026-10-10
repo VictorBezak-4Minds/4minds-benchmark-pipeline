@@ -1,0 +1,7 @@
+# step: test_score_resume_4
+# start: 2026-10-09T23:17:46Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score.py --system-dir /tmp/score_resume_test --shard-size 4 --parallel 2
+
+/private/tmp/score_resume_test/score_shards/plan.json was made for other predictions or another --shard-size. Move score_shards/ to _superseded_score_shards_<time>/ and run again.
+
+# end: 2026-10-09T23:17:47Z  exit: 1  duration_s: 1

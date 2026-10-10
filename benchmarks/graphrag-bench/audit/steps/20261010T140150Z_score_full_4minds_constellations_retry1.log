@@ -1,0 +1,118 @@
+# step: score_full_4minds_constellations_retry1
+# start: 2026-10-10T14:01:50Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score.py --system-dir results/gptoss/4minds_constellations/medical --shard-size 50 --parallel 8
+
+scoring 2062 predictions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/gptoss/4minds_constellations/medical with gpt-4o-mini (gpt-4o-mini-2024-07-18), 42 shard(s); 33 already complete, 9 to score, 8 at a time
+  shard_014: exit 0, failed samples 1
+  shard_015: exit 0, failed samples 0
+  shard_004: exit 0, failed samples 0
+  shard_000: exit 0, failed samples 0
+  shard_016: exit 0, failed samples 0
+  shard_010: exit 0, failed samples 1
+  shard_024: exit 0, failed samples 1
+  shard_022: exit 0, failed samples 1
+  shard_028: exit 0, failed samples 2
+ss: 0.8889
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.1972
+  answer_correctness: 0.5895
+Results for Complex Reasoning:
+  rouge_score: 0.1282
+  answer_correctness: 0.6374
+Results for Contextual Summarize:
+  answer_correctness: 0.8148
+  coverage_score: 0.8193
+Results for Creative Generation:
+  answer_correctness: 0.6436
+  coverage_score: 0.3333
+  faithfulness: 0.1087
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.2299
+  answer_correctness: 0.6126
+Results for Complex Reasoning:
+  rouge_score: 0.1534
+  answer_correctness: 0.6586
+Results for Contextual Summarize:
+  answer_correctness: 0.6976
+  coverage_score: 0.7306
+  avg_results = {metric: np.nanmean(scores) for metric, scores in results.items()}
+Results for Creative Generation:
+  answer_correctness: 0.7728
+  coverage_score: 0.6018
+  faithfulness: nan
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.2206
+  answer_correctness: 0.5668
+Results for Complex Reasoning:
+  rouge_score: 0.1716
+  answer_correctness: 0.6701
+Results for Contextual Summarize:
+  answer_correctness: 0.8113
+  coverage_score: 0.9062
+Results for Creative Generation:
+  answer_correctness: 0.6721
+  coverage_score: 0.5082
+  faithfulness: 0.3600
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.2511
+  answer_correctness: 0.6663
+Results for Complex Reasoning:
+  rouge_score: 0.1816
+  answer_correctness: 0.7662
+Results for Contextual Summarize:
+  answer_correctness: 0.8039
+  coverage_score: 0.7465
+  avg_results = {metric: np.nanmean(scores) for metric, scores in results.items()}
+Results for Creative Generation:
+  answer_correctness: 0.7262
+  coverage_score: 0.6517
+  faithfulness: nan
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.3025
+  answer_correctness: 0.7317
+Results for Complex Reasoning:
+  rouge_score: 0.1272
+  answer_correctness: 0.6261
+Results for Contextual Summarize:
+  answer_correctness: 0.6916
+  coverage_score: 0.8312
+Results for Creative Generation:
+  answer_correctness: 0.8604
+  coverage_score: 0.7003
+  faithfulness: 0.6333
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.2938
+  answer_correctness: 0.6751
+Results for Complex Reasoning:
+  rouge_score: 0.1608
+  answer_correctness: 0.5534
+Results for Contextual Summarize:
+  answer_correctness: 0.8521
+  coverage_score: 0.8769
+Results for Creative Generation:
+  answer_correctness: 0.9130
+  coverage_score: 0.6461
+  faithfulness: 0.9412
+Evaluation complete.
+
+done in 758.6 s, exit 1, scored {'Fact Retrieval': 1096, 'Complex Reasoning': 507, 'Contextual Summarize': 288, 'Creative Generation': 165}, failed samples 6
+
+# end: 2026-10-10T14:14:30Z  exit: 1  duration_s: 760

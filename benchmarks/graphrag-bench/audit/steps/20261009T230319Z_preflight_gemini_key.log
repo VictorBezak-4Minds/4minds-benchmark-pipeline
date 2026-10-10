@@ -1,0 +1,11 @@
+# step: preflight_gemini_key
+# start: 2026-10-09T23:03:19Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/preflight.py gemini-key-project
+
+key length 53, starts with AQ.Ab8
+https://texttospeech.googleapis.com/v1/voices: HTTP 401, no consumer project in the answer
+https://translation.googleapis.com/language/translate/v2/languages: HTTP 401, no consumer project in the answer
+https://vision.googleapis.com/v1/operations: HTTP 401, no consumer project in the answer
+No probe named the project. Check the key in AI Studio (API keys page).
+
+# end: 2026-10-09T23:03:20Z  exit: 1  duration_s: 1

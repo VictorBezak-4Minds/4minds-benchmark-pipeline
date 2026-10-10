@@ -5,11 +5,11 @@ The corpus is made by setup_rag_engine.py (one corpus that holds only the benchm
 Each question is one generateContent call with the RAG Engine `retrieval` tool, the
 benchmark system prompt, and top_k 5 (the GraphRAG-Bench reference runner value).
 
-Output: results/rag_engine/<subset>/predictions.json, in the format of the profile's
+Output: runs/<run>/rag_engine/<subset>/predictions.json, in the format of the profile's
 prediction().
 
     ./bench graphrag-bench pilot_rag_engine eval systems/run_rag_engine.py --subset medical \\
-        --questions-file data/Questions/pilot_questions.json --out-dir results/pilot/rag_engine --workers 10
+        --questions-file data/Questions/pilot_questions.json --out-dir runs/<YYYY-MM-DD>_<name>/rag_engine --workers 10
 """
 import json
 import sys
@@ -68,7 +68,7 @@ def retrieve_contexts(session, args, q, corpus_name):
     The global generateContent endpoint returns grounding chunks with only uri/title, so the
     same query, corpus and top_k go to retrieveContexts in the corpus region.
     """
-    url = f"https://{setup.LOCATION}-aiplatform.googleapis.com/v1/projects/{setup.PROJECT}/locations/{setup.LOCATION}:retrieveContexts"
+    url = f"{session.api}:retrieveContexts"
     body = {"vertexRagStore": {"ragResources": [{"ragCorpus": corpus_name}]},
             "query": {"text": q["question"], "ragRetrievalConfig": {"topK": args.top_k}}}
     for attempt in range(3):
@@ -139,12 +139,13 @@ def main():
 
     if not setup.SETUP_FILE.exists():
         sys.exit(f"Run setup_rag_engine.py first ({setup.SETUP_FILE} is missing).")
-    corpus_name = json.loads(setup.SETUP_FILE.read_text())["corpus"]["name"]
+    setup_data = json.loads(setup.SETUP_FILE.read_text())
+    corpus_name = setup_data["corpus"]["name"]
     questions = bc.load_questions(args)
     if args.dry_run:
         print(json.dumps(build_request(args, questions[0], corpus_name), indent=2))
         return
-    session = setup.Session()
+    session = setup.Session(setup_data["location"])
 
     def readiness():
         ready = setup.readiness(session, corpus_name)

@@ -1,0 +1,1119 @@
+{
+  "generated": "2026-10-10T17:21:00+00:00",
+  "label": "PILOT",
+  "subset": "medical",
+  "results_root": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-09_gemini-pilot",
+  "benchmark": {
+    "repo": "https://github.com/GraphRAG-Bench/GraphRAG-Benchmark",
+    "commit": [
+      "fdbab5959b18c96532580877ffe27d112bccc0ec"
+    ],
+    "judge": "gpt-4o-mini",
+    "judge_snapshot": [
+      "gpt-4o-mini-2024-07-18"
+    ],
+    "embedding_model": "BAAI/bge-large-en-v1.5",
+    "bootstrap_resamples": 2000
+  },
+  "matrix": {
+    "name": "gemini",
+    "file": "configs/comparisons/gemini.json",
+    "sha256": "1bccfd57519824e8ecbe376bd241191e8df22076acecfaed095bab65d76cd928"
+  },
+  "reference_system": "4minds_constellations",
+  "types": [
+    "Fact Retrieval",
+    "Complex Reasoning",
+    "Contextual Summarize",
+    "Creative Generation"
+  ],
+  "metric_set": {
+    "Fact Retrieval": [
+      "rouge_score",
+      "answer_correctness"
+    ],
+    "Complex Reasoning": [
+      "rouge_score",
+      "answer_correctness"
+    ],
+    "Contextual Summarize": [
+      "answer_correctness",
+      "coverage_score"
+    ],
+    "Creative Generation": [
+      "answer_correctness",
+      "coverage_score",
+      "faithfulness",
+      "faithfulness_jsonfix"
+    ]
+  },
+  "metric_names": {
+    "rouge_score": "ROUGE-L",
+    "answer_correctness": "Answer correctness",
+    "coverage_score": "Coverage",
+    "faithfulness": "Faithfulness (official)",
+    "faithfulness_jsonfix": "Faithfulness (JSON-format fix)"
+  },
+  "systems": [
+    {
+      "faithfulness_available": true,
+      "faithfulness_official_nan": 1,
+      "faithfulness_items": 1,
+      "faithfulness_jsonfix_nan": 0,
+      "key": "4minds_constellations",
+      "name": "4Minds (Constellations)",
+      "description": "4Minds prod, Constellations RAG over the dataset graph, GPT-OSS-120B standard weights",
+      "color": "#543fed",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-09_gemini-pilot/4minds_constellations/medical",
+      "run_started": "2026-10-09T14:50:12+00:00",
+      "run_finished": "2026-10-09T14:50:54+00:00",
+      "settings": {
+        "base_url": "https://api.4minds.ai",
+        "engine": "constellations",
+        "model_id": 3592,
+        "dataset_id": 4033,
+        "persona_id": 1275,
+        "system_prompt_via": "persona.behavioralGuidelines",
+        "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\"."
+      },
+      "readiness": {
+        "dataset_id": 4033,
+        "model_id": 3592,
+        "status": "in_use",
+        "graph_status": "ready",
+        "graph_build_progress": 100,
+        "files_processed_count": 2,
+        "total_chunks_count": 204,
+        "build_status": "enhancing",
+        "etl_job_status": "completed",
+        "error_message": null,
+        "model_status": "ready"
+      },
+      "deviations": [],
+      "operations": {
+        "questions": 10,
+        "answered": 10,
+        "failed": 0,
+        "not_run": 0,
+        "dont_know": 0,
+        "no_context": 0,
+        "tokens": {
+          "total_tokens": 3222,
+          "tokens_used_today": 10732,
+          "tokens_used_this_month": 10732
+        },
+        "estimated_cost_usd": null,
+        "latency": {
+          "n": 10,
+          "mean_s": 12.65,
+          "median_s": 11.31,
+          "p90_s": 21.62,
+          "max_s": 21.62
+        },
+        "workers": 4,
+        "wall_clock_s_last_invocation": 41.7
+      },
+      "scoring": {
+        "judge": "gpt-4o-mini",
+        "judge_snapshot": "gpt-4o-mini-2024-07-18",
+        "embedding_model": "BAAI/bge-large-en-v1.5",
+        "benchmark_commit": "fdbab5959b18c96532580877ffe27d112bccc0ec",
+        "wall_clock_s": 383.2,
+        "scored_per_type": {
+          "Fact Retrieval": 5,
+          "Complex Reasoning": 2,
+          "Contextual Summarize": 2,
+          "Creative Generation": 1
+        },
+        "failed_samples": 0,
+        "finished": "2026-10-09T15:08:39+00:00"
+      }
+    },
+    {
+      "faithfulness_available": false,
+      "faithfulness_official_nan": 0,
+      "faithfulness_items": 1,
+      "faithfulness_jsonfix_nan": 0,
+      "key": "4minds_symi",
+      "name": "4Minds (SYMI)",
+      "description": "4Minds prod, SYMI agent engine over the same model and dataset",
+      "color": "#a78bfa",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-09_gemini-pilot/4minds_symi/medical",
+      "run_started": "2026-10-09T15:03:49+00:00",
+      "run_finished": "2026-10-09T15:04:32+00:00",
+      "settings": {
+        "base_url": "https://api.4minds.ai",
+        "engine": "symi",
+        "endpoint": "https://api.4minds.ai/api/v1/user/inference",
+        "model_id": 3592,
+        "dataset_id": 4033,
+        "persona_id": 1275,
+        "system_prompt_via": "persona.behavioralGuidelines",
+        "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\"."
+      },
+      "readiness": {
+        "dataset_id": 4033,
+        "model_id": 3592,
+        "status": "in_use",
+        "graph_status": "ready",
+        "graph_build_progress": 100,
+        "files_processed_count": 2,
+        "total_chunks_count": 204,
+        "build_status": "enhancing",
+        "etl_job_status": "completed",
+        "error_message": null,
+        "model_status": "ready"
+      },
+      "deviations": [],
+      "operations": {
+        "questions": 10,
+        "answered": 10,
+        "failed": 0,
+        "not_run": 0,
+        "dont_know": 0,
+        "no_context": 10,
+        "tokens": {
+          "total_tokens": 2801
+        },
+        "estimated_cost_usd": null,
+        "latency": {
+          "n": 10,
+          "mean_s": 12.94,
+          "median_s": 10.84,
+          "p90_s": 24.56,
+          "max_s": 24.56
+        },
+        "workers": 4,
+        "wall_clock_s_last_invocation": 43.3
+      },
+      "scoring": {
+        "judge": "gpt-4o-mini",
+        "judge_snapshot": "gpt-4o-mini-2024-07-18",
+        "embedding_model": "BAAI/bge-large-en-v1.5",
+        "benchmark_commit": "fdbab5959b18c96532580877ffe27d112bccc0ec",
+        "wall_clock_s": 121.1,
+        "scored_per_type": {
+          "Fact Retrieval": 5,
+          "Complex Reasoning": 2,
+          "Contextual Summarize": 2,
+          "Creative Generation": 1
+        },
+        "failed_samples": 0,
+        "finished": "2026-10-09T15:23:24+00:00"
+      }
+    },
+    {
+      "faithfulness_available": true,
+      "faithfulness_official_nan": 1,
+      "faithfulness_items": 1,
+      "faithfulness_jsonfix_nan": 0,
+      "key": "gemini",
+      "name": "Gemini + File Search",
+      "description": "Gemini Developer API, gemini-3.8-flash with the File Search tool (top_k 5)",
+      "color": "#80aeff",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-09_gemini-pilot/gemini/medical",
+      "run_started": "2026-10-09T14:33:11+00:00",
+      "run_finished": "2026-10-09T14:38:54+00:00",
+      "settings": {
+        "store": "fileSearchStores/graphragbench-9lax22b99qlk",
+        "model": "gemini-3.8-flash",
+        "top_k": 5,
+        "temperature": null,
+        "seed": null,
+        "thinking_level": null,
+        "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\"."
+      },
+      "readiness": {
+        "store": "fileSearchStores/graphragbench-9lax22b99qlk",
+        "activeDocumentsCount": 21,
+        "pendingDocumentsCount": 0,
+        "failedDocumentsCount": 0,
+        "sources_active": [
+          "Medical"
+        ]
+      },
+      "deviations": [],
+      "operations": {
+        "questions": 10,
+        "answered": 10,
+        "failed": 0,
+        "not_run": 0,
+        "dont_know": 0,
+        "no_context": 0,
+        "tokens": {
+          "total_input_tokens": 2544,
+          "total_output_tokens": 1609,
+          "total_tool_use_tokens": 158821,
+          "total_thought_tokens": 4895
+        },
+        "estimated_cost_usd": 0.1454,
+        "latency": {
+          "n": 10,
+          "mean_s": 14.8,
+          "median_s": 10.25,
+          "p90_s": 41.57,
+          "max_s": 41.57
+        },
+        "workers": 10,
+        "wall_clock_s_last_invocation": 343.5
+      },
+      "scoring": {
+        "judge": "gpt-4o-mini",
+        "judge_snapshot": "gpt-4o-mini-2024-07-18",
+        "embedding_model": "BAAI/bge-large-en-v1.5",
+        "benchmark_commit": "fdbab5959b18c96532580877ffe27d112bccc0ec",
+        "wall_clock_s": 76.5,
+        "scored_per_type": {
+          "Fact Retrieval": 5,
+          "Complex Reasoning": 2,
+          "Contextual Summarize": 2,
+          "Creative Generation": 1
+        },
+        "failed_samples": 0,
+        "finished": "2026-10-09T15:02:15+00:00"
+      }
+    },
+    {
+      "faithfulness_available": true,
+      "faithfulness_official_nan": 1,
+      "faithfulness_items": 1,
+      "faithfulness_jsonfix_nan": 0,
+      "key": "rag_engine",
+      "name": "Gemini + RAG Engine",
+      "description": "Vertex AI, gemini-3.8-flash with the RAG Engine retrieval tool (top_k 5)",
+      "color": "#5eead4",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-09_gemini-pilot/rag_engine/medical",
+      "run_started": "2026-10-09T15:24:09+00:00",
+      "run_finished": "2026-10-09T15:29:41+00:00",
+      "settings": {
+        "project": "minds-vs-gemini-benchmark",
+        "corpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904",
+        "model": "gemini-3.8-flash",
+        "model_location": "global",
+        "top_k": 5,
+        "temperature": null,
+        "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\".",
+        "context_source": "retrieveContexts in the corpus region when grounding chunks carry no text"
+      },
+      "readiness": {
+        "corpus": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/4611686018427387904",
+        "files": {
+          "Medical.txt": "ACTIVE"
+        }
+      },
+      "deviations": [],
+      "operations": {
+        "questions": 10,
+        "answered": 10,
+        "failed": 0,
+        "not_run": 0,
+        "dont_know": 0,
+        "no_context": 0,
+        "tokens": {
+          "promptTokenCount": 860,
+          "candidatesTokenCount": 2198,
+          "thoughtsTokenCount": 5967,
+          "toolUsePromptTokenCount": 0
+        },
+        "estimated_cost_usd": 0.0313,
+        "latency": {
+          "n": 10,
+          "mean_s": 16.14,
+          "median_s": 8.42,
+          "p90_s": 70.38,
+          "max_s": 70.38
+        },
+        "workers": 10,
+        "wall_clock_s_last_invocation": 332.5
+      },
+      "scoring": {
+        "judge": "gpt-4o-mini",
+        "judge_snapshot": "gpt-4o-mini-2024-07-18",
+        "embedding_model": "BAAI/bge-large-en-v1.5",
+        "benchmark_commit": "fdbab5959b18c96532580877ffe27d112bccc0ec",
+        "wall_clock_s": 69.4,
+        "scored_per_type": {
+          "Fact Retrieval": 5,
+          "Complex Reasoning": 2,
+          "Contextual Summarize": 2,
+          "Creative Generation": 1
+        },
+        "failed_samples": 0,
+        "finished": "2026-10-09T15:31:11+00:00"
+      }
+    },
+    {
+      "faithfulness_available": true,
+      "faithfulness_official_nan": 0,
+      "faithfulness_items": 1,
+      "faithfulness_jsonfix_nan": 0,
+      "key": "lightrag",
+      "name": "LightRAG + Gemini",
+      "description": "LightRAG v1.2.5 (official GraphRAG-Bench runner settings), gemini-3.8-flash",
+      "color": "#fbbf24",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-09_gemini-pilot/lightrag/medical",
+      "run_started": "2026-10-09T15:39:31+00:00",
+      "run_finished": "2026-10-09T15:40:07+00:00",
+      "settings": {
+        "lightrag": "1.2.5",
+        "model": "gemini-3.8-flash",
+        "llm_base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+        "embed_model": "BAAI/bge-large-en-v1.5",
+        "query_param": {
+          "mode": "hybrid",
+          "top_k": 5,
+          "max_token_for_text_unit": 4000,
+          "max_token_for_global_context": 4000,
+          "max_token_for_local_context": 4000
+        },
+        "system_prompt": "\n---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\".\n\n---Conversation History---\n{history}\n\n---Knowledge Base---\n{context_data}\n",
+        "base_dir": "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/lightrag/workspace"
+      },
+      "readiness": {
+        "working_dir": "/Users/victorbezak/Documents/Benchmark Datasets/GraphRag-Bench Medical/results/lightrag/workspace/Medical",
+        "doc_status": {
+          "doc-3d7a4f05339f0e3f3870b407d21d9c8a": "processed"
+        },
+        "index": {
+          "finished": "2026-10-09T15:38:15+00:00",
+          "index_wall_clock_s": 2149.0,
+          "doc_status": {
+            "doc-3d7a4f05339f0e3f3870b407d21d9c8a": "processed"
+          },
+          "usage": {
+            "calls": 416,
+            "prompt_tokens": 1722633,
+            "completion_tokens": 444245,
+            "reasoning_tokens": 0
+          },
+          "estimated_cost_usd": 2.9579,
+          "model": "gemini-3.8-flash",
+          "embed_model": "BAAI/bge-large-en-v1.5",
+          "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/GraphRAG-Benchmark/Datasets/Corpus/medical.parquet",
+          "corpus_sha256": "e8e8a71eca466aecdc3d1705c4351027f2f260bc9ec2d59d736d8b69a88a6d7f"
+        }
+      },
+      "deviations": [
+        "two API-mode bugs of the official runner fixed in memory (see official_runner_fixes)",
+        "embed_model BAAI/bge-large-en-v1.5 (embedding_dim 1024 in the official code)",
+        "context stored as a one-item list instead of a string",
+        "questions answered in parallel threads with resume (same LightRAG instance and settings)"
+      ],
+      "operations": {
+        "questions": 10,
+        "answered": 10,
+        "failed": 0,
+        "not_run": 0,
+        "dont_know": 0,
+        "no_context": 0,
+        "tokens": {
+          "calls": 20,
+          "prompt_tokens": 103299,
+          "completion_tokens": 1417,
+          "reasoning_tokens": 0
+        },
+        "estimated_cost_usd": 0.0828,
+        "latency": {
+          "n": 10,
+          "mean_s": 11.23,
+          "median_s": 10.89,
+          "p90_s": 16.99,
+          "max_s": 16.99
+        },
+        "workers": 4,
+        "wall_clock_s_last_invocation": 36.1
+      },
+      "scoring": {
+        "judge": "gpt-4o-mini",
+        "judge_snapshot": "gpt-4o-mini-2024-07-18",
+        "embedding_model": "BAAI/bge-large-en-v1.5",
+        "benchmark_commit": "fdbab5959b18c96532580877ffe27d112bccc0ec",
+        "wall_clock_s": 76.1,
+        "scored_per_type": {
+          "Fact Retrieval": 5,
+          "Complex Reasoning": 2,
+          "Contextual Summarize": 2,
+          "Creative Generation": 1
+        },
+        "failed_samples": 0,
+        "finished": "2026-10-09T15:41:39+00:00"
+      }
+    }
+  ],
+  "metrics": {
+    "4minds_constellations": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "mean": 0.20519964786518266,
+          "ci_low": 0.13999999999999999,
+          "ci_high": 0.2649462365591398,
+          "n": 5
+        },
+        "answer_correctness": {
+          "mean": 0.6845306527900293,
+          "ci_low": 0.4948169478573362,
+          "ci_high": 0.8518104255683323,
+          "n": 5
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "mean": 0.1710034151894617,
+          "ci_low": 0.06293706293706293,
+          "ci_high": 0.27906976744186046,
+          "n": 2
+        },
+        "answer_correctness": {
+          "mean": 0.9101207420861357,
+          "ci_low": 0.8294700039689928,
+          "ci_high": 0.9907714802032787,
+          "n": 2
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "mean": 0.8362967033247899,
+          "ci_low": 0.680975479568904,
+          "ci_high": 0.9916179270806756,
+          "n": 2
+        },
+        "coverage_score": {
+          "mean": 0.7986111111111112,
+          "ci_low": 0.7222222222222222,
+          "ci_high": 0.875,
+          "n": 2
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "mean": 0.9880784706106023,
+          "ci_low": 0.9880784706106023,
+          "ci_high": 0.9880784706106023,
+          "n": 1
+        },
+        "coverage_score": {
+          "mean": 0.7083333333333334,
+          "ci_low": 0.7083333333333334,
+          "ci_high": 0.7083333333333334,
+          "n": 1
+        },
+        "faithfulness": null,
+        "faithfulness_jsonfix": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 1
+        }
+      }
+    },
+    "4minds_symi": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "mean": 0.2399890172681196,
+          "ci_low": 0.14695192086496434,
+          "ci_high": 0.3471582181259601,
+          "n": 5
+        },
+        "answer_correctness": {
+          "mean": 0.5688184329925184,
+          "ci_low": 0.3364649459775008,
+          "ci_high": 0.8268976154152913,
+          "n": 5
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "mean": 0.1680823680823681,
+          "ci_low": 0.0694980694980695,
+          "ci_high": 0.26666666666666666,
+          "n": 2
+        },
+        "answer_correctness": {
+          "mean": 0.8576734060049558,
+          "ci_low": 0.7280365245167324,
+          "ci_high": 0.9873102874931792,
+          "n": 2
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "mean": 0.9177457230322498,
+          "ci_low": 0.8419866338390065,
+          "ci_high": 0.993504812225493,
+          "n": 2
+        },
+        "coverage_score": {
+          "mean": 0.7777777777777778,
+          "ci_low": 0.5555555555555556,
+          "ci_high": 1.0,
+          "n": 2
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "mean": 0.9897085029880863,
+          "ci_low": 0.9897085029880863,
+          "ci_high": 0.9897085029880863,
+          "n": 1
+        },
+        "coverage_score": {
+          "mean": 0.7083333333333334,
+          "ci_low": 0.7083333333333334,
+          "ci_high": 0.7083333333333334,
+          "n": 1
+        },
+        "faithfulness": null,
+        "faithfulness_jsonfix": null
+      }
+    },
+    "gemini": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "mean": 0.5371165063764685,
+          "ci_low": 0.28328278650859295,
+          "ci_high": 0.8163187855787477,
+          "n": 5
+        },
+        "answer_correctness": {
+          "mean": 0.9115032816888867,
+          "ci_low": 0.8106617410600094,
+          "ci_high": 0.9928572234683536,
+          "n": 5
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "mean": 0.44761904761904764,
+          "ci_low": 0.22857142857142856,
+          "ci_high": 0.6666666666666667,
+          "n": 2
+        },
+        "answer_correctness": {
+          "mean": 0.822940467367182,
+          "ci_low": 0.7458024736107176,
+          "ci_high": 0.9000784611236463,
+          "n": 2
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "mean": 0.9621758217808247,
+          "ci_low": 0.9489144925287044,
+          "ci_high": 0.9754371510329449,
+          "n": 2
+        },
+        "coverage_score": {
+          "mean": 0.7666666666666666,
+          "ci_low": 0.7,
+          "ci_high": 0.8333333333333334,
+          "n": 2
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "mean": 0.8579594857856184,
+          "ci_low": 0.8579594857856184,
+          "ci_high": 0.8579594857856184,
+          "n": 1
+        },
+        "coverage_score": {
+          "mean": 0.6666666666666666,
+          "ci_low": 0.6666666666666666,
+          "ci_high": 0.6666666666666666,
+          "n": 1
+        },
+        "faithfulness": null,
+        "faithfulness_jsonfix": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 1
+        }
+      }
+    },
+    "rag_engine": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "mean": 0.5315583535532384,
+          "ci_low": 0.272166480862133,
+          "ci_high": 0.8255754475703325,
+          "n": 5
+        },
+        "answer_correctness": {
+          "mean": 0.8447924664356627,
+          "ci_low": 0.7052408456390206,
+          "ci_high": 0.9765804029283038,
+          "n": 5
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "mean": 0.4427292374189565,
+          "ci_low": 0.20253164556962025,
+          "ci_high": 0.6829268292682927,
+          "n": 2
+        },
+        "answer_correctness": {
+          "mean": 0.8423854072829147,
+          "ci_low": 0.7956620333154677,
+          "ci_high": 0.8891087812503615,
+          "n": 2
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "mean": 0.8609678035786037,
+          "ci_low": 0.7315263813184576,
+          "ci_high": 0.9904092258387497,
+          "n": 2
+        },
+        "coverage_score": {
+          "mean": 0.5833333333333333,
+          "ci_low": 0.5,
+          "ci_high": 0.6666666666666666,
+          "n": 2
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "mean": 0.7736942819370862,
+          "ci_low": 0.7736942819370862,
+          "ci_high": 0.7736942819370862,
+          "n": 1
+        },
+        "coverage_score": {
+          "mean": 0.5416666666666666,
+          "ci_low": 0.5416666666666666,
+          "ci_high": 0.5416666666666666,
+          "n": 1
+        },
+        "faithfulness": null,
+        "faithfulness_jsonfix": {
+          "mean": 0.5454545454545454,
+          "ci_low": 0.5454545454545454,
+          "ci_high": 0.5454545454545454,
+          "n": 1
+        }
+      }
+    },
+    "lightrag": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "mean": 0.4834846313107183,
+          "ci_low": 0.34792164357381744,
+          "ci_high": 0.7047619047619047,
+          "n": 5
+        },
+        "answer_correctness": {
+          "mean": 0.8553840010718694,
+          "ci_low": 0.704367211172919,
+          "ci_high": 0.9833782885928128,
+          "n": 5
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "mean": 0.5293427230046949,
+          "ci_low": 0.22535211267605632,
+          "ci_high": 0.8333333333333334,
+          "n": 2
+        },
+        "answer_correctness": {
+          "mean": 0.8747844906032342,
+          "ci_low": 0.849245214307913,
+          "ci_high": 0.9003237668985553,
+          "n": 2
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "mean": 0.8499987358015515,
+          "ci_low": 0.7223901851449327,
+          "ci_high": 0.9776072864581703,
+          "n": 2
+        },
+        "coverage_score": {
+          "mean": 0.6555555555555556,
+          "ci_low": 0.6111111111111112,
+          "ci_high": 0.7,
+          "n": 2
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "mean": 0.7610246923237718,
+          "ci_low": 0.7610246923237718,
+          "ci_high": 0.7610246923237718,
+          "n": 1
+        },
+        "coverage_score": {
+          "mean": 0.44,
+          "ci_low": 0.44,
+          "ci_high": 0.44,
+          "n": 1
+        },
+        "faithfulness": {
+          "mean": 0.6363636363636364,
+          "ci_low": 0.6363636363636364,
+          "ci_high": 0.6363636363636364,
+          "n": 1
+        },
+        "faithfulness_jsonfix": {
+          "mean": 0.6363636363636364,
+          "ci_low": 0.6363636363636364,
+          "ci_high": 0.6363636363636364,
+          "n": 1
+        }
+      }
+    }
+  },
+  "overall": {
+    "4minds_constellations": {
+      "answer_correctness": {
+        "mean": 0.7903566625382601,
+        "ci_low": 0.6653228706538958,
+        "ci_high": 0.904892975344984,
+        "n": 10
+      }
+    },
+    "4minds_symi": {
+      "answer_correctness": {
+        "mean": 0.7384638926025089,
+        "ci_low": 0.5671839697907185,
+        "ci_high": 0.8993412259953637,
+        "n": 10
+      }
+    },
+    "gemini": {
+      "answer_correctness": {
+        "mean": 0.8985708472526065,
+        "ci_low": 0.8382025586929398,
+        "ci_high": 0.9517702534343522,
+        "n": 10
+      }
+    },
+    "rag_engine": {
+      "answer_correctness": {
+        "mean": 0.8404363035838436,
+        "ci_low": 0.7576261716312117,
+        "ci_high": 0.9170600518522946,
+        "n": 10
+      }
+    },
+    "lightrag": {
+      "answer_correctness": {
+        "mean": 0.848751115049269,
+        "ci_low": 0.7632410421427154,
+        "ci_high": 0.9254039275898144,
+        "n": 10
+      }
+    }
+  },
+  "paired": {
+    "4minds_symi": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "ci_low": -0.10970903962414998,
+          "ci_high": 0.03644714482169269,
+          "n": 5,
+          "diff_mean": -0.03478936940293699
+        },
+        "answer_correctness": {
+          "ci_low": -0.142633564754908,
+          "ci_high": 0.3889848530792603,
+          "n": 5,
+          "diff_mean": 0.11571221979751083
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "ci_low": -0.006561006561006569,
+          "ci_high": 0.012403100775193798,
+          "n": 2,
+          "diff_mean": 0.0029210471070936148
+        },
+        "answer_correctness": {
+          "ci_low": 0.003461192710099481,
+          "ci_high": 0.10143347945226044,
+          "n": 2,
+          "diff_mean": 0.05244733608117996
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "ci_low": -0.16101115427010249,
+          "ci_high": -0.0018868851448173851,
+          "n": 2,
+          "diff_mean": -0.08144901970745994
+        },
+        "coverage_score": {
+          "ci_low": -0.125,
+          "ci_high": 0.16666666666666663,
+          "n": 2,
+          "diff_mean": 0.020833333333333315
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "ci_low": -0.0016300323774840475,
+          "ci_high": -0.0016300323774840475,
+          "n": 1,
+          "diff_mean": -0.0016300323774840475
+        },
+        "coverage_score": {
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 1,
+          "diff_mean": 0.0
+        }
+      },
+      "All questions": {
+        "answer_correctness": {
+          "ci_low": -0.08099842001542688,
+          "ci_high": 0.21133397917748473,
+          "n": 10,
+          "diff_mean": 0.05189276993575102
+        }
+      }
+    },
+    "gemini": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "ci_low": -0.5590189050530607,
+          "ci_high": -0.1212200407276808,
+          "n": 5,
+          "diff_mean": -0.33191685851128583
+        },
+        "answer_correctness": {
+          "ci_low": -0.4089198982540864,
+          "ci_high": -0.03641550151001878,
+          "n": 5,
+          "diff_mean": -0.2269726288988574
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "ci_low": -0.3875968992248063,
+          "ci_high": -0.16563436563436562,
+          "n": 2,
+          "diff_mean": -0.276615632429586
+        },
+        "answer_correctness": {
+          "ci_low": -0.07060845715465347,
+          "ci_high": 0.24496900659256104,
+          "n": 2,
+          "diff_mean": 0.08718027471895379
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "ci_low": -0.2679390129598004,
+          "ci_high": 0.016180776047730716,
+          "n": 2,
+          "diff_mean": -0.12587911845603483
+        },
+        "coverage_score": {
+          "ci_low": -0.11111111111111116,
+          "ci_high": 0.17500000000000004,
+          "n": 2,
+          "diff_mean": 0.03194444444444444
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "ci_low": 0.13011898482498385,
+          "ci_high": 0.13011898482498385,
+          "n": 1,
+          "diff_mean": 0.13011898482498385
+        },
+        "coverage_score": {
+          "ci_low": 0.04166666666666674,
+          "ci_high": 0.04166666666666674,
+          "n": 1,
+          "diff_mean": 0.04166666666666674
+        },
+        "faithfulness": null,
+        "faithfulness_jsonfix": {
+          "ci_low": -1.0,
+          "ci_high": -1.0,
+          "n": 1,
+          "diff_mean": -1.0
+        }
+      },
+      "All questions": {
+        "answer_correctness": {
+          "ci_low": -0.256283473321181,
+          "ci_high": 0.04298815724636355,
+          "n": 10,
+          "diff_mean": -0.10821418471434652
+        }
+      }
+    },
+    "rag_engine": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "ci_low": -0.5606292110111928,
+          "ci_high": -0.11727219386258288,
+          "n": 5,
+          "diff_mean": -0.3263587056880558
+        },
+        "answer_correctness": {
+          "ci_low": -0.37302629229791906,
+          "ci_high": 0.017799937255480347,
+          "n": 5,
+          "diff_mean": -0.16026181364563333
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "ci_low": -0.4038570618264323,
+          "ci_high": -0.1395945826325573,
+          "n": 2,
+          "diff_mean": -0.2717258222294948
+        },
+        "answer_correctness": {
+          "ci_low": 0.03380797065352514,
+          "ci_high": 0.10166269895291713,
+          "n": 2,
+          "diff_mean": 0.06773533480322114
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "ci_low": -0.05055090174955357,
+          "ci_high": 0.001208701241925958,
+          "n": 2,
+          "diff_mean": -0.024671100253813805
+        },
+        "coverage_score": {
+          "ci_low": 0.05555555555555558,
+          "ci_high": 0.375,
+          "n": 2,
+          "diff_mean": 0.2152777777777778
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "ci_low": 0.21438418867351605,
+          "ci_high": 0.21438418867351605,
+          "n": 1,
+          "diff_mean": 0.21438418867351605
+        },
+        "coverage_score": {
+          "ci_low": 0.16666666666666674,
+          "ci_high": 0.16666666666666674,
+          "n": 1,
+          "diff_mean": 0.16666666666666674
+        },
+        "faithfulness": null,
+        "faithfulness_jsonfix": {
+          "ci_low": -0.5454545454545454,
+          "ci_high": -0.5454545454545454,
+          "n": 1,
+          "diff_mean": -0.5454545454545454
+        }
+      },
+      "All questions": {
+        "answer_correctness": {
+          "ci_low": -0.18207694929245571,
+          "ci_high": 0.06022357017907879,
+          "n": 10,
+          "diff_mean": -0.05007964104558359
+        }
+      }
+    },
+    "lightrag": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "ci_low": -0.4508263727611185,
+          "ci_high": -0.13808795493006015,
+          "n": 5,
+          "diff_mean": -0.2782849834455356
+        },
+        "answer_correctness": {
+          "ci_low": -0.4204774578708994,
+          "ci_high": 0.02734156532536729,
+          "n": 5,
+          "diff_mean": -0.17085334828184012
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "ci_low": -0.554263565891473,
+          "ci_high": -0.1624150497389934,
+          "n": 2,
+          "diff_mean": -0.35833930781523315
+        },
+        "answer_correctness": {
+          "ci_low": -0.07085376292956247,
+          "ci_high": 0.14152626589536565,
+          "n": 2,
+          "diff_mean": 0.03533625148290159
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "ci_low": -0.041414705576028665,
+          "ci_high": 0.014010640622505344,
+          "n": 2,
+          "diff_mean": -0.01370203247676166
+        },
+        "coverage_score": {
+          "ci_low": 0.11111111111111105,
+          "ci_high": 0.17500000000000004,
+          "n": 2,
+          "diff_mean": 0.14305555555555555
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "ci_low": 0.2270537782868305,
+          "ci_high": 0.2270537782868305,
+          "n": 1,
+          "diff_mean": 0.2270537782868305
+        },
+        "coverage_score": {
+          "ci_low": 0.26833333333333337,
+          "ci_high": 0.26833333333333337,
+          "n": 1,
+          "diff_mean": 0.26833333333333337
+        },
+        "faithfulness": null,
+        "faithfulness_jsonfix": {
+          "ci_low": -0.6363636363636364,
+          "ci_high": -0.6363636363636364,
+          "n": 1,
+          "diff_mean": -0.6363636363636364
+        }
+      },
+      "All questions": {
+        "answer_correctness": {
+          "ci_low": -0.20504367768273113,
+          "ci_high": 0.06350305749785931,
+          "n": 10,
+          "diff_mean": -0.05839445251100902
+        }
+      }
+    }
+  },
+  "caveats": [
+    "Generation scoring only (generation_eval.py). Retrieval and graph metrics are not part of this comparison.",
+    "Medical subset only (one corpus, Medical.txt). The Novel subset was not run.",
+    "Gold answers come from the official repo at commit fdbab59. The local Questions/ copy (another dataset release) has 251 different Contextual Summarize and Creative Generation answers.",
+    "4Minds has no per-request system prompt. The official prompt is in the model persona (behavioralGuidelines). The other systems get it as the system instruction of each request.",
+    "4Minds answers with GPT-OSS-120B (standard weights, no Ghost Weights fine-tuning). The judge, gpt-4o-mini, is also an OpenAI model, so a same-family preference by the judge is possible.",
+    "Gemini + File Search: `context` holds only the chunks that the answer cites. The other systems store all retrieved chunks. Only faithfulness reads `context`, and the judge reads the first 10,000 characters.",
+    "LightRAG: the embedding model is BAAI/bge-large-en-v1.5 (the official code sets embedding_dim 1024), and context is stored as a one-item list. Its official string form would be split into characters by the scorer.",
+    "LightRAG: API mode of the official Examples/run_lightrag.py does not run at commit fdbab59 (an UnboundLocalError and a duplicate keyword argument). Both are fixed in memory with a 4-line change; the query settings are unchanged. LightRAG 1.2.5 also needs the README context-return change. Both diffs are in audit/patches/.",
+    "Each system uses its own default retrieval and chunking settings. top_k is 5 where the system exposes it.",
+    "4Minds: the inference WebSocket has no temperature or max-token settings, so the server defaults apply (temperature 0.3, 4,096 max tokens). The 4Minds dataset also holds the platform's dataset manifest as one extra graph node (204 nodes: 203 Medical.txt chunks + manifest).",
+    "4Minds (SYMI) runs through POST /api/v1/user/inference (inference_engine symi): the SYMI WebSocket path rejects API keys. For API keys this endpoint returns chunk references (all from Medical.txt) but not chunk text, so SYMI has no faithfulness score. SYMI is an agent with its own instructions; the persona prompt may not apply to it in the same way as on Constellations.",
+    "Gemini + RAG Engine: the corpus is in europe-west4 (RAG Engine defaults: Spanner mode, RagManagedDb, Basic tier, default chunking and embeddings). us-central1 is allowlist-only for new projects, and its Serverless mode failed with a Google capacity error. The model is served from the global endpoint.",
+    "Faithfulness (official) is NaN for most answers: at commit fdbab59 the verdict prompt does not ask for JSON, gpt-4o-mini answers in Markdown prose and the parser finds no verdicts (audit/diagnostics/faithfulness_nan.json). 'Faithfulness (JSON-format fix)' runs the official code and judge settings again with one added sentence that asks for the format of the prompt's own examples (audit/patches/faithfulness-fdbab59-json-format.diff). It is not part of the official protocol.",
+    "Faithfulness reads only the first 10,000 characters of `context`. Systems that return more context (4Minds multi-step retrieval: up to 50 chunks; RAG Engine: about 20,000 characters) are judged on part of it. 4Minds chunks are stored in 4Minds' own score order (highest first) so that the judge sees the strongest chunks; RAG Engine returns its chunks in relevance order.",
+    "The medical source text can be in the training data of the models.",
+    "Each system ran one time. LLM answers and LLM-judge scores vary between runs; use the confidence intervals.",
+    "The judge is not fully repeatable at temperature 0 with a fixed seed: scoring the same 10 pilot answers again changed answer correctness for 4 of 10 answers (the largest change was 0.60 to 0.97; ROUGE-L did not change). Single-question scores are not reliable; the averages over many questions are (runs/2026-10-09_gemini-pilot/tests/judge-repeat).",
+    "Prod systems (4Minds, Gemini, Vertex AI) can change over time. The dates are in the run manifests."
+  ]
+}

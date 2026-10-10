@@ -1,0 +1,27 @@
+# step: preflight_llm_gemini
+# start: 2026-10-09T23:04:41Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/preflight.py llm --llm gemini-3.8-flash
+
+{
+  "backend": "gemini-3.8-flash",
+  "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+  "model": "gemini-3.8-flash",
+  "params": {},
+  "latency_s": 5.88,
+  "answer": "I don't know",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 5,
+    "prompt_tokens": 80,
+    "total_tokens": 755
+  },
+  "served_model": "gemini-3.8-flash",
+  "message_keys": [
+    "content",
+    "extra_content",
+    "role"
+  ],
+  "content_has_reasoning_tags": false
+}
+
+# end: 2026-10-09T23:04:47Z  exit: 0  duration_s: 6

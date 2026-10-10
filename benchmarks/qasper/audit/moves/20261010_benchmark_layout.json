@@ -1,0 +1,26 @@
+{
+  "time": "2026-10-10T17:17:20+00:00",
+  "reason": "benchmark layout: scripts/, configs/, shared/, runs/ (one folder per run with its tests/ and extra/), archive/, audit/; no results/ level",
+  "root": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper",
+  "moves": {
+    "results/audit": "audit",
+    "aggregate.py": "scripts/aggregate.py",
+    "make_pilot.py": "scripts/make_pilot.py",
+    "make_report.py": "scripts/make_report.py",
+    "score.py": "scripts/score.py",
+    "results/runs/2026-10-09_pilot": "runs/2026-10-09_pilot",
+    "results/setup/4minds": "shared/4minds",
+    "results/setup/gemini": "shared/gemini",
+    "results/setup/lightrag": "shared/lightrag",
+    "results/setup/rag_engine": "shared/rag_engine"
+  },
+  "removed": [
+    "results/README.md",
+    "results/.DS_Store",
+    "results/runs/",
+    "results/setup/",
+    "results/",
+    "__pycache__/"
+  ],
+  "removed_note": "results/README.md is replaced by the generated runs/README.md; the other entries were empty folders, .DS_Store and __pycache__"
+}

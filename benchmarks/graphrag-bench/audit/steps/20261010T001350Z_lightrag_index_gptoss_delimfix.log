@@ -1,0 +1,287 @@
+# step: lightrag_index_gptoss_delimfix
+# start: 2026-10-10T00:13:50Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-lightrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/run_lightrag_bench.py --subset medical --llm bedrock-gpt-oss-120b --index-only --repair-delimiters --reuse-llm-cache-from results/lightrag/workspace_bedrock-gpt-oss-120b
+
+INFO:Found credentials in shared credentials file: ~/.aws/credentials
+INFO: Process 61249 Shared-Data created for Single Process
+INFO: Created new empty graph
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_entities.json'} 0 data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_relationships.json'} 0 data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_chunks.json'} 0 data
+INFO: Process 61249 initialized updated flags for namespace: [full_docs]
+INFO: Process 61249 ready to initialize storage namespace: [full_docs]
+INFO: Process 61249 KV load full_docs with 0 records
+INFO: Process 61249 initialized updated flags for namespace: [text_chunks]
+INFO: Process 61249 ready to initialize storage namespace: [text_chunks]
+INFO: Process 61249 KV load text_chunks with 0 records
+INFO: Process 61249 initialized updated flags for namespace: [entities]
+INFO: Process 61249 initialized updated flags for namespace: [relationships]
+INFO: Process 61249 initialized updated flags for namespace: [chunks]
+INFO: Process 61249 initialized updated flags for namespace: [chunk_entity_relation]
+INFO: Process 61249 initialized updated flags for namespace: [llm_response_cache]
+INFO: Process 61249 ready to initialize storage namespace: [llm_response_cache]
+INFO: Process 61249 KV load llm_response_cache with 398 records
+INFO: Process 61249 initialized updated flags for namespace: [doc_status]
+INFO: Process 61249 ready to initialize storage namespace: [doc_status]
+INFO: Process 61249 doc status load doc_status with 0 records
+INFO: Process 61249 storage namespace already initialized: [full_docs]
+INFO: Process 61249 storage namespace already initialized: [text_chunks]
+INFO: Process 61249 storage namespace already initialized: [llm_response_cache]
+INFO: Process 61249 storage namespace already initialized: [doc_status]
+INFO: Process 61249 Pipeline namespace initialized
+INFO: Storage Initialization completed!
+INFO: Inserting 1 records to doc_status
+INFO: Process 61249 doc status writting 1 records to doc_status
+INFO: Stored 1 new unique documents
+INFO: Number of batches to process: 1.
+INFO: Start processing batch 1 of 1.
+INFO: Inserting 1 records to doc_status
+INFO: Process 61249 doc status writting 1 records to doc_status
+INFO: Inserting 199 to chunks
+INFO: Inserting 1 records to full_docs
+INFO: Inserting 199 records to text_chunks
+INFO:   Chunk 1/199: extracted 38 entities and 33 relationships (deduplicated)
+INFO:   Chunk 2/199: extracted 30 entities and 42 relationships (deduplicated)
+INFO:   Chunk 3/199: extracted 52 entities and 48 relationships (deduplicated)
+INFO:   Chunk 4/199: extracted 58 entities and 51 relationships (deduplicated)
+INFO:   Chunk 5/199: extracted 27 entities and 28 relationships (deduplicated)
+INFO:   Chunk 6/199: extracted 43 entities and 43 relationships (deduplicated)
+INFO:   Chunk 7/199: extracted 50 entities and 0 relationships (deduplicated)
+INFO:   Chunk 8/199: extracted 34 entities and 57 relationships (deduplicated)
+INFO:   Chunk 9/199: extracted 51 entities and 55 relationships (deduplicated)
+INFO:   Chunk 10/199: extracted 47 entities and 0 relationships (deduplicated)
+INFO:   Chunk 11/199: extracted 34 entities and 43 relationships (deduplicated)
+INFO:   Chunk 12/199: extracted 38 entities and 36 relationships (deduplicated)
+INFO:   Chunk 13/199: extracted 45 entities and 49 relationships (deduplicated)
+INFO:   Chunk 14/199: extracted 35 entities and 33 relationships (deduplicated)
+INFO:   Chunk 15/199: extracted 24 entities and 27 relationships (deduplicated)
+INFO:   Chunk 16/199: extracted 31 entities and 39 relationships (deduplicated)
+INFO:   Chunk 17/199: extracted 45 entities and 57 relationships (deduplicated)
+INFO:   Chunk 18/199: extracted 32 entities and 0 relationships (deduplicated)
+INFO:   Chunk 19/199: extracted 45 entities and 45 relationships (deduplicated)
+INFO:   Chunk 20/199: extracted 31 entities and 36 relationships (deduplicated)
+INFO:   Chunk 21/199: extracted 44 entities and 45 relationships (deduplicated)
+INFO:   Chunk 22/199: extracted 56 entities and 60 relationships (deduplicated)
+INFO:   Chunk 23/199: extracted 33 entities and 32 relationships (deduplicated)
+INFO:   Chunk 24/199: extracted 46 entities and 46 relationships (deduplicated)
+INFO:   Chunk 25/199: extracted 63 entities and 66 relationships (deduplicated)
+INFO:   Chunk 26/199: extracted 59 entities and 55 relationships (deduplicated)
+INFO:   Chunk 27/199: extracted 29 entities and 35 relationships (deduplicated)
+INFO:   Chunk 28/199: extracted 58 entities and 52 relationships (deduplicated)
+INFO:   Chunk 29/199: extracted 33 entities and 38 relationships (deduplicated)
+INFO:   Chunk 30/199: extracted 56 entities and 47 relationships (deduplicated)
+INFO:   Chunk 31/199: extracted 66 entities and 56 relationships (deduplicated)
+INFO:   Chunk 32/199: extracted 45 entities and 41 relationships (deduplicated)
+INFO:   Chunk 33/199: extracted 50 entities and 50 relationships (deduplicated)
+INFO:   Chunk 34/199: extracted 44 entities and 0 relationships (deduplicated)
+INFO:   Chunk 35/199: extracted 37 entities and 35 relationships (deduplicated)
+INFO:   Chunk 36/199: extracted 5 entities and 59 relationships (deduplicated)
+INFO:   Chunk 37/199: extracted 49 entities and 41 relationships (deduplicated)
+INFO:   Chunk 38/199: extracted 44 entities and 43 relationships (deduplicated)
+INFO:   Chunk 39/199: extracted 39 entities and 42 relationships (deduplicated)
+INFO:   Chunk 40/199: extracted 49 entities and 44 relationships (deduplicated)
+INFO:   Chunk 41/199: extracted 44 entities and 41 relationships (deduplicated)
+INFO:   Chunk 42/199: extracted 49 entities and 65 relationships (deduplicated)
+INFO:   Chunk 43/199: extracted 49 entities and 50 relationships (deduplicated)
+INFO:   Chunk 44/199: extracted 57 entities and 65 relationships (deduplicated)
+INFO:   Chunk 45/199: extracted 38 entities and 39 relationships (deduplicated)
+INFO:   Chunk 46/199: extracted 42 entities and 35 relationships (deduplicated)
+INFO:   Chunk 47/199: extracted 54 entities and 74 relationships (deduplicated)
+INFO:   Chunk 48/199: extracted 45 entities and 40 relationships (deduplicated)
+INFO:   Chunk 49/199: extracted 48 entities and 41 relationships (deduplicated)
+INFO:   Chunk 50/199: extracted 33 entities and 0 relationships (deduplicated)
+INFO:   Chunk 51/199: extracted 47 entities and 44 relationships (deduplicated)
+INFO:   Chunk 52/199: extracted 40 entities and 39 relationships (deduplicated)
+INFO:   Chunk 53/199: extracted 42 entities and 47 relationships (deduplicated)
+INFO:   Chunk 54/199: extracted 58 entities and 55 relationships (deduplicated)
+INFO:   Chunk 55/199: extracted 46 entities and 40 relationships (deduplicated)
+INFO:   Chunk 56/199: extracted 29 entities and 29 relationships (deduplicated)
+INFO:   Chunk 57/199: extracted 62 entities and 57 relationships (deduplicated)
+INFO:   Chunk 58/199: extracted 36 entities and 49 relationships (deduplicated)
+INFO:   Chunk 59/199: extracted 73 entities and 69 relationships (deduplicated)
+INFO:   Chunk 60/199: extracted 39 entities and 35 relationships (deduplicated)
+INFO:   Chunk 61/199: extracted 51 entities and 55 relationships (deduplicated)
+INFO:   Chunk 62/199: extracted 40 entities and 41 relationships (deduplicated)
+INFO:   Chunk 63/199: extracted 35 entities and 33 relationships (deduplicated)
+INFO:   Chunk 64/199: extracted 30 entities and 30 relationships (deduplicated)
+INFO:   Chunk 65/199: extracted 62 entities and 70 relationships (deduplicated)
+INFO:   Chunk 66/199: extracted 40 entities and 48 relationships (deduplicated)
+INFO:   Chunk 67/199: extracted 34 entities and 38 relationships (deduplicated)
+INFO:   Chunk 68/199: extracted 31 entities and 37 relationships (deduplicated)
+INFO:   Chunk 69/199: extracted 37 entities and 50 relationships (deduplicated)
+INFO:   Chunk 70/199: extracted 43 entities and 42 relationships (deduplicated)
+INFO:   Chunk 71/199: extracted 54 entities and 46 relationships (deduplicated)
+INFO:   Chunk 72/199: extracted 37 entities and 36 relationships (deduplicated)
+INFO:   Chunk 73/199: extracted 47 entities and 57 relationships (deduplicated)
+INFO:   Chunk 74/199: extracted 49 entities and 48 relationships (deduplicated)
+INFO:   Chunk 75/199: extracted 50 entities and 50 relationships (deduplicated)
+INFO:   Chunk 76/199: extracted 32 entities and 30 relationships (deduplicated)
+INFO:   Chunk 77/199: extracted 44 entities and 43 relationships (deduplicated)
+INFO:   Chunk 78/199: extracted 50 entities and 43 relationships (deduplicated)
+INFO:   Chunk 79/199: extracted 47 entities and 51 relationships (deduplicated)
+INFO:   Chunk 80/199: extracted 58 entities and 0 relationships (deduplicated)
+INFO:   Chunk 81/199: extracted 49 entities and 50 relationships (deduplicated)
+INFO:   Chunk 82/199: extracted 29 entities and 36 relationships (deduplicated)
+INFO:   Chunk 83/199: extracted 27 entities and 35 relationships (deduplicated)
+INFO:   Chunk 84/199: extracted 32 entities and 39 relationships (deduplicated)
+INFO:   Chunk 85/199: extracted 62 entities and 34 relationships (deduplicated)
+INFO:   Chunk 86/199: extracted 34 entities and 63 relationships (deduplicated)
+INFO:   Chunk 87/199: extracted 31 entities and 37 relationships (deduplicated)
+INFO:   Chunk 88/199: extracted 25 entities and 28 relationships (deduplicated)
+INFO:   Chunk 89/199: extracted 52 entities and 54 relationships (deduplicated)
+INFO:   Chunk 90/199: extracted 32 entities and 30 relationships (deduplicated)
+INFO:   Chunk 91/199: extracted 44 entities and 58 relationships (deduplicated)
+INFO:   Chunk 92/199: extracted 39 entities and 36 relationships (deduplicated)
+INFO:   Chunk 93/199: extracted 64 entities and 77 relationships (deduplicated)
+INFO:   Chunk 94/199: extracted 56 entities and 53 relationships (deduplicated)
+INFO:   Chunk 95/199: extracted 48 entities and 52 relationships (deduplicated)
+INFO:   Chunk 96/199: extracted 43 entities and 55 relationships (deduplicated)
+INFO:   Chunk 97/199: extracted 45 entities and 27 relationships (deduplicated)
+INFO:   Chunk 98/199: extracted 41 entities and 41 relationships (deduplicated)
+INFO:   Chunk 99/199: extracted 43 entities and 51 relationships (deduplicated)
+INFO:   Chunk 100/199: extracted 38 entities and 51 relationships (deduplicated)
+INFO:   Chunk 101/199: extracted 58 entities and 50 relationships (deduplicated)
+INFO:   Chunk 102/199: extracted 40 entities and 43 relationships (deduplicated)
+INFO:   Chunk 103/199: extracted 34 entities and 46 relationships (deduplicated)
+INFO:   Chunk 104/199: extracted 62 entities and 64 relationships (deduplicated)
+INFO:   Chunk 105/199: extracted 55 entities and 53 relationships (deduplicated)
+INFO:   Chunk 106/199: extracted 40 entities and 23 relationships (deduplicated)
+INFO:   Chunk 107/199: extracted 41 entities and 48 relationships (deduplicated)
+INFO:   Chunk 108/199: extracted 48 entities and 55 relationships (deduplicated)
+INFO:   Chunk 109/199: extracted 72 entities and 36 relationships (deduplicated)
+INFO:   Chunk 110/199: extracted 73 entities and 80 relationships (deduplicated)
+INFO:   Chunk 111/199: extracted 71 entities and 73 relationships (deduplicated)
+INFO:   Chunk 112/199: extracted 57 entities and 53 relationships (deduplicated)
+INFO:   Chunk 113/199: extracted 47 entities and 52 relationships (deduplicated)
+INFO:   Chunk 114/199: extracted 51 entities and 56 relationships (deduplicated)
+INFO:   Chunk 115/199: extracted 37 entities and 46 relationships (deduplicated)
+INFO:   Chunk 116/199: extracted 32 entities and 30 relationships (deduplicated)
+INFO:   Chunk 117/199: extracted 40 entities and 22 relationships (deduplicated)
+INFO:   Chunk 118/199: extracted 28 entities and 34 relationships (deduplicated)
+INFO:   Chunk 119/199: extracted 34 entities and 31 relationships (deduplicated)
+INFO:   Chunk 120/199: extracted 50 entities and 43 relationships (deduplicated)
+INFO:   Chunk 121/199: extracted 44 entities and 34 relationships (deduplicated)
+INFO:   Chunk 122/199: extracted 47 entities and 49 relationships (deduplicated)
+INFO:   Chunk 123/199: extracted 52 entities and 50 relationships (deduplicated)
+INFO:   Chunk 124/199: extracted 44 entities and 47 relationships (deduplicated)
+INFO:   Chunk 125/199: extracted 41 entities and 51 relationships (deduplicated)
+INFO:   Chunk 126/199: extracted 52 entities and 56 relationships (deduplicated)
+INFO:   Chunk 127/199: extracted 30 entities and 34 relationships (deduplicated)
+INFO:   Chunk 128/199: extracted 37 entities and 37 relationships (deduplicated)
+INFO:   Chunk 129/199: extracted 61 entities and 52 relationships (deduplicated)
+INFO:   Chunk 130/199: extracted 52 entities and 61 relationships (deduplicated)
+INFO:   Chunk 131/199: extracted 52 entities and 38 relationships (deduplicated)
+INFO:   Chunk 132/199: extracted 48 entities and 54 relationships (deduplicated)
+INFO:   Chunk 133/199: extracted 40 entities and 45 relationships (deduplicated)
+INFO:   Chunk 134/199: extracted 47 entities and 52 relationships (deduplicated)
+INFO:   Chunk 135/199: extracted 39 entities and 44 relationships (deduplicated)
+INFO:   Chunk 136/199: extracted 36 entities and 43 relationships (deduplicated)
+INFO:   Chunk 137/199: extracted 48 entities and 55 relationships (deduplicated)
+INFO:   Chunk 138/199: extracted 48 entities and 57 relationships (deduplicated)
+INFO:   Chunk 139/199: extracted 50 entities and 57 relationships (deduplicated)
+INFO:   Chunk 140/199: extracted 48 entities and 59 relationships (deduplicated)
+INFO:   Chunk 141/199: extracted 53 entities and 55 relationships (deduplicated)
+INFO:   Chunk 142/199: extracted 33 entities and 32 relationships (deduplicated)
+INFO:   Chunk 143/199: extracted 45 entities and 47 relationships (deduplicated)
+INFO:   Chunk 144/199: extracted 62 entities and 60 relationships (deduplicated)
+INFO:   Chunk 145/199: extracted 48 entities and 48 relationships (deduplicated)
+INFO:   Chunk 146/199: extracted 44 entities and 49 relationships (deduplicated)
+INFO:   Chunk 147/199: extracted 51 entities and 50 relationships (deduplicated)
+INFO:   Chunk 148/199: extracted 47 entities and 51 relationships (deduplicated)
+INFO:   Chunk 149/199: extracted 49 entities and 59 relationships (deduplicated)
+INFO:   Chunk 150/199: extracted 49 entities and 58 relationships (deduplicated)
+INFO:   Chunk 151/199: extracted 52 entities and 56 relationships (deduplicated)
+INFO:   Chunk 152/199: extracted 42 entities and 53 relationships (deduplicated)
+INFO:   Chunk 153/199: extracted 53 entities and 70 relationships (deduplicated)
+INFO:   Chunk 154/199: extracted 43 entities and 43 relationships (deduplicated)
+INFO:   Chunk 155/199: extracted 36 entities and 37 relationships (deduplicated)
+INFO:   Chunk 156/199: extracted 33 entities and 70 relationships (deduplicated)
+INFO:   Chunk 157/199: extracted 61 entities and 47 relationships (deduplicated)
+INFO:   Chunk 158/199: extracted 46 entities and 26 relationships (deduplicated)
+INFO:   Chunk 159/199: extracted 56 entities and 56 relationships (deduplicated)
+INFO:   Chunk 160/199: extracted 46 entities and 43 relationships (deduplicated)
+INFO:   Chunk 161/199: extracted 36 entities and 56 relationships (deduplicated)
+INFO:   Chunk 162/199: extracted 50 entities and 54 relationships (deduplicated)
+INFO:   Chunk 163/199: extracted 56 entities and 40 relationships (deduplicated)
+INFO:   Chunk 164/199: extracted 56 entities and 62 relationships (deduplicated)
+INFO:   Chunk 165/199: extracted 40 entities and 53 relationships (deduplicated)
+INFO:   Chunk 166/199: extracted 34 entities and 33 relationships (deduplicated)
+INFO:   Chunk 167/199: extracted 47 entities and 61 relationships (deduplicated)
+INFO:   Chunk 168/199: extracted 42 entities and 57 relationships (deduplicated)
+INFO:   Chunk 169/199: extracted 41 entities and 40 relationships (deduplicated)
+INFO:   Chunk 170/199: extracted 50 entities and 10 relationships (deduplicated)
+INFO:   Chunk 171/199: extracted 66 entities and 53 relationships (deduplicated)
+INFO:   Chunk 172/199: extracted 62 entities and 49 relationships (deduplicated)
+INFO:   Chunk 173/199: extracted 45 entities and 48 relationships (deduplicated)
+INFO:   Chunk 174/199: extracted 69 entities and 64 relationships (deduplicated)
+INFO:   Chunk 175/199: extracted 55 entities and 0 relationships (deduplicated)
+INFO:   Chunk 176/199: extracted 31 entities and 46 relationships (deduplicated)
+INFO:   Chunk 177/199: extracted 51 entities and 0 relationships (deduplicated)
+INFO:   Chunk 178/199: extracted 43 entities and 39 relationships (deduplicated)
+INFO:   Chunk 179/199: extracted 40 entities and 49 relationships (deduplicated)
+INFO:   Chunk 180/199: extracted 48 entities and 51 relationships (deduplicated)
+INFO:   Chunk 181/199: extracted 44 entities and 58 relationships (deduplicated)
+INFO:   Chunk 182/199: extracted 41 entities and 42 relationships (deduplicated)
+INFO:   Chunk 183/199: extracted 43 entities and 52 relationships (deduplicated)
+INFO:   Chunk 184/199: extracted 41 entities and 51 relationships (deduplicated)
+INFO:   Chunk 185/199: extracted 35 entities and 39 relationships (deduplicated)
+INFO:   Chunk 186/199: extracted 44 entities and 48 relationships (deduplicated)
+INFO:   Chunk 187/199: extracted 51 entities and 51 relationships (deduplicated)
+INFO:   Chunk 188/199: extracted 49 entities and 50 relationships (deduplicated)
+INFO:   Chunk 189/199: extracted 40 entities and 39 relationships (deduplicated)
+INFO:   Chunk 190/199: extracted 56 entities and 58 relationships (deduplicated)
+INFO:   Chunk 191/199: extracted 43 entities and 32 relationships (deduplicated)
+INFO:   Chunk 192/199: extracted 43 entities and 42 relationships (deduplicated)
+INFO:   Chunk 193/199: extracted 47 entities and 54 relationships (deduplicated)
+INFO:   Chunk 194/199: extracted 46 entities and 53 relationships (deduplicated)
+INFO:   Chunk 195/199: extracted 48 entities and 48 relationships (deduplicated)
+INFO:   Chunk 196/199: extracted 25 entities and 27 relationships (deduplicated)
+INFO:   Chunk 197/199: extracted 50 entities and 62 relationships (deduplicated)
+INFO:   Chunk 198/199: extracted 92 entities and 52 relationships (deduplicated)
+INFO:   Chunk 199/199: extracted 36 entities and 42 relationships (deduplicated)
+INFO: Process 61249 reloading chunks due to update by another process
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_chunks.json'} 0 data
+INFO: Process 61249 reloading graph chunk_entity_relation due to update by another process
+INFO: Extracted 4697 entities and 7710 relationships (deduplicated)
+INFO: Inserting 4697 to entities
+INFO: Process 61249 reloading entities due to update by another process
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_entities.json'} 0 data
+INFO: Inserting 7710 to relationships
+INFO: Process 61249 reloading relationships due to update by another process
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_relationships.json'} 0 data
+INFO: Inserting 1 records to doc_status
+INFO: Process 61249 doc status writting 1 records to doc_status
+INFO: Completed batch 1 of 1.
+INFO: Process 61249 KV writting 1 records to full_docs
+INFO: Process 61249 KV writting 199 records to text_chunks
+INFO: Writing graph with 5072 nodes, 7710 edges
+INFO: All Insert done
+INFO: Document processing pipeline completed
+{
+  "finished": "2026-10-10T00:27:30+00:00",
+  "index_wall_clock_s": 809.2,
+  "doc_status": {
+    "doc-3d7a4f05339f0e3f3870b407d21d9c8a": "processed"
+  },
+  "usage": {
+    "calls": 56,
+    "prompt_tokens": 64008,
+    "completion_tokens": 26989,
+    "reasoning_tokens": 0
+  },
+  "estimated_cost_usd": 0.0258,
+  "model": "openai.gpt-oss-120b-1:0",
+  "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+  "llm_backend": "bedrock-gpt-oss-120b",
+  "repair_delimiters": true,
+  "repair_patch": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/audit/patches/lightrag-1.2.5-gptoss-delimiter-repair.py",
+  "reused_llm_cache": {
+    "from": "results/lightrag/workspace_bedrock-gpt-oss-120b/Medical/kv_store_llm_response_cache.json",
+    "sha256": "12bd8180ecd95f28fdb7cd734226624ff7adfb9e54e1dec8e0bd89bbade34e13"
+  },
+  "embed_model": "BAAI/bge-large-en-v1.5",
+  "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/upstream/Datasets/Corpus/medical.parquet",
+  "corpus_sha256": "e8e8a71eca466aecdc3d1705c4351027f2f260bc9ec2d59d736d8b69a88a6d7f"
+}
+
+# end: 2026-10-10T00:27:30Z  exit: 0  duration_s: 820

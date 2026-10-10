@@ -8,12 +8,12 @@ conversation (no history).
   --engine symi: POST /api/v1/user/inference with inference_engine "symi" (SSE). The SYMI
       WebSocket path rejects API keys; this one gives chunk references but no chunk text.
 
-Output: results/4minds_<engine>/<subset>/predictions.json, in the format of the profile's
+Output: runs/<run>/4minds_<engine>/<subset>/predictions.json, in the format of the profile's
 prediction().
 
     ./bench graphrag-bench pilot_4minds_constellations eval systems/run_4minds.py --engine constellations \\
         --subset medical --questions-file data/Questions/pilot_questions.json \\
-        --out-dir results/pilot/4minds_constellations --workers 4
+        --out-dir runs/<YYYY-MM-DD>_<name>/4minds_constellations --workers 4
 """
 import json
 import sys
@@ -217,8 +217,8 @@ def main():
     parser = bc.parser(__doc__, "4minds", workers=4)
     parser.add_argument("--engine", required=True, choices=sorted(PREFIX))
     args = parser.parse_args()
-    if args.out_dir == str(bc.RESULTS / "4minds"):
-        args.out_dir = str(bc.RESULTS / f"4minds_{args.engine}")
+    if args.out_dir == str(bc.RUNS / "4minds"):
+        args.out_dir = str(bc.RUNS / f"4minds_{args.engine}")
     if not setup.SETUP_FILE.exists():
         sys.exit(f"Run setup_4minds.py first ({setup.SETUP_FILE} is missing).")
     ids = json.loads(setup.SETUP_FILE.read_text())

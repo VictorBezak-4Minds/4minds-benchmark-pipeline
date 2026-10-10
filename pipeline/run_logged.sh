@@ -1,12 +1,12 @@
 #!/bin/zsh
-# Run one benchmark step and record it in <benchmark>/results/audit/audit.log.
+# Run one benchmark step and record it in <benchmark>/audit/audit.log.
 # ./bench calls this script; it sets BENCH_DIR.
 #   run_logged.sh <step-name> <command> [args...]
-# The full output of the step goes to results/audit/steps/<timestamp>_<step-name>.log
+# The full output of the step goes to audit/steps/<timestamp>_<step-name>.log
 # and also to the terminal. The exit code of the command is kept.
 set -u
 : "${BENCH_DIR:?BENCH_DIR is not set. Use ./bench <benchmark> <step> <env> <script> [args].}"
-AUDIT="$BENCH_DIR/results/audit"
+AUDIT="$BENCH_DIR/audit"
 mkdir -p "$AUDIT/steps"
 
 STEP="$1"; shift

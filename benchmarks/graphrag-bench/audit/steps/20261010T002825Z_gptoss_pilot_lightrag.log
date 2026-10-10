@@ -1,0 +1,44 @@
+# step: gptoss_pilot_lightrag
+# start: 2026-10-10T00:28:25Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-lightrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/run_lightrag_bench.py --subset medical --questions-file data/Questions/pilot_questions.json --llm bedrock-gpt-oss-120b --repair-delimiters --out-dir results/gptoss_pilot/gptoss_lightrag --workers 4 --timeout 300
+
+INFO:Found credentials in shared credentials file: ~/.aws/credentials
+INFO: Process 71330 Shared-Data created for Single Process
+INFO:Load (4697, 1024) data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_entities.json'} 4697 data
+INFO:Load (7710, 1024) data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_relationships.json'} 7710 data
+INFO:Load (199, 1024) data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_chunks.json'} 199 data
+INFO: Process 71330 initialized updated flags for namespace: [full_docs]
+INFO: Process 71330 ready to initialize storage namespace: [full_docs]
+INFO: Process 71330 initialized updated flags for namespace: [text_chunks]
+INFO: Process 71330 ready to initialize storage namespace: [text_chunks]
+INFO: Process 71330 initialized updated flags for namespace: [entities]
+INFO: Process 71330 initialized updated flags for namespace: [relationships]
+INFO: Process 71330 initialized updated flags for namespace: [chunks]
+INFO: Process 71330 initialized updated flags for namespace: [chunk_entity_relation]
+INFO: Process 71330 initialized updated flags for namespace: [llm_response_cache]
+INFO: Process 71330 ready to initialize storage namespace: [llm_response_cache]
+INFO: Process 71330 initialized updated flags for namespace: [doc_status]
+INFO: Process 71330 ready to initialize storage namespace: [doc_status]
+INFO: Process 71330 storage namespace already initialized: [full_docs]
+INFO: Process 71330 storage namespace already initialized: [text_chunks]
+INFO: Process 71330 storage namespace already initialized: [llm_response_cache]
+INFO: Process 71330 storage namespace already initialized: [doc_status]
+INFO: Process 71330 Pipeline namespace initialized
+== lightrag_bedrock-gpt-oss-120b / medical: 10 questions, 0 already done, 10 to run, 4 workers
+  readiness: {"working_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical", "doc_status": {"doc-3d7a4f05339f0e3f3870b407d21d9c8a": "processed"}, "index": {"finished": "2026-10-10T00:27:30+00:00", "index_wall_clock_s": 809.2, "doc_status": {"doc-3d7a4f05339f0e3f3870b407d21d9c8a": "processed"}, "usage": {"calls": 56, "prompt_tokens": 64008, "completion_tokens": 26989, "reasoning_tokens": 0}, "estimated_cost_usd": 0.0258, "model": "openai.gpt-oss-120b-1:0", "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1", "llm_backend": "bedrock-gpt-oss-120b", "repair_delimiters": true, "repair_patch": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/audit/patches/lightrag-1.2.5-gptoss-delimiter-repair.py", "reused_llm_cache": {"from": "results/lightrag/workspace_bedrock-gpt-oss-120b/Medical/kv_store_llm_response_cache.json", "sha256": "12bd8180ecd95f28fdb7cd734226624ff7adfb9e54e1dec8e0bd89bbade34e13"}, "embed_model": "BAAI/bge-large-en-v1.5", "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/upstream/Datasets/Corpus/medical.parquet", "corpus_sha256": "e8e8a71eca466aecdc3d1705c4351027f2f260bc9ec2d59d736d8b69a88a6d7f"}}
+INFO:Load (4697, 1024) data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_entities.json'} 4697 data
+INFO:Load (7710, 1024) data
+INFO:Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical/vdb_relationships.json'} 7710 data
+  [10/10] ok (17 s)
+
+== summary -> results/gptoss_pilot/gptoss_lightrag/medical/predictions.json
+  answered: 10 / 10   failed: 0   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'calls': 20, 'prompt_tokens': 118282, 'completion_tokens': 6320, 'reasoning_tokens': 0}
+  latency: {'n': 10, 'mean_s': 5.29, 'median_s': 5.52, 'p90_s': 8.29, 'max_s': 8.29}   estimated cost: 0.0215
+
+# end: 2026-10-10T00:28:54Z  exit: 0  duration_s: 29

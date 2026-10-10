@@ -1,0 +1,26 @@
+# step: dryrun_lightrag_gptoss
+# start: 2026-10-09T23:07:30Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-lightrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/run_lightrag_bench.py --subset medical --llm bedrock-gpt-oss-120b --questions-file data/Questions/pilot_questions.json --out-dir results/gptoss_pilot/dry --dry-run
+
+{
+  "source": "Medical",
+  "context_chars": 1052159,
+  "query_param": {
+    "mode": "hybrid",
+    "top_k": 5,
+    "max_token_for_text_unit": 4000,
+    "max_token_for_global_context": 4000,
+    "max_token_for_local_context": 4000
+  },
+  "model": "openai.gpt-oss-120b-1:0",
+  "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+  "base_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b",
+  "query_llm_params": {
+    "temperature": 0.3,
+    "max_tokens": 4096,
+    "reasoning_effort": "medium"
+  },
+  "system_prompt": "\n---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\".\n\n---Conversation History---\n{history}\n\n---Knowledge Base---\n{context_data}\n"
+}
+
+# end: 2026-10-09T23:07:57Z  exit: 0  duration_s: 27

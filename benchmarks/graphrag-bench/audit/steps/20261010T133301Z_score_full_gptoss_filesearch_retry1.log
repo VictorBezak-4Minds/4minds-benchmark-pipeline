@@ -1,0 +1,114 @@
+# step: score_full_gptoss_filesearch_retry1
+# start: 2026-10-10T13:33:01Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score.py --system-dir results/gptoss/gptoss_filesearch/medical --shard-size 50 --parallel 8
+
+scoring 2062 predictions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/gptoss/gptoss_filesearch/medical with gpt-4o-mini (gpt-4o-mini-2024-07-18), 42 shard(s); 37 already complete, 5 to score, 8 at a time
+  shard_029: exit 0, failed samples 0
+  shard_001: exit 0, failed samples 1
+  shard_010: exit 0, failed samples 0
+  shard_013: exit 0, failed samples 1
+  shard_018: exit 0, failed samples 2
+lness: nan
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.3502
+  answer_correctness: 0.6257
+Results for Complex Reasoning:
+  rouge_score: 0.2117
+  answer_correctness: 0.7131
+Results for Contextual Summarize:
+  answer_correctness: 0.5995
+  coverage_score: 0.5026
+  avg_results = {metric: np.nanmean(scores) for metric, scores in results.items()}
+Results for Creative Generation:
+  answer_correctness: 0.5477
+  coverage_score: 0.3821
+  faithfulness: nan
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.3498
+  answer_correctness: 0.6732
+Results for Complex Reasoning:
+  rouge_score: 0.2501
+  answer_correctness: 0.8058
+Results for Contextual Summarize:
+  answer_correctness: 0.9171
+  coverage_score: 0.7905
+Results for Creative Generation:
+  answer_correctness: 0.7015
+  coverage_score: 0.8063
+  faithfulness: 0.4000
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.4052
+  answer_correctness: 0.7984
+Results for Complex Reasoning:
+  rouge_score: 0.3046
+  answer_correctness: 0.8972
+Results for Contextual Summarize:
+  answer_correctness: 0.7706
+  coverage_score: 0.7637
+  avg_results = {metric: np.nanmean(scores) for metric, scores in results.items()}
+Results for Creative Generation:
+  answer_correctness: 0.7034
+  coverage_score: 0.6938
+  faithfulness: nan
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.4151
+  answer_correctness: 0.7139
+Results for Complex Reasoning:
+  rouge_score: 0.3232
+  answer_correctness: 0.8812
+Results for Contextual Summarize:
+  answer_correctness: 0.7293
+  coverage_score: 0.7202
+Results for Creative Generation:
+  answer_correctness: 0.7259
+  coverage_score: 0.6511
+  faithfulness: 0.9318
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.3994
+  answer_correctness: 0.7951
+Results for Complex Reasoning:
+  rouge_score: 0.2399
+  answer_correctness: 0.7914
+Results for Contextual Summarize:
+  answer_correctness: 0.8377
+  coverage_score: 0.7815
+Results for Creative Generation:
+  answer_correctness: 0.7728
+  coverage_score: 0.8245
+  faithfulness: 0.5938
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.4482
+  answer_correctness: 0.7131
+Results for Complex Reasoning:
+  rouge_score: 0.2561
+  answer_correctness: 0.7393
+Results for Contextual Summarize:
+  answer_correctness: 0.7887
+  coverage_score: 0.8254
+Results for Creative Generation:
+  answer_correctness: 0.7598
+  coverage_score: 0.5237
+  faithfulness: 0.7004
+Evaluation complete.
+
+done in 284.5 s, exit 1, scored {'Fact Retrieval': 1096, 'Complex Reasoning': 509, 'Contextual Summarize': 288, 'Creative Generation': 165}, failed samples 4
+
+# end: 2026-10-10T13:37:47Z  exit: 1  duration_s: 286

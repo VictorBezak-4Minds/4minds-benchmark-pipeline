@@ -2,7 +2,7 @@
 
 Each system adapter supplies a readiness check and an `ask(question)` function. This module
 does the rest: question loading, the settings lock, resume from runs.jsonl, retries, the
-audit files (runs.jsonl, raw.jsonl, manifest.json, results/audit/audit.log) and
+audit files (runs.jsonl, raw.jsonl, manifest.json, audit/audit.log) and
 predictions.json.
 
 The benchmark-specific part (question files, corpus, system prompt, prediction format)
@@ -33,8 +33,12 @@ BENCH_DIR = HUB / "benchmarks" / BENCHMARK
 profile = importlib.import_module("benchmark_profile")
 if Path(profile.__file__).resolve().parent != BENCH_DIR:
     sys.exit(f"benchmark_profile was loaded from {profile.__file__}, not from {BENCH_DIR}. Use ./bench.")
-RESULTS = BENCH_DIR / "results"
-AUDIT_DIR = RESULTS / "audit"
+# Layout of a benchmark folder (README.md, "Layout"): runs/<YYYY-MM-DD>_<name>/ holds one run
+# (a folder per system, summary/, extra/, tests/, run.json, config.json, README.md); shared/ holds
+# what several runs use (cloud resource IDs, indexes, shared scorer inputs); configs/comparisons/
+# and configs/scorers/ are the versions of the protocol; archive/ and audit/ keep the history.
+RUNS, SHARED, CONFIGS, ARCHIVE, AUDIT_DIR = (BENCH_DIR / name for name in
+                                             ("runs", "shared", "configs", "archive", "audit"))
 
 UPSTREAM_REPO = getattr(profile, "UPSTREAM_REPO", None)
 UPSTREAM_COMMIT = getattr(profile, "UPSTREAM_COMMIT", None)
@@ -100,7 +104,8 @@ def add_common_args(parser, system, workers=4):
     parser.add_argument("--max-attempts", type=int, default=6)
     parser.add_argument("--backoff", type=float, default=10.0, help="first retry wait in seconds; doubles each time")
     parser.add_argument("--timeout", type=float, default=300.0)
-    parser.add_argument("--out-dir", default=str(RESULTS / system))
+    parser.add_argument("--out-dir", default=str(RUNS / system),
+                        help="for a comparison: runs/<YYYY-MM-DD>_<name>/<system>")
     parser.add_argument("--dry-run", action="store_true", help="print the first request and stop")
 
 

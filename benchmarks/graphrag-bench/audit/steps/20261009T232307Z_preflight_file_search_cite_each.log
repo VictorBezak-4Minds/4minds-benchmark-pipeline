@@ -1,0 +1,38 @@
+# step: preflight_file_search_cite_each
+# start: 2026-10-09T23:23:07Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/preflight.py file-search --subset medical --questions-file data/Questions/pilot_questions.json --retrieval-instruction cite_each
+
+{"id": "Medical-de0b30b1", "type": "Fact Retrieval", "latency_s": 8.72, "chunks": 5, "chunk_chars": [1177, 1173, 1105, 1113, 1104], "grounding_chunks_raw": 5, "usage": {"retrieval_promptTokenCount": 306, "retrieval_candidatesTokenCount": 149, "retrieval_thoughtsTokenCount": 497, "retrieval_toolUsePromptTokenCount": 1944}, "cost_usd": 0.00411}
+{"id": "Medical-2360f9dd", "type": "Fact Retrieval", "latency_s": 11.14, "chunks": 5, "chunk_chars": [1072, 1197, 1210, 1348, 1200], "grounding_chunks_raw": 5, "usage": {"retrieval_promptTokenCount": 88, "retrieval_candidatesTokenCount": 167, "retrieval_thoughtsTokenCount": 809, "retrieval_toolUsePromptTokenCount": 1784}, "cost_usd": 0.00506}
+{"id": "Medical-f4ba3ee9", "type": "Fact Retrieval", "latency_s": 10.14, "chunks": 5, "chunk_chars": [1189, 1269, 1146, 1244, 1243], "grounding_chunks_raw": 5, "usage": {"retrieval_promptTokenCount": 200, "retrieval_candidatesTokenCount": 144, "retrieval_thoughtsTokenCount": 656, "retrieval_toolUsePromptTokenCount": 1862}, "cost_usd": 0.00455}
+{"id": "Medical-edb040bb", "type": "Fact Retrieval", "latency_s": 9.08, "chunks": 5, "chunk_chars": [1228, 1190, 1129, 1250, 1106], "grounding_chunks_raw": 5, "usage": {"retrieval_promptTokenCount": 210, "retrieval_candidatesTokenCount": 174, "retrieval_thoughtsTokenCount": 448, "retrieval_toolUsePromptTokenCount": 1926}, "cost_usd": 0.00393}
+{"id": "Medical-01f113f7", "type": "Fact Retrieval", "latency_s": 10.82, "chunks": 5, "chunk_chars": [1217, 1293, 1201, 1217, 1168], "grounding_chunks_raw": 5, "usage": {"retrieval_promptTokenCount": 201, "retrieval_candidatesTokenCount": 160, "retrieval_thoughtsTokenCount": 784, "retrieval_toolUsePromptTokenCount": 1913}, "cost_usd": 0.00513}
+{"id": "Medical-f79d978d", "type": "Complex Reasoning", "latency_s": 16.25, "chunks": 5, "chunk_chars": [1112, 1188, 1140, 1200, 1056], "grounding_chunks_raw": 5, "usage": {"retrieval_promptTokenCount": 162, "retrieval_candidatesTokenCount": 169, "retrieval_thoughtsTokenCount": 1769, "retrieval_toolUsePromptTokenCount": 1798}, "cost_usd": 0.00874}
+{"id": "Medical-136a5739", "type": "Complex Reasoning", "latency_s": 23.44, "chunks": 5, "chunk_chars": [1153, 1211, 1276, 1211, 1180], "grounding_chunks_raw": 5, "usage": {"retrieval_promptTokenCount": 109, "retrieval_candidatesTokenCount": 199, "retrieval_thoughtsTokenCount": 2627, "retrieval_toolUsePromptTokenCount": 1833}, "cost_usd": 0.01205}
+{"id": "Medical-0ae62420", "type": "Contextual Summarize", "latency_s": 23.32, "chunks": 11, "chunk_chars": [1187, 1226, 1195, 1168, 1087, 1229, 1218, 1225, 1209, 1211, 1145], "grounding_chunks_raw": 11, "usage": {"retrieval_promptTokenCount": 200, "retrieval_candidatesTokenCount": 863, "retrieval_thoughtsTokenCount": 782, "retrieval_toolUsePromptTokenCount": 9453}, "cost_usd": 0.01341}
+{"id": "Medical-97625b74", "type": "Contextual Summarize", "latency_s": 30.6, "chunks": 13, "chunk_chars": [1197, 1252, 1208, 1140, 1077, 1208, 1245, 1185, 1166, 1194, 1127, 1140, 1196], "grounding_chunks_raw": 13, "usage": {"retrieval_promptTokenCount": 197, "retrieval_candidatesTokenCount": 1581, "retrieval_thoughtsTokenCount": 1055, "retrieval_toolUsePromptTokenCount": 9528}, "cost_usd": 0.01718}
+{"id": "Medical-d5964ccf", "type": "Creative Generation", "latency_s": 32.44, "chunks": 8, "chunk_chars": [1189, 1154, 1196, 1112, 1184, 1200, 1188, 1149], "grounding_chunks_raw": 8, "usage": {"retrieval_promptTokenCount": 158, "retrieval_candidatesTokenCount": 1607, "retrieval_thoughtsTokenCount": 913, "retrieval_toolUsePromptTokenCount": 9355}, "cost_usd": 0.01658}
+{
+  "store": "fileSearchStores/graphragbench-9lax22b99qlk",
+  "top_k": 5,
+  "retrieval_instruction": "cite_each",
+  "questions": 10,
+  "errors": 0,
+  "chunks_per_question": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    11,
+    13,
+    8
+  ],
+  "mean_chunks": 6.7,
+  "questions_with_top_k": 7,
+  "total_cost_usd": 0.0907
+}
+
+# end: 2026-10-09T23:26:03Z  exit: 1  duration_s: 176

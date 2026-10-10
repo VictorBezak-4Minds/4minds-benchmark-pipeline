@@ -1,0 +1,5 @@
+{
+  "title": "GPT-OSS-120B comparison, full run (2,062 Medical questions)",
+  "purpose": "The GPT-OSS comparison on all Medical questions: No RAG, File Search, LightRAG and 4Minds Constellations (reference).",
+  "status": "Complete and scored on 2026-10-10. Extra scorers (configs/scorers/extra_v1.json): pilot only, in extra/extra_v1_pilot/."
+}

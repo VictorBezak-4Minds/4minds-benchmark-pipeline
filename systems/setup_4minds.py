@@ -6,7 +6,7 @@ Safe to run again: it reuses the dataset, persona and model with the benchmark n
 The persona carries the benchmark system prompt (4Minds has no per-request system
 prompt). The script then waits until the dataset graph build is complete
 (graph_status "ready", not only "rag_ready"), logs every status change, and writes
-results/4minds/setup.json. It stops if the build shows no progress for --stall-min minutes.
+shared/4minds/setup.json. It stops if the build shows no progress for --stall-min minutes.
 
     ./bench graphrag-bench setup_4minds eval systems/setup_4minds.py
 """
@@ -23,7 +23,7 @@ BASE = "https://api.4minds.ai"
 DATASET_NAME = bc.profile.RESOURCE_NAME
 MODEL_NAME = bc.profile.RESOURCE_NAME
 PERSONA_NAME = f"{bc.profile.TITLE} official prompt"
-SETUP_FILE = bc.RESULTS / "4minds" / "setup.json"
+SETUP_FILE = bc.SHARED / "4minds" / "setup.json"
 
 
 class Client:

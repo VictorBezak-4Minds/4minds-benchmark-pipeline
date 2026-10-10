@@ -1,0 +1,137 @@
+{
+  "name": "gemini",
+  "description": "First pilot (October 2026): 4Minds Constellations and SYMI against Gemini-answering RAG systems.",
+  "reference": "4minds_constellations",
+  "systems": [
+    {
+      "key": "4minds_constellations",
+      "name": "4Minds (Constellations)",
+      "description": "4Minds prod, Constellations RAG over the dataset graph, GPT-OSS-120B standard weights",
+      "color": "#543fed",
+      "workers": 4,
+      "timeout_s": 300,
+      "timing_note": "4 workers on prod; runs before SYMI",
+      "index_note": "built, reused (dataset 4033)",
+      "caveats": [
+        "4Minds: the inference WebSocket has no temperature or max-token settings, so the server defaults apply (temperature 0.3, 4,096 max tokens). The 4Minds dataset also holds the platform's dataset manifest as one extra graph node (204 nodes: 203 Medical.txt chunks + manifest)."
+      ]
+    },
+    {
+      "key": "4minds_symi",
+      "name": "4Minds (SYMI)",
+      "description": "4Minds prod, SYMI agent engine over the same model and dataset",
+      "color": "#a78bfa",
+      "workers": 4,
+      "timeout_s": 300,
+      "timing_note": "4 workers on prod; runs after Constellations",
+      "index_note": "same dataset as Constellations",
+      "caveats": [
+        "4Minds (SYMI) runs through POST /api/v1/user/inference (inference_engine symi): the SYMI WebSocket path rejects API keys. For API keys this endpoint returns chunk references (all from Medical.txt) but not chunk text, so SYMI has no faithfulness score. SYMI is an agent with its own instructions; the persona prompt may not apply to it in the same way as on Constellations."
+      ]
+    },
+    {
+      "key": "gemini",
+      "name": "Gemini + File Search",
+      "description": "Gemini Developer API, gemini-3.8-flash with the File Search tool (top_k 5)",
+      "color": "#80aeff",
+      "workers": 10,
+      "timeout_s": 120,
+      "timing_note": "Gemini Developer API (paid tier); --timeout 120",
+      "index_note": "built, reused",
+      "caveats": [
+        "Gemini + File Search: `context` holds only the chunks that the answer cites. The other systems store all retrieved chunks. Only faithfulness reads `context`, and the judge reads the first 10,000 characters."
+      ]
+    },
+    {
+      "key": "rag_engine",
+      "name": "Gemini + RAG Engine",
+      "description": "Vertex AI, gemini-3.8-flash with the RAG Engine retrieval tool (top_k 5)",
+      "color": "#5eead4",
+      "workers": 10,
+      "timeout_s": 120,
+      "timing_note": "Vertex AI, europe-west4 corpus; --timeout 120",
+      "index_note": "built, reused (Medical.txt ACTIVE)",
+      "caveats": [
+        "Gemini + RAG Engine: the corpus is in europe-west4 (RAG Engine defaults: Spanner mode, RagManagedDb, Basic tier, default chunking and embeddings). us-central1 is allowlist-only for new projects, and its Serverless mode failed with a Google capacity error. The model is served from the global endpoint."
+      ]
+    },
+    {
+      "key": "lightrag",
+      "name": "LightRAG + Gemini",
+      "description": "LightRAG v1.2.5 (official GraphRAG-Bench runner settings), gemini-3.8-flash",
+      "color": "#fbbf24",
+      "workers": 4,
+      "timeout_s": 300,
+      "timing_note": "official llm_model_max_async 4",
+      "index_manifest": "shared/lightrag/workspace/Medical/index_manifest.json",
+      "caveats": [
+        "LightRAG: the embedding model is BAAI/bge-large-en-v1.5 (the official code sets embedding_dim 1024), and context is stored as a one-item list. Its official string form would be split into characters by the scorer.",
+        "LightRAG: API mode of the official Examples/run_lightrag.py does not run at commit fdbab59 (an UnboundLocalError and a duplicate keyword argument). Both are fixed in memory with a 4-line change; the query settings are unchanged. LightRAG 1.2.5 also needs the README context-return change. Both diffs are in audit/patches/."
+      ]
+    }
+  ],
+  "parallel_paths": {
+    "4Minds (Constellations, then SYMI)": [
+      [
+        "4minds_constellations",
+        "4minds_symi"
+      ]
+    ],
+    "Gemini Developer API (File Search and LightRAG in parallel)": [
+      [
+        "gemini"
+      ],
+      [
+        "lightrag"
+      ]
+    ],
+    "Vertex AI (RAG Engine)": [
+      [
+        "rag_engine"
+      ]
+    ]
+  },
+  "caveats": [
+    {
+      "common": "generation_only"
+    },
+    {
+      "common": "medical_only"
+    },
+    {
+      "common": "gold_answers"
+    },
+    "4Minds has no per-request system prompt. The official prompt is in the model persona (behavioralGuidelines). The other systems get it as the system instruction of each request.",
+    "4Minds answers with GPT-OSS-120B (standard weights, no Ghost Weights fine-tuning). The judge, gpt-4o-mini, is also an OpenAI model, so a same-family preference by the judge is possible.",
+    {
+      "system": "gemini"
+    },
+    {
+      "system": "lightrag"
+    },
+    "Each system uses its own default retrieval and chunking settings. top_k is 5 where the system exposes it.",
+    {
+      "system": "4minds_constellations"
+    },
+    {
+      "system": "4minds_symi"
+    },
+    {
+      "system": "rag_engine"
+    },
+    {
+      "common": "faithfulness_nan"
+    },
+    "Faithfulness reads only the first 10,000 characters of `context`. Systems that return more context (4Minds multi-step retrieval: up to 50 chunks; RAG Engine: about 20,000 characters) are judged on part of it. 4Minds chunks are stored in 4Minds' own score order (highest first) so that the judge sees the strongest chunks; RAG Engine returns its chunks in relevance order.",
+    {
+      "common": "training_data"
+    },
+    {
+      "common": "single_run"
+    },
+    {
+      "common": "judge_repeat"
+    },
+    "Prod systems (4Minds, Gemini, Vertex AI) can change over time. The dates are in the run manifests."
+  ]
+}

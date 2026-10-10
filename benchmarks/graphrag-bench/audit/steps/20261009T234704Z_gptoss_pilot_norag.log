@@ -1,0 +1,15 @@
+# step: gptoss_pilot_norag
+# start: 2026-10-09T23:47:04Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag.py --subset medical --questions-file data/Questions/pilot_questions.json --llm bedrock-gpt-oss-120b --timeout 120 --workers 4 --retriever none --out-dir results/gptoss_pilot/gptoss_norag
+
+== none+bedrock-gpt-oss-120b / medical: 10 questions, 0 already done, 10 to run, 4 workers
+  readiness: {"retriever": "none", "llm_check": {"finish_reason": "stop", "usage": {"completion_tokens": 118, "prompt_tokens": 145, "total_tokens": 263}}}
+  [10/10] ok (8 s)
+
+== summary -> results/gptoss_pilot/gptoss_norag/medical/predictions.json
+  answered: 10 / 10   failed: 0   not run: 0
+  no context: 10   "I don't know": 5
+  tokens: {'completion_tokens': 2580, 'prompt_tokens': 1497, 'total_tokens': 4077}
+  latency: {'n': 10, 'mean_s': 2.32, 'median_s': 1.4, 'p90_s': 7.25, 'max_s': 7.25}   estimated cost: 0.0018
+
+# end: 2026-10-09T23:47:14Z  exit: 0  duration_s: 10

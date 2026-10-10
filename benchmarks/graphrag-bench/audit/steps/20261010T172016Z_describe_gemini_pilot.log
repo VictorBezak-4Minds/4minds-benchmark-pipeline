@@ -1,0 +1,7 @@
+# step: describe_gemini_pilot
+# start: 2026-10-10T17:20:16Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py --run runs/2026-10-09_gemini-pilot --title Gemini comparison, pilot (10 questions) --purpose First pilot: 4Minds Constellations and SYMI against Gemini File Search, Gemini + RAG Engine and LightRAG + Gemini (Gemini answers). --status Complete and scored (PILOT). A full run of this comparison is not approved.
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-09_gemini-pilot/README.md
+
+# end: 2026-10-10T17:20:16Z  exit: 0  duration_s: 0

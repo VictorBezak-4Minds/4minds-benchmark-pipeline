@@ -1,0 +1,101 @@
+# step: timing_gptoss_pilot
+# start: 2026-10-10T00:31:15Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/make_timing.py --matrix matrices/gptoss.json --results results/gptoss_pilot
+
+{
+  "generated": "2026-10-10T00:31:15+00:00",
+  "full_counts": {
+    "Fact Retrieval": 1098,
+    "Complex Reasoning": 509,
+    "Contextual Summarize": 289,
+    "Creative Generation": 166
+  },
+  "overhead_factor": 1.2,
+  "score_shards": 8,
+  "method": "From the 10-question pilot. Answering: per question type, full count x mean latency of the successful call, plus pilot retries per question x (planned timeout + 15 s), / workers x 1.2. Scoring: pilot time per judge round x rounds for 2,062 answers in 8 parallel shards. Costs scale the pilot cost to 2,062 questions.",
+  "systems": {
+    "4minds_constellations": {
+      "index_build": "built, reused (dataset 4033)",
+      "workers": 4,
+      "note": "4 workers on prod",
+      "pilot_answered": 10,
+      "mean_latency_s": 14.32,
+      "mean_latency_s_by_type": {
+        "Fact Retrieval": 10.39,
+        "Complex Reasoning": 14.09,
+        "Contextual Summarize": 20.85,
+        "Creative Generation": 21.38
+      },
+      "retries_per_question": 0.0,
+      "timeout_s": 300,
+      "est_full_answer_h": 2.35,
+      "est_full_cost_usd": null,
+      "pilot_score_wall_s": 63.2,
+      "est_full_score_h": 0.24
+    },
+    "gptoss_lightrag": {
+      "index_build": "13 min, reused",
+      "workers": 4,
+      "note": "official llm_model_max_async 4",
+      "pilot_answered": 10,
+      "mean_latency_s": 5.29,
+      "mean_latency_s_by_type": {
+        "Fact Retrieval": 4.05,
+        "Contextual Summarize": 5.52,
+        "Complex Reasoning": 7.79,
+        "Creative Generation": 6.01
+      },
+      "retries_per_question": 0.0,
+      "timeout_s": 300,
+      "est_full_answer_h": 0.92,
+      "est_full_cost_usd": 4.43,
+      "pilot_score_wall_s": 71.2,
+      "est_full_score_h": 0.28
+    },
+    "gptoss_filesearch": {
+      "index_build": "existing store fileSearchStores/graphragbench-9lax22b99qlk, reused",
+      "workers": 8,
+      "note": "Gemini File Search call, then Bedrock",
+      "pilot_answered": 10,
+      "mean_latency_s": 22.0,
+      "mean_latency_s_by_type": {
+        "Fact Retrieval": 13.39,
+        "Complex Reasoning": 28.23,
+        "Contextual Summarize": 27.2,
+        "Creative Generation": 42.21
+      },
+      "retries_per_question": 1.0,
+      "timeout_s": 120,
+      "est_full_answer_h": 13.43,
+      "est_full_cost_usd": 21.96,
+      "pilot_score_wall_s": 61.2,
+      "est_full_score_h": 0.23
+    },
+    "gptoss_norag": {
+      "index_build": "no index",
+      "workers": 8,
+      "note": "Bedrock only",
+      "pilot_answered": 10,
+      "mean_latency_s": 2.32,
+      "mean_latency_s_by_type": {
+        "Fact Retrieval": 1.21,
+        "Contextual Summarize": 2.98,
+        "Complex Reasoning": 4.76,
+        "Creative Generation": 1.7
+      },
+      "retries_per_question": 1.0,
+      "timeout_s": 120,
+      "est_full_answer_h": 11.8,
+      "est_full_cost_usd": 0.37,
+      "pilot_score_wall_s": 61.2,
+      "est_full_score_h": 0.23
+    }
+  },
+  "paths_h": {
+    "Amazon Bedrock (No RAG, File Search and LightRAG in parallel)": 13.66,
+    "4Minds (Constellations)": 2.59
+  },
+  "total": "All paths run at the same time. Slowest path: Amazon Bedrock (No RAG, File Search and LightRAG in parallel), about 13.7 h (answering plus scoring with 8 shards per system). The estimate does not include OpenAI rate-limit waits for the judge."
+}
+
+# end: 2026-10-10T00:31:15Z  exit: 0  duration_s: 0

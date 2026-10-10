@@ -1,0 +1,27 @@
+# step: cleanup_rag_engine_us_east4
+# start: 2026-10-09T23:34:06Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/cleanup_rag_engine.py --location us-east4
+
+{
+  "before": {
+    "name": "projects/minds-vs-gemini-benchmark/locations/us-east4/ragEngineConfig",
+    "ragManagedDbConfig": {
+      "basic": {},
+      "spanner": {
+        "basic": {}
+      }
+    }
+  },
+  "after": {
+    "name": "projects/minds-vs-gemini-benchmark/locations/us-east4/ragEngineConfig",
+    "ragManagedDbConfig": {
+      "unprovisioned": {},
+      "spanner": {
+        "unprovisioned": {}
+      }
+    }
+  },
+  "remaining_corpora": 0
+}
+
+# end: 2026-10-09T23:34:08Z  exit: 0  duration_s: 2

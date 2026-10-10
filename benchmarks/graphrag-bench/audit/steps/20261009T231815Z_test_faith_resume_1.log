@@ -1,0 +1,11 @@
+# step: test_faith_resume_1
+# start: 2026-10-09T23:18:15Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score_faithfulness.py --system-dir /tmp/faith_resume_test
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'frequency_penalty', 'seed', 'top_p', 'presence_penalty'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+faithfulness (JSON-format fix) for 1 Creative Generation answers in /private/tmp/faith_resume_test; 0 already scored, 1 to score
+  1/1
+done: scored 1/1, NaN 0, errors 0 (rerun to retry), mean 0.6363636363636364
+
+# end: 2026-10-09T23:18:30Z  exit: 0  duration_s: 15

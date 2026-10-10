@@ -1,0 +1,40 @@
+# step: dryrun_gptoss_gemini_file_search
+# start: 2026-10-09T23:05:30Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag.py --subset medical --llm bedrock-gpt-oss-120b --retriever gemini_file_search --questions-file data/Questions/pilot_questions.json --out-dir results/gptoss_pilot/dry --dry-run
+
+{
+  "retriever": "gemini_file_search",
+  "llm": {
+    "llm_backend": "bedrock-gpt-oss-120b",
+    "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+    "llm_model": "openai.gpt-oss-120b-1:0",
+    "llm_params": {
+      "temperature": 0.3,
+      "max_tokens": 4096,
+      "reasoning_effort": "medium"
+    },
+    "llm_auth": {
+      "type": "aws_bedrock_token",
+      "profile": "bedrock",
+      "region": "us-east-1"
+    }
+  },
+  "request": {
+    "model": "openai.gpt-oss-120b-1:0",
+    "messages": [
+      {
+        "role": "system",
+        "content": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\"."
+      },
+      {
+        "role": "user",
+        "content": "---Knowledge Base---\n[1] <chunk text from the retriever>\n\n---Question---\nAre organ transplant recipients at higher risk for BCC?"
+      }
+    ],
+    "temperature": 0.3,
+    "max_tokens": 4096,
+    "reasoning_effort": "medium"
+  }
+}
+
+# end: 2026-10-09T23:05:30Z  exit: 0  duration_s: 0

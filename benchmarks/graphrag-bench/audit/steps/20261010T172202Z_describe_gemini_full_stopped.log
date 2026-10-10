@@ -1,0 +1,7 @@
+# step: describe_gemini_full_stopped
+# start: 2026-10-10T17:22:02Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py --run runs/2026-10-09_gemini-full_stopped
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-09_gemini-full_stopped/README.md
+
+# end: 2026-10-10T17:22:03Z  exit: 0  duration_s: 1

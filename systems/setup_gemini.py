@@ -7,7 +7,7 @@ The store display name is the profile's RESOURCE_NAME. The document gets the met
 `source` = profile.SOURCE, which run_gemini.py uses as its metadata filter. Safe to run
 again: it reuses the store and does not upload a source that is already in the store.
 It waits until the store has no pending or failed documents and writes
-results/gemini/setup.json. Put the store name in the profile (GEMINI_FILE_SEARCH_STORE).
+shared/gemini/setup.json. Put the store name in the profile (GEMINI_FILE_SEARCH_STORE).
 """
 import argparse
 import json
@@ -22,7 +22,7 @@ API = "https://generativelanguage.googleapis.com/v1beta"
 UPLOAD_API = "https://generativelanguage.googleapis.com/upload/v1beta"
 DISPLAY_NAME = bc.profile.RESOURCE_NAME
 SOURCE = bc.profile.SOURCE
-SETUP_FILE = bc.RESULTS / "gemini" / "setup.json"
+SETUP_FILE = bc.SHARED / "gemini" / "setup.json"
 
 
 class Client:

@@ -12,7 +12,7 @@ sections, in the layout of that runner. LightRAG must have the context-return ch
 
     index:  ./bench --bg qasper lightrag_index lightrag systems/run_lightrag.py --subset test --index-only
     answer: ./bench qasper pilot_lightrag lightrag systems/run_lightrag.py --subset test \\
-                --questions-file data/pilot_questions.json --out-dir results/pilot/lightrag
+                --questions-file data/pilot_questions.json --out-dir runs/<YYYY-MM-DD>_<name>/lightrag
 """
 import asyncio
 import contextvars
@@ -119,7 +119,7 @@ async def with_usage(counter, coroutine):
 
 def main():
     parser = bc.parser(__doc__, "lightrag", workers=4)
-    parser.add_argument("--base-dir", default=str(bc.RESULTS / "lightrag" / "workspace"))
+    parser.add_argument("--base-dir", default=str(bc.SHARED / "lightrag" / "workspace"))
     parser.add_argument("--model-name", default="gemini-3.8-flash")
     parser.add_argument("--embed-model", default="BAAI/bge-large-en-v1.5")
     parser.add_argument("--llm-base-url", default=GEMINI_OPENAI_URL)

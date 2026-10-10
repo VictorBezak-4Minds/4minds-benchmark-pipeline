@@ -5,11 +5,11 @@ Each question is sent with a metadata filter on its own `source`, so retrieval o
 that one corpus (the isolation used by GraphRAG-Bench's reference runners). The questions
 of the profile must have a `source` field, and the store documents a matching metadata key.
 
-Output: results/gemini/<subset>/predictions.json, in the format of the profile's
+Output: runs/<run>/gemini/<subset>/predictions.json, in the format of the profile's
 prediction(). Progress is logged to runs.jsonl, so a stopped run continues where it stopped.
 
     ./bench graphrag-bench pilot_gemini eval systems/run_gemini.py --subset medical \\
-        --questions-file data/Questions/pilot_questions.json --out-dir results/pilot/gemini --workers 10
+        --questions-file data/Questions/pilot_questions.json --out-dir runs/<YYYY-MM-DD>_<name>/gemini --workers 10
 """
 import json
 import sys

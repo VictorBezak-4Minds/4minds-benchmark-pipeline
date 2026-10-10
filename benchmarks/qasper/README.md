@@ -38,16 +38,23 @@ In the paper "<title>": <question>
 
 The original question is in the field `original_question`.
 
-## Files
+## Layout
 
-| File | Content |
+The same layout as every benchmark in the hub (see the hub README): find the run in
+[runs/README.md](runs/README.md), then open the run's `README.md`.
+
+| Folder or file | Content |
 |---|---|
 | `upstream/` | the official tgz, extracted, read-only (sha256 in `benchmark_profile.UPSTREAM_SHA256`) |
 | `benchmark_profile.py` | profile for the hub pipeline |
-| `make_pilot.py` | makes the pilot questions, the gold subset, the corpus slice and `data/pilot_manifest.json` |
-| `score.py` | runs the official evaluator unchanged, writes `per_question.jsonl`, checks that the means are the same as the official values |
-| `aggregate.py` | Answer F1 overall and by type, bootstrap 95% CI, answer length; `results/pilot/blocked.json` gives the reason for each system that is not scored |
-| `make_report.py` | `results/pilot/summary/report.html` in the 4Minds style, from `scores.json` (shared style: `pipeline/report_html.py`) |
+| `data/` | the pilot questions, the gold subset, the corpus slice |
+| `runs/2026-10-09_pilot/` | the pilot: a folder per system (`<system>/test/`), `summary/` (report), `blocked.json` (the reason for each system that is not scored), `_superseded_rag_engine_blocked/` |
+| `shared/` | `4minds/`, `gemini/`, `rag_engine/` (`setup.json`: the external resources that setup made), `lightrag/` (the index) |
+| `audit/` | `audit.log`, step logs, `moves/` (maps of earlier folder names) |
+| `scripts/make_pilot.py` | makes the pilot questions, the gold subset, the corpus slice and `data/pilot_manifest.json` |
+| `scripts/score.py` | runs the official evaluator unchanged, writes `per_question.jsonl`, checks that the means are the same as the official values |
+| `scripts/aggregate.py` | Answer F1 overall and by type, bootstrap 95% CI, answer length → `summary/`, run README |
+| `scripts/make_report.py` | `summary/report.html` in the 4Minds style, from `scores.json` (shared style: `pipeline/report_html.py`) |
 
 ## Commands
 
@@ -57,16 +64,16 @@ The original question is in the field `original_question`.
 ./bench qasper setup_gemini eval systems/setup_gemini.py
 ./bench qasper lightrag_index lightrag systems/run_lightrag.py --subset test --index-only
 ./bench qasper pilot_gemini eval systems/run_gemini.py --subset test \
-    --questions-file data/pilot_questions.json --timeout 120 --out-dir results/pilot/gemini --workers 10
+    --questions-file data/pilot_questions.json --timeout 120 --out-dir runs/2026-10-09_pilot/gemini --workers 10
 ./bench qasper pilot_4minds_constellations eval systems/run_4minds.py --engine constellations --subset test \
-    --questions-file data/pilot_questions.json --workers 4 --out-dir results/pilot/4minds_constellations
+    --questions-file data/pilot_questions.json --workers 4 --out-dir runs/2026-10-09_pilot/4minds_constellations
 ./bench qasper pilot_4minds_symi eval systems/run_4minds.py --engine symi --subset test \
-    --questions-file data/pilot_questions.json --workers 4 --out-dir results/pilot/4minds_symi
+    --questions-file data/pilot_questions.json --workers 4 --out-dir runs/2026-10-09_pilot/4minds_symi
 ./bench qasper pilot_lightrag lightrag systems/run_lightrag.py --subset test \
-    --questions-file data/pilot_questions.json --out-dir results/pilot/lightrag --workers 4
-./bench qasper score_pilot_gemini eval score.py --system-dir results/pilot/gemini/test
-./bench qasper aggregate_pilot eval aggregate.py --results results/pilot
-./bench qasper report_pilot eval make_report.py --results results/pilot
+    --questions-file data/pilot_questions.json --out-dir runs/2026-10-09_pilot/lightrag --workers 4
+./bench qasper score_pilot_gemini eval score.py --system-dir runs/2026-10-09_pilot/gemini/test
+./bench qasper aggregate_pilot eval aggregate.py --run runs/2026-10-09_pilot
+./bench qasper report_pilot eval make_report.py --run runs/2026-10-09_pilot
 ```
 
 Run long steps in a terminal that stays open. Do not use `./bench --bg` from an agent shell (see
@@ -74,7 +81,7 @@ the hub README).
 
 ## Pilot results (Answer F1, 25 questions)
 
-Report: `results/pilot/summary/report.html` (Markdown version: `report.md`).
+Report: `runs/2026-10-09_pilot/summary/report.html` (Markdown version: `report.md`).
 
 | System | Answer F1 (95% CI) | Median answer words | Median latency | Query cost |
 |---|---|---|---|---|
@@ -107,7 +114,7 @@ The confidence intervals overlap. Do not rank the systems from 25 questions.
   "Failed to fetch corpus status from spanner". The corpora and the config were ACTIVE in
   the control plane. We tried 3 new corpora, also after a tier cycle (unprovisioned, then basic).
   Retrieval passed 2 of 20 tests. The partial output (4 answered, 8 failed) is in
-  `results/pilot/_superseded_rag_engine_blocked`. Spanner is unprovisioned again.
+  `runs/2026-10-09_pilot/_superseded_rag_engine_blocked`. Spanner is unprovisioned again.
   Lesson: before a run, send one real query; "ACTIVE" does not prove that queries work.
 - **The prompt controls answer length.** Answer F1 is token overlap, so long answers get low
   scores. All systems now give short answers (median 1 to 7 words).
@@ -124,4 +131,4 @@ training data.
 |---|---|
 | 4Minds dataset 4039, model 3598, persona 1283 (prod) | none |
 | Gemini File Search store `qaspertestpilot-jva5no5yqkow` | storage only |
-| LightRAG index `results/lightrag/workspace/qasper-test-pilot/` | none (local) |
+| LightRAG index `shared/lightrag/workspace/qasper-test-pilot/` | none (local) |

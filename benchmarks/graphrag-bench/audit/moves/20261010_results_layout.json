@@ -1,0 +1,18 @@
+{
+  "time": "2026-10-10T16:52:52+00:00",
+  "reason": "results layout: runs/, setup/, tests/, archive/ with dated names",
+  "root": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results",
+  "moves": {
+    "pilot": "runs/2026-10-09_gemini-pilot",
+    "gptoss_pilot": "runs/2026-10-09_gptoss-pilot",
+    "gptoss": "runs/2026-10-10_gptoss-full",
+    "4minds": "setup/4minds",
+    "rag_engine": "setup/rag_engine",
+    "lightrag": "setup/lightrag",
+    "_extra": "setup/extra",
+    "_tests/filesearch_fault_probe": "tests/2026-10-10_filesearch-fault-probe",
+    "_tests/extra_pilot": "tests/2026-10-10_extra-pilot",
+    "_stopped_full_run_20261009": "archive/2026-10-09_stopped-full-run",
+    "_superseded_early_tests": "archive/2026-10-09_early-tests"
+  }
+}

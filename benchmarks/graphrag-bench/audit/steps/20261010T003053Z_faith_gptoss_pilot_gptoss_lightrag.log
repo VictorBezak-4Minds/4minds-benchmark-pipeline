@@ -1,0 +1,11 @@
+# step: faith_gptoss_pilot_gptoss_lightrag
+# start: 2026-10-10T00:30:53Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score_faithfulness.py --system-dir results/gptoss_pilot/gptoss_lightrag/medical
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'seed', 'frequency_penalty', 'top_p', 'presence_penalty'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+faithfulness (JSON-format fix) for 1 Creative Generation answers in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/gptoss_pilot/gptoss_lightrag/medical; 0 already scored, 1 to score
+  1/1
+done: scored 1/1, NaN 0, errors 0 (rerun to retry), mean 0.2727272727272727
+
+# end: 2026-10-10T00:31:15Z  exit: 0  duration_s: 22

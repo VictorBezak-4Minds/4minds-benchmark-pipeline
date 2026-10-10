@@ -1,0 +1,151 @@
+# step: score_full_gptoss_filesearch
+# start: 2026-10-10T13:05:41Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score.py --system-dir results/gptoss/gptoss_filesearch/medical --shard-size 50 --parallel 8
+
+scoring 2062 predictions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/gptoss/gptoss_filesearch/medical with gpt-4o-mini (gpt-4o-mini-2024-07-18), 42 shard(s); 0 already complete, 42 to score, 8 at a time
+  shard_004: exit 0, failed samples 0
+  shard_007: exit 0, failed samples 0
+  shard_006: exit 0, failed samples 0
+  shard_003: exit 0, failed samples 0
+  shard_008: exit 0, failed samples 0
+  shard_000: exit 0, failed samples 0
+  shard_009: exit 0, failed samples 0
+  shard_010: exit 0, failed samples 1
+  shard_011: exit 0, failed samples 0
+  shard_005: exit 0, failed samples 0
+  shard_001: exit 0, failed samples 1
+  shard_002: exit 0, failed samples 0
+  shard_014: exit 0, failed samples 0
+  shard_012: exit 0, failed samples 0
+  shard_017: exit 0, failed samples 0
+  shard_018: exit 0, failed samples 1
+  shard_013: exit 0, failed samples 1
+  shard_021: exit 0, failed samples 0
+  shard_015: exit 0, failed samples 0
+  shard_019: exit 0, failed samples 0
+  shard_023: exit 0, failed samples 0
+  shard_016: exit 0, failed samples 0
+  shard_020: exit 0, failed samples 0
+  shard_024: exit 0, failed samples 0
+  shard_025: exit 0, failed samples 0
+  shard_028: exit 0, failed samples 0
+  shard_026: exit 0, failed samples 0
+  shard_027: exit 0, failed samples 0
+  shard_022: exit 0, failed samples 0
+  shard_032: exit 0, failed samples 0
+  shard_031: exit 0, failed samples 0
+  shard_030: exit 0, failed samples 0
+  shard_029: exit 0, failed samples 1
+  shard_034: exit 0, failed samples 0
+  shard_033: exit 0, failed samples 0
+  shard_036: exit 0, failed samples 0
+  shard_035: exit 0, failed samples 0
+  shard_038: exit 0, failed samples 0
+  shard_041: exit 0, failed samples 0
+  shard_037: exit 0, failed samples 0
+  shard_040: exit 0, failed samples 0
+  shard_039: exit 0, failed samples 0
+lness: nan
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.3502
+  answer_correctness: 0.6257
+Results for Complex Reasoning:
+  rouge_score: 0.2117
+  answer_correctness: 0.7131
+Results for Contextual Summarize:
+  answer_correctness: 0.5995
+  coverage_score: 0.5026
+  avg_results = {metric: np.nanmean(scores) for metric, scores in results.items()}
+Results for Creative Generation:
+  answer_correctness: 0.5477
+  coverage_score: 0.3821
+  faithfulness: nan
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.3498
+  answer_correctness: 0.6732
+Results for Complex Reasoning:
+  rouge_score: 0.2501
+  answer_correctness: 0.8058
+Results for Contextual Summarize:
+  answer_correctness: 0.9171
+  coverage_score: 0.7905
+Results for Creative Generation:
+  answer_correctness: 0.7015
+  coverage_score: 0.8063
+  faithfulness: 0.4000
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.4052
+  answer_correctness: 0.7984
+Results for Complex Reasoning:
+  rouge_score: 0.3046
+  answer_correctness: 0.8972
+Results for Contextual Summarize:
+  answer_correctness: 0.7706
+  coverage_score: 0.7637
+  avg_results = {metric: np.nanmean(scores) for metric, scores in results.items()}
+Results for Creative Generation:
+  answer_correctness: 0.7034
+  coverage_score: 0.6938
+  faithfulness: nan
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.4151
+  answer_correctness: 0.7139
+Results for Complex Reasoning:
+  rouge_score: 0.3232
+  answer_correctness: 0.8812
+Results for Contextual Summarize:
+  answer_correctness: 0.7293
+  coverage_score: 0.7202
+Results for Creative Generation:
+  answer_correctness: 0.7259
+  coverage_score: 0.6511
+  faithfulness: 0.9318
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.3994
+  answer_correctness: 0.7951
+Results for Complex Reasoning:
+  rouge_score: 0.2399
+  answer_correctness: 0.7914
+Results for Contextual Summarize:
+  answer_correctness: 0.8377
+  coverage_score: 0.7815
+Results for Creative Generation:
+  answer_correctness: 0.7728
+  coverage_score: 0.8245
+  faithfulness: 0.5938
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.4482
+  answer_correctness: 0.7131
+Results for Complex Reasoning:
+  rouge_score: 0.2561
+  answer_correctness: 0.7393
+Results for Contextual Summarize:
+  answer_correctness: 0.7887
+  coverage_score: 0.8254
+Results for Creative Generation:
+  answer_correctness: 0.7598
+  coverage_score: 0.5237
+  faithfulness: 0.7004
+Evaluation complete.
+
+done in 1630.0 s, exit 1, scored {'Fact Retrieval': 1096, 'Complex Reasoning': 509, 'Contextual Summarize': 288, 'Creative Generation': 164}, failed samples 5
+
+# end: 2026-10-10T13:32:53Z  exit: 1  duration_s: 1632

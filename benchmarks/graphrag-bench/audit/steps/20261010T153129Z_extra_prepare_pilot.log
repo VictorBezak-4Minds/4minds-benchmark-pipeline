@@ -1,0 +1,9 @@
+# step: extra_prepare_pilot
+# start: 2026-10-10T15:31:29Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score_extra.py prepare --config metrics/extra_v1.json --predictions results/gptoss/gptoss_norag/medical/predictions.json --questions-file data/Questions/pilot_questions.json
+
+/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score_extra.py:70: DeprecationWarning: 'GPTModel' is deprecated and will be removed in a future release. Use 'OpenAIModel' instead.
+  from deepeval.models import GPTModel
+/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/_extra/extra_v1/shared.json: 2 questions with assessment questions; made 2, errors 0, cost $0.0000
+
+# end: 2026-10-10T15:31:33Z  exit: 0  duration_s: 4

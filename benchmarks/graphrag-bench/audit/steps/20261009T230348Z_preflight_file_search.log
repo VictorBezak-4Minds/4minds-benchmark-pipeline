@@ -1,0 +1,32 @@
+# step: preflight_file_search
+# start: 2026-10-09T23:03:48Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/preflight.py file-search --subset medical
+
+{
+  "question": "What is the most common type of skin cancer?",
+  "store": "fileSearchStores/graphragbench-9lax22b99qlk",
+  "top_k": 5,
+  "latency_s": 11.25,
+  "chunks": 1,
+  "chunk_chars": [
+    1105
+  ],
+  "retrieval_chunks": 1,
+  "retrieval_titles": [
+    "Medical.txt"
+  ],
+  "searched": true,
+  "grounding_keys": [
+    "groundingChunks",
+    "groundingSupports"
+  ],
+  "retrieval_finish_reason": "STOP",
+  "usage": {
+    "retrieval_promptTokenCount": 114,
+    "retrieval_candidatesTokenCount": 48,
+    "retrieval_thoughtsTokenCount": 148,
+    "retrieval_toolUsePromptTokenCount": 1755
+  }
+}
+
+# end: 2026-10-09T23:03:59Z  exit: 1  duration_s: 11

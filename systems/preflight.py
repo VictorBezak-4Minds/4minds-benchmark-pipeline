@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+"""Single-request checks before a run. Each check sends one request and prints the result.
+
+  ./bench graphrag-bench preflight_llm eval systems/preflight.py llm --llm bedrock-gpt-oss-120b
+  ./bench graphrag-bench preflight_gemini_key eval systems/preflight.py gemini-key-project
+  ./bench graphrag-bench preflight_file_search eval systems/preflight.py file-search
+
+llm                 one chat call: model, finish reason, usage, latency and the answer
+gemini-key-project  the Google Cloud project of the Gemini API key, from the error of an API that
+                    the project has not enabled (the key is sent in a header, never printed)
+file-search         one generateContent call with the File Search tool on the first question of
+                    the subset: the number and size of the grounding chunks against top_k
+"""
+import argparse
+import json
+import sys
+import time
+
+import requests
+
+import bench_common as bc
+import llm_backends
+import retrievers
+
+# Endpoints that a Gemini-only project normally cannot use; the first one that answers with an
+# error that names the consumer project is used. AQ.-format keys are valid only for the Gemini API.
+PROBE_URLS = ["https://generativelanguage.googleapis.com/v1beta/tunedModels",
+              "https://generativelanguage.googleapis.com/v1beta/corpora",
+              "https://texttospeech.googleapis.com/v1/voices",
+              "https://translation.googleapis.com/language/translate/v2/languages"]
+
+
+def check_llm(args):
+    backend = llm_backends.Backend(args.llm)
+    messages = [{"role": "system", "content": bc.SYSTEM_PROMPT},
+                {"role": "user", "content": "What is the capital of France?"}]
+    start = time.monotonic()
+    result, error, retryable = backend.chat(messages, args.timeout)
+    latency = round(time.monotonic() - start, 2)
+    out = {"backend": backend.name, "base_url": backend.base_url, "model": backend.model, "params": backend.params,
+           "latency_s": latency}
+    if error:
+        out.update(error=error, retryable=retryable)
+    else:
+        message = (result["raw"].get("choices") or [{}])[0].get("message") or {}
+        out.update(answer=result["answer"], finish_reason=result["finish_reason"], usage=result["usage"],
+                   served_model=result["raw"].get("model"), message_keys=sorted(message),
+                   content_has_reasoning_tags="<reasoning>" in (message.get("content") or ""))
+    print(json.dumps(out, indent=2))
+    bc.audit("preflight_llm", **{k: v for k, v in out.items() if k != "answer"})
+    return 1 if error else 0
+
+
+def check_gemini_key_project(args):
+    key = bc.load_key("gemini")
+    print(f"key length {len(key)}, starts with {key[:6]}")
+    for url in PROBE_URLS:
+        response = requests.get(url, headers={"x-goog-api-key": key}, timeout=30)
+        try:
+            error = response.json().get("error") or {}
+        except ValueError:
+            error = {}
+        for detail in error.get("details") or []:
+            consumer = (detail.get("metadata") or {}).get("consumer")
+            if consumer:
+                out = {"probe": url, "http_status": response.status_code, "reason": detail.get("reason"),
+                       "consumer": consumer}
+                print(json.dumps(out, indent=2))
+                bc.audit("preflight_gemini_key_project", **out)
+                return 0
+        reasons = [d.get("reason") for d in error.get("details") or [] if d.get("reason")]
+        print(f"{url}: HTTP {response.status_code}, no consumer project in the answer "
+              f"({error.get('status')} {reasons} {str(error.get('message'))[:160]})")
+    print("No probe named the project. Check the key in AI Studio (API keys page).")
+    return 1
+
+
+def check_file_search(args):
+    retriever = retrievers.make("gemini_file_search", args)
+    rows = []
+    for question in bc.load_questions(args):
+        start = time.monotonic()
+        result, error, _ = retriever.retrieve(question, args.timeout)
+        row = {"id": question["id"], "type": question["question_type"], "latency_s": round(time.monotonic() - start, 2)}
+        if error:
+            row["error"] = error
+        else:
+            row.update(chunks=len(result["contexts"]), chunk_chars=[len(c) for c in result["contexts"]],
+                       grounding_chunks_raw=result["extra"]["grounding_chunks_raw"], usage=result["usage"],
+                       cost_usd=round(retriever.cost(result["usage"]), 5))
+        rows.append(row)
+        print(json.dumps(row))
+    counts = [r.get("chunks", 0) for r in rows]
+    out = {"store": args.store, "top_k": args.top_k, "retrieval_instruction": args.retrieval_instruction,
+           "questions": len(rows), "errors": sum("error" in r for r in rows), "chunks_per_question": counts,
+           "mean_chunks": round(sum(counts) / len(counts), 2), "questions_with_top_k": counts.count(args.top_k),
+           "total_cost_usd": round(sum(r.get("cost_usd", 0) for r in rows), 4)}
+    print(json.dumps(out, indent=2))
+    bc.audit("preflight_file_search", **out, rows=rows)
+    return 1 if out["errors"] or out["questions_with_top_k"] != len(rows) else 0
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = parser.add_subparsers(dest="check", required=True)
+    llm = sub.add_parser("llm")
+    llm.add_argument("--llm", required=True, choices=llm_backends.names())
+    llm.add_argument("--timeout", type=float, default=120)
+    sub.add_parser("gemini-key-project")
+    file_search = sub.add_parser("file-search")
+    bc.add_common_args(file_search, "preflight")
+    retrievers.add_args(file_search)
+    args = parser.parse_args()
+    if args.check == "file-search" and not (args.questions_file or args.sample):
+        args.sample = 1
+    checks = {"llm": check_llm, "gemini-key-project": check_gemini_key_project, "file-search": check_file_search}
+    sys.exit(checks[args.check](args))
+
+
+if __name__ == "__main__":
+    main()

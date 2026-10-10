@@ -1,0 +1,51 @@
+{
+  "name": "extra_v1",
+  "description": "RAGAS Answer Accuracy and Factual Correctness, DeepEval Summarization and Hallucination, on saved answers. Not part of the official GraphRAG-Bench protocol.",
+  "judge": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "key": "openai",
+    "args": {"temperature": 0, "max_tokens": 4096},
+    "price_usd_per_1m": {"input": 0.15, "output": 0.60},
+    "note": "The operator chose Claude Haiku 5.5 on Bedrock if it is available; it needs an AWS Marketplace subscription that the bedrock profile does not have (2026-10-10), so the official judge is used."
+  },
+  "concurrency": 16,
+  "metrics": [
+    {
+      "key": "ragas_answer_accuracy",
+      "implementation": "ragas_answer_accuracy",
+      "label": "Answer Accuracy (RAGAS, NVIDIA)",
+      "question_types": "all",
+      "params": {}
+    },
+    {
+      "key": "ragas_factual_correctness",
+      "implementation": "ragas_factual_correctness",
+      "label": "Factual Correctness (RAGAS)",
+      "question_types": "all",
+      "params": {"atomicity": "low", "coverage": "low", "beta": 1.0},
+      "outputs": ["precision", "recall", "f1"],
+      "note": "One claim decomposition and verification in each direction; precision, recall and F1 come from the same TP, FP and FN, with the formulas of FactualCorrectness."
+    },
+    {
+      "key": "deepeval_summarization",
+      "implementation": "deepeval_summarization",
+      "label": "Summarization (DeepEval)",
+      "question_types": ["Contextual Summarize"],
+      "source": "evidence",
+      "params": {"n": 5},
+      "outputs": ["score", "alignment", "coverage"],
+      "note": "The original text is the gold evidence, the same for every system. The assessment questions are made once per question by `score_extra.py prepare` and used for every system."
+    },
+    {
+      "key": "deepeval_hallucination",
+      "implementation": "deepeval_hallucination",
+      "label": "Hallucination (DeepEval; higher is better)",
+      "question_types": "all",
+      "context": "evidence",
+      "context_separator": "; ",
+      "params": {},
+      "note": "Context is the gold evidence, one context item per fact. The score is the fraction of facts that the answer does not contradict, so \"I don't know\" scores 1."
+    }
+  ]
+}

@@ -27,6 +27,8 @@ Benchmark Datasets/
 ├── metrics_cheatsheet.html the metrics of each benchmark: why and how (from pipeline/make_cheatsheet.py)
 ├── pipeline/               benchmark-agnostic core
 │   ├── bench_common.py     run loop, resume, retries, readiness, audit files, full-run guard
+│   ├── llm_backends.json   named LLM backends: endpoint, auth method, model, generation params, prices
+│   ├── llm_backends.py     one chat() for all backends; Bedrock tokens made in memory from an AWS profile
 │   ├── make_cheatsheet.py  writes metrics_cheatsheet.html; edit its text when a metric changes
 │   ├── report_html.py      4Minds HTML style for reports: CSS, logo, system colors, bar with CI,
 │   │                       quality vs. median latency scatter (plotly.js 4.1.2 from cdn.plot.ly, SRI-pinned)
@@ -37,19 +39,43 @@ Benchmark Datasets/
 │   ├── setup_gemini.py     Gemini File Search store: creates it and uploads the corpus
 │   ├── run_gemini.py       Gemini Developer API + File Search
 │   ├── run_lightrag.py     LightRAG 1.2.5 + Gemini: builds the local index (--index-only) and answers
-│   ├── setup_rag_engine.py Vertex AI RAG Engine: provisions Spanner Basic if necessary, creates the corpus (europe-west4)
+│   ├── setup_rag_engine.py Vertex AI RAG Engine: provisions Spanner Basic if necessary, creates the corpus (--location)
 │   ├── run_rag_engine.py   Gemini + RAG Engine retrieval
-│   └── cleanup_rag_engine.py  deletes the corpus and stops Spanner billing
+│   ├── cleanup_rag_engine.py  deletes the corpus and stops Spanner billing
+│   ├── retrievers.py       retrieval only: none, gemini_file_search, vertex_rag_engine
+│   ├── run_rag.py          any retriever + any LLM backend (--retriever, --llm)
+│   └── preflight.py        one-request checks: LLM backend, Gemini key project, File Search chunk count
 ├── envs/                   Python environments (.venv-eval, .venv-lightrag) and setup_envs.sh
 └── benchmarks/
     └── <benchmark>/
-        ├── benchmark_profile.py   the benchmark-specific part (see "Profile contract")
         ├── README.md              protocol, status, findings, caveats
+        ├── benchmark_profile.py   the benchmark-specific part (see "Profile contract")
         ├── upstream/              the official repo, pinned to one commit, never edited
         ├── data/                  local data (pilot question files, corpus copies)
-        ├── results/               all output, including results/audit/
-        └── *.py                   scorer wrappers, aggregation, report, benchmark-only adapters
+        ├── configs/
+        │   ├── comparisons/       one file per version of the protocol (systems, caveats, checks)
+        │   └── scorers/           scorers that are not in the official protocol
+        ├── scripts/               scorer wrappers, aggregation, report, benchmark-only adapters
+        ├── runs/                  README.md: the list of runs (generated)
+        │   └── <YYYY-MM-DD>_<name>/
+        │       ├── README.md      generated: status, config, systems, deviations, assets, steps
+        │       ├── run.json       you write it: title, purpose, status, notes
+        │       ├── config.json    copy of the comparison config that made the summary (with sha256)
+        │       ├── <system>/<subset>/   answers, logs, scores of one system
+        │       ├── summary/       scores.json, report.md, report.html
+        │       ├── tests/<name>/  diagnostic tests on this run
+        │       ├── extra/<name>/  extra scores of this run's answers
+        │       └── _superseded_<reason>/  replaced system folders, kept for audit
+        ├── shared/                what several runs use: cloud resource IDs, indexes, shared scorer inputs
+        ├── archive/               output that belongs to no run
+        └── audit/                 audit log, step logs, patches, diagnostics, moves/
 ```
+
+Find a result in this order: the benchmark, then the run, then the assets of the run. The
+layout is in `bench_common` (`RUNS`, `SHARED`, `CONFIGS`, `ARCHIVE`, `AUDIT_DIR`); scripts use
+these, not literal paths. `./bench` finds a script by its name in `scripts/`.
+`pipeline/run_readme.py` writes the run README and the run list; `aggregate.py` and
+`make_report.py` call it, and you can run it alone for a run with no summary.
 
 The split between `pipeline/`, `systems/` and `benchmarks/` is the main idea:
 
@@ -60,9 +86,21 @@ The split between `pipeline/`, `systems/` and `benchmarks/` is the main idea:
 
 Each benchmark has its own `aggregate.py` and `make_report.py`, because the metrics and the
 text are different. The HTML style is shared: `pipeline/report_html.py`. Every benchmark
-writes `results/<run>/summary/report.html` as the final result. Move more code to
+writes `runs/<run>/summary/report.html` as the final result. Move more code to
 `pipeline/` only when two benchmarks use the same code (the bootstrap is still a copy in
 each `aggregate.py`).
+
+### Configuration, not code
+
+- **LLM backend** (`pipeline/llm_backends.json`): to answer with another model or host, add
+  a backend entry and pass `--llm <name>`. Do not put a model ID or URL in a runner.
+- **Retriever** (`systems/retrievers.py`): `systems/run_rag.py --retriever <name> --llm <name>`
+  combines any retriever with any backend. A new retriever is one class with `settings()`,
+  `readiness()`, `retrieve()` and `cost()`.
+- **Comparison** (`benchmarks/<name>/configs/comparisons/*.json`, GraphRAG-Bench): the systems of one
+  report, their names, colors, the reference system, the timing plan, the caveats and the
+  sensitivity checks (scores again without a set of questions; rules in
+  `aggregate.SENSITIVITY_RULES`). `aggregate.py --matrix` and `make_timing.py --matrix` read it.
 
 ## Run a step
 
@@ -90,13 +128,16 @@ Examples (GraphRAG-Bench pilot):
 ```
 ./bench graphrag-bench pilot_4minds_constellations eval systems/run_4minds.py --engine constellations \
     --subset medical --questions-file data/Questions/pilot_questions.json \
-    --out-dir results/pilot/4minds_constellations --workers 4
-./bench graphrag-bench score_pilot_4minds eval score.py --system-dir results/pilot/4minds_constellations/medical
-./bench graphrag-bench aggregate_pilot eval aggregate.py --results results/pilot --label PILOT
-./bench graphrag-bench report_pilot eval make_report.py --results results/pilot
+    --out-dir runs/2026-10-09_gemini-pilot/4minds_constellations --workers 4
+./bench graphrag-bench score_pilot_4minds eval score.py --system-dir runs/2026-10-09_gemini-pilot/4minds_constellations/medical
+./bench graphrag-bench aggregate_pilot eval aggregate.py --matrix configs/comparisons/gemini.json \
+    --run runs/2026-10-09_gemini-pilot --label PILOT
+./bench graphrag-bench report_pilot eval make_report.py --run runs/2026-10-09_gemini-pilot
 ```
 
 Every runner accepts `--dry-run`: it prints the first request and sends nothing.
+Before a new backend or retriever is used in a run, check it with one request:
+`./bench <benchmark> preflight_llm eval systems/preflight.py llm --llm <backend>`.
 
 ## The run lifecycle
 
@@ -116,7 +157,7 @@ Use these steps for every benchmark and every system.
 
 ## Output of a run
 
-A runner writes to `results/<...>/<system>/<subset>/`:
+A runner writes to `runs/<YYYY-MM-DD>_<comparison>/<system>/<subset>/`:
 
 | File | Content |
 |---|---|
@@ -127,9 +168,9 @@ A runner writes to `results/<...>/<system>/<subset>/`:
 | `manifest.json` | command, settings, readiness state, input hashes, code hashes, package versions, summary |
 
 A stopped run continues where it stopped (resume from `runs.jsonl`).
-`results/audit/audit.log` has one JSON line for each event, in time order.
-`results/audit/steps/` has the full console output of each step.
-`results/audit/patches/` has a diff for each change to upstream code that the pipeline makes in memory.
+`audit/audit.log` has one JSON line for each event, in time order.
+`audit/steps/` has the full console output of each step.
+`audit/patches/` has a diff for each change to upstream code that the pipeline makes in memory.
 
 ## Profile contract
 
@@ -161,7 +202,7 @@ Known limits of the current contract (change them when a benchmark needs it):
 1. Clone the official repo into `benchmarks/<name>/upstream/` and record the commit.
 2. Write `benchmark_profile.py` (see the contract) and `README.md`.
 3. Write a scorer wrapper that runs the official scorer unchanged. If the official code
-   needs a change, apply it in memory and write the diff to `results/audit/patches/`.
+   needs a change, apply it in memory and write the diff to `audit/patches/`.
 4. Make a stratified pilot question file in `data/`.
 5. Write `aggregate.py` and `make_report.py` (HTML report with `pipeline/report_html.py`).
    Add the metrics to `pipeline/make_cheatsheet.py` and run it.
@@ -177,8 +218,13 @@ Keys are in files with mode 600. Code reads them with `bench_common.load_key(pro
 | Gemini Developer API | `~/.config/gemini/api_key` |
 | OpenAI (judge) | `~/.config/openai/api_key` |
 | Google Cloud (Vertex AI) | application default credentials (`gcloud auth application-default login`) |
+| Amazon Bedrock | the AWS profile in the backend's `auth.profile` (now `bedrock`, region us-east-1). No key file: `llm_backends.py` makes a short-term Bedrock token in memory and makes it again before it expires. |
 
 Never print a key, put it in a URL or a command line, or write it to a log.
+
+For AWS, short-term credentials from `aws login --profile bedrock` are better than a
+long-term access key in `~/.aws/credentials`. Give the IAM identity only
+`bedrock:InvokeModel` (and `bedrock:CallWithBearerToken`) on the models in `llm_backends.json`.
 
 ## Cloud resources
 
@@ -190,9 +236,9 @@ Resources that exist now, and what they cost:
 | Gemini File Search store `graphragbench-9lax22b99qlk` | storage only | GraphRAG-Bench corpus |
 | 4Minds dataset 4039, model 3598, persona 1283 (prod) | none | QASPER pilot slice. |
 | Gemini File Search store `qaspertestpilot-jva5no5yqkow` | storage only | QASPER pilot slice |
-| RAG Engine, project `minds-vs-gemini-benchmark`, europe-west4 | none | Unprovisioned again on 2026-10-09 after the QASPER pilot; no corpus. `setup_rag_engine.py` provisions Spanner Basic, which costs money every hour. Run `cleanup_rag_engine.py` after use. |
-| RAG Engine us-central1 config (Serverless), Vector Search API | none | |
-| LightRAG indexes | none (local) | `benchmarks/<benchmark>/results/lightrag/workspace/` |
+| RAG Engine, project `minds-vs-gemini-benchmark`, europe-west4 and us-east4 | none | Both unprovisioned on 2026-10-09; no corpus. us-east4 was on Spanner Basic with no corpus (probably since the September attempts) until then. `setup_rag_engine.py` provisions Spanner Basic, which costs money every hour. Run `cleanup_rag_engine.py --location <region>` after use, and check every region you tried. |
+| RAG Engine us-central1 config (Serverless), Vector Search API | none | Serverless corpus creation fails: "No available indexing project" (Sep and Oct 2026). |
+| LightRAG indexes | none (local) | `benchmarks/<benchmark>/shared/lightrag/workspace/` (Gemini), `workspace_<llm backend>/` (others) |
 
 **RAG Engine check:** "ACTIVE" in the control plane does not prove that queries work. In the
 QASPER pilot, europe-west4 returned HTTP 500 "Failed to fetch corpus status from spanner" for

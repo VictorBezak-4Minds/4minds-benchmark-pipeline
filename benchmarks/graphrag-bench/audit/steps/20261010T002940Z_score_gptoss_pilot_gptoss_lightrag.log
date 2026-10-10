@@ -1,0 +1,26 @@
+# step: score_gptoss_pilot_gptoss_lightrag
+# start: 2026-10-10T00:29:40Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score.py --system-dir results/gptoss_pilot/gptoss_lightrag/medical --shard-size 50
+
+scoring 10 predictions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/gptoss_pilot/gptoss_lightrag/medical with gpt-4o-mini (gpt-4o-mini-2024-07-18), 1 shard(s); 0 already complete, 1 to score, 8 at a time
+  shard_000: exit 0, failed samples 0
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.4307
+  answer_correctness: 0.7950
+Results for Complex Reasoning:
+  rouge_score: 0.2138
+  answer_correctness: 0.4260
+Results for Contextual Summarize:
+  answer_correctness: 0.7723
+  coverage_score: 0.6181
+Results for Creative Generation:
+  answer_correctness: 0.8172
+  coverage_score: 0.8333
+  faithfulness: 0.6897
+Evaluation complete.
+
+done in 71.2 s, exit 0, scored {'Fact Retrieval': 5, 'Complex Reasoning': 2, 'Contextual Summarize': 2, 'Creative Generation': 1}, failed samples 0
+
+# end: 2026-10-10T00:30:53Z  exit: 0  duration_s: 73

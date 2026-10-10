@@ -1,0 +1,23 @@
+{
+  "bedrock-gpt-oss-120b": {
+    "description": "GPT-OSS-120B (official OpenAI weights) on Amazon Bedrock, OpenAI-compatible Chat Completions on bedrock-runtime",
+    "base_url": "https://bedrock-runtime.{region}.amazonaws.com/openai/v1",
+    "model": "openai.gpt-oss-120b-1:0",
+    "auth": {"type": "aws_bedrock_token", "profile": "bedrock", "region": "us-east-1"},
+    "params": {"temperature": 0.3, "max_tokens": 4096, "reasoning_effort": "medium"},
+    "params_note": "temperature 0.3 and max_tokens 4096 are the 4Minds server defaults (backend app/services/llm/graph.py); 4Minds does not set a reasoning effort, so GPT-OSS uses its default, medium",
+    "price_usd_per_1m": {"input": 0.15, "output": 0.60},
+    "price_note": "Bedrock Standard tier list price; the pricing page showed Asia Pacific (Sydney) at 0.1545/0.6180, US regions are 3% lower",
+    "max_concurrency": 16
+  },
+  "gemini-3.8-flash": {
+    "description": "gemini-3.8-flash through the Gemini Developer API OpenAI-compatible endpoint",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+    "model": "gemini-3.8-flash",
+    "auth": {"type": "api_key_file", "provider": "gemini"},
+    "params": {},
+    "price_usd_per_1m": {"input": 0.75, "output": 3.75},
+    "price_note": "paid tier until Dec 31, 2026; the OpenAI endpoint counts thinking tokens only in total_tokens",
+    "max_concurrency": 16
+  }
+}

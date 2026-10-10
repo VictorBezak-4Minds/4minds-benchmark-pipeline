@@ -1,0 +1,43 @@
+system,question_type,metric,mean,ci_low,ci_high,n
+4Minds (Constellations),Fact Retrieval,rouge_score,0.2631,0.2509,0.2751,1097
+4Minds (Constellations),Fact Retrieval,answer_correctness,0.6743,0.6579,0.6891,1097
+4Minds (Constellations),Complex Reasoning,rouge_score,0.1407,0.1327,0.1495,509
+4Minds (Constellations),Complex Reasoning,answer_correctness,0.6811,0.6596,0.7039,509
+4Minds (Constellations),Contextual Summarize,answer_correctness,0.8235,0.7993,0.8484,289
+4Minds (Constellations),Contextual Summarize,coverage_score,0.8272,0.8039,0.8517,289
+4Minds (Constellations),Creative Generation,answer_correctness,0.7272,0.6965,0.7581,165
+4Minds (Constellations),Creative Generation,coverage_score,0.615,0.5833,0.648,165
+4Minds (Constellations),Creative Generation,faithfulness,0.6713,0.5479,0.7947,28
+4Minds (Constellations),Creative Generation,faithfulness_jsonfix,0.5628,0.5045,0.617,166
+4Minds (Constellations),All questions,answer_correctness,0.7012,0.6898,0.7126,2060
+GPT-OSS + LightRAG,Fact Retrieval,rouge_score,0.3992,0.3854,0.4126,1098
+GPT-OSS + LightRAG,Fact Retrieval,answer_correctness,0.7326,0.7164,0.7488,1098
+GPT-OSS + LightRAG,Complex Reasoning,rouge_score,0.2455,0.2336,0.2584,509
+GPT-OSS + LightRAG,Complex Reasoning,answer_correctness,0.7695,0.7512,0.7885,509
+GPT-OSS + LightRAG,Contextual Summarize,answer_correctness,0.8226,0.8019,0.8432,289
+GPT-OSS + LightRAG,Contextual Summarize,coverage_score,0.6893,0.6598,0.7165,289
+GPT-OSS + LightRAG,Creative Generation,answer_correctness,0.7345,0.7118,0.7585,166
+GPT-OSS + LightRAG,Creative Generation,coverage_score,0.6115,0.5833,0.6395,166
+GPT-OSS + LightRAG,Creative Generation,faithfulness,0.5152,0.4496,0.5784,105
+GPT-OSS + LightRAG,Creative Generation,faithfulness_jsonfix,0.5011,0.4532,0.5488,166
+GPT-OSS + LightRAG,All questions,answer_correctness,0.7545,0.7446,0.765,2062
+GPT-OSS + File Search,Fact Retrieval,rouge_score,0.3991,0.3848,0.4129,1098
+GPT-OSS + File Search,Fact Retrieval,answer_correctness,0.7353,0.7201,0.752,1098
+GPT-OSS + File Search,Complex Reasoning,rouge_score,0.2575,0.2441,0.2708,509
+GPT-OSS + File Search,Complex Reasoning,answer_correctness,0.7741,0.754,0.7937,509
+GPT-OSS + File Search,Contextual Summarize,answer_correctness,0.8178,0.7935,0.8407,288
+GPT-OSS + File Search,Contextual Summarize,coverage_score,0.751,0.7216,0.7794,288
+GPT-OSS + File Search,Creative Generation,answer_correctness,0.7324,0.6997,0.7628,166
+GPT-OSS + File Search,Creative Generation,coverage_score,0.6245,0.5877,0.6596,166
+GPT-OSS + File Search,Creative Generation,faithfulness,0.3803,0.2474,0.517,27
+GPT-OSS + File Search,Creative Generation,faithfulness_jsonfix,0.5374,0.4829,0.5886,165
+GPT-OSS + File Search,All questions,answer_correctness,0.7562,0.745,0.767,2061
+GPT-OSS (no RAG),Fact Retrieval,rouge_score,0.1672,0.1545,0.1801,1098
+GPT-OSS (no RAG),Fact Retrieval,answer_correctness,0.4323,0.4139,0.4521,1098
+GPT-OSS (no RAG),Complex Reasoning,rouge_score,0.1074,0.0947,0.12,508
+GPT-OSS (no RAG),Complex Reasoning,answer_correctness,0.4122,0.3839,0.441,508
+GPT-OSS (no RAG),Contextual Summarize,answer_correctness,0.3402,0.3074,0.3754,288
+GPT-OSS (no RAG),Contextual Summarize,coverage_score,0.1704,0.1367,0.2063,288
+GPT-OSS (no RAG),Creative Generation,answer_correctness,0.3504,0.3079,0.3934,163
+GPT-OSS (no RAG),Creative Generation,coverage_score,0.2087,0.1644,0.2543,163
+GPT-OSS (no RAG),All questions,answer_correctness,0.408,0.3945,0.4218,2057

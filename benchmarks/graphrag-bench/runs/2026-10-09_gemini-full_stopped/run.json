@@ -1,0 +1,8 @@
+{
+  "title": "Gemini comparison, full run (stopped)",
+  "purpose": "Full run of the Gemini comparison. It was started by mistake (not approved).",
+  "status": "Stopped after about 2 minutes on 2026-10-09. Partial output, not scored. Do not use.",
+  "notes": [
+    "The 4 steps started at 2026-10-09 15:43-15:44 UTC (`full_4minds_constellations`, `full_rag_engine`, `full_lightrag`, `full_gemini_file_search` in `audit/audit.log`) with the default output folders. The audit event `full_runs_stopped` (15:47 UTC) moved the output to `results/_stopped_full_run_20261009`; the 2026-10-10 moves gave it this name. The steps table below cannot find these 4 steps, because their commands do not name an output folder."
+  ]
+}

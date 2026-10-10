@@ -1,0 +1,117 @@
+# step: score_full_gptoss_norag_retry3
+# start: 2026-10-10T12:06:57Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score.py --system-dir results/gptoss/gptoss_norag/medical --shard-size 50 --parallel 8
+
+scoring 2062 predictions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/gptoss/gptoss_norag/medical with gpt-4o-mini (gpt-4o-mini-2024-07-18), 42 shard(s); 38 already complete, 4 to score, 8 at a time
+  shard_026: exit 0, failed samples 1
+  shard_009: exit 0, failed samples 2
+  shard_040: exit 0, failed samples 0
+  shard_022: exit 0, failed samples 2
+arize:
+  answer_correctness: 0.4844
+  coverage_score: 0.3098
+Results for Creative Generation:
+  answer_correctness: 0.4451
+  coverage_score: 0.2361
+  faithfulness: 0.0000
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.1360
+  answer_correctness: 0.4093
+Results for Complex Reasoning:
+  rouge_score: 0.0624
+  answer_correctness: 0.2641
+Results for Contextual Summarize:
+  answer_correctness: 0.3613
+  coverage_score: 0.3268
+Results for Creative Generation:
+  answer_correctness: 0.4189
+  coverage_score: 0.2428
+  faithfulness: 0.0000
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.1142
+  answer_correctness: 0.4117
+Results for Complex Reasoning:
+  rouge_score: 0.0876
+  answer_correctness: 0.4195
+Results for Contextual Summarize:
+  answer_correctness: 0.3596
+  coverage_score: 0.2030
+Results for Creative Generation:
+  answer_correctness: 0.3744
+  coverage_score: 0.3643
+  faithfulness: 0.0000
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.1592
+  answer_correctness: 0.3221
+Results for Complex Reasoning:
+  rouge_score: 0.2047
+  answer_correctness: 0.5885
+Results for Contextual Summarize:
+  answer_correctness: 0.1690
+  coverage_score: 0.0000
+Results for Creative Generation:
+  answer_correctness: 0.3001
+  coverage_score: 0.0625
+  faithfulness: 0.0000
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.0896
+  answer_correctness: 0.3399
+Results for Complex Reasoning:
+  rouge_score: 0.1718
+  answer_correctness: 0.4948
+Results for Contextual Summarize:
+  answer_correctness: 0.2708
+  coverage_score: 0.1429
+Results for Creative Generation:
+  answer_correctness: 0.1709
+  coverage_score: 0.0000
+  faithfulness: 0.0000
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.0924
+  answer_correctness: 0.4154
+Results for Complex Reasoning:
+  rouge_score: 0.1468
+  answer_correctness: 0.4374
+Results for Contextual Summarize:
+  answer_correctness: 0.2842
+  coverage_score: 0.2024
+Results for Creative Generation:
+  answer_correctness: 0.2372
+  coverage_score: 0.3125
+  faithfulness: 0.0000
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.1793
+  answer_correctness: 0.4584
+Results for Complex Reasoning:
+  rouge_score: 0.1423
+  answer_correctness: 0.5003
+Results for Contextual Summarize:
+  answer_correctness: 0.1707
+  coverage_score: 0.0000
+Results for Creative Generation:
+  answer_correctness: 0.1730
+  coverage_score: 0.0419
+  faithfulness: 0.0000
+Evaluation complete.
+
+done in 139.4 s, exit 1, scored {'Fact Retrieval': 1098, 'Complex Reasoning': 508, 'Contextual Summarize': 288, 'Creative Generation': 163}, failed samples 5
+
+# end: 2026-10-10T12:09:18Z  exit: 1  duration_s: 141

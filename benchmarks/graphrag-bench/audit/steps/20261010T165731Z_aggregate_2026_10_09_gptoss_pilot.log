@@ -1,0 +1,9 @@
+# step: aggregate_2026_10_09_gptoss_pilot
+# start: 2026-10-10T16:57:31Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/aggregate.py --matrix matrices/gptoss.json --results results/runs/2026-10-09_gptoss-pilot --label PILOT
+
+usage: aggregate.py [-h] --matrix MATRIX [--results RESULTS] [--subset SUBSET]
+                    [--label LABEL]
+aggregate.py: error: unrecognized arguments: --label PILOT
+
+# end: 2026-10-10T16:57:31Z  exit: 2  duration_s: 0

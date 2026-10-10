@@ -1,0 +1,16 @@
+# step: test_filesearch_fault_probe
+# start: 2026-10-10T13:23:14Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag.py --subset medical --questions-file results/_tests/filesearch_fault_probe/questions.json --llm bedrock-gpt-oss-120b --retriever gemini_file_search --retrieval-instruction cite_each --out-dir results/_tests/filesearch_fault_probe/run --workers 4 --timeout 120 --max-attempts 3
+
+== gemini_file_search+bedrock-gpt-oss-120b / medical: 4 questions, 0 already done, 4 to run, 4 workers
+  readiness: {"retriever": "gemini_file_search", "store": "fileSearchStores/graphragbench-9lax22b99qlk", "activeDocumentsCount": 21, "pendingDocumentsCount": 0, "failedDocumentsCount": 0, "query_check_chunks": 5, "llm_check": {"finish_reason": "stop", "usage": {"completion_tokens": 115, "prompt_tokens": 145, "total_tokens": 260}}}
+  [4/4] FAILED Medical::Medical-fc8c1f25: {"stage": "retrieval", "code": "network", "message": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120.0)", "http_status": 0}
+
+== summary -> results/_tests/filesearch_fault_probe/run/medical/predictions.json
+  answered: 3 / 4   failed: 1   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'retrieval_thoughtsTokenCount': 3426, 'retrieval_candidatesTokenCount': 1380, 'retrieval_toolUsePromptTokenCount': 121625, 'retrieval_promptTokenCount': 1171, 'completion_tokens': 632, 'prompt_tokens': 5811, 'total_tokens': 6443}
+  latency: {'n': 3, 'mean_s': 32.25, 'median_s': 17.54, 'p90_s': 67.0, 'max_s': 67.0}   estimated cost: 0.1114
+  Run the same command again to retry the failed questions.
+
+# end: 2026-10-10T13:29:43Z  exit: 1  duration_s: 389

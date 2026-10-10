@@ -6,11 +6,12 @@
 #   benchmark  a folder in benchmarks/ that has a benchmark_profile.py (for example graphrag-bench)
 #   step-name  a short name for the audit log (for example pilot_4minds_constellations)
 #   env        eval or lightrag: the Python environment in envs/.venv-<env>
-#   script     a path from the hub root (systems/run_4minds.py) or from the benchmark folder (score.py)
+#   script     a path from the hub root (systems/run_4minds.py), from the benchmark folder, or a
+#              name in the benchmark's scripts/ folder (score.py)
 #
-# The step runs in the benchmark folder, so relative paths such as results/pilot/... and
+# The step runs in the benchmark folder, so relative paths such as runs/<run>/... and
 # data/Questions/... point into that benchmark. The output goes to the terminal and to
-# benchmarks/<benchmark>/results/audit/steps/, and results/audit/audit.log records the step.
+# benchmarks/<benchmark>/audit/steps/, and audit/audit.log records the step.
 set -u
 HUB="${0:A:h}"
 BG=0
@@ -27,7 +28,8 @@ PY="$HUB/envs/.venv-$ENV_NAME/bin/python"
 [ -x "$PY" ] || { echo "No environment: $PY (see envs/setup_envs.sh)"; exit 2; }
 if [ -f "$HUB/$SCRIPT" ]; then SCRIPT="$HUB/$SCRIPT"
 elif [ -f "$BENCH_DIR/$SCRIPT" ]; then SCRIPT="$BENCH_DIR/$SCRIPT"
-else echo "No script $SCRIPT in $HUB or $BENCH_DIR"; exit 2
+elif [ -f "$BENCH_DIR/scripts/$SCRIPT" ]; then SCRIPT="$BENCH_DIR/scripts/$SCRIPT"
+else echo "No script $SCRIPT in $HUB, $BENCH_DIR or $BENCH_DIR/scripts"; exit 2
 fi
 
 export BENCHMARK BENCH_DIR BENCH_HUB="$HUB"
@@ -35,8 +37,8 @@ export PYTHONPATH="$HUB/pipeline:$HUB/systems:$BENCH_DIR"
 export PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 cd "$BENCH_DIR"
 if [ "$BG" = 1 ]; then
-  mkdir -p results/audit/bg
-  OUT="$BENCH_DIR/results/audit/bg/$STEP.out"
+  mkdir -p audit/bg
+  OUT="$BENCH_DIR/audit/bg/$STEP.out"
   nohup caffeinate -i "$HUB/pipeline/run_logged.sh" "$STEP" "$PY" "$SCRIPT" "$@" > "$OUT" 2>&1 < /dev/null &
   echo "started pid $! -> $OUT"
 else

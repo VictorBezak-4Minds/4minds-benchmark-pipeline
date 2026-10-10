@@ -1,0 +1,28 @@
+# step: cleanup_rag_engine_europe_west4
+# start: 2026-10-09T23:43:45Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/cleanup_rag_engine.py --location europe-west4
+
+deleted projects/minds-vs-gemini-benchmark/locations/europe-west4/ragCorpora/6917529027641081856
+{
+  "before": {
+    "name": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragEngineConfig",
+    "ragManagedDbConfig": {
+      "basic": {},
+      "spanner": {
+        "basic": {}
+      }
+    }
+  },
+  "after": {
+    "name": "projects/minds-vs-gemini-benchmark/locations/europe-west4/ragEngineConfig",
+    "ragManagedDbConfig": {
+      "unprovisioned": {},
+      "spanner": {
+        "unprovisioned": {}
+      }
+    }
+  },
+  "remaining_corpora": 0
+}
+
+# end: 2026-10-09T23:44:22Z  exit: 0  duration_s: 37

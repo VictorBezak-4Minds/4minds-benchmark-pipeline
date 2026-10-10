@@ -1,0 +1,12 @@
+{
+  "time": "2026-10-10T16:52:52+00:00",
+  "reason": "results layout: runs/, setup/, tests/, archive/ with dated names",
+  "root": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/qasper/results",
+  "moves": {
+    "pilot": "runs/2026-10-09_pilot",
+    "4minds": "setup/4minds",
+    "gemini": "setup/gemini",
+    "rag_engine": "setup/rag_engine",
+    "lightrag": "setup/lightrag"
+  }
+}

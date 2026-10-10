@@ -1,0 +1,15 @@
+# step: gptoss_pilot_4minds
+# start: 2026-10-09T23:45:20Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_4minds.py --engine constellations --subset medical --questions-file data/Questions/pilot_questions.json --out-dir results/gptoss_pilot/4minds_constellations --workers 4 --timeout 300
+
+== 4minds_constellations / medical: 10 questions, 0 already done, 10 to run, 4 workers
+  readiness: {"dataset_id": 4033, "model_id": 3592, "status": "in_use", "graph_status": "ready", "graph_build_progress": 100, "files_processed_count": 2, "total_chunks_count": 204, "build_status": "enhancing", "etl_job_status": "completed", "error_message": null, "model_status": "ready"}
+  [10/10] ok (45 s)
+
+== summary -> results/gptoss_pilot/4minds_constellations/medical/predictions.json
+  answered: 10 / 10   failed: 0   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'total_tokens': 3516, 'tokens_used_today': 127781, 'tokens_used_this_month': 127781}
+  latency: {'n': 10, 'mean_s': 14.32, 'median_s': 12.63, 'p90_s': 24.97, 'max_s': 24.97}   estimated cost: None
+
+# end: 2026-10-09T23:46:06Z  exit: 0  duration_s: 46

@@ -1,3 +1,18 @@
 envs/.venv-*/
 __pycache__/
 .DS_Store
+
+# Run data is large (answers, logs, shards, indexes). Keep only what describes a run and its result.
+# A file cannot be re-included when its folder is excluded, so runs/** excludes the contents and
+# the folders are re-included.
+benchmarks/*/shared/
+benchmarks/*/archive/
+benchmarks/*/runs/**
+!benchmarks/*/runs/**/
+!benchmarks/*/runs/README.md
+!benchmarks/*/runs/*/README.md
+!benchmarks/*/runs/*/run.json
+!benchmarks/*/runs/*/config.json
+!benchmarks/*/runs/*/timing.json
+!benchmarks/*/runs/*/blocked.json
+!benchmarks/*/runs/*/summary/**

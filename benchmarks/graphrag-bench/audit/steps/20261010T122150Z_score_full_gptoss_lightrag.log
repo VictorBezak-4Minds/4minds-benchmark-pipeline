@@ -1,0 +1,125 @@
+# step: score_full_gptoss_lightrag
+# start: 2026-10-10T12:21:51Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/score.py --system-dir results/gptoss/gptoss_lightrag/medical --shard-size 50 --parallel 8
+
+scoring 2062 predictions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/gptoss/gptoss_lightrag/medical with gpt-4o-mini (gpt-4o-mini-2024-07-18), 42 shard(s); 0 already complete, 42 to score, 8 at a time
+  shard_005: exit 0, failed samples 0
+  shard_004: exit 0, failed samples 0
+  shard_000: exit 0, failed samples 0
+  shard_007: exit 0, failed samples 0
+  shard_001: exit 0, failed samples 0
+  shard_003: exit 0, failed samples 0
+  shard_002: exit 0, failed samples 0
+  shard_006: exit 0, failed samples 0
+  shard_009: exit 0, failed samples 0
+  shard_008: exit 0, failed samples 0
+  shard_012: exit 0, failed samples 0
+  shard_010: exit 0, failed samples 0
+  shard_011: exit 0, failed samples 0
+  shard_014: exit 0, failed samples 0
+  shard_015: exit 0, failed samples 0
+  shard_013: exit 0, failed samples 0
+  shard_017: exit 0, failed samples 0
+  shard_016: exit 0, failed samples 0
+  shard_018: exit 0, failed samples 1
+  shard_019: exit 0, failed samples 0
+  shard_020: exit 0, failed samples 0
+  shard_021: exit 0, failed samples 0
+  shard_022: exit 0, failed samples 0
+  shard_023: exit 0, failed samples 0
+  shard_024: exit 0, failed samples 0
+  shard_026: exit 0, failed samples 0
+  shard_027: exit 0, failed samples 0
+  shard_029: exit 0, failed samples 0
+  shard_030: exit 0, failed samples 0
+  shard_031: exit 0, failed samples 0
+  shard_025: exit 0, failed samples 0
+  shard_028: exit 0, failed samples 0
+  shard_032: exit 0, failed samples 0
+  shard_034: exit 0, failed samples 0
+  shard_035: exit 0, failed samples 0
+  shard_036: exit 0, failed samples 1
+  shard_038: exit 0, failed samples 1
+  shard_037: exit 0, failed samples 1
+  shard_033: exit 0, failed samples 0
+  shard_039: exit 0, failed samples 1
+  shard_041: exit 0, failed samples 1
+  shard_040: exit 0, failed samples 0
+ation c...egg, or embryo banking.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+  Input should be a valid dictionary or instance of StatementsWithReason [type=model_type, input_value='Management of baseline s...ia or thrombocytopenia.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+  Input should be a valid dictionary or instance of StatementsWithReason [type=model_type, input_value='These interventions aim ...tment-related toxicity.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+  Input should be a valid dictionary or instance of StatementsWithReason [type=model_type, input_value='These interventions aim ...eserve quality of life.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+  Input should be a valid dictionary or instance of StatementsWithReason [type=model_type, input_value='These interventions aim ...g chemotherapy regimen.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+Results for Fact Retrieval:
+  rouge_score: 0.3723
+  answer_correctness: 0.6822
+Results for Complex Reasoning:
+  rouge_score: 0.3137
+  answer_correctness: 0.8738
+Results for Contextual Summarize:
+  answer_correctness: 0.8573
+  coverage_score: 0.7342
+Results for Creative Generation:
+  answer_correctness: 0.6670
+  coverage_score: 0.5505
+  faithfulness: 0.6875
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.3501
+  answer_correctness: 0.6627
+Results for Complex Reasoning:
+  rouge_score: 0.2548
+  answer_correctness: 0.8829
+Results for Contextual Summarize:
+  answer_correctness: 0.8046
+  coverage_score: 0.6445
+❌ Sample failed: Request timed out.
+Results for Creative Generation:
+  answer_correctness: 0.7491
+  coverage_score: 0.6978
+  faithfulness: 0.3750
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.4369
+  answer_correctness: 0.7698
+Results for Complex Reasoning:
+  rouge_score: 0.2788
+  answer_correctness: 0.8168
+Results for Contextual Summarize:
+  answer_correctness: 0.8934
+  coverage_score: 0.7568
+Results for Creative Generation:
+  answer_correctness: 0.7027
+  coverage_score: 0.6314
+  faithfulness: 0.6947
+Evaluation complete.
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.3728
+  answer_correctness: 0.6775
+Results for Complex Reasoning:
+  rouge_score: 0.2977
+  answer_correctness: 0.7537
+Results for Contextual Summarize:
+  answer_correctness: 0.8539
+  coverage_score: 0.7259
+❌ Sample failed: Request timed out.
+Results for Creative Generation:
+  answer_correctness: 0.8192
+  coverage_score: 0.6439
+  faithfulness: 0.4318
+Evaluation complete.
+
+done in 1259.2 s, exit 1, scored {'Fact Retrieval': 1096, 'Complex Reasoning': 509, 'Contextual Summarize': 287, 'Creative Generation': 164}, failed samples 6
+
+# end: 2026-10-10T12:42:52Z  exit: 1  duration_s: 1262
