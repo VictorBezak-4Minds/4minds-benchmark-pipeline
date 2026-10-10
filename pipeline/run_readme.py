@@ -130,6 +130,19 @@ def write(run_dir, title=None, purpose=None, status=None):
              f"| Status | {info.get('status', 'not set')} |"]
     if info.get("purpose"):
         lines.append(f"| Purpose | {info['purpose']} |")
+    if info.get("derived_from"):
+        source = Path(info["derived_from"]).name
+        lines.append(f"| Answers from | [`{info['derived_from']}/`](../{source}/README.md) (symlinks: "
+                     f"{', '.join(info.get('linked_files', []))}) |")
+        lines.append(f"| Change | {info.get('change', '')} |")
+    judge = (summary or {}).get("benchmark", {})
+    if judge.get("judge"):
+        costs = [c for s in summary.get("systems", []) for c in (s.get("scoring", {}).get("judge_cost_usd"),
+                                                                  s.get("faithfulness_jsonfix_judge_cost_usd"))
+                 if c is not None]
+        lines.append(f"| Judge | `{judge['judge']}` ({judge.get('judge_backend', 'openai-gpt-4o-mini')}; "
+                     f"{', '.join(judge.get('judge_snapshot', []))})"
+                     + (f"; measured judge cost {sum(costs):.2f} USD" if costs else "; judge cost not measured") + " |")
     if config:
         lines.append(f"| Config | `{config['source']}` (copy in `config.json`, sha256 `{config['sha256'][:12]}`): "
                      f"{config['config'].get('description', '')} |")

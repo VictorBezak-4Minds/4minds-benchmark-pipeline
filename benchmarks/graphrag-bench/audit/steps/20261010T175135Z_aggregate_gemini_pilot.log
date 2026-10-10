@@ -1,0 +1,7 @@
+# step: aggregate_gemini_pilot
+# start: 2026-10-10T17:51:35Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/aggregate.py --matrix gemini --run runs/2026-10-09_gemini-pilot --label PILOT
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-09_gemini-pilot/summary/scores.json, scores.csv, paired.csv, report.md for ['4minds_constellations', '4minds_symi', 'gemini', 'rag_engine', 'lightrag']
+
+# end: 2026-10-10T17:51:35Z  exit: 0  duration_s: 0

@@ -1,0 +1,46 @@
+{
+  "created": "2026-10-10T18:39:27+00:00",
+  "judge": "anthropic-claude-haiku-5-5",
+  "model": "claude-haiku-5-5",
+  "system_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku/gptoss_filesearch/medical",
+  "rows": [
+    {
+      "id": "Medical-f79d978d",
+      "answer_statements": 15,
+      "gold_statements": 3,
+      "finish_reason": "stop",
+      "completion_tokens": 2198,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Finding a lung nodule on imaging starts a step-by-step work-up.\",\n      \"reason\": \"This is supported by the ground truth statement that a lung nodule dete",
+      "factuality_reply_end": "led follow-up.\",\n      \"reason\": \"Scheduled follow-up is not mentioned in the ground truth.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "fenced": true,
+      "json_loads_without_fence": true
+    },
+    {
+      "id": "Medical-f79d978d",
+      "answer_statements": 15,
+      "gold_statements": 3,
+      "finish_reason": "stop",
+      "completion_tokens": 2672,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Finding a lung nodule on imaging starts a step-by-step work-up.\",\n      \"reason\": \"Supported by the ground truth statement that a lung nodule detected by ",
+      "factuality_reply_end": "statement. The answer does not state the \"confirm or exclude\" purpose explicitly, so the third match is a judgment call.",
+      "json_loads": false,
+      "fenced": false,
+      "json_loads_without_fence": null
+    },
+    {
+      "id": "Medical-f79d978d",
+      "answer_statements": 15,
+      "gold_statements": 3,
+      "finish_reason": "stop",
+      "completion_tokens": 2340,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Finding a lung nodule on imaging starts a step-by-step work-up.\",\n      \"reason\": \"This matches the ground truth statement that a lung nodule detected by ",
+      "factuality_reply_end": "led follow-up.\",\n      \"reason\": \"Scheduled follow-up is not mentioned in the ground truth.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "fenced": true,
+      "json_loads_without_fence": true
+    }
+  ],
+  "factuality_readable_by_official_parser": 0,
+  "readable_after_fence_removal": 2
+}

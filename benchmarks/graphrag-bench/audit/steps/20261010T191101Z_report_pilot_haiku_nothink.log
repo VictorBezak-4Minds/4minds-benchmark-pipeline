@@ -1,0 +1,7 @@
+# step: report_pilot_haiku_nothink
+# start: 2026-10-10T19:11:01Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/make_report.py --run runs/2026-10-10_gptoss-pilot_judge-haiku-nothink
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku-nothink/summary/report.html
+
+# end: 2026-10-10T19:11:01Z  exit: 0  duration_s: 0

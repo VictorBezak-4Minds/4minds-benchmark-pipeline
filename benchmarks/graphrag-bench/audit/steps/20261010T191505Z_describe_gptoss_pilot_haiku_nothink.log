@@ -1,0 +1,7 @@
+# step: describe_gptoss_pilot_haiku_nothink
+# start: 2026-10-10T19:15:05Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py --run runs/2026-10-10_gptoss-pilot_judge-haiku-nothink --status Pilot scored (thinking disabled, fence fix v2); 0 failed samples, 0 truncated replies. Full rescore not started (operator decision 2026-10-10): estimate about 29.7M output tokens, about $19, about 7 hours at 80,000 output tokens per minute.
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku-nothink/README.md
+
+# end: 2026-10-10T19:15:05Z  exit: 0  duration_s: 0

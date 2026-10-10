@@ -1,0 +1,26 @@
+# step: score_haiku_pilot_gptoss_filesearch
+# start: 2026-10-10T18:14:59Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/score.py --system-dir runs/2026-10-10_gptoss-pilot_judge-haiku/gptoss_filesearch/medical --judge anthropic-claude-haiku-5-5 --shard-size 50 --parallel 8
+
+scoring 10 predictions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku/gptoss_filesearch/medical with anthropic-claude-haiku-5-5 (claude-haiku-5-5), 1 shard(s); 0 already complete, 1 to score, 8 at a time
+  shard_000: exit 0, failed samples 0
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.4366
+  answer_correctness: 0.2353
+Results for Complex Reasoning:
+  rouge_score: 0.3074
+  answer_correctness: 0.2360
+Results for Contextual Summarize:
+  answer_correctness: 0.2306
+  coverage_score: 0.7500
+Results for Creative Generation:
+  answer_correctness: 0.2393
+  coverage_score: 0.6923
+  faithfulness: 0.6176
+Evaluation complete.
+
+done in 129.4 s, exit 0, scored {'Fact Retrieval': 5, 'Complex Reasoning': 2, 'Contextual Summarize': 2, 'Creative Generation': 1}, failed samples 0
+
+# end: 2026-10-10T18:17:11Z  exit: 0  duration_s: 132

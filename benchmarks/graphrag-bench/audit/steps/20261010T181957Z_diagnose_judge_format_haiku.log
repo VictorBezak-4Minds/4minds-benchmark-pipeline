@@ -1,0 +1,13 @@
+# step: diagnose_judge_format_haiku
+# start: 2026-10-10T18:19:57Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/diagnose_judge_format.py --system-dir runs/2026-10-10_gptoss-pilot_judge-haiku/gptoss_filesearch/medical --judge anthropic-claude-haiku-5-5 --n 4
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'top_p', 'seed', 'presence_penalty', 'frequency_penalty'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+{"id": "Medical-de0b30b1", "answer_statements": 4, "gold_statements": 1, "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Organ transplant recipients are at higher risk for basal cell carcinoma (BCC).\",\n      \"reason\": \"This directly matches the ground truth, which states tha", "json_loads": false, "fenced": true, "json_loads_without_fence": true}
+{"id": "Medical-2360f9dd", "answer_statements": 4, "gold_statements": 1, "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Stage 0 colon cancer is also known as carcinoma in situ.\",\n      \"reason\": \"The ground truth states that Stage 0 colon cancer is carcinoma in situ, which ", "json_loads": false, "fenced": true, "json_loads_without_fence": true}
+{"id": "Medical-f4ba3ee9", "answer_statements": 2, "gold_statements": 1, "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Liver cancer most often spreads to the lungs.\",\n      \"reason\": \"The ground truth states that liver cancer most often metastasizes to the lung or bone. Lu", "json_loads": false, "fenced": true, "json_loads_without_fence": true}
+{"id": "Medical-edb040bb", "answer_statements": 4, "gold_statements": 1, "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Primary bone cancer originates in the bone.\",\n      \"reason\": \"The ground truth states that primary bone cancer originates in bone or cartilage, so the cl", "json_loads": false, "fenced": true, "json_loads_without_fence": true}
+official parser read 0/4; after fence removal 4/4; /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/audit/diagnostics/judge_format_anthropic-claude-haiku-5-5.json
+
+# end: 2026-10-10T18:20:34Z  exit: 0  duration_s: 37

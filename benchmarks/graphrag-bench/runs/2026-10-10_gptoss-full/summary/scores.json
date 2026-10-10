@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-10T17:21:02+00:00",
+  "generated": "2026-10-10T17:51:34+00:00",
   "label": "",
   "subset": "medical",
   "results_root": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-full",
@@ -9,6 +9,7 @@
       "fdbab5959b18c96532580877ffe27d112bccc0ec"
     ],
     "judge": "gpt-4o-mini",
+    "judge_backend": "openai-gpt-4o-mini",
     "judge_snapshot": [
       "gpt-4o-mini-2024-07-18"
     ],
@@ -128,8 +129,16 @@
           "Creative Generation": 165
         },
         "failed_samples": 2,
-        "finished": "2026-10-10T14:24:54+00:00"
-      }
+        "finished": "2026-10-10T14:24:54+00:00",
+        "judge_backend": null,
+        "judge_dropped_params": null,
+        "judge_usage": null,
+        "judge_cost_usd": null
+      },
+      "judges_used": [
+        "openai-gpt-4o-mini"
+      ],
+      "faithfulness_jsonfix_judge_cost_usd": null
     },
     {
       "faithfulness_available": true,
@@ -257,8 +266,16 @@
           "Creative Generation": 166
         },
         "failed_samples": 0,
-        "finished": "2026-10-10T12:54:56+00:00"
-      }
+        "finished": "2026-10-10T12:54:56+00:00",
+        "judge_backend": null,
+        "judge_dropped_params": null,
+        "judge_usage": null,
+        "judge_cost_usd": null
+      },
+      "judges_used": [
+        "openai-gpt-4o-mini"
+      ],
+      "faithfulness_jsonfix_judge_cost_usd": null
     },
     {
       "faithfulness_available": true,
@@ -357,8 +374,16 @@
           "Creative Generation": 166
         },
         "failed_samples": 1,
-        "finished": "2026-10-10T13:46:08+00:00"
-      }
+        "finished": "2026-10-10T13:46:08+00:00",
+        "judge_backend": null,
+        "judge_dropped_params": null,
+        "judge_usage": null,
+        "judge_cost_usd": null
+      },
+      "judges_used": [
+        "openai-gpt-4o-mini"
+      ],
+      "faithfulness_jsonfix_judge_cost_usd": null
     },
     {
       "faithfulness_available": false,
@@ -438,8 +463,16 @@
           "Creative Generation": 163
         },
         "failed_samples": 5,
-        "finished": "2026-10-10T12:09:18+00:00"
-      }
+        "finished": "2026-10-10T12:09:18+00:00",
+        "judge_backend": null,
+        "judge_dropped_params": null,
+        "judge_usage": null,
+        "judge_cost_usd": null
+      },
+      "judges_used": [
+        "openai-gpt-4o-mini"
+      ],
+      "faithfulness_jsonfix_judge_cost_usd": null
     }
   ],
   "metrics": {

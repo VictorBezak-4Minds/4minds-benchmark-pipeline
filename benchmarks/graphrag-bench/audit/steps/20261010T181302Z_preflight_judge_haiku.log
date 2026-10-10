@@ -1,0 +1,20 @@
+# step: preflight_judge_haiku
+# start: 2026-10-10T18:13:02Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/preflight.py judge --llm anthropic-claude-haiku-5-5
+
+{
+  "backend": "anthropic-claude-haiku-5-5",
+  "model": "claude-haiku-5-5",
+  "dropped_params": [
+    "temperature",
+    "top_p"
+  ],
+  "official_settings": {
+    "error": "Judge anthropic-claude-haiku-5-5 refused the request with settings {'temperature': 0.0, 'top_p': 1, 'seed': 42, 'presence_penalty': 0, 'frequency_penalty': 0}: HTTP 401 {\"error\":{\"code\":\"authentication_error\",\"message\":\"Invalid Anthropic API Key\",\"type\":\"invalid_request_error\",\"param\":null}}"
+  },
+  "scorer_settings": {
+    "error": "Judge anthropic-claude-haiku-5-5 refused the request with settings {'seed': 42, 'presence_penalty': 0, 'frequency_penalty': 0}: HTTP 401 {\"error\":{\"code\":\"authentication_error\",\"message\":\"Invalid Anthropic API Key\",\"type\":\"invalid_request_error\",\"param\":null}}"
+  }
+}
+
+# end: 2026-10-10T18:13:02Z  exit: 1  duration_s: 0

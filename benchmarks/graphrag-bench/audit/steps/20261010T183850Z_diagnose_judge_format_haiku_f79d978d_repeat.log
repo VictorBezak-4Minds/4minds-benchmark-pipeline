@@ -1,0 +1,12 @@
+# step: diagnose_judge_format_haiku_f79d978d_repeat
+# start: 2026-10-10T18:38:50Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/diagnose_judge_format.py --system-dir runs/2026-10-10_gptoss-pilot_judge-haiku/gptoss_filesearch/medical --judge anthropic-claude-haiku-5-5 --ids Medical-f79d978d --repeat 3
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'frequency_penalty', 'presence_penalty', 'seed', 'top_p'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+{"id": "Medical-f79d978d", "answer_statements": 15, "gold_statements": 3, "finish_reason": "stop", "completion_tokens": 2198, "json_loads": false, "fenced": true, "json_loads_without_fence": true}
+{"id": "Medical-f79d978d", "answer_statements": 15, "gold_statements": 3, "finish_reason": "stop", "completion_tokens": 2672, "json_loads": false, "fenced": false, "json_loads_without_fence": null}
+{"id": "Medical-f79d978d", "answer_statements": 15, "gold_statements": 3, "finish_reason": "stop", "completion_tokens": 2340, "json_loads": false, "fenced": true, "json_loads_without_fence": true}
+official parser read 0/3; after fence removal 2/3; /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/audit/diagnostics/judge_format_anthropic-claude-haiku-5-5_ids.json
+
+# end: 2026-10-10T18:39:27Z  exit: 0  duration_s: 37

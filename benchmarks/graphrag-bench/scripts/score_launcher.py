@@ -3,12 +3,18 @@
 generation_eval.py calls embed_query from several threads at once; on MPS this crashes the
 process (SIGSEGV). sentence-transformers picks MPS when torch reports it, so hide it and use CPU.
 Run with cwd = the GraphRAG-Benchmark repo and the generation_eval.py arguments.
+With JUDGE_USAGE_FILE, JUDGE_DROP_PARAMS, JUDGE_STRIP_CODE_FENCE or JUDGE_EXTRA_BODY set,
+pipeline/judge_hooks.py counts the judge tokens, removes the request fields that the judge backend
+refuses, adds its extra request fields and takes the JSON out of a code-fenced reply.
 """
+import json
 import os
 import runpy
 import sys
 
 import torch
+
+import judge_hooks
 
 def _no_mps():
     return False
@@ -16,6 +22,11 @@ def _no_mps():
 
 _no_mps.__wrapped__ = getattr(torch.backends.mps.is_available, "__wrapped__", torch.backends.mps.is_available)
 torch.backends.mps.is_available = _no_mps
+strip_fence = os.environ.get("JUDGE_STRIP_CODE_FENCE") == "1"
+extra_body = json.loads(os.environ.get("JUDGE_EXTRA_BODY") or "{}")
+if os.environ.get("JUDGE_USAGE_FILE") or os.environ.get("JUDGE_DROP_PARAMS") or strip_fence or extra_body:
+    judge_hooks.install(os.environ.get("JUDGE_USAGE_FILE"),
+                        [p for p in os.environ.get("JUDGE_DROP_PARAMS", "").split(",") if p], strip_fence, extra_body)
 sys.path.insert(0, os.getcwd())
 sys.argv = ["Evaluation/generation_eval.py", *sys.argv[1:]]
 runpy.run_module("Evaluation.generation_eval", run_name="__main__", alter_sys=True)

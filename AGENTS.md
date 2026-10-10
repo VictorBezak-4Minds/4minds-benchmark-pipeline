@@ -50,6 +50,9 @@ and the profile contract. These rules are mandatory.
   `aggregate.py` or `make_report.py`. When you change aggregation code, rebuild an old report
   and check that it is byte-identical (except the generated time); put the old files back after the check.
 - Full runs score with `score.py --shard-size 50 --parallel 8`, so a failure does not restart the scoring.
+- A change after answering (judge, scorer) is a new run that links the same answers
+  (`pipeline/derive_run.py`). Do not answer again: new answers change a second variable.
+  Do not score one folder with two judges; `score.py` and `score_faithfulness.py` stop if you try.
 
 ## Credentials and data
 
@@ -85,5 +88,15 @@ and the profile contract. These rules are mandatory.
 - `score.py` exits 1 when the judge could not score some samples (a format error in the judge
   output; more frequent with "I don't know" answers). Rerun it for the incomplete shards, with
   the same rerun limit for every system.
+- Claude 4.7 and later models (Haiku 5.5 included) return HTTP 400 for `temperature` below 1 or
+  `top_p` other than 0.99, so they cannot use the official judge settings. Their backend entry
+  lists `judge_drop_params`; `judge_hooks.preflight()` checks a judge before scoring starts.
+- "0 failed samples" does not prove that the judge replies were read. The GraphRAG-Bench
+  factuality step parses with plain `json.loads` and silently gives 0 on failure; Claude puts
+  its JSON in a code fence, so answer correctness falls to 0.25 × similarity (about 23). Before
+  a new judge is used, run `scripts/diagnose_judge_format.py` (with `--repeat 3` on a long
+  answer: Haiku sometimes adds a comment after the fence); if it needs a fix, set
+  `judge_strip_code_fence` in its backend entry and add a caveat to the comparison file. After
+  scoring, check `not_json_replies` in the judge usage of each score manifest.
 - GraphRAG-Bench `upstream/` commits `.pyc` files. Runs change them; `score.py` ignores
   `__pycache__` and `.DS_Store` in its clean-repo check.

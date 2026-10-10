@@ -29,6 +29,7 @@ from pathlib import Path
 import numpy as np
 
 import bench_common as bc
+import llm_backends
 import run_readme
 from retrievers import COMPLETE_FINISH_REASONS
 
@@ -65,10 +66,18 @@ COMMON_CAVEATS = {  # benchmark-wide; matrix files refer to them as {"common": i
                     "0.97; ROUGE-L did not change). Single-question scores are not reliable; the averages over many "
                     "questions are (runs/2026-10-09_gemini-pilot/tests/judge-repeat).",
 }
+OFFICIAL_JUDGE = "openai-gpt-4o-mini"  # the matrix "judge" default; older score files name only the model
 SENSITIVITY_RULES = {  # rule -> description; the rule's "systems" give the run logs to read
     "incomplete_retrieval": "answered questions whose retrieval returned no chunks and had no normal finish reason "
                             f"({', '.join(sorted(COMPLETE_FINISH_REASONS))})",
 }
+
+
+def judge_backend(record):
+    """The judge backend of a score_manifest.json or faithfulness_json_fix.json."""
+    if record.get("judge_backend"):
+        return record["judge_backend"]
+    return OFFICIAL_JUDGE if record.get("judge") in (None, "gpt-4o-mini") else f"unknown ({record.get('judge')})"
 
 
 def load_matrix(path):
@@ -99,6 +108,8 @@ def load_matrix(path):
             problems.append(f"sensitivity check {check.get('name')} has unknown rule {rule.get('rule')}")
         problems += [f"sensitivity check {check.get('name')} has unknown system {k}"
                      for k in rule.get("systems", []) if k not in keys]
+    if matrix.get("judge", OFFICIAL_JUDGE) not in llm_backends.names():
+        problems.append(f"judge {matrix.get('judge')} is not a backend in pipeline/llm_backends.json")
     if problems:
         sys.exit(f"{path}: " + "; ".join(problems))
     matrix["path"] = run_readme.bench_relative(path)
@@ -236,8 +247,19 @@ def main():
             },
             "scoring": {k: score_manifest.get(k) for k in ("judge", "judge_snapshot", "embedding_model",
                                                             "benchmark_commit", "wall_clock_s", "scored_per_type",
-                                                            "failed_samples", "finished")},
+                                                            "failed_samples", "finished", "judge_backend",
+                                                            "judge_dropped_params", "judge_strip_code_fence",
+                                                            "judge_extra_body",
+                                                            "judge_usage", "judge_cost_usd")},
+            "judges_used": sorted({judge_backend(score_manifest)} | ({judge_backend(fix)} if fix else set())),
+            "faithfulness_jsonfix_judge_cost_usd": fix.get("judge_cost_usd") if fix else None,
         })
+
+    expected = matrix.get("judge", OFFICIAL_JUDGE)
+    wrong = {s["key"]: s["judges_used"] for s in systems if s["judges_used"] != [expected]}
+    if wrong:
+        sys.exit(f"The matrix judge is {expected}, but these systems were scored by other judges: {wrong}. "
+                 "Score them again with --judge, or use the matrix of that judge.")
 
     metrics, overall = {}, {}
     for system in systems:
@@ -286,7 +308,8 @@ def main():
     out = {
         "generated": bc.now(), "label": args.label, "subset": args.subset, "results_root": str(root),
         "benchmark": {"repo": "https://github.com/GraphRAG-Bench/GraphRAG-Benchmark", "commit": sorted(commits),
-                      "judge": "gpt-4o-mini", "judge_snapshot": sorted(snapshots),
+                      "judge": ", ".join(sorted({s["scoring"]["judge"] for s in systems if s["scoring"].get("judge")})),
+                      "judge_backend": expected, "judge_snapshot": sorted(snapshots),
                       "embedding_model": "BAAI/bge-large-en-v1.5", "bootstrap_resamples": RESAMPLES},
         "matrix": {"name": matrix.get("name"), "file": matrix["path"], "sha256": bc.sha256(bc.BENCH_DIR / matrix["path"])},
         "reference_system": reference, "types": TYPES, "metric_set": METRICS, "metric_names": METRIC_NAMES,

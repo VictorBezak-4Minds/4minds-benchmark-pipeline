@@ -87,6 +87,29 @@ Summarize and Creative Generation. Its median answers are about 3 times longer o
 two types (356 and 1,129 characters, against about 105 and 380), see finding 1. Without the
 21 incomplete File Search replies, the differences do not change (−5.3 and −5.9).
 
+### Judge comparison: Claude Haiku 5.5 (`configs/comparisons/gptoss_judge-haiku.json`)
+
+The same answers, scored again with another judge, so only the judge changes. The derived run
+links the answer files of the source run (`pipeline/derive_run.py`) and writes its own scores.
+Haiku 5.5 cannot use the official settings temperature 0 and top_p 1 (HTTP 400), so it runs at its
+default sampling (`judge_drop_params` in `pipeline/llm_backends.json`). Haiku also puts its JSON
+replies in a code fence, sometimes with a comment after it, which the official factuality parser
+cannot read (factuality 0 for every answer), so the scorer uses the JSON inside the fence, in
+memory (`judge_strip_code_fence`). Check a new judge with `diagnose_judge_format.py` before you
+score with it, and check `not_json_replies` in the score manifests after. The key is in
+`~/.config/anthropic/api_key` (mode 600).
+
+```
+H=(--judge anthropic-claude-haiku-5-5)
+./bench graphrag-bench diagnose_<name> eval diagnose_judge_format.py --system-dir runs/<run>/<system>/medical $H --n 4
+./bench graphrag-bench derive_<name> eval pipeline/derive_run.py --from runs/<source> --to runs/<YYYY-MM-DD>_<name> \
+    --change "Judge: Claude Haiku 5.5 instead of gpt-4o-mini" --title "..."
+./bench graphrag-bench score_<name>_<system> eval score.py --system-dir runs/<run>/<system>/medical $H --shard-size 50 --parallel 8
+./bench graphrag-bench faith_<name>_<system> eval score_faithfulness.py --system-dir runs/<run>/<system>/medical $H
+./bench graphrag-bench aggregate_<name> eval aggregate.py --matrix gptoss_judge-haiku --run runs/<run> [--label PILOT]
+./bench graphrag-bench report_<name> eval make_report.py --run runs/<run>
+```
+
 ## Pilot result (10 questions; not a conclusion)
 
 | System | Answer correctness, all questions (95% CI) | Median latency | Pilot cost |

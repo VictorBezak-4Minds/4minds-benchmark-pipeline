@@ -6,7 +6,9 @@ JSON. gpt-4o-mini then answers in Markdown prose, the JSON parser finds no verdi
 official score is NaN (see audit/diagnostics/faithfulness_nan.json). This script
 runs the official compute_faithfulness_score with the official judge settings, the same
 10,000-character context limit and the same predictions, and adds one sentence to the end
-of the verdict prompt that asks for the format of the prompt's own examples.
+of the verdict prompt that asks for the format of the prompt's own examples. The judge is an LLM
+backend (--judge, default openai-gpt-4o-mini, the official judge), with the same hooks as score.py
+(pipeline/judge_hooks.py: dropped request fields, token count). A folder is scored by one judge only.
 
 The official generation_scores.json is not changed. Output: <system-dir>/faithfulness_json_fix.json
 
@@ -28,13 +30,15 @@ import time
 from pathlib import Path
 
 import bench_common as bc
+import judge_hooks
+import llm_backends
 
 sys.path.insert(0, str(bc.UPSTREAM_REPO))
 from langchain_openai import ChatOpenAI  # noqa: E402
 from pydantic import SecretStr  # noqa: E402
 from Evaluation.metrics import faithfulness as F  # noqa: E402
 
-JUDGE = "gpt-4o-mini"
+DEFAULT_JUDGE = "openai-gpt-4o-mini"
 PROMPT_SUFFIX = ('\nReturn only a JSON list of objects with the keys "statement", "reason" and "verdict", '
                  "in the same format as the example outputs.\nOutput:\n")
 OFFICIAL_PROMPT = F.FAITHFULNESS_EVALUATION_PROMPT
@@ -54,6 +58,7 @@ async def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--system-dir", required=True, help="folder with predictions.json")
     parser.add_argument("--concurrency", type=int, default=6)
+    parser.add_argument("--judge", default=DEFAULT_JUDGE, help=f"LLM backend for the judge (default {DEFAULT_JUDGE})")
     args = parser.parse_args()
     sys.stdout.reconfigure(line_buffering=True)
 
@@ -67,8 +72,14 @@ async def main():
     patch = write_patch()
     F.FAITHFULNESS_EVALUATION_PROMPT = OFFICIAL_PROMPT + PROMPT_SUFFIX
 
-    llm = ChatOpenAI(model=JUDGE, api_key=SecretStr(bc.load_key("openai")), temperature=0.0, max_retries=3,
-                     timeout=30, model_kwargs={"top_p": 1, "seed": 42, "presence_penalty": 0, "frequency_penalty": 0})
+    judge = llm_backends.Backend(args.judge)
+    check = judge_hooks.preflight(judge)
+    started_stamp = bc.now().replace(":", "").replace("-", "")[:15]
+    judge_hooks.install(system_dir / f"faithfulness_judge_usage_{started_stamp}.json", judge.judge_drop_params,
+                        judge.judge_strip_code_fence, judge.judge_extra_body)
+    llm = ChatOpenAI(model=judge.model, base_url=judge.base_url, api_key=SecretStr(judge.api_key()), temperature=0.0,
+                     max_retries=3, timeout=30,
+                     model_kwargs={"top_p": 1, "seed": 42, "presence_penalty": 0, "frequency_penalty": 0})
     semaphore = asyncio.Semaphore(args.concurrency)
 
     predictions_sha = bc.sha256(predictions)
@@ -78,9 +89,15 @@ async def main():
         lines = [json.loads(line) for line in partial.read_text().splitlines() if line.strip()]
         if not lines or lines[0].get("predictions_sha256") != predictions_sha:
             sys.exit(f"{partial} was made for other predictions. Move it to _superseded_{partial.name} and run again.")
+        if (lines[0].get("judge", DEFAULT_JUDGE) != judge.name
+                or lines[0].get("judge_strip_code_fence", False) != judge.judge_strip_code_fence):
+            sys.exit(f"{partial} was made with judge {lines[0].get('judge', DEFAULT_JUDGE)} (strip code fence "
+                     f"{lines[0].get('judge_strip_code_fence', False)}). Use a new run folder.")
         scores = {r["id"]: r["value"] for r in lines[1:]}
     else:
-        partial.write_text(json.dumps({"predictions_sha256": predictions_sha, "prompt_suffix": PROMPT_SUFFIX}) + "\n")
+        partial.write_text(json.dumps({"predictions_sha256": predictions_sha, "prompt_suffix": PROMPT_SUFFIX,
+                                       "judge": judge.name,
+                                       "judge_strip_code_fence": judge.judge_strip_code_fence}) + "\n")
     todo = [i for i in items if i["id"] not in scores]
     errors, done = {}, 0
 
@@ -102,7 +119,8 @@ async def main():
             print(f"  {done}/{len(todo)}")
 
     bc.audit("faithfulness_fix_start", system_dir=str(system_dir), items=len(items), already_scored=len(scores),
-             patch=str(patch))
+             patch=str(patch), judge=judge.name, judge_snapshot=check["snapshot"],
+             judge_settings_sent=check["settings_sent"])
     print(f"faithfulness (JSON-format fix) for {len(items)} Creative Generation answers in {system_dir}; "
           f"{len(scores)} already scored, {len(todo)} to score")
     started, t0 = bc.now(), time.monotonic()
@@ -110,12 +128,18 @@ async def main():
     values = [v for v in scores.values() if v is not None]
     result = {
         "started": started, "finished": bc.now(), "wall_clock_s": round(time.monotonic() - t0, 1),
-        "judge": JUDGE, "benchmark_commit": commit, "predictions_sha256": bc.sha256(predictions),
+        "judge": judge.model, "judge_backend": judge.name, "judge_snapshot": check["snapshot"],
+        "judge_dropped_params": judge.judge_drop_params, "judge_strip_code_fence": judge.judge_strip_code_fence,
+        "judge_extra_body": judge.judge_extra_body,
+        "benchmark_commit": commit, "predictions_sha256": bc.sha256(predictions),
         "prompt_suffix": PROMPT_SUFFIX, "patch": str(patch), "concurrency": args.concurrency,
         "items": len(items), "scored": len(values), "nan": len(items) - len(values),
         "mean": sum(values) / len(values) if values else None, "scores": scores,
         "errors_not_scored": errors, "partial_file": str(partial),
     }
+    judge_hooks.flush()
+    usage = judge_hooks.read_usage(sorted(system_dir.glob("faithfulness_judge_usage_*.json")))
+    result.update({"judge_usage": usage, "judge_cost_usd": judge.cost(usage)})
     (system_dir / "faithfulness_json_fix.json").write_text(json.dumps(result, indent=2))
     bc.audit("faithfulness_fix_end", system_dir=str(system_dir), scored=len(values), nan=result["nan"],
              errors=len(errors), mean=result["mean"], wall_clock_s=result["wall_clock_s"])

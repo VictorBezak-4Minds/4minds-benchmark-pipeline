@@ -94,6 +94,13 @@ each `aggregate.py`).
 
 - **LLM backend** (`pipeline/llm_backends.json`): to answer with another model or host, add
   a backend entry and pass `--llm <name>`. Do not put a model ID or URL in a runner.
+- **Judge** (`pipeline/llm_backends.json`, GraphRAG-Bench): `score.py --judge <backend>` and
+  `score_faithfulness.py --judge <backend>`; the default `openai-gpt-4o-mini` is the official judge.
+  A backend's `judge_drop_params` are removed from each judge request, a backend with
+  `judge_strip_code_fence` has the JSON taken out of a code-fenced reply, and the judge tokens and
+  cost go to the score manifest (`pipeline/judge_hooks.py`). A comparison file names its judge
+  (`"judge"`), and `aggregate.py` stops if a system was scored by another judge. To change only
+  the judge, start a new run with the same answers: `pipeline/derive_run.py`.
 - **Retriever** (`systems/retrievers.py`): `systems/run_rag.py --retriever <name> --llm <name>`
   combines any retriever with any backend. A new retriever is one class with `settings()`,
   `readiness()`, `retrieve()` and `cost()`.

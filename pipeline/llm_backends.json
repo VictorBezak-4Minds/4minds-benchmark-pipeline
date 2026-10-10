@@ -19,5 +19,44 @@
     "price_usd_per_1m": {"input": 0.75, "output": 3.75},
     "price_note": "paid tier until Dec 31, 2026; the OpenAI endpoint counts thinking tokens only in total_tokens",
     "max_concurrency": 16
+  },
+  "openai-gpt-4o-mini": {
+    "description": "gpt-4o-mini on the OpenAI API: the official GraphRAG-Bench judge (generation_eval.py default)",
+    "base_url": "https://api.openai.com/v1",
+    "model": "gpt-4o-mini",
+    "auth": {"type": "api_key_file", "provider": "openai"},
+    "params": {},
+    "judge_drop_params": [],
+    "price_usd_per_1m": {"input": 0.15, "output": 0.60},
+    "max_concurrency": 16
+  },
+  "anthropic-claude-haiku-5-5": {
+    "description": "Claude Haiku 5.5 through the Claude API OpenAI-compatible endpoint (operator's personal account)",
+    "base_url": "https://api.anthropic.com/v1",
+    "model": "claude-haiku-5-5",
+    "auth": {"type": "api_key_file", "provider": "anthropic"},
+    "params": {},
+    "judge_drop_params": ["temperature", "top_p"],
+    "judge_note": "Claude 4.7 and later models return HTTP 400 for temperature below 1, for top_p other than 0.99, and for a request that sets both (Claude OpenAI SDK compatibility docs, read 2026-10-10). The official judge settings temperature 0 and top_p 1 are therefore removed from each request, and the model uses its default sampling. The endpoint ignores seed, presence_penalty and frequency_penalty.",
+    "judge_strip_code_fence": true,
+    "judge_strip_code_fence_note": "Haiku 5.5 puts its JSON replies in a ```json code fence. The official calculate_factuality() parses with plain json.loads and gives factuality 0 on failure, so without this every answer gets factuality 0 (diagnosis 2026-10-10: 0/4 replies parsed, 4/4 after fence removal; audit/diagnostics/judge_format_anthropic-claude-haiku-5-5.json). A second check (Medical-f79d978d, 3 repeats) found a fenced JSON block with a comment after the fence. If a reply is not JSON, the JSON in its first code fence is used instead (only if it is valid JSON), in memory, before the official parser reads it; prose_dropped counts the replies with text outside the fence.",
+    "price_usd_per_1m": {"input": 0.10, "output": 0.50},
+    "price_note": "Claude API list price for prompts up to 100,000 tokens (over 100,000 tokens: 0.50 / 2.50); judge prompts are far below this. Output tokens include thinking tokens.",
+    "max_concurrency": 8
+  },
+  "anthropic-claude-haiku-5-5-nothink": {
+    "description": "Claude Haiku 5.5 with thinking disabled, through the Claude API OpenAI-compatible endpoint (operator's personal account)",
+    "base_url": "https://api.anthropic.com/v1",
+    "model": "claude-haiku-5-5",
+    "auth": {"type": "api_key_file", "provider": "anthropic"},
+    "params": {},
+    "judge_drop_params": ["temperature", "top_p"],
+    "judge_note": "As anthropic-claude-haiku-5-5 (temperature and top_p removed; seed and penalties ignored by the endpoint).",
+    "judge_extra_body": {"thinking": {"type": "disabled"}},
+    "judge_extra_body_note": "Haiku 5.5 uses adaptive thinking by default; the thinking tokens are billed as output and count against the output-tokens-per-minute limit (80,000 on the operator's account), which made a full rescore take more than 10 hours. Diagnosis 2026-10-10 on 4 answers (audit/diagnostics/judge_format_anthropic-claude-haiku-5-5_think-*.json): output tokens 10,812 with default thinking, 4,487 with thinking disabled, 4,798 with thinking disabled and effort low, so effort is not changed. The OpenAI SDK sends these fields through extra_body.",
+    "judge_strip_code_fence": true,
+    "judge_strip_code_fence_note": "As anthropic-claude-haiku-5-5.",
+    "price_usd_per_1m": {"input": 0.10, "output": 0.50},
+    "max_concurrency": 8
   }
 }

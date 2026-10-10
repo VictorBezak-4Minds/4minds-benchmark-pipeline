@@ -1,0 +1,10 @@
+# step: diagnose_judge_format_haiku_f79d978d
+# start: 2026-10-10T18:37:58Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/diagnose_judge_format.py --system-dir runs/2026-10-10_gptoss-pilot_judge-haiku/gptoss_filesearch/medical --judge anthropic-claude-haiku-5-5 --ids Medical-f79d978d
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'frequency_penalty', 'top_p', 'seed', 'presence_penalty'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+{"id": "Medical-f79d978d", "answer_statements": 20, "gold_statements": 4, "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Finding a lung nodule on imaging starts a step-by-step work-up.\",\n      \"reason\": \"This is directly supported by the ground truth statement that a lung no", "factuality_reply_end": " be used to exclude cancer. It only covers biopsy to confirm cancer or before a diagnosis is confirmed.\"\n    }\n  ]\n}\n```", "json_loads": false, "fenced": true, "json_loads_without_fence": true}
+official parser read 0/1; after fence removal 1/1; /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/audit/diagnostics/judge_format_anthropic-claude-haiku-5-5_ids.json
+
+# end: 2026-10-10T18:38:18Z  exit: 0  duration_s: 20

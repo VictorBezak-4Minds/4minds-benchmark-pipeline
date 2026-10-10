@@ -4,10 +4,13 @@
   ./bench graphrag-bench preflight_llm eval systems/preflight.py llm --llm bedrock-gpt-oss-120b
   ./bench graphrag-bench preflight_gemini_key eval systems/preflight.py gemini-key-project
   ./bench graphrag-bench preflight_file_search eval systems/preflight.py file-search
+  ./bench graphrag-bench preflight_judge eval systems/preflight.py judge --llm anthropic-claude-haiku-5-5
 
 llm                 one chat call: model, finish reason, usage, latency and the answer
 gemini-key-project  the Google Cloud project of the Gemini API key, from the error of an API that
                     the project has not enabled (the key is sent in a header, never printed)
+judge               the judge with the official GraphRAG-Bench settings, then without the backend's
+                    judge_drop_params (the request that the scorers send): snapshot, rate limits
 file-search         one generateContent call with the File Search tool on the first question of
                     the subset: the number and size of the grounding chunks against top_k
 """
@@ -19,6 +22,7 @@ import time
 import requests
 
 import bench_common as bc
+import judge_hooks
 import llm_backends
 import retrievers
 
@@ -49,6 +53,21 @@ def check_llm(args):
     print(json.dumps(out, indent=2))
     bc.audit("preflight_llm", **{k: v for k, v in out.items() if k != "answer"})
     return 1 if error else 0
+
+
+def check_judge(args):
+    backend = llm_backends.Backend(args.llm)
+    out = {"backend": backend.name, "model": backend.model, "dropped_params": backend.judge_drop_params}
+    for label, drop in (("official_settings", False), ("scorer_settings", True)):
+        if label == "official_settings" and not backend.judge_drop_params:
+            continue
+        try:
+            out[label] = judge_hooks.preflight(backend, drop=drop)
+        except SystemExit as e:
+            out[label] = {"error": str(e)[:600]}
+    print(json.dumps(out, indent=2))
+    bc.audit("preflight_judge", **out)
+    return 1 if "error" in out["scorer_settings"] else 0
 
 
 def check_gemini_key_project(args):
@@ -106,6 +125,8 @@ def main():
     llm = sub.add_parser("llm")
     llm.add_argument("--llm", required=True, choices=llm_backends.names())
     llm.add_argument("--timeout", type=float, default=120)
+    judge = sub.add_parser("judge")
+    judge.add_argument("--llm", required=True, choices=llm_backends.names())
     sub.add_parser("gemini-key-project")
     file_search = sub.add_parser("file-search")
     bc.add_common_args(file_search, "preflight")
@@ -113,7 +134,7 @@ def main():
     args = parser.parse_args()
     if args.check == "file-search" and not (args.questions_file or args.sample):
         args.sample = 1
-    checks = {"llm": check_llm, "gemini-key-project": check_gemini_key_project, "file-search": check_file_search}
+    checks = {"llm": check_llm, "judge": check_judge, "gemini-key-project": check_gemini_key_project, "file-search": check_file_search}
     sys.exit(checks[args.check](args))
 
 

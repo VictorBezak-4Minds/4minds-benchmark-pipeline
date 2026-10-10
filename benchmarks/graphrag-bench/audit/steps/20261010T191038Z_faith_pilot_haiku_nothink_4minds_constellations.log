@@ -1,0 +1,11 @@
+# step: faith_pilot_haiku_nothink_4minds_constellations
+# start: 2026-10-10T19:10:38Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/score_faithfulness.py --system-dir runs/2026-10-10_gptoss-pilot_judge-haiku-nothink/4minds_constellations/medical --judge anthropic-claude-haiku-5-5-nothink
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'top_p', 'seed', 'presence_penalty', 'frequency_penalty'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+faithfulness (JSON-format fix) for 1 Creative Generation answers in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku-nothink/4minds_constellations/medical; 0 already scored, 1 to score
+  1/1
+done: scored 1/1, NaN 0, errors 0 (rerun to retry), mean 0.12280701754385964
+
+# end: 2026-10-10T19:11:00Z  exit: 0  duration_s: 22

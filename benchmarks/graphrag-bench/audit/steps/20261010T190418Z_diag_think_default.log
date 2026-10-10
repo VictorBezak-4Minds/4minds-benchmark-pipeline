@@ -1,0 +1,13 @@
+# step: diag_think_default
+# start: 2026-10-10T19:04:18Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/diagnose_judge_format.py --system-dir runs/2026-10-10_gptoss-pilot_judge-haiku/4minds_constellations/medical --judge anthropic-claude-haiku-5-5 --n 4 --extra-body {} --label think-default
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'seed', 'presence_penalty', 'top_p', 'frequency_penalty'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+{"id": "Medical-de0b30b1", "answer_statements": 4, "gold_statements": 1, "finish_reason": "stop", "completion_tokens": 602, "json_loads": false, "json_after_fence_fix": true, "prose_outside_fence": false, "TP": 1, "FP": 3, "FN": 0}
+{"id": "Medical-2360f9dd", "answer_statements": 14, "gold_statements": 1, "finish_reason": "stop", "completion_tokens": 1688, "json_loads": false, "json_after_fence_fix": true, "prose_outside_fence": false, "TP": 1, "FP": 13, "FN": 0}
+{"id": "Medical-f4ba3ee9", "answer_statements": 5, "gold_statements": 2, "finish_reason": "stop", "completion_tokens": 944, "json_loads": false, "json_after_fence_fix": true, "prose_outside_fence": false, "TP": 3, "FP": 2, "FN": 0}
+{"id": "Medical-edb040bb", "answer_statements": 15, "gold_statements": 1, "finish_reason": "stop", "completion_tokens": 2144, "json_loads": false, "json_after_fence_fix": true, "prose_outside_fence": true, "TP": 3, "FP": 12, "FN": 0}
+official parser read 0/4; after fence removal 4/4; all calls 12, output tokens 10812; /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/audit/diagnostics/judge_format_anthropic-claude-haiku-5-5_think-default.json
+
+# end: 2026-10-10T19:05:09Z  exit: 0  duration_s: 51

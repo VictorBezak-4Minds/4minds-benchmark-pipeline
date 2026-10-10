@@ -48,6 +48,9 @@ class Backend:
         self.params = dict(self.config.get("params") or {})
         self.prices = self.config.get("price_usd_per_1m") or {}
         self.max_concurrency = self.config.get("max_concurrency", 4)
+        self.judge_drop_params = list(self.config.get("judge_drop_params") or [])
+        self.judge_strip_code_fence = bool(self.config.get("judge_strip_code_fence"))
+        self.judge_extra_body = dict(self.config.get("judge_extra_body") or {})
         self._key, self._key_time = None, 0.0
         self._lock = threading.Lock()
 

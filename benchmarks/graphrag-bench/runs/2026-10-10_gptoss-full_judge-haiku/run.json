@@ -1,0 +1,14 @@
+{
+  "derived_from": "runs/2026-10-10_gptoss-full",
+  "change": "Judge: Claude Haiku 5.5 instead of gpt-4o-mini",
+  "linked_files": [
+    "predictions.json",
+    "manifest.json",
+    "run_config.json",
+    "runs.jsonl",
+    "raw.jsonl"
+  ],
+  "title": "GPT-OSS-120B full run, judged by Claude Haiku 5.5",
+  "purpose": "Change only the judge of runs/2026-10-10_gptoss-full, to see how the judge changes the results.",
+  "status": "STOPPED after about 4 minutes, do not use: with default thinking, Haiku hit the account limits (80,000 output tokens per minute and concurrent requests); 557 samples failed with HTTP 429. No shard is complete. Judge cost of the partial work $0.16."
+}

@@ -1,0 +1,5 @@
+# step: score_full_haiku_gptoss_lightrag_try0
+# start: 2026-10-10T18:47:26Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/score.py --system-dir runs/2026-10-10_gptoss-full_judge-haiku/gptoss_lightrag/medical --judge anthropic-claude-haiku-5-5 --shard-size 50 --parallel 4
+
+scoring 2062 predictions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-full_judge-haiku/gptoss_lightrag/medical with anthropic-claude-haiku-5-5 (claude-haiku-5-5), 42 shard(s); 0 already complete, 42 to score, 4 at a time

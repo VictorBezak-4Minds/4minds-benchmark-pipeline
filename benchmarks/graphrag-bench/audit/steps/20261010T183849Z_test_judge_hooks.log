@@ -1,0 +1,7 @@
+# step: test_judge_hooks
+# start: 2026-10-10T18:38:49Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/test_judge_hooks.py
+
+PASS {'calls': 1, 'prompt_tokens': 5, 'completion_tokens': 7, 'total_tokens': 12, 'fences_removed': 1, 'truncated_replies': 0, 'dropped_params': ['temperature'], 'strip_code_fence': True}
+
+# end: 2026-10-10T18:38:50Z  exit: 0  duration_s: 1

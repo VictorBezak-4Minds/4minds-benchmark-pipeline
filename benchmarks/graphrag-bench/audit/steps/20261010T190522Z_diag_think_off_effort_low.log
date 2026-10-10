@@ -1,0 +1,13 @@
+# step: diag_think_off_effort_low
+# start: 2026-10-10T19:05:22Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/diagnose_judge_format.py --system-dir runs/2026-10-10_gptoss-pilot_judge-haiku/4minds_constellations/medical --judge anthropic-claude-haiku-5-5 --n 4 --extra-body {"thinking": {"type": "disabled"}, "output_config": {"effort": "low"}} --label think-off-effort-low
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'frequency_penalty', 'presence_penalty', 'seed', 'top_p'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+{"id": "Medical-de0b30b1", "answer_statements": 3, "gold_statements": 1, "finish_reason": "stop", "completion_tokens": 369, "json_loads": false, "json_after_fence_fix": true, "prose_outside_fence": false, "TP": 1, "FP": 2, "FN": 0}
+{"id": "Medical-2360f9dd", "answer_statements": 14, "gold_statements": 1, "finish_reason": "stop", "completion_tokens": 1264, "json_loads": false, "json_after_fence_fix": true, "prose_outside_fence": false, "TP": 1, "FP": 13, "FN": 0}
+{"id": "Medical-f4ba3ee9", "answer_statements": 7, "gold_statements": 1, "finish_reason": "stop", "completion_tokens": 662, "json_loads": false, "json_after_fence_fix": true, "prose_outside_fence": false, "TP": 4, "FP": 3, "FN": 0}
+{"id": "Medical-edb040bb", "answer_statements": 13, "gold_statements": 2, "finish_reason": "stop", "completion_tokens": 1085, "json_loads": false, "json_after_fence_fix": true, "prose_outside_fence": false, "TP": 3, "FP": 10, "FN": 0}
+official parser read 0/4; after fence removal 4/4; all calls 12, output tokens 4798; /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/audit/diagnostics/judge_format_anthropic-claude-haiku-5-5_think-off-effort-low.json
+
+# end: 2026-10-10T19:05:54Z  exit: 0  duration_s: 32

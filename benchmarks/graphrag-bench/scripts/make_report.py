@@ -210,8 +210,9 @@ def build(out, timing, summary_dir):
                 else:
                     h.append(bar(s["name"], "", r, color(s["key"])))
             if metric == "faithfulness":
-                h.append("<p class='note'>The official verdict prompt does not ask for JSON; gpt-4o-mini often "
-                         "answers in prose, and those answers score NaN. See the caveats.</p>")
+                h.append(f"<p class='note'>The official verdict prompt does not ask for JSON; "
+                         f"{escape(out['benchmark']['judge'])} can answer in prose, and those answers score NaN. "
+                         "See the caveats.</p>")
             elif metric == "faithfulness_jsonfix":
                 h.append("<p class='note'>Not part of the official protocol: the same code and judge with one "
                          "sentence that asks for JSON output.</p>")

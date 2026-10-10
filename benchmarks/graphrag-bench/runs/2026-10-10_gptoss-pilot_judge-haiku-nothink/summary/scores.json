@@ -1,0 +1,1163 @@
+{
+  "generated": "2026-10-10T19:11:00+00:00",
+  "label": "PILOT",
+  "subset": "medical",
+  "results_root": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku-nothink",
+  "benchmark": {
+    "repo": "https://github.com/GraphRAG-Bench/GraphRAG-Benchmark",
+    "commit": [
+      "fdbab5959b18c96532580877ffe27d112bccc0ec"
+    ],
+    "judge": "claude-haiku-5-5",
+    "judge_backend": "anthropic-claude-haiku-5-5-nothink",
+    "judge_snapshot": [
+      "claude-haiku-5-5"
+    ],
+    "embedding_model": "BAAI/bge-large-en-v1.5",
+    "bootstrap_resamples": 2000
+  },
+  "matrix": {
+    "name": "gptoss_judge-haiku-nothink",
+    "file": "configs/comparisons/gptoss_judge-haiku-nothink.json",
+    "sha256": "c1166f6852713cd5471ef0f2d37bc10272d1b2afc104661b22ac11342055312d"
+  },
+  "reference_system": "4minds_constellations",
+  "types": [
+    "Fact Retrieval",
+    "Complex Reasoning",
+    "Contextual Summarize",
+    "Creative Generation"
+  ],
+  "metric_set": {
+    "Fact Retrieval": [
+      "rouge_score",
+      "answer_correctness"
+    ],
+    "Complex Reasoning": [
+      "rouge_score",
+      "answer_correctness"
+    ],
+    "Contextual Summarize": [
+      "answer_correctness",
+      "coverage_score"
+    ],
+    "Creative Generation": [
+      "answer_correctness",
+      "coverage_score",
+      "faithfulness",
+      "faithfulness_jsonfix"
+    ]
+  },
+  "metric_names": {
+    "rouge_score": "ROUGE-L",
+    "answer_correctness": "Answer correctness",
+    "coverage_score": "Coverage",
+    "faithfulness": "Faithfulness (official)",
+    "faithfulness_jsonfix": "Faithfulness (JSON-format fix)"
+  },
+  "systems": [
+    {
+      "faithfulness_available": true,
+      "faithfulness_official_nan": 0,
+      "faithfulness_items": 1,
+      "faithfulness_jsonfix_nan": 0,
+      "key": "4minds_constellations",
+      "name": "4Minds (Constellations)",
+      "description": "4Minds prod, Constellations RAG over the dataset graph, GPT-OSS-120B served by 4Minds (AWQ weights, no fine-tuning)",
+      "color": "#543fed",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku-nothink/4minds_constellations/medical",
+      "run_started": "2026-10-09T23:45:21+00:00",
+      "run_finished": "2026-10-09T23:46:06+00:00",
+      "settings": {
+        "base_url": "https://api.4minds.ai",
+        "engine": "constellations",
+        "endpoint": "wss://api.4minds.ai/api/v1/user/inference",
+        "model_id": 3592,
+        "dataset_id": 4033,
+        "persona_id": 1275,
+        "system_prompt_via": "persona.behavioralGuidelines",
+        "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\".",
+        "context_order": "4Minds chunk score, highest first, across all retrieval steps, no duplicates"
+      },
+      "readiness": {
+        "dataset_id": 4033,
+        "model_id": 3592,
+        "status": "in_use",
+        "graph_status": "ready",
+        "graph_build_progress": 100,
+        "files_processed_count": 2,
+        "total_chunks_count": 204,
+        "build_status": "enhancing",
+        "etl_job_status": "completed",
+        "error_message": null,
+        "model_status": "ready"
+      },
+      "deviations": [],
+      "operations": {
+        "questions": 10,
+        "answered": 10,
+        "failed": 0,
+        "not_run": 0,
+        "dont_know": 0,
+        "no_context": 0,
+        "tokens": {
+          "total_tokens": 3516,
+          "tokens_used_today": 127781,
+          "tokens_used_this_month": 127781
+        },
+        "estimated_cost_usd": null,
+        "latency": {
+          "n": 10,
+          "mean_s": 14.32,
+          "median_s": 12.63,
+          "p90_s": 24.97,
+          "max_s": 24.97
+        },
+        "workers": 4,
+        "wall_clock_s_last_invocation": 45.1
+      },
+      "scoring": {
+        "judge": "claude-haiku-5-5",
+        "judge_snapshot": "claude-haiku-5-5",
+        "embedding_model": "BAAI/bge-large-en-v1.5",
+        "benchmark_commit": "fdbab5959b18c96532580877ffe27d112bccc0ec",
+        "wall_clock_s": 99.3,
+        "scored_per_type": {
+          "Fact Retrieval": 5,
+          "Complex Reasoning": 2,
+          "Contextual Summarize": 2,
+          "Creative Generation": 1
+        },
+        "failed_samples": 0,
+        "finished": "2026-10-10T19:10:38+00:00",
+        "judge_backend": "anthropic-claude-haiku-5-5-nothink",
+        "judge_dropped_params": [
+          "temperature",
+          "top_p"
+        ],
+        "judge_strip_code_fence": true,
+        "judge_extra_body": {
+          "thinking": {
+            "type": "disabled"
+          }
+        },
+        "judge_usage": {
+          "calls": 38,
+          "prompt_tokens": 52524,
+          "completion_tokens": 46840,
+          "total_tokens": 99364,
+          "fences_removed": 31,
+          "prose_dropped": 0,
+          "not_json_replies": 1,
+          "truncated_replies": 0
+        },
+        "judge_cost_usd": 0.0286724
+      },
+      "judges_used": [
+        "anthropic-claude-haiku-5-5-nothink"
+      ],
+      "faithfulness_jsonfix_judge_cost_usd": 0.0035545
+    },
+    {
+      "faithfulness_available": true,
+      "faithfulness_official_nan": 0,
+      "faithfulness_items": 1,
+      "faithfulness_jsonfix_nan": 0,
+      "key": "gptoss_lightrag",
+      "name": "GPT-OSS + LightRAG",
+      "description": "LightRAG v1.2.5 (official GraphRAG-Bench runner settings), index and answers with GPT-OSS-120B on Amazon Bedrock",
+      "color": "#fbbf24",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku-nothink/gptoss_lightrag/medical",
+      "run_started": "2026-10-10T00:28:37+00:00",
+      "run_finished": "2026-10-10T00:28:54+00:00",
+      "settings": {
+        "lightrag": "1.2.5",
+        "model": "openai.gpt-oss-120b-1:0",
+        "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+        "embed_model": "BAAI/bge-large-en-v1.5",
+        "query_param": {
+          "mode": "hybrid",
+          "top_k": 5,
+          "max_token_for_text_unit": 4000,
+          "max_token_for_global_context": 4000,
+          "max_token_for_local_context": 4000
+        },
+        "system_prompt": "\n---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\".\n\n---Conversation History---\n{history}\n\n---Knowledge Base---\n{context_data}\n",
+        "base_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix",
+        "llm": {
+          "llm_backend": "bedrock-gpt-oss-120b",
+          "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+          "llm_model": "openai.gpt-oss-120b-1:0",
+          "llm_params": {
+            "temperature": 0.3,
+            "max_tokens": 4096,
+            "reasoning_effort": "medium"
+          },
+          "llm_auth": {
+            "type": "aws_bedrock_token",
+            "profile": "bedrock",
+            "region": "us-east-1"
+          }
+        },
+        "query_llm_params": {
+          "temperature": 0.3,
+          "max_tokens": 4096,
+          "reasoning_effort": "medium"
+        },
+        "repair_delimiters": true
+      },
+      "readiness": {
+        "working_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/lightrag/workspace_bedrock-gpt-oss-120b_delimfix/Medical",
+        "doc_status": {
+          "doc-3d7a4f05339f0e3f3870b407d21d9c8a": "processed"
+        },
+        "index": {
+          "finished": "2026-10-10T00:27:30+00:00",
+          "index_wall_clock_s": 809.2,
+          "doc_status": {
+            "doc-3d7a4f05339f0e3f3870b407d21d9c8a": "processed"
+          },
+          "usage": {
+            "calls": 56,
+            "prompt_tokens": 64008,
+            "completion_tokens": 26989,
+            "reasoning_tokens": 0
+          },
+          "estimated_cost_usd": 0.0258,
+          "model": "openai.gpt-oss-120b-1:0",
+          "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+          "llm_backend": "bedrock-gpt-oss-120b",
+          "repair_delimiters": true,
+          "repair_patch": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/audit/patches/lightrag-1.2.5-gptoss-delimiter-repair.py",
+          "reused_llm_cache": {
+            "from": "results/lightrag/workspace_bedrock-gpt-oss-120b/Medical/kv_store_llm_response_cache.json",
+            "sha256": "12bd8180ecd95f28fdb7cd734226624ff7adfb9e54e1dec8e0bd89bbade34e13"
+          },
+          "embed_model": "BAAI/bge-large-en-v1.5",
+          "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/upstream/Datasets/Corpus/medical.parquet",
+          "corpus_sha256": "e8e8a71eca466aecdc3d1705c4351027f2f260bc9ec2d59d736d8b69a88a6d7f"
+        }
+      },
+      "deviations": [
+        "two API-mode bugs of the official runner fixed in memory (see official_runner_fixes)",
+        "embed_model BAAI/bge-large-en-v1.5 (embedding_dim 1024 in the official code)",
+        "context stored as a one-item list instead of a string",
+        "questions answered in parallel threads with resume (same LightRAG instance and settings)",
+        "<reasoning>...</reasoning> removed from LLM output",
+        "backend generation params added at query time only (not at indexing)",
+        "damaged <|> delimiters in extraction output repaired in memory (/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/results/audit/patches/lightrag-1.2.5-gptoss-delimiter-repair.py)"
+      ],
+      "operations": {
+        "questions": 10,
+        "answered": 10,
+        "failed": 0,
+        "not_run": 0,
+        "dont_know": 0,
+        "no_context": 0,
+        "tokens": {
+          "calls": 20,
+          "prompt_tokens": 118282,
+          "completion_tokens": 6320,
+          "reasoning_tokens": 0
+        },
+        "estimated_cost_usd": 0.0215,
+        "latency": {
+          "n": 10,
+          "mean_s": 5.29,
+          "median_s": 5.52,
+          "p90_s": 8.29,
+          "max_s": 8.29
+        },
+        "workers": 4,
+        "wall_clock_s_last_invocation": 16.7
+      },
+      "scoring": {
+        "judge": "claude-haiku-5-5",
+        "judge_snapshot": "claude-haiku-5-5",
+        "embedding_model": "BAAI/bge-large-en-v1.5",
+        "benchmark_commit": "fdbab5959b18c96532580877ffe27d112bccc0ec",
+        "wall_clock_s": 75.2,
+        "scored_per_type": {
+          "Fact Retrieval": 5,
+          "Complex Reasoning": 2,
+          "Contextual Summarize": 2,
+          "Creative Generation": 1
+        },
+        "failed_samples": 0,
+        "finished": "2026-10-10T19:10:14+00:00",
+        "judge_backend": "anthropic-claude-haiku-5-5-nothink",
+        "judge_dropped_params": [
+          "temperature",
+          "top_p"
+        ],
+        "judge_strip_code_fence": true,
+        "judge_extra_body": {
+          "thinking": {
+            "type": "disabled"
+          }
+        },
+        "judge_usage": {
+          "calls": 38,
+          "prompt_tokens": 43531,
+          "completion_tokens": 30509,
+          "total_tokens": 74040,
+          "fences_removed": 28,
+          "prose_dropped": 0,
+          "not_json_replies": 0,
+          "truncated_replies": 0
+        },
+        "judge_cost_usd": 0.0196076
+      },
+      "judges_used": [
+        "anthropic-claude-haiku-5-5-nothink"
+      ],
+      "faithfulness_jsonfix_judge_cost_usd": 0.0029162
+    },
+    {
+      "faithfulness_available": true,
+      "faithfulness_official_nan": 0,
+      "faithfulness_items": 1,
+      "faithfulness_jsonfix_nan": 0,
+      "key": "gptoss_filesearch",
+      "name": "GPT-OSS + File Search",
+      "description": "Gemini File Search (top_k 5) retrieves, GPT-OSS-120B on Amazon Bedrock answers",
+      "color": "#80aeff",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku-nothink/gptoss_filesearch/medical",
+      "run_started": "2026-10-10T00:34:06+00:00",
+      "run_finished": "2026-10-10T00:35:17+00:00",
+      "settings": {
+        "retriever": "gemini_file_search",
+        "store": "fileSearchStores/graphragbench-9lax22b99qlk",
+        "top_k": 5,
+        "retrieval_model": "gemini-3.8-flash",
+        "retrieval_instruction": "cite_each",
+        "retrieval_system_prompt": "Search the knowledge base for passages about the user's question. Do not answer the question. For every passage that the search returns, write one short sentence about what that passage says, on its own line, so that each passage is cited.",
+        "retrieval_api": "generateContent",
+        "llm_backend": "bedrock-gpt-oss-120b",
+        "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+        "llm_model": "openai.gpt-oss-120b-1:0",
+        "llm_params": {
+          "temperature": 0.3,
+          "max_tokens": 4096,
+          "reasoning_effort": "medium"
+        },
+        "llm_auth": {
+          "type": "aws_bedrock_token",
+          "profile": "bedrock",
+          "region": "us-east-1"
+        },
+        "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\".",
+        "prompt_layout": "system: SYSTEM_PROMPT; user: ---Knowledge Base--- [i] chunk ... ---Question--- question"
+      },
+      "readiness": {
+        "retriever": "gemini_file_search",
+        "store": "fileSearchStores/graphragbench-9lax22b99qlk",
+        "activeDocumentsCount": 21,
+        "pendingDocumentsCount": 0,
+        "failedDocumentsCount": 0,
+        "query_check_chunks": 5,
+        "llm_check": {
+          "finish_reason": "stop",
+          "usage": {
+            "completion_tokens": 117,
+            "prompt_tokens": 145,
+            "total_tokens": 262
+          }
+        }
+      },
+      "deviations": [],
+      "operations": {
+        "questions": 10,
+        "answered": 10,
+        "failed": 0,
+        "not_run": 0,
+        "dont_know": 0,
+        "no_context": 0,
+        "tokens": {
+          "retrieval_promptTokenCount": 1934,
+          "retrieval_candidatesTokenCount": 3587,
+          "retrieval_thoughtsTokenCount": 11462,
+          "retrieval_toolUsePromptTokenCount": 26586,
+          "completion_tokens": 2899,
+          "prompt_tokens": 15255,
+          "total_tokens": 18154
+        },
+        "estimated_cost_usd": 0.0819,
+        "latency": {
+          "n": 10,
+          "mean_s": 20.23,
+          "median_s": 16.05,
+          "p90_s": 41.16,
+          "max_s": 41.16
+        },
+        "workers": 4,
+        "wall_clock_s_last_invocation": 70.8
+      },
+      "scoring": {
+        "judge": "claude-haiku-5-5",
+        "judge_snapshot": "claude-haiku-5-5",
+        "embedding_model": "BAAI/bge-large-en-v1.5",
+        "benchmark_commit": "fdbab5959b18c96532580877ffe27d112bccc0ec",
+        "wall_clock_s": 79.3,
+        "scored_per_type": {
+          "Fact Retrieval": 5,
+          "Complex Reasoning": 2,
+          "Contextual Summarize": 2,
+          "Creative Generation": 1
+        },
+        "failed_samples": 0,
+        "finished": "2026-10-10T19:10:17+00:00",
+        "judge_backend": "anthropic-claude-haiku-5-5-nothink",
+        "judge_dropped_params": [
+          "temperature",
+          "top_p"
+        ],
+        "judge_strip_code_fence": true,
+        "judge_extra_body": {
+          "thinking": {
+            "type": "disabled"
+          }
+        },
+        "judge_usage": {
+          "calls": 38,
+          "prompt_tokens": 41880,
+          "completion_tokens": 31295,
+          "total_tokens": 73175,
+          "fences_removed": 26,
+          "prose_dropped": 1,
+          "not_json_replies": 0,
+          "truncated_replies": 0
+        },
+        "judge_cost_usd": 0.0198355
+      },
+      "judges_used": [
+        "anthropic-claude-haiku-5-5-nothink"
+      ],
+      "faithfulness_jsonfix_judge_cost_usd": 0.0038186
+    },
+    {
+      "faithfulness_available": false,
+      "faithfulness_official_nan": 0,
+      "faithfulness_items": 1,
+      "faithfulness_jsonfix_nan": 0,
+      "key": "gptoss_norag",
+      "name": "GPT-OSS (no RAG)",
+      "description": "Amazon Bedrock, openai.gpt-oss-120b-1:0, question only (no retrieval)",
+      "color": "#9ca3af",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku-nothink/gptoss_norag/medical",
+      "run_started": "2026-10-10T00:33:44+00:00",
+      "run_finished": "2026-10-10T00:33:55+00:00",
+      "settings": {
+        "retriever": "none",
+        "llm_backend": "bedrock-gpt-oss-120b",
+        "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+        "llm_model": "openai.gpt-oss-120b-1:0",
+        "llm_params": {
+          "temperature": 0.3,
+          "max_tokens": 4096,
+          "reasoning_effort": "medium"
+        },
+        "llm_auth": {
+          "type": "aws_bedrock_token",
+          "profile": "bedrock",
+          "region": "us-east-1"
+        },
+        "system_prompt": "---Role---\nYou are a helpful assistant responding to user queries.\n\n---Goal---\nGenerate direct and concise answers based strictly on the provided Knowledge Base.\nRespond in plain text without explanations or formatting.\nMaintain conversation continuity and use the same language as the query.\nIf the answer is unknown, respond with \"I don't know\".",
+        "prompt_layout": "system: SYSTEM_PROMPT; user: ---Knowledge Base--- [i] chunk ... ---Question--- question"
+      },
+      "readiness": {
+        "retriever": "none",
+        "llm_check": {
+          "finish_reason": "stop",
+          "usage": {
+            "completion_tokens": 123,
+            "prompt_tokens": 145,
+            "total_tokens": 268
+          }
+        }
+      },
+      "deviations": [],
+      "operations": {
+        "questions": 10,
+        "answered": 10,
+        "failed": 0,
+        "not_run": 0,
+        "dont_know": 7,
+        "no_context": 10,
+        "tokens": {
+          "completion_tokens": 1634,
+          "prompt_tokens": 1497,
+          "total_tokens": 3131
+        },
+        "estimated_cost_usd": 0.0012,
+        "latency": {
+          "n": 10,
+          "mean_s": 2.29,
+          "median_s": 1.45,
+          "p90_s": 9.47,
+          "max_s": 9.47
+        },
+        "workers": 4,
+        "wall_clock_s_last_invocation": 11.0
+      },
+      "scoring": {
+        "judge": "claude-haiku-5-5",
+        "judge_snapshot": "claude-haiku-5-5",
+        "embedding_model": "BAAI/bge-large-en-v1.5",
+        "benchmark_commit": "fdbab5959b18c96532580877ffe27d112bccc0ec",
+        "wall_clock_s": 67.2,
+        "scored_per_type": {
+          "Fact Retrieval": 5,
+          "Complex Reasoning": 2,
+          "Contextual Summarize": 2,
+          "Creative Generation": 1
+        },
+        "failed_samples": 0,
+        "finished": "2026-10-10T19:10:05+00:00",
+        "judge_backend": "anthropic-claude-haiku-5-5-nothink",
+        "judge_dropped_params": [
+          "temperature",
+          "top_p"
+        ],
+        "judge_strip_code_fence": true,
+        "judge_extra_body": {
+          "thinking": {
+            "type": "disabled"
+          }
+        },
+        "judge_usage": {
+          "calls": 37,
+          "prompt_tokens": 30843,
+          "completion_tokens": 18861,
+          "total_tokens": 49704,
+          "fences_removed": 30,
+          "prose_dropped": 0,
+          "not_json_replies": 0,
+          "truncated_replies": 0
+        },
+        "judge_cost_usd": 0.0125148
+      },
+      "judges_used": [
+        "anthropic-claude-haiku-5-5-nothink"
+      ],
+      "faithfulness_jsonfix_judge_cost_usd": 5.1200000000000004e-05
+    }
+  ],
+  "metrics": {
+    "4minds_constellations": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "mean": 0.1615236755654213,
+          "ci_low": 0.10881079704609116,
+          "ci_high": 0.23622828784119107,
+          "n": 5
+        },
+        "answer_correctness": {
+          "mean": 0.4977729506795005,
+          "ci_low": 0.3668872575421145,
+          "ci_high": 0.6522074177279956,
+          "n": 5
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "mean": 0.145,
+          "ci_low": 0.04,
+          "ci_high": 0.25,
+          "n": 2
+        },
+        "answer_correctness": {
+          "mean": 0.45681077835936,
+          "ci_low": 0.32739569196039675,
+          "ci_high": 0.5862258647583233,
+          "n": 2
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "mean": 0.612023831721141,
+          "ci_low": 0.5162836335926337,
+          "ci_high": 0.7077640298496484,
+          "n": 2
+        },
+        "coverage_score": {
+          "mean": 0.8333333333333333,
+          "ci_low": 0.7777777777777778,
+          "ci_high": 0.8888888888888888,
+          "n": 2
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "mean": 0.5762757065428691,
+          "ci_low": 0.5762757065428691,
+          "ci_high": 0.5762757065428691,
+          "n": 1
+        },
+        "coverage_score": {
+          "mean": 0.7619047619047619,
+          "ci_low": 0.7619047619047619,
+          "ci_high": 0.7619047619047619,
+          "n": 1
+        },
+        "faithfulness": {
+          "mean": 0.09375,
+          "ci_low": 0.09375,
+          "ci_high": 0.09375,
+          "n": 1
+        },
+        "faithfulness_jsonfix": {
+          "mean": 0.12280701754385964,
+          "ci_low": 0.12280701754385964,
+          "ci_high": 0.12280701754385964,
+          "n": 1
+        }
+      }
+    },
+    "gptoss_lightrag": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "mean": 0.4307404136378195,
+          "ci_low": 0.2814134728301484,
+          "ci_high": 0.5808049535603715,
+          "n": 5
+        },
+        "answer_correctness": {
+          "mean": 0.6449702958237216,
+          "ci_low": 0.49124724909434125,
+          "ci_high": 0.8388057542860923,
+          "n": 5
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "mean": 0.21384826896637918,
+          "ci_low": 0.11023622047244093,
+          "ci_high": 0.31746031746031744,
+          "n": 2
+        },
+        "answer_correctness": {
+          "mean": 0.6655045310579898,
+          "ci_low": 0.4256526956422402,
+          "ci_high": 0.9053563664737394,
+          "n": 2
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "mean": 0.6282158581165094,
+          "ci_low": 0.5870275885125995,
+          "ci_high": 0.6694041277204192,
+          "n": 2
+        },
+        "coverage_score": {
+          "mean": 0.6388888888888888,
+          "ci_low": 0.6111111111111112,
+          "ci_high": 0.6666666666666666,
+          "n": 2
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "mean": 0.6783445308091298,
+          "ci_low": 0.6783445308091298,
+          "ci_high": 0.6783445308091298,
+          "n": 1
+        },
+        "coverage_score": {
+          "mean": 0.8,
+          "ci_low": 0.8,
+          "ci_high": 0.8,
+          "n": 1
+        },
+        "faithfulness": {
+          "mean": 0.3333333333333333,
+          "ci_low": 0.3333333333333333,
+          "ci_high": 0.3333333333333333,
+          "n": 1
+        },
+        "faithfulness_jsonfix": {
+          "mean": 0.34210526315789475,
+          "ci_low": 0.34210526315789475,
+          "ci_high": 0.34210526315789475,
+          "n": 1
+        }
+      }
+    },
+    "gptoss_filesearch": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "mean": 0.4365798334219386,
+          "ci_low": 0.3096438064859117,
+          "ci_high": 0.5956228956228955,
+          "n": 5
+        },
+        "answer_correctness": {
+          "mean": 0.7319347293936798,
+          "ci_low": 0.5907269968580895,
+          "ci_high": 0.8731424619292703,
+          "n": 5
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "mean": 0.3073945025164537,
+          "ci_low": 0.12698412698412698,
+          "ci_high": 0.4878048780487805,
+          "n": 2
+        },
+        "answer_correctness": {
+          "mean": 0.7360245927461062,
+          "ci_low": 0.47935523051138273,
+          "ci_high": 0.9926939549808296,
+          "n": 2
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "mean": 0.6262160671689359,
+          "ci_low": 0.5976419627231604,
+          "ci_high": 0.6547901716147113,
+          "n": 2
+        },
+        "coverage_score": {
+          "mean": 0.7777777777777778,
+          "ci_low": 0.7777777777777778,
+          "ci_high": 0.7777777777777778,
+          "n": 2
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "mean": 0.6943143520814746,
+          "ci_low": 0.6943143520814746,
+          "ci_high": 0.6943143520814746,
+          "n": 1
+        },
+        "coverage_score": {
+          "mean": 0.7142857142857143,
+          "ci_low": 0.7142857142857143,
+          "ci_high": 0.7142857142857143,
+          "n": 1
+        },
+        "faithfulness": {
+          "mean": 0.6349206349206349,
+          "ci_low": 0.6349206349206349,
+          "ci_high": 0.6349206349206349,
+          "n": 1
+        },
+        "faithfulness_jsonfix": {
+          "mean": 0.6,
+          "ci_low": 0.6,
+          "ci_high": 0.6,
+          "n": 1
+        }
+      }
+    },
+    "gptoss_norag": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "mean": 0.05714285714285714,
+          "ci_low": 0.0,
+          "ci_high": 0.17142857142857143,
+          "n": 5
+        },
+        "answer_correctness": {
+          "mean": 0.3338789883538858,
+          "ci_low": 0.17202112778173756,
+          "ci_high": 0.6549874158529103,
+          "n": 5
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "mean": 0.16,
+          "ci_low": 0.0,
+          "ci_high": 0.32,
+          "n": 2
+        },
+        "answer_correctness": {
+          "mean": 0.4139111777311061,
+          "ci_low": 0.18219297928712203,
+          "ci_high": 0.6456293761750902,
+          "n": 2
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "mean": 0.30272803434462925,
+          "ci_low": 0.1654658339560159,
+          "ci_high": 0.4399902347332426,
+          "n": 2
+        },
+        "coverage_score": {
+          "mean": 0.36363636363636365,
+          "ci_low": 0.0,
+          "ci_high": 0.7272727272727273,
+          "n": 2
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "mean": 0.16629306779530387,
+          "ci_low": 0.16629306779530387,
+          "ci_high": 0.16629306779530387,
+          "n": 1
+        },
+        "coverage_score": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 1
+        },
+        "faithfulness": null,
+        "faithfulness_jsonfix": null
+      }
+    }
+  },
+  "overall": {
+    "4minds_constellations": {
+      "answer_correctness": {
+        "mean": 0.5202809680101375,
+        "ci_low": 0.43100451483069074,
+        "ci_high": 0.6105689763232596,
+        "n": 10
+      }
+    },
+    "gptoss_lightrag": {
+      "answer_correctness": {
+        "mean": 0.6490636788276737,
+        "ci_low": 0.5383646050592796,
+        "ci_high": 0.7614333371963851,
+        "n": 10
+      }
+    },
+    "gptoss_filesearch": {
+      "answer_correctness": {
+        "mean": 0.7078469318879957,
+        "ci_low": 0.6098175118965012,
+        "ci_high": 0.8181799137451841,
+        "n": 10
+      }
+    },
+    "gptoss_norag": {
+      "answer_correctness": {
+        "mean": 0.3268966433716204,
+        "ci_low": 0.1735891258738009,
+        "ci_high": 0.5082267745542995,
+        "n": 10
+      }
+    }
+  },
+  "paired": {
+    "gptoss_lightrag": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "ci_low": -0.46254016964093864,
+          "ci_high": -0.0676865392889734,
+          "n": 5,
+          "diff_mean": -0.2692167380723981
+        },
+        "answer_correctness": {
+          "ci_low": -0.2595811403021588,
+          "ci_high": -0.0001744160539783657,
+          "n": 5,
+          "diff_mean": -0.147197345144221
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "ci_low": -0.07023622047244094,
+          "ci_high": -0.06746031746031744,
+          "n": 2,
+          "diff_mean": -0.06884826896637919
+        },
+        "answer_correctness": {
+          "ci_low": -0.3191305017154161,
+          "ci_high": -0.09825700368184342,
+          "n": 2,
+          "diff_mean": -0.20869375269862978
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "ci_low": -0.07074395491996577,
+          "ci_high": 0.03835990212922913,
+          "n": 2,
+          "diff_mean": -0.01619202639536832
+        },
+        "coverage_score": {
+          "ci_low": 0.16666666666666663,
+          "ci_high": 0.2222222222222222,
+          "n": 2,
+          "diff_mean": 0.19444444444444442
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "ci_low": -0.10206882426626074,
+          "ci_high": -0.10206882426626074,
+          "n": 1,
+          "diff_mean": -0.10206882426626074
+        },
+        "coverage_score": {
+          "ci_low": -0.03809523809523818,
+          "ci_high": -0.03809523809523818,
+          "n": 1,
+          "diff_mean": -0.03809523809523818
+        },
+        "faithfulness": {
+          "ci_low": -0.23958333333333331,
+          "ci_high": -0.23958333333333331,
+          "n": 1,
+          "diff_mean": -0.23958333333333331
+        },
+        "faithfulness_jsonfix": {
+          "ci_low": -0.2192982456140351,
+          "ci_high": -0.2192982456140351,
+          "n": 1,
+          "diff_mean": -0.2192982456140351
+        }
+      },
+      "All questions": {
+        "answer_correctness": {
+          "ci_low": -0.20970284798508926,
+          "ci_high": -0.040346723295072016,
+          "n": 10,
+          "diff_mean": -0.1287827108175362
+        }
+      }
+    },
+    "gptoss_filesearch": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "ci_low": -0.4468230694037145,
+          "ci_high": -0.11751074031109984,
+          "n": 5,
+          "diff_mean": -0.2750561578565174
+        },
+        "answer_correctness": {
+          "ci_low": -0.2788960824949339,
+          "ci_high": -0.2070068635845955,
+          "n": 5,
+          "diff_mean": -0.23416177871417934
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "ci_low": -0.23780487804878048,
+          "ci_high": -0.08698412698412697,
+          "n": 2,
+          "diff_mean": -0.1623945025164537
+        },
+        "answer_correctness": {
+          "ci_low": -0.4064680902225063,
+          "ci_high": -0.15195953855098598,
+          "n": 2,
+          "diff_mean": -0.27921381438674614
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "ci_low": -0.08135832913052665,
+          "ci_high": 0.052973858234937055,
+          "n": 2,
+          "diff_mean": -0.014192235447794799
+        },
+        "coverage_score": {
+          "ci_low": 0.0,
+          "ci_high": 0.11111111111111105,
+          "n": 2,
+          "diff_mean": 0.055555555555555525
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "ci_low": -0.11803864553860555,
+          "ci_high": -0.11803864553860555,
+          "n": 1,
+          "diff_mean": -0.11803864553860555
+        },
+        "coverage_score": {
+          "ci_low": 0.04761904761904756,
+          "ci_high": 0.04761904761904756,
+          "n": 1,
+          "diff_mean": 0.04761904761904756
+        },
+        "faithfulness": {
+          "ci_low": -0.5411706349206349,
+          "ci_high": -0.5411706349206349,
+          "n": 1,
+          "diff_mean": -0.5411706349206349
+        },
+        "faithfulness_jsonfix": {
+          "ci_low": -0.47719298245614034,
+          "ci_high": -0.47719298245614034,
+          "n": 1,
+          "diff_mean": -0.47719298245614034
+        }
+      },
+      "All questions": {
+        "answer_correctness": {
+          "ci_low": -0.26350630399979147,
+          "ci_high": -0.11482586128838164,
+          "n": 10,
+          "diff_mean": -0.1875659638778584
+        }
+      }
+    },
+    "gptoss_norag": {
+      "Fact Retrieval": {
+        "rouge_score": {
+          "ci_low": 0.056309282115733716,
+          "ci_high": 0.1431224689289205,
+          "n": 5,
+          "diff_mean": 0.10438081842256415
+        },
+        "answer_correctness": {
+          "ci_low": -0.14116263298465723,
+          "ci_high": 0.43172206771056876,
+          "n": 5,
+          "diff_mean": 0.1638939623256147
+        }
+      },
+      "Complex Reasoning": {
+        "rouge_score": {
+          "ci_low": -0.07,
+          "ci_high": 0.04,
+          "n": 2,
+          "diff_mean": -0.015000000000000003
+        },
+        "answer_correctness": {
+          "ci_low": -0.05940351141676692,
+          "ci_high": 0.14520271267327473,
+          "n": 2,
+          "diff_mean": 0.0428996006282539
+        }
+      },
+      "Contextual Summarize": {
+        "answer_correctness": {
+          "ci_low": 0.07629339885939113,
+          "ci_high": 0.5422981958936325,
+          "n": 2,
+          "diff_mean": 0.3092957973765118
+        },
+        "coverage_score": {
+          "ci_low": 0.16161616161616155,
+          "ci_high": 0.7777777777777778,
+          "n": 2,
+          "diff_mean": 0.46969696969696967
+        }
+      },
+      "Creative Generation": {
+        "answer_correctness": {
+          "ci_low": 0.40998263874756524,
+          "ci_high": 0.40998263874756524,
+          "n": 1,
+          "diff_mean": 0.40998263874756524
+        },
+        "coverage_score": {
+          "ci_low": 0.7619047619047619,
+          "ci_high": 0.7619047619047619,
+          "n": 1,
+          "diff_mean": 0.7619047619047619
+        }
+      },
+      "All questions": {
+        "answer_correctness": {
+          "ci_low": 0.018258921408737475,
+          "ci_high": 0.35925706631221516,
+          "n": 10,
+          "diff_mean": 0.193384324638517
+        }
+      }
+    }
+  },
+  "caveats": [
+    "Generation scoring only (generation_eval.py). Retrieval and graph metrics are not part of this comparison.",
+    "Medical subset only (one corpus, Medical.txt). The Novel subset was not run.",
+    "Gold answers come from the official repo at commit fdbab59. The local Questions/ copy (another dataset release) has 251 different Contextual Summarize and Creative Generation answers.",
+    "All systems answer with GPT-OSS-120B. The three Bedrock systems use openai.gpt-oss-120b-1:0 on Amazon Bedrock (us-east-1) with the 4Minds server settings: temperature 0.3, 4,096 max tokens, reasoning effort medium (the GPT-OSS default, which 4Minds does not change). 4Minds serves its own AWQ-quantized GPT-OSS-120B on vLLM; the quantization can change answers a little.",
+    "Deviation from the official protocol: the judge is Claude Haiku 5.5 with thinking disabled (Claude API, OpenAI-compatible endpoint), not gpt-4o-mini. The scorer code, prompts, embeddings (bge-large) and answers are the same as in the gptoss comparison, so the difference in scores comes from the judge.",
+    "Thinking is disabled ({\"thinking\": {\"type\": \"disabled\"}} in each request, pipeline/llm_backends.json judge_extra_body). With the default adaptive thinking, the judge writes about 2.4 times more output tokens, and a full rescore takes more than 10 hours at the account's output-token limit. gpt-4o-mini, the official judge, does not think either. The verdicts with and without thinking can differ; the pilot judged with default thinking is runs/2026-10-10_gptoss-pilot_judge-haiku.",
+    "Claude Haiku 5.5 refuses temperature below 1 and top_p other than 0.99, so the official judge settings temperature 0 and top_p 1 are removed from each request (pipeline/llm_backends.json judge_drop_params) and the judge uses its default sampling. The endpoint ignores seed and the penalties. The judge is therefore less repeatable than the official one; use the confidence intervals.",
+    "Haiku 5.5 puts its JSON replies in a ```json code fence. The official factuality step (answer_accuracy.py calculate_factuality) reads replies with plain json.loads and gives factuality 0 when that fails, so without a fix every answer gets factuality 0 (answer correctness about 23 for every system). Sometimes Haiku also writes a comment after the fence. If a judge reply is not JSON, the scorer uses the JSON in its first code fence instead, in memory, before the official parser reads it (pipeline/llm_backends.json judge_strip_code_fence). The judge usage counts fences_removed, prose_dropped (text outside the fence) and not_json_replies (still not JSON). The prompts and the parsers are not changed, and the fix is the same for all systems.",
+    "The Bedrock systems get the official prompt as the system message, and the retrieved chunks in the user message under \"---Knowledge Base---\" (LightRAG uses its own official prompt layout). 4Minds has no per-request system prompt; the official prompt is in the model persona (behavioralGuidelines).",
+    "No RAG: the question only, with the official system prompt. The prompt tells the model to answer from a Knowledge Base, which is empty here, so some answers are \"I don't know\". It has no context, so it has no faithfulness score.",
+    "File Search has no search-only API, and groundingChunks holds only the chunks that Gemini's text cites. The search call (gemini-3.8-flash, top_k 5) therefore uses the instruction 'cite_each' (systems/retrievers.py): do not answer, write one line for each returned passage. The chunk text comes from groundingChunks, not from Gemini's text. In a 10-question check this gave exactly 5 chunks for every question with one search (the official prompt gave a mean of 2.7, often 1). Gemini can search more than one time for summary and creative questions; then GPT-OSS gets all chunks found (8 to 13 in the check). Gemini's tokens are in the cost and its time is in the latency.",
+    "LightRAG: GPT-OSS often writes LightRAG's field delimiter <|> as |>, <|, <> or |<, or breaks a record over lines. LightRAG 1.2.5 then rejects the record: 34.6% of relationship records and 3.4% of entity records in the first GPT-OSS index (Gemini: 0.4% and 0%). The driver repairs these delimiters in memory before LightRAG parses the extraction output (--repair-delimiters; audit/patches/lightrag-1.2.5-gptoss-delimiter-repair.py); the loss is then 6.4% and 0.8%. The index was rebuilt from the cached extraction output of the first build, so the LLM output is the same; the first index stays in shared/lightrag/workspace_bedrock-gpt-oss-120b/.",
+    "LightRAG: the index was built again with GPT-OSS-120B on Bedrock. The backend generation settings (temperature 0.3, 4,096 max tokens, reasoning effort medium) apply at query time only; the index was built with the LightRAG defaults. GPT-OSS on Bedrock puts its reasoning in <reasoning> tags in the answer text; the driver removes them before LightRAG reads the output.",
+    "LightRAG: the embedding model is BAAI/bge-large-en-v1.5 (the official code sets embedding_dim 1024), and context is stored as a one-item list. Its official string form would be split into characters by the scorer.",
+    "LightRAG: API mode of the official Examples/run_lightrag.py does not run at commit fdbab59 (an UnboundLocalError and a duplicate keyword argument). Both are fixed in memory with a 4-line change; the query settings are unchanged. LightRAG 1.2.5 also needs the README context-return change. Both diffs are in audit/patches/.",
+    "4Minds: the inference WebSocket has no temperature or max-token settings, so the server defaults apply (temperature 0.3, 4,096 max tokens). The 4Minds dataset also holds the platform's dataset manifest as one extra graph node (204 nodes: 203 Medical.txt chunks + manifest).",
+    "Vertex AI RAG Engine is not in this comparison. On 2026-10-09 Google refused us-central1 (Serverless: no available indexing project) and us-east4 (Spanner mode allowlist-only for new projects), and in europe-west4 retrieveContexts failed with HTTP 500 (Spanner corpus status) on about 60% of calls. The operator removed it; all RAG Engine regions are unprovisioned.",
+    "Each system uses its own default retrieval and chunking settings. top_k is 5 where the system exposes it.",
+    "Faithfulness reads only the first 10,000 characters of `context`. Systems that return more context (4Minds multi-step retrieval: up to 50 chunks; File Search on multi-search questions: up to about 15,000 characters) are judged on part of it. 4Minds chunks are stored in 4Minds' own score order (highest first), so the judge sees the strongest chunks.",
+    "The medical source text can be in the training data of the models.",
+    "Each system ran one time. LLM answers and LLM-judge scores vary between runs; use the confidence intervals.",
+    "Scoring rule, the same for every system: one scoring run, then at most 3 reruns of the shards (50 answers each) that have answers the judge could not score. A rerun scores the full shard again. Answers that the judge still cannot score are not in the means; the Not scored column gives the count. The cause is the judge's output format: it sometimes writes an item of its TP, FP or FN list as plain text, not as an object, and the official scorer drops the sample. This happens with any answer, but more often with \"I don't know\" answers, so No RAG has the most such samples, and its mean is probably a little too high.",
+    "Prod systems (4Minds, Amazon Bedrock, Gemini File Search) can change over time. The dates are in the run manifests.",
+    "Faithfulness (official): the verdict prompt at commit fdbab59 does not ask for JSON. Answers whose verdicts the parser cannot read score NaN; the report gives the NaN count for this judge. 'Faithfulness (JSON-format fix)' adds one sentence that asks for the format of the prompt's own examples (audit/patches/faithfulness-fdbab59-json-format.diff). Not part of the official protocol."
+  ],
+  "sensitivity": [
+    {
+      "name": "Without incomplete File Search replies",
+      "description": "In the full run, the File Search adapter accepted some Gemini replies with no chunks and no normal finish reason (most after about 400,000 tokens of search results) as results, and GPT-OSS answered with an empty Knowledge Base. The adapter now retries such replies. A test with 3 of these questions on 2026-10-10 passed 2 at the first attempt and failed 1 again 4 times (runs/2026-10-10_gptoss-full/tests/filesearch-fault-probe). This check takes these questions out for every system and computes answer correctness and the paired differences again.",
+      "rule": {
+        "rule": "incomplete_retrieval",
+        "systems": [
+          "gptoss_filesearch"
+        ]
+      },
+      "rule_description": "answered questions whose retrieval returned no chunks and had no normal finish reason (MAX_TOKENS, STOP)",
+      "excluded": {},
+      "n_excluded": 0,
+      "overall": {
+        "4minds_constellations": {
+          "mean": 0.5202809680101375,
+          "ci_low": 0.4344971559323916,
+          "ci_high": 0.613812974844683,
+          "n": 10
+        },
+        "gptoss_lightrag": {
+          "mean": 0.6490636788276737,
+          "ci_low": 0.5439078961169929,
+          "ci_high": 0.7656267853833475,
+          "n": 10
+        },
+        "gptoss_filesearch": {
+          "mean": 0.7078469318879957,
+          "ci_low": 0.6133398241177054,
+          "ci_high": 0.8170732949061146,
+          "n": 10
+        },
+        "gptoss_norag": {
+          "mean": 0.3268966433716204,
+          "ci_low": 0.17416075312606752,
+          "ci_high": 0.5132703298275396,
+          "n": 10
+        }
+      },
+      "paired": {
+        "gptoss_lightrag": {
+          "ci_low": -0.2069742585133897,
+          "ci_high": -0.04439502516877119,
+          "n": 10,
+          "diff_mean": -0.1287827108175362
+        },
+        "gptoss_filesearch": {
+          "ci_low": -0.26131022166705975,
+          "ci_high": -0.1158955608689845,
+          "n": 10,
+          "diff_mean": -0.1875659638778584
+        },
+        "gptoss_norag": {
+          "ci_low": 0.021700009984653514,
+          "ci_high": 0.3477223836817902,
+          "n": 10,
+          "diff_mean": 0.193384324638517
+        }
+      }
+    }
+  ]
+}

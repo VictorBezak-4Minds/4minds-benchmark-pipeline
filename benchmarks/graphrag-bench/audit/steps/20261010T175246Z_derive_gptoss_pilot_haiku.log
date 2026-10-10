@@ -1,0 +1,7 @@
+# step: derive_gptoss_pilot_haiku
+# start: 2026-10-10T17:52:46Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/derive_run.py --from runs/2026-10-09_gptoss-pilot --to runs/2026-10-10_gptoss-pilot_judge-haiku --change x --title x
+
+/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku: 0 links for ['4minds_constellations', 'gptoss_filesearch', 'gptoss_lightrag', 'gptoss_norag']
+
+# end: 2026-10-10T17:52:46Z  exit: 0  duration_s: 0

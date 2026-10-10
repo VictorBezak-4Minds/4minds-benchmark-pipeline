@@ -1,0 +1,28 @@
+# step: score_pilot_haiku_fence_4minds_constellations
+# start: 2026-10-10T18:26:28Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/score.py --system-dir runs/2026-10-10_gptoss-pilot_judge-haiku/4minds_constellations/medical --judge anthropic-claude-haiku-5-5 --shard-size 50 --parallel 8
+
+scoring 10 predictions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku/4minds_constellations/medical with anthropic-claude-haiku-5-5 (claude-haiku-5-5), 1 shard(s); 0 already complete, 1 to score, 8 at a time
+  shard_000: exit 0, failed samples 1
+  handle._run()
+  embedding = HuggingFaceBgeEmbeddings(model_name=args.embedding_model)
+Results for Fact Retrieval:
+  rouge_score: 0.1615
+  answer_correctness: 0.4363
+Results for Complex Reasoning:
+  rouge_score: 0.1450
+  answer_correctness: 0.4694
+Results for Contextual Summarize:
+  answer_correctness: 0.6771
+  coverage_score: 0.8056
+❌ Sample failed: Request timed out.
+  avg_results = {metric: np.nanmean(scores) for metric, scores in results.items()}
+Results for Creative Generation:
+  answer_correctness: nan
+  coverage_score: nan
+  faithfulness: nan
+Evaluation complete.
+
+done in 286.0 s, exit 1, scored {'Fact Retrieval': 5, 'Complex Reasoning': 2, 'Contextual Summarize': 2, 'Creative Generation': 0}, failed samples 1
+
+# end: 2026-10-10T18:31:16Z  exit: 1  duration_s: 288

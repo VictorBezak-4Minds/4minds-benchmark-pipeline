@@ -1,0 +1,87 @@
+{
+  "created": "2026-10-10T19:05:09+00:00",
+  "judge": "anthropic-claude-haiku-5-5",
+  "model": "claude-haiku-5-5",
+  "extra_body": {},
+  "system_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku/4minds_constellations/medical",
+  "rows": [
+    {
+      "id": "Medical-de0b30b1",
+      "answer_statements": 4,
+      "gold_statements": 1,
+      "finish_reason": "stop",
+      "completion_tokens": 602,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Organ transplant recipients are at higher risk for basal cell carcinoma (BCC).\",\n      \"reason\": \"This directly matches the ground truth statement that or",
+      "factuality_reply_end": " BCC risk with the general population. This statement is not supported by the ground truth.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 1,
+      "FP": 3,
+      "FN": 0
+    },
+    {
+      "id": "Medical-2360f9dd",
+      "answer_statements": 14,
+      "gold_statements": 1,
+      "finish_reason": "stop",
+      "completion_tokens": 1688,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Stage 0 colon cancer is also called carcinoma in situ of the colon.\",\n      \"reason\": \"This directly matches the ground truth, which states that Stage 0 c",
+      "factuality_reply_end": "anagement approach is not mentioned in the ground truth, so this is not directly supported.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 1,
+      "FP": 13,
+      "FN": 0
+    },
+    {
+      "id": "Medical-f4ba3ee9",
+      "answer_statements": 5,
+      "gold_statements": 2,
+      "finish_reason": "stop",
+      "completion_tokens": 944,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Common sites of metastasis for liver cancer are lungs, bones, and lymph nodes.\",\n      \"reason\": \"The lungs and bones are supported by the ground truth, w",
+      "factuality_reply_end": " lymph node involvement or the lymphatic route of spread, so this statement is unsupported.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 3,
+      "FP": 2,
+      "FN": 0
+    },
+    {
+      "id": "Medical-edb040bb",
+      "answer_statements": 15,
+      "gold_statements": 1,
+      "finish_reason": "stop",
+      "completion_tokens": 2144,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Primary bone cancer originates in the bone itself.\",\n      \"reason\": \"This directly matches the ground truth's claim that primary bone cancer originates i",
+      "factuality_reply_end": "t listed a separate FN entry. If you want the cartilage part treated as its own unmet claim, it could be added as an FN.",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": true,
+      "TP": 3,
+      "FP": 12,
+      "FN": 0
+    }
+  ],
+  "usage_all_calls": {
+    "calls": 12,
+    "prompt_tokens": 9614,
+    "completion_tokens": 10812,
+    "total_tokens": 20426,
+    "fences_removed": 0,
+    "prose_dropped": 0,
+    "not_json_replies": 12,
+    "truncated_replies": 0,
+    "dropped_params": [
+      "temperature",
+      "top_p"
+    ],
+    "strip_code_fence": false,
+    "extra_body": {}
+  },
+  "factuality_readable_by_official_parser": 0,
+  "readable_after_fence_removal": 4
+}

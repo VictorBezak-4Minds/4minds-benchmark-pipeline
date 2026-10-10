@@ -1,0 +1,7 @@
+# step: describe_gptoss_pilot_haiku
+# start: 2026-10-10T18:21:01Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py --run runs/2026-10-10_gptoss-pilot_judge-haiku --status INVALID SCORES, do not use: the official factuality parser (plain json.loads) cannot read Haiku replies, which are in a Markdown code fence, so factuality is 0 for every answer (audit/diagnostics/judge_format_anthropic-claude-haiku-5-5.json). Waiting for the operator's decision on the fix.
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku/README.md
+
+# end: 2026-10-10T18:21:01Z  exit: 0  duration_s: 0

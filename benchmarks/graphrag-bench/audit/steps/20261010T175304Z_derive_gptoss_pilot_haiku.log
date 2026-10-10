@@ -1,0 +1,7 @@
+# step: derive_gptoss_pilot_haiku
+# start: 2026-10-10T17:53:04Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/derive_run.py --from runs/2026-10-09_gptoss-pilot --to runs/2026-10-10_gptoss-pilot_judge-haiku --change x --title x
+
+/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku has change 'Judge: Claude Haiku 5.5 (anthropic-claude-haiku-5-5) instead of gpt-4o-mini; temperature and top_p removed from judge requests', not 'x'. Use another --to.
+
+# end: 2026-10-10T17:53:04Z  exit: 1  duration_s: 0

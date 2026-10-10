@@ -1,6 +1,6 @@
 # GraphRAG-Bench Medical: generation results
 
-Generated 2026-10-10T17:21:02+00:00. Scores are 0-100 with 95% bootstrap confidence intervals.
+Generated 2026-10-10T17:51:34+00:00. Scores are 0-100 with 95% bootstrap confidence intervals.
 
 Judge `gpt-4o-mini` (gpt-4o-mini-2024-07-18), embeddings `BAAI/bge-large-en-v1.5`, GraphRAG-Bench commit `fdbab59`.
 

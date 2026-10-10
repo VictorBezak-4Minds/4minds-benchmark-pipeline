@@ -1,0 +1,101 @@
+{
+  "created": "2026-10-10T19:05:54+00:00",
+  "judge": "anthropic-claude-haiku-5-5",
+  "model": "claude-haiku-5-5",
+  "extra_body": {
+    "thinking": {
+      "type": "disabled"
+    },
+    "output_config": {
+      "effort": "low"
+    }
+  },
+  "system_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku/4minds_constellations/medical",
+  "rows": [
+    {
+      "id": "Medical-de0b30b1",
+      "answer_statements": 3,
+      "gold_statements": 1,
+      "finish_reason": "stop",
+      "completion_tokens": 369,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Immunosuppression raises the likelihood of developing basal cell carcinoma compared with the general population.\",\n      \"reason\": \"This statement is dire",
+      "factuality_reply_end": "osuppression as the named risk factor, which is not directly supported by the ground truth.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 1,
+      "FP": 2,
+      "FN": 0
+    },
+    {
+      "id": "Medical-2360f9dd",
+      "answer_statements": 14,
+      "gold_statements": 1,
+      "finish_reason": "stop",
+      "completion_tokens": 1264,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Stage 0 colon cancer is also called carcinoma in situ of the colon.\",\n      \"reason\": \"This directly matches the ground truth, which defines Stage 0 colon",
+      "factuality_reply_end": "n-invasive nature are not mentioned in the ground truth, so this is not directly supported.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 1,
+      "FP": 13,
+      "FN": 0
+    },
+    {
+      "id": "Medical-f4ba3ee9",
+      "answer_statements": 7,
+      "gold_statements": 1,
+      "finish_reason": "stop",
+      "completion_tokens": 662,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Common sites of metastasis for liver cancer include the lungs.\",\n      \"reason\": \"The ground truth states that liver cancer most often metastasizes to the",
+      "factuality_reply_end": "he lymphatic system or lymph node involvement, so this statement is not directly supported.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 4,
+      "FP": 3,
+      "FN": 0
+    },
+    {
+      "id": "Medical-edb040bb",
+      "answer_statements": 13,
+      "gold_statements": 2,
+      "finish_reason": "stop",
+      "completion_tokens": 1085,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Primary bone cancer originates in the bone itself.\",\n      \"reason\": \"Directly supported by the ground truth statement that primary bone cancer originates",
+      "factuality_reply_end": "ncer.\",\n      \"reason\": \"Specific metastatic sources are not mentioned in the ground truth.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 3,
+      "FP": 10,
+      "FN": 0
+    }
+  ],
+  "usage_all_calls": {
+    "calls": 12,
+    "prompt_tokens": 9576,
+    "completion_tokens": 4798,
+    "total_tokens": 14374,
+    "fences_removed": 0,
+    "prose_dropped": 0,
+    "not_json_replies": 12,
+    "truncated_replies": 0,
+    "dropped_params": [
+      "temperature",
+      "top_p"
+    ],
+    "strip_code_fence": false,
+    "extra_body": {
+      "thinking": {
+        "type": "disabled"
+      },
+      "output_config": {
+        "effort": "low"
+      }
+    }
+  },
+  "factuality_readable_by_official_parser": 0,
+  "readable_after_fence_removal": 4
+}

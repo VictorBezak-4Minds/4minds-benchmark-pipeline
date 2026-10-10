@@ -1,0 +1,95 @@
+{
+  "created": "2026-10-10T19:05:57+00:00",
+  "judge": "anthropic-claude-haiku-5-5",
+  "model": "claude-haiku-5-5",
+  "extra_body": {
+    "thinking": {
+      "type": "disabled"
+    }
+  },
+  "system_dir": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku/4minds_constellations/medical",
+  "rows": [
+    {
+      "id": "Medical-de0b30b1",
+      "answer_statements": 3,
+      "gold_statements": 2,
+      "finish_reason": "stop",
+      "completion_tokens": 476,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Organ transplant recipients are immunosuppressed.\",\n      \"reason\": \"The ground truth does not explicitly state that transplant recipients are immunosuppr",
+      "factuality_reply_end": "esent in the ground truth, which only addresses organ transplant recipients' elevated risk.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 1,
+      "FP": 3,
+      "FN": 0
+    },
+    {
+      "id": "Medical-2360f9dd",
+      "answer_statements": 14,
+      "gold_statements": 1,
+      "finish_reason": "stop",
+      "completion_tokens": 1072,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Stage 0 colon cancer is also called carcinoma in situ of the colon.\",\n      \"reason\": \"Directly supported by the ground truth, which states that Stage 0 c",
+      "factuality_reply_end": "asive disease.\",\n      \"reason\": \"Management approach is not mentioned in the ground truth.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 1,
+      "FP": 13,
+      "FN": 0
+    },
+    {
+      "id": "Medical-f4ba3ee9",
+      "answer_statements": 7,
+      "gold_statements": 2,
+      "finish_reason": "stop",
+      "completion_tokens": 593,
+      "factuality_reply_start": "```json\n{\n  \"TP\": [\n    {\n      \"statement\": \"Common sites of metastasis for liver cancer include the lungs.\",\n      \"reason\": \"Directly supported by the ground truth statement that liver cancer most ",
+      "factuality_reply_end": "sm of lymph node involvement via the lymphatic system is not mentioned in the ground truth.\"\n    }\n  ],\n  \"FN\": []\n}\n```",
+      "json_loads": false,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 4,
+      "FP": 3,
+      "FN": 0
+    },
+    {
+      "id": "Medical-edb040bb",
+      "answer_statements": 13,
+      "gold_statements": 2,
+      "finish_reason": "stop",
+      "completion_tokens": 973,
+      "factuality_reply_start": "{\n\"TP\": [\n{\"statement\": \"Primary bone cancer originates in the bone itself.\", \"reason\": \"Directly supported by the ground truth statement that primary bone cancer originates in bone.\"},\n{\"statement\": ",
+      "factuality_reply_end": "ancer, or kidney cancer.\", \"reason\": \"Specific metastatic sources are not mentioned in the ground truth.\"}\n],\n\"FN\": []\n}",
+      "json_loads": true,
+      "json_after_fence_fix": true,
+      "prose_outside_fence": false,
+      "TP": 3,
+      "FP": 10,
+      "FN": 0
+    }
+  ],
+  "usage_all_calls": {
+    "calls": 12,
+    "prompt_tokens": 9607,
+    "completion_tokens": 4487,
+    "total_tokens": 14094,
+    "fences_removed": 0,
+    "prose_dropped": 0,
+    "not_json_replies": 10,
+    "truncated_replies": 0,
+    "dropped_params": [
+      "temperature",
+      "top_p"
+    ],
+    "strip_code_fence": false,
+    "extra_body": {
+      "thinking": {
+        "type": "disabled"
+      }
+    }
+  },
+  "factuality_readable_by_official_parser": 1,
+  "readable_after_fence_removal": 4
+}

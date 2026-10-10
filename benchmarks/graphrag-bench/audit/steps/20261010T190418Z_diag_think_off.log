@@ -1,0 +1,34 @@
+# step: diag_think_off
+# start: 2026-10-10T19:04:18Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/diagnose_judge_format.py --system-dir runs/2026-10-10_gptoss-pilot_judge-haiku/4minds_constellations/medical --judge anthropic-claude-haiku-5-5 --n 4 --extra-body {"thinking": {"type": "disabled"}} --label think-off
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'top_p', 'presence_penalty', 'frequency_penalty', 'seed'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+Traceback (most recent call last):
+  File "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/diagnose_judge_format.py", line 94, in <module>
+    asyncio.run(main())
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/diagnose_judge_format.py", line 65, in main
+    answer_stmts = await A.generate_statements(llm, item["question"], item["generated_answer"], None)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/upstream/Evaluation/metrics/answer_accuracy.py", line 180, in generate_statements
+    response = await llm.ainvoke(prompt, config={"callbacks": callbacks})
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 400, in ainvoke
+    llm_result = await self.agenerate_prompt(
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 974, in agenerate_prompt
+    return await self.agenerate(
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 932, in agenerate
+    raise exceptions[0]
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/langchain_core/language_models/chat_models.py", line 1104, in _agenerate_with_cache
+    result = await self._agenerate(messages, stop=stop, **kwargs)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/pipeline/judge_hooks.py", line 100, in counted
+    result = await generate(self, *args, **kwargs)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/langchain_openai/chat_models/base.py", line 1367, in _agenerate
+    response = await self.async_client.create(**payload)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+TypeError: AsyncCompletions.create() got an unexpected keyword argument 'thinking'
+
+# end: 2026-10-10T19:04:22Z  exit: 1  duration_s: 4

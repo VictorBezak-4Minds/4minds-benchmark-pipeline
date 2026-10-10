@@ -1,0 +1,11 @@
+# step: faith_pilot_haiku_fence_gptoss_filesearch
+# start: 2026-10-10T18:28:31Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/score_faithfulness.py --system-dir runs/2026-10-10_gptoss-pilot_judge-haiku/gptoss_filesearch/medical --judge anthropic-claude-haiku-5-5
+
+/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/asyncio/base_events.py:1909: UserWarning: Parameters {'frequency_penalty', 'seed', 'presence_penalty', 'top_p'} should be specified explicitly. Instead they were passed in as part of `model_kwargs` parameter.
+  handle._run()
+faithfulness (JSON-format fix) for 1 Creative Generation answers in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku/gptoss_filesearch/medical; 0 already scored, 1 to score
+  1/1
+done: scored 1/1, NaN 0, errors 0 (rerun to retry), mean 0.5294117647058824
+
+# end: 2026-10-10T18:29:10Z  exit: 0  duration_s: 39

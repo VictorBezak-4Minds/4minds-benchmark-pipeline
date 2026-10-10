@@ -1,0 +1,14 @@
+{
+  "derived_from": "runs/2026-10-09_gptoss-pilot",
+  "change": "Judge: Claude Haiku 5.5 with thinking disabled instead of gpt-4o-mini",
+  "linked_files": [
+    "predictions.json",
+    "manifest.json",
+    "run_config.json",
+    "runs.jsonl",
+    "raw.jsonl"
+  ],
+  "title": "GPT-OSS-120B pilot, judged by Claude Haiku 5.5 with thinking disabled",
+  "purpose": "Check the Haiku judge with thinking disabled (faster, fewer output tokens) before the full rescore.",
+  "status": "Pilot scored (thinking disabled, fence fix v2); 0 failed samples, 0 truncated replies. Full rescore not started (operator decision 2026-10-10): estimate about 29.7M output tokens, about $19, about 7 hours at 80,000 output tokens per minute."
+}

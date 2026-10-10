@@ -1,0 +1,7 @@
+# step: aggregate_pilot_haiku_fence2
+# start: 2026-10-10T18:45:35Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/scripts/aggregate.py --matrix gptoss_judge-haiku --run runs/2026-10-10_gptoss-pilot_judge-haiku --label PILOT
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/graphrag-bench/runs/2026-10-10_gptoss-pilot_judge-haiku/summary/scores.json, scores.csv, paired.csv, report.md for ['4minds_constellations', 'gptoss_lightrag', 'gptoss_filesearch', 'gptoss_norag']
+
+# end: 2026-10-10T18:45:35Z  exit: 0  duration_s: 0
