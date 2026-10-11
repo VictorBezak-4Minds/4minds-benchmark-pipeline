@@ -59,6 +59,7 @@ answer is correct, and 0 when it is not.
 | `gptoss_no_rag` | GPT-OSS-120B, no retrieval | none (world knowledge baseline) |
 | `gptoss_langchain` | GPT-OSS-120B + LangChain vector RAG | a copy of the official vector baseline: 512-token chunks with 10% overlap, text-embedding-3-large, FAISS, 100 chunks, the top 10 documents in full |
 | `gptoss_graphrag` | GPT-OSS-120B + Microsoft GraphRAG | GraphRAG 3.3.0, fast method, default settings (1,200-token chunks, noun-phrase graph, community reports by GPT-OSS-120B), text-embedding-3-large; the context of GraphRAG local search (community level 2) in the official prompt |
+| `gptoss_ragflow` | GPT-OSS-120B + RAGFlow (setup in progress) | self-hosted RAGFlow v0.27.2, default dataset settings (General chunk method, 512 tokens), text-embedding-3-large; the retrieval of a default RAGFlow chat assistant (6 chunks, hybrid keyword + vector search with vector weight 0.3, similarity threshold 0.2, no reranker), each chunk in the official document layout of the official prompt |
 | `4minds` | 4Minds (GPT-OSS-120B + Constellation) | 4Minds prod; one file per document (`<dsid>_<title>.txt`; the runner reads the dsid back from the chunk `document_title`) |
 
 All answers come from GPT-OSS-120B on Amazon Bedrock (`pipeline/llm_backends.json`,
@@ -90,6 +91,9 @@ The same layout as every benchmark in the hub (see the hub README): find the run
 ./bench enterpriserag-bench setup_langchain erag systems/setup_langchain.py
 ./bench enterpriserag-bench setup_graphrag graphrag systems/setup_graphrag.py [--limit 500] [--dry-run]
 ./bench enterpriserag-bench setup_4minds eval systems/setup_4minds.py
+./bench enterpriserag-bench setup_ragflow eval systems/setup_ragflow.py --base-url http://<ragflow host>:9380 [--dry-run]
+./bench enterpriserag-bench pilot_ragflow erag systems/run_rag.py --retriever ragflow \
+    --llm bedrock-gpt-oss-120b --subset all --questions-file data/pilot_questions.json --out-dir runs/<run>/gptoss_ragflow
 ./bench enterpriserag-bench pilot_no_rag erag systems/run_rag.py --retriever none --llm bedrock-gpt-oss-120b \
     --subset all --questions-file data/pilot_questions.json --out-dir runs/<run>/gptoss_no_rag
 ./bench enterpriserag-bench pilot_langchain erag systems/run_rag.py --retriever langchain_vector --top-k 10 \
