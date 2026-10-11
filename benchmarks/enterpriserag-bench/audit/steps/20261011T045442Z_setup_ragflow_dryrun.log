@@ -1,0 +1,8 @@
+# step: setup_ragflow_dryrun
+# start: 2026-10-11T04:54:42Z
+# command: /home/victo/4minds-benchmark-pipeline/envs/.venv-eval/bin/python /home/victo/4minds-benchmark-pipeline/systems/setup_ragflow.py --base-url http://localhost:9380 --dry-run
+
+10000 documents, 49046592 bytes; dataset enterpriserag-bench-pilot, embedding text-embedding-3-large@OpenAI
+first file: dsid_000f2604db264a4b80b442286b0a71cc_eng-runtime.txt
+
+# end: 2026-10-11T04:54:43Z  exit: 0  duration_s: 1

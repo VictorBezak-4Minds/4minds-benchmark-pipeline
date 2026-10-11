@@ -1,0 +1,191 @@
+# step: setup_ragflow
+# start: 2026-10-11T05:04:44Z
+# command: /home/victo/4minds-benchmark-pipeline/envs/.venv-eval/bin/python /home/victo/4minds-benchmark-pipeline/systems/setup_ragflow.py --base-url http://192.168.1.230:9380
+
+10000 documents, 49046592 bytes; dataset enterpriserag-bench-pilot, embedding text-embedding-3-large@OpenAI
+dataset 479d0b76c53111f1902989398a42df25: chunk_method naive, parser_config {"auto_keywords": 0, "auto_questions": 0, "children_delimiter": "", "chunk_token_num": 512, "delimiter": "\n", "html4excel": false, "image_context_size": 0, "layout_recognize": "DeepDOC", "llm_id": "", "parent_child": {"children_delimiter": "\n", "use_parent_child": false}, "table_context_size": 0, "topn_tags": 3}
+10000 files, 0 already in the dataset, 10000 to upload
+  2026-10-11T05:05:15+00:00 upload batch 20/200: 1000 files
+  2026-10-11T05:05:43+00:00 upload batch 40/200: 2000 files
+  2026-10-11T05:06:10+00:00 upload batch 60/200: 3000 files
+  2026-10-11T05:06:38+00:00 upload batch 80/200: 4000 files
+  2026-10-11T05:07:06+00:00 upload batch 100/200: 5000 files
+  2026-10-11T05:07:33+00:00 upload batch 120/200: 6000 files
+  2026-10-11T05:08:02+00:00 upload batch 140/200: 7000 files
+  2026-10-11T05:08:30+00:00 upload batch 160/200: 8000 files
+  2026-10-11T05:08:58+00:00 upload batch 180/200: 9000 files
+  2026-10-11T05:09:27+00:00 upload batch 200/200: 10000 files
+parse started for 10000 documents
+  2026-10-11T05:15:20+00:00 {'documents': 10000, 'runs': {'DONE': 389, 'RUNNING': 9611}, 'chunks': 928, 'tokens': 504090}
+  2026-10-11T05:16:32+00:00 {'documents': 10000, 'runs': {'DONE': 481, 'RUNNING': 9519}, 'chunks': 1130, 'tokens': 610493}
+  2026-10-11T05:17:42+00:00 {'documents': 10000, 'runs': {'DONE': 579, 'RUNNING': 9421}, 'chunks': 1368, 'tokens': 731191}
+  2026-10-11T05:18:54+00:00 {'documents': 10000, 'runs': {'DONE': 674, 'RUNNING': 9326}, 'chunks': 1583, 'tokens': 856794}
+  2026-10-11T05:20:07+00:00 {'documents': 10000, 'runs': {'DONE': 760, 'RUNNING': 9240}, 'chunks': 1771, 'tokens': 968471}
+  2026-10-11T05:21:24+00:00 {'documents': 10000, 'runs': {'DONE': 846, 'RUNNING': 9154}, 'chunks': 1974, 'tokens': 1070152}
+  2026-10-11T05:22:38+00:00 {'documents': 10000, 'runs': {'DONE': 929, 'RUNNING': 9071}, 'chunks': 2168, 'tokens': 1176741}
+  2026-10-11T05:23:53+00:00 {'documents': 10000, 'runs': {'DONE': 1014, 'RUNNING': 8986}, 'chunks': 2360, 'tokens': 1284019}
+  2026-10-11T05:25:07+00:00 {'documents': 10000, 'runs': {'DONE': 1092, 'RUNNING': 8908}, 'chunks': 2548, 'tokens': 1379759}
+  2026-10-11T05:26:20+00:00 {'documents': 10000, 'runs': {'DONE': 1173, 'RUNNING': 8827}, 'chunks': 2719, 'tokens': 1476337}
+  2026-10-11T05:27:33+00:00 {'documents': 10000, 'runs': {'DONE': 1253, 'RUNNING': 8747}, 'chunks': 2905, 'tokens': 1579136}
+  2026-10-11T05:28:48+00:00 {'documents': 10000, 'runs': {'DONE': 1330, 'RUNNING': 8670}, 'chunks': 3071, 'tokens': 1677292}
+  2026-10-11T05:30:02+00:00 {'documents': 10000, 'runs': {'DONE': 1413, 'RUNNING': 8587}, 'chunks': 3263, 'tokens': 1779657}
+  2026-10-11T05:31:16+00:00 {'documents': 10000, 'runs': {'DONE': 1494, 'RUNNING': 8506}, 'chunks': 3450, 'tokens': 1881101}
+  2026-10-11T05:32:29+00:00 {'documents': 10000, 'runs': {'DONE': 1577, 'RUNNING': 8423}, 'chunks': 3627, 'tokens': 1978731}
+  2026-10-11T05:33:44+00:00 {'documents': 10000, 'runs': {'DONE': 1661, 'RUNNING': 8339}, 'chunks': 3818, 'tokens': 2081866}
+  2026-10-11T05:34:59+00:00 {'documents': 10000, 'runs': {'DONE': 1748, 'RUNNING': 8252}, 'chunks': 4016, 'tokens': 2187723}
+  2026-10-11T05:36:13+00:00 {'documents': 10000, 'runs': {'DONE': 1837, 'RUNNING': 8163}, 'chunks': 4226, 'tokens': 2303569}
+  2026-10-11T05:37:24+00:00 {'documents': 10000, 'runs': {'DONE': 1932, 'RUNNING': 8068}, 'chunks': 4442, 'tokens': 2421704}
+  2026-10-11T05:38:34+00:00 {'documents': 10000, 'runs': {'DONE': 2019, 'RUNNING': 7981}, 'chunks': 4644, 'tokens': 2533927}
+  2026-10-11T05:39:45+00:00 {'documents': 10000, 'runs': {'DONE': 2113, 'RUNNING': 7887}, 'chunks': 4858, 'tokens': 2647633}
+  2026-10-11T05:40:55+00:00 {'documents': 10000, 'runs': {'DONE': 2200, 'RUNNING': 7800}, 'chunks': 5071, 'tokens': 2763219}
+  2026-10-11T05:42:06+00:00 {'documents': 10000, 'runs': {'DONE': 2291, 'RUNNING': 7709}, 'chunks': 5266, 'tokens': 2872723}
+  2026-10-11T05:43:21+00:00 {'documents': 10000, 'runs': {'DONE': 2378, 'RUNNING': 7622}, 'chunks': 5468, 'tokens': 2985373}
+  2026-10-11T05:44:31+00:00 {'documents': 10000, 'runs': {'DONE': 2469, 'RUNNING': 7531}, 'chunks': 5680, 'tokens': 3099694}
+  2026-10-11T05:45:41+00:00 {'documents': 10000, 'runs': {'DONE': 2555, 'RUNNING': 7445}, 'chunks': 5885, 'tokens': 3207076}
+  2026-10-11T05:46:52+00:00 {'documents': 10000, 'runs': {'DONE': 2641, 'RUNNING': 7359}, 'chunks': 6079, 'tokens': 3317046}
+  2026-10-11T05:48:03+00:00 {'documents': 10000, 'runs': {'DONE': 2728, 'RUNNING': 7272}, 'chunks': 6280, 'tokens': 3422674}
+  2026-10-11T05:49:15+00:00 {'documents': 10000, 'runs': {'DONE': 2816, 'RUNNING': 7184}, 'chunks': 6483, 'tokens': 3531815}
+  2026-10-11T05:50:25+00:00 {'documents': 10000, 'runs': {'DONE': 2898, 'RUNNING': 7102}, 'chunks': 6675, 'tokens': 3636747}
+  2026-10-11T05:51:37+00:00 {'documents': 10000, 'runs': {'DONE': 2983, 'RUNNING': 7017}, 'chunks': 6873, 'tokens': 3748099}
+  2026-10-11T05:52:47+00:00 {'documents': 10000, 'runs': {'DONE': 3070, 'RUNNING': 6930}, 'chunks': 7069, 'tokens': 3857542}
+  2026-10-11T05:53:58+00:00 {'documents': 10000, 'runs': {'DONE': 3152, 'RUNNING': 6848}, 'chunks': 7264, 'tokens': 3958061}
+  2026-10-11T05:55:08+00:00 {'documents': 10000, 'runs': {'DONE': 3235, 'RUNNING': 6765}, 'chunks': 7447, 'tokens': 4055691}
+  2026-10-11T05:56:18+00:00 {'documents': 10000, 'runs': {'DONE': 3317, 'RUNNING': 6683}, 'chunks': 7643, 'tokens': 4151726}
+  2026-10-11T05:57:29+00:00 {'documents': 10000, 'runs': {'DONE': 3405, 'RUNNING': 6595}, 'chunks': 7842, 'tokens': 4260396}
+  2026-10-11T05:58:39+00:00 {'documents': 10000, 'runs': {'DONE': 3491, 'RUNNING': 6509}, 'chunks': 8033, 'tokens': 4366503}
+  2026-10-11T05:59:50+00:00 {'documents': 10000, 'runs': {'DONE': 3577, 'RUNNING': 6423}, 'chunks': 8236, 'tokens': 4468011}
+  2026-10-11T06:01:00+00:00 {'documents': 10000, 'runs': {'DONE': 3660, 'RUNNING': 6340}, 'chunks': 8415, 'tokens': 4569902}
+  2026-10-11T06:02:11+00:00 {'documents': 10000, 'runs': {'DONE': 3747, 'RUNNING': 6253}, 'chunks': 8621, 'tokens': 4683274}
+  2026-10-11T06:03:21+00:00 {'documents': 10000, 'runs': {'DONE': 3830, 'RUNNING': 6170}, 'chunks': 8814, 'tokens': 4779433}
+  2026-10-11T06:04:32+00:00 {'documents': 10000, 'runs': {'DONE': 3919, 'RUNNING': 6081}, 'chunks': 9026, 'tokens': 4889920}
+  2026-10-11T06:05:42+00:00 {'documents': 10000, 'runs': {'DONE': 4004, 'RUNNING': 5996}, 'chunks': 9224, 'tokens': 4996317}
+  2026-10-11T06:06:53+00:00 {'documents': 10000, 'runs': {'DONE': 4092, 'RUNNING': 5908}, 'chunks': 9413, 'tokens': 5095870}
+  2026-10-11T06:08:03+00:00 {'documents': 10000, 'runs': {'DONE': 4179, 'RUNNING': 5821}, 'chunks': 9606, 'tokens': 5194152}
+  2026-10-11T06:09:14+00:00 {'documents': 10000, 'runs': {'DONE': 4264, 'RUNNING': 5736}, 'chunks': 9813, 'tokens': 5309698}
+  2026-10-11T06:10:24+00:00 {'documents': 10000, 'runs': {'DONE': 4348, 'RUNNING': 5652}, 'chunks': 10009, 'tokens': 5416809}
+  2026-10-11T06:11:35+00:00 {'documents': 10000, 'runs': {'DONE': 4432, 'RUNNING': 5568}, 'chunks': 10195, 'tokens': 5523580}
+  2026-10-11T06:12:46+00:00 {'documents': 10000, 'runs': {'DONE': 4521, 'RUNNING': 5479}, 'chunks': 10396, 'tokens': 5626144}
+  2026-10-11T06:13:56+00:00 {'documents': 10000, 'runs': {'DONE': 4601, 'RUNNING': 5399}, 'chunks': 10581, 'tokens': 5730618}
+  2026-10-11T06:15:07+00:00 {'documents': 10000, 'runs': {'DONE': 4687, 'RUNNING': 5313}, 'chunks': 10779, 'tokens': 5831257}
+  2026-10-11T06:16:17+00:00 {'documents': 10000, 'runs': {'DONE': 4775, 'RUNNING': 5225}, 'chunks': 10979, 'tokens': 5941194}
+  2026-10-11T06:17:27+00:00 {'documents': 10000, 'runs': {'DONE': 4864, 'RUNNING': 5136}, 'chunks': 11170, 'tokens': 6054156}
+  2026-10-11T06:18:38+00:00 {'documents': 10000, 'runs': {'DONE': 4952, 'RUNNING': 5048}, 'chunks': 11378, 'tokens': 6165152}
+  2026-10-11T06:19:49+00:00 {'documents': 10000, 'runs': {'DONE': 5038, 'RUNNING': 4962}, 'chunks': 11578, 'tokens': 6270947}
+  2026-10-11T06:20:59+00:00 {'documents': 10000, 'runs': {'DONE': 5125, 'RUNNING': 4875}, 'chunks': 11782, 'tokens': 6370962}
+  2026-10-11T06:22:10+00:00 {'documents': 10000, 'runs': {'DONE': 5212, 'RUNNING': 4788}, 'chunks': 11991, 'tokens': 6490920}
+  2026-10-11T06:23:20+00:00 {'documents': 10000, 'runs': {'DONE': 5300, 'RUNNING': 4700}, 'chunks': 12194, 'tokens': 6598051}
+  2026-10-11T06:24:31+00:00 {'documents': 10000, 'runs': {'DONE': 5387, 'RUNNING': 4613}, 'chunks': 12386, 'tokens': 6698214}
+  2026-10-11T06:25:41+00:00 {'documents': 10000, 'runs': {'DONE': 5472, 'RUNNING': 4528}, 'chunks': 12582, 'tokens': 6807465}
+  2026-10-11T06:26:52+00:00 {'documents': 10000, 'runs': {'DONE': 5559, 'RUNNING': 4441}, 'chunks': 12778, 'tokens': 6917825}
+  2026-10-11T06:28:03+00:00 {'documents': 10000, 'runs': {'DONE': 5643, 'RUNNING': 4357}, 'chunks': 12964, 'tokens': 7012444}
+  2026-10-11T06:29:13+00:00 {'documents': 10000, 'runs': {'DONE': 5726, 'RUNNING': 4274}, 'chunks': 13151, 'tokens': 7113683}
+  2026-10-11T06:30:24+00:00 {'documents': 10000, 'runs': {'DONE': 5815, 'RUNNING': 4185}, 'chunks': 13349, 'tokens': 7220370}
+  2026-10-11T06:31:35+00:00 {'documents': 10000, 'runs': {'DONE': 5899, 'RUNNING': 4101}, 'chunks': 13560, 'tokens': 7334590}
+  2026-10-11T06:32:45+00:00 {'documents': 10000, 'runs': {'DONE': 5986, 'RUNNING': 4014}, 'chunks': 13752, 'tokens': 7443248}
+  2026-10-11T06:33:56+00:00 {'documents': 10000, 'runs': {'DONE': 6068, 'RUNNING': 3932}, 'chunks': 13965, 'tokens': 7558492}
+  2026-10-11T06:35:07+00:00 {'documents': 10000, 'runs': {'DONE': 6157, 'RUNNING': 3843}, 'chunks': 14172, 'tokens': 7670551}
+  2026-10-11T06:36:17+00:00 {'documents': 10000, 'runs': {'DONE': 6242, 'RUNNING': 3758}, 'chunks': 14370, 'tokens': 7777036}
+  2026-10-11T06:37:27+00:00 {'documents': 10000, 'runs': {'DONE': 6322, 'RUNNING': 3678}, 'chunks': 14561, 'tokens': 7880057}
+  2026-10-11T06:38:38+00:00 {'documents': 10000, 'runs': {'DONE': 6407, 'RUNNING': 3593}, 'chunks': 14772, 'tokens': 7999554}
+  2026-10-11T06:39:49+00:00 {'documents': 10000, 'runs': {'DONE': 6493, 'RUNNING': 3507}, 'chunks': 14965, 'tokens': 8110790}
+  2026-10-11T06:40:59+00:00 {'documents': 10000, 'runs': {'DONE': 6579, 'RUNNING': 3421}, 'chunks': 15162, 'tokens': 8219240}
+  2026-10-11T06:42:09+00:00 {'documents': 10000, 'runs': {'DONE': 6666, 'RUNNING': 3334}, 'chunks': 15361, 'tokens': 8329196}
+  2026-10-11T06:43:20+00:00 {'documents': 10000, 'runs': {'DONE': 6754, 'RUNNING': 3246}, 'chunks': 15564, 'tokens': 8433569}
+  2026-10-11T06:44:31+00:00 {'documents': 10000, 'runs': {'DONE': 6841, 'RUNNING': 3159}, 'chunks': 15762, 'tokens': 8536194}
+  2026-10-11T06:45:41+00:00 {'documents': 10000, 'runs': {'DONE': 6925, 'RUNNING': 3075}, 'chunks': 15944, 'tokens': 8632216}
+  2026-10-11T06:46:52+00:00 {'documents': 10000, 'runs': {'DONE': 7011, 'RUNNING': 2989}, 'chunks': 16137, 'tokens': 8733294}
+  2026-10-11T06:48:02+00:00 {'documents': 10000, 'runs': {'DONE': 7096, 'RUNNING': 2904}, 'chunks': 16322, 'tokens': 8828893}
+  2026-10-11T06:49:13+00:00 {'documents': 10000, 'runs': {'DONE': 7180, 'RUNNING': 2820}, 'chunks': 16509, 'tokens': 8934761}
+  2026-10-11T06:50:24+00:00 {'documents': 10000, 'runs': {'DONE': 7267, 'RUNNING': 2733}, 'chunks': 16712, 'tokens': 9043382}
+  2026-10-11T06:51:34+00:00 {'documents': 10000, 'runs': {'DONE': 7352, 'RUNNING': 2648}, 'chunks': 16899, 'tokens': 9145164}
+  2026-10-11T06:52:45+00:00 {'documents': 10000, 'runs': {'DONE': 7439, 'RUNNING': 2561}, 'chunks': 17100, 'tokens': 9254761}
+  2026-10-11T06:53:56+00:00 {'documents': 10000, 'runs': {'DONE': 7529, 'RUNNING': 2471}, 'chunks': 17297, 'tokens': 9363904}
+  2026-10-11T06:55:06+00:00 {'documents': 10000, 'runs': {'DONE': 7615, 'RUNNING': 2385}, 'chunks': 17505, 'tokens': 9466845}
+  2026-10-11T06:56:16+00:00 {'documents': 10000, 'runs': {'DONE': 7700, 'RUNNING': 2300}, 'chunks': 17697, 'tokens': 9569860}
+  2026-10-11T06:57:27+00:00 {'documents': 10000, 'runs': {'DONE': 7785, 'RUNNING': 2215}, 'chunks': 17888, 'tokens': 9673369}
+  2026-10-11T06:58:37+00:00 {'documents': 10000, 'runs': {'DONE': 7871, 'RUNNING': 2129}, 'chunks': 18083, 'tokens': 9779962}
+  2026-10-11T06:59:48+00:00 {'documents': 10000, 'runs': {'DONE': 7955, 'RUNNING': 2045}, 'chunks': 18282, 'tokens': 9885979}
+  2026-10-11T07:00:59+00:00 {'documents': 10000, 'runs': {'DONE': 8042, 'RUNNING': 1958}, 'chunks': 18486, 'tokens': 9989418}
+  2026-10-11T07:02:09+00:00 {'documents': 10000, 'runs': {'DONE': 8125, 'RUNNING': 1875}, 'chunks': 18666, 'tokens': 10092570}
+  2026-10-11T07:03:20+00:00 {'documents': 10000, 'runs': {'DONE': 8213, 'RUNNING': 1787}, 'chunks': 18876, 'tokens': 10202741}
+  2026-10-11T07:04:31+00:00 {'documents': 10000, 'runs': {'DONE': 8299, 'RUNNING': 1701}, 'chunks': 19085, 'tokens': 10314389}
+  2026-10-11T07:05:41+00:00 {'documents': 10000, 'runs': {'DONE': 8384, 'RUNNING': 1616}, 'chunks': 19283, 'tokens': 10424778}
+  2026-10-11T07:06:52+00:00 {'documents': 10000, 'runs': {'DONE': 8470, 'RUNNING': 1530}, 'chunks': 19482, 'tokens': 10531507}
+  2026-10-11T07:08:03+00:00 {'documents': 10000, 'runs': {'DONE': 8558, 'RUNNING': 1442}, 'chunks': 19687, 'tokens': 10641803}
+  2026-10-11T07:09:13+00:00 {'documents': 10000, 'runs': {'DONE': 8646, 'RUNNING': 1354}, 'chunks': 19884, 'tokens': 10749081}
+  2026-10-11T07:10:24+00:00 {'documents': 10000, 'runs': {'DONE': 8730, 'RUNNING': 1270}, 'chunks': 20071, 'tokens': 10857500}
+  2026-10-11T07:11:34+00:00 {'documents': 10000, 'runs': {'DONE': 8814, 'RUNNING': 1186}, 'chunks': 20257, 'tokens': 10965581}
+  2026-10-11T07:12:45+00:00 {'documents': 10000, 'runs': {'DONE': 8899, 'RUNNING': 1101}, 'chunks': 20466, 'tokens': 11085048}
+  2026-10-11T07:13:55+00:00 {'documents': 10000, 'runs': {'DONE': 8984, 'RUNNING': 1016}, 'chunks': 20659, 'tokens': 11191123}
+  2026-10-11T07:15:06+00:00 {'documents': 10000, 'runs': {'DONE': 9068, 'RUNNING': 932}, 'chunks': 20848, 'tokens': 11298863}
+  2026-10-11T07:16:17+00:00 {'documents': 10000, 'runs': {'DONE': 9153, 'RUNNING': 847}, 'chunks': 21029, 'tokens': 11398148}
+  2026-10-11T07:17:28+00:00 {'documents': 10000, 'runs': {'DONE': 9237, 'RUNNING': 763}, 'chunks': 21218, 'tokens': 11504196}
+  2026-10-11T07:18:38+00:00 {'documents': 10000, 'runs': {'DONE': 9318, 'RUNNING': 682}, 'chunks': 21394, 'tokens': 11602377}
+  2026-10-11T07:19:49+00:00 {'documents': 10000, 'runs': {'DONE': 9404, 'RUNNING': 596}, 'chunks': 21582, 'tokens': 11709224}
+  2026-10-11T07:21:00+00:00 {'documents': 10000, 'runs': {'DONE': 9489, 'RUNNING': 511}, 'chunks': 21786, 'tokens': 11815147}
+  2026-10-11T07:22:10+00:00 {'documents': 10000, 'runs': {'DONE': 9570, 'RUNNING': 430}, 'chunks': 21980, 'tokens': 11917958}
+  2026-10-11T07:23:21+00:00 {'documents': 10000, 'runs': {'DONE': 9654, 'RUNNING': 346}, 'chunks': 22183, 'tokens': 12024883}
+  2026-10-11T07:24:31+00:00 {'documents': 10000, 'runs': {'DONE': 9739, 'RUNNING': 261}, 'chunks': 22390, 'tokens': 12129921}
+  2026-10-11T07:25:41+00:00 {'documents': 10000, 'runs': {'DONE': 9825, 'RUNNING': 175}, 'chunks': 22582, 'tokens': 12242359}
+  2026-10-11T07:26:52+00:00 {'documents': 10000, 'runs': {'DONE': 9908, 'RUNNING': 92}, 'chunks': 22772, 'tokens': 12348442}
+  2026-10-11T07:28:02+00:00 {'documents': 10000, 'runs': {'DONE': 9993, 'RUNNING': 7}, 'chunks': 22970, 'tokens': 12447419}
+  2026-10-11T07:29:12+00:00 {'documents': 10000, 'runs': {'DONE': 10000}, 'chunks': 22993, 'tokens': 12457969}
+{
+  "checked": "2026-10-11T07:29:12+00:00",
+  "base_url": "http://192.168.1.230:9380",
+  "complete": true,
+  "server_version": "v0.27.2",
+  "dataset": {
+    "id": "479d0b76c53111f1902989398a42df25",
+    "name": "enterpriserag-bench-pilot",
+    "embedding_model": "text-embedding-3-large@OpenAI",
+    "chunk_method": "naive",
+    "parser_config": {
+      "auto_keywords": 0,
+      "auto_questions": 0,
+      "children_delimiter": "",
+      "chunk_token_num": 512,
+      "delimiter": "\n",
+      "html4excel": false,
+      "image_context_size": 0,
+      "layout_recognize": "DeepDOC",
+      "llm_id": "",
+      "parent_child": {
+        "children_delimiter": "\n",
+        "use_parent_child": false
+      },
+      "table_context_size": 0,
+      "topn_tags": 3
+    },
+    "similarity_threshold": 0.2,
+    "vector_similarity_weight": 0.3
+  },
+  "embedding": {
+    "llm_backend": "openai-text-embedding-3-large",
+    "llm_base_url": "https://api.openai.com/v1",
+    "llm_model": "text-embedding-3-large",
+    "llm_params": {},
+    "llm_auth": {
+      "type": "api_key_file",
+      "provider": "openai"
+    }
+  },
+  "embedding_model": "text-embedding-3-large@OpenAI",
+  "documents": 10000,
+  "runs": {
+    "DONE": 10000
+  },
+  "chunks": 22993,
+  "tokens": 12457969,
+  "failed_count": 0,
+  "upload_wall_clock_s": 280.8,
+  "parse_wall_clock_s": 8385.3,
+  "ingest_wall_clock_s": 8666.3,
+  "estimated_cost_usd": 1.6195,
+  "cost_note": "token_count of RAGFlow (sum over documents) x the embedding price; parse only",
+  "corpus": "/home/victo/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/data/pilot_corpus.json",
+  "corpus_sha256": "3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec",
+  "documents_file": "documents.json"
+}
+
+# end: 2026-10-11T07:29:13Z  exit: 0  duration_s: 8670
