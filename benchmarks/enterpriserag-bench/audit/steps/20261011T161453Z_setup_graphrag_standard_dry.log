@@ -1,0 +1,7 @@
+# step: setup_graphrag_standard_dry
+# start: 2026-10-11T16:14:54Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_graphrag.py --method standard --gold-plus 426 --dry-run
+
+500 documents, 639711 tokens (cl100k_base), method standard, concurrency 16, out /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_standard_goldplus426
+
+# end: 2026-10-11T16:15:01Z  exit: 0  duration_s: 8

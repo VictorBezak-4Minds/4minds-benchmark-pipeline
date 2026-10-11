@@ -23,15 +23,25 @@ def main():
     args = parser.parse_args()
     retriever = retrievers.make("graphrag_local", args)
     questions = json.loads((bc.BENCH_DIR / args.questions_file).read_text())[:args.questions]
+    total = {"questions": 0, "errors": 0, "gold": 0, "gold_found": 0, "questions_with_gold": 0,
+             "questions_with_gold_found": 0}
     for q in questions:
+        total["questions"] += 1
         result, error, _ = retriever.retrieve(q, 120)
         if error:
+            total["errors"] += 1
             print(q["question_id"], "ERROR", error)
             continue
         gold = set(q.get("expected_doc_ids") or [])
+        found = len(gold & set(result["document_ids"]))
+        total["gold"] += len(gold)
+        total["gold_found"] += found
+        total["questions_with_gold"] += bool(gold)
+        total["questions_with_gold_found"] += bool(found)
         print(json.dumps({"question_id": q["question_id"], "documents": len(result["document_ids"]),
-                          "gold_found": len(gold & set(result["document_ids"])), "gold": len(gold),
+                          "gold_found": found, "gold": len(gold),
                           **result["extra"], "context_start": result["contexts"][0][:300] if result["contexts"] else ""}))
+    print(json.dumps({"index": args.graphrag_index, **total}))
 
 
 if __name__ == "__main__":

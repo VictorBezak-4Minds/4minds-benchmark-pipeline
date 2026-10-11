@@ -23,8 +23,16 @@ quota error); the earlier tables stay as they are.
 --limit N indexes only the first N documents of the corpus list, in a separate folder
 (<RESOURCE_NAME>_first<N>): a test that measures time and cost. The runners do not accept it.
 
-Output: shared/graphrag/<RESOURCE_NAME>[_first<N>]/ with output/ (parquet, lancedb), cache/,
-logs/ and index_manifest.json.
+--gold-plus N indexes the gold documents of --questions-file plus N random other documents
+(<RESOURCE_NAME>_goldplus<N>): a test of retrieval quality, because a --limit index has almost no
+gold documents. The runners do not accept it; scripts/check_graphrag_retriever.py does.
+
+--method standard uses the standard GraphRAG pipeline instead: the LLM extracts entities and
+relationships with descriptions (default entity types, 1 gleaning), summarizes the descriptions
+and writes the community reports from the graph. Folder suffix _standard.
+
+Output: shared/graphrag/<RESOURCE_NAME>[_standard][_first<N> | _goldplus<N>]/ with output/
+(parquet, lancedb), cache/, logs/ and index_manifest.json.
 """
 import argparse
 import asyncio
@@ -41,8 +49,23 @@ import llm_backends
 TABLES = ["documents", "text_units", "entities", "relationships", "communities", "community_reports"]
 
 
-def index_folder(limit):
-    return bc.SHARED / "graphrag" / (bc.profile.RESOURCE_NAME + (f"_first{limit}" if limit else ""))
+def index_folder(limit, method="fast", gold_plus=None):
+    name = bc.profile.RESOURCE_NAME + ("" if method == "fast" else f"_{method}")
+    name += f"_first{limit}" if limit else f"_goldplus{gold_plus}" if gold_plus is not None else ""
+    return bc.SHARED / "graphrag" / name
+
+
+def gold_sample(docs, questions_file, n, seed):
+    """The gold documents of the questions, plus n random other documents, in corpus order."""
+    import random
+    questions = json.loads((bc.BENCH_DIR / questions_file).read_text())
+    gold = {i for q in questions for i in q.get("expected_doc_ids") or []}
+    missing = gold - {d["dsid"] for d in docs}
+    if missing:
+        sys.exit(f"{len(missing)} gold documents are not in the corpus list: {sorted(missing)[:5]}")
+    others = [d["dsid"] for d in docs if d["dsid"] not in gold]
+    keep = gold | set(random.Random(seed).sample(others, n))
+    return [d for d in docs if d["dsid"] in keep], len(gold)
 
 
 def table_counts(output):
@@ -54,7 +77,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--llm", default="bedrock-gpt-oss-120b", choices=llm_backends.names())
     parser.add_argument("--embedding", default="openai-text-embedding-3-large", choices=llm_backends.names())
+    parser.add_argument("--method", choices=["fast", "standard"], default="fast",
+                        help="fast: NLP noun phrases, no entity descriptions; standard: the LLM extracts entities "
+                             "and relationships with descriptions")
     parser.add_argument("--limit", type=int, help="index only the first N documents (a cost test)")
+    parser.add_argument("--gold-plus", type=int, metavar="N",
+                        help="index only the gold documents of --questions-file plus N random other documents "
+                             "(a retrieval test); the runners do not accept it")
+    parser.add_argument("--questions-file", default="data/pilot_questions.json",
+                        help="--gold-plus: questions with expected_doc_ids")
+    parser.add_argument("--seed", type=int, default=42, help="--gold-plus: seed of the random documents")
     parser.add_argument("--concurrency", type=int, help="parallel LLM requests (default: the backend max_concurrency)")
     parser.add_argument("--max-missing-share", type=float, default=0.02,
                         help="the index is complete if at most this share of communities has no report "
@@ -72,7 +104,9 @@ def main():
 
     chat, embedding = llm_backends.Backend(args.llm), llm_backends.Backend(args.embedding)
     concurrency = args.concurrency or chat.max_concurrency
-    out = index_folder(args.limit)
+    if args.limit and args.gold_plus is not None:
+        sys.exit("Use --limit or --gold-plus, not both.")
+    out = index_folder(args.limit, args.method, args.gold_plus)
     out.mkdir(parents=True, exist_ok=True)
     bc.acquire_lock(out / ".index.lock")
     corpus_sha = bc.sha256(bc.CORPUS_FILE)
@@ -83,11 +117,17 @@ def main():
         return
 
     docs = bc.profile.corpus_documents()
+    sample = None
     if args.limit:
         docs = docs[:args.limit]
+    elif args.gold_plus is not None:
+        docs, gold = gold_sample(docs, args.questions_file, args.gold_plus, args.seed)
+        sample = {"gold_documents": gold, "other_documents": args.gold_plus, "seed": args.seed,
+                  "questions_file": args.questions_file}
     encoding = tiktoken.get_encoding("cl100k_base")
     tokens = sum(len(encoding.encode(d["text"], disallowed_special=())) for d in docs)
-    print(f"{len(docs)} documents, {tokens} tokens (cl100k_base), concurrency {concurrency}, out {out}")
+    print(f"{len(docs)} documents, {tokens} tokens (cl100k_base), method {args.method}, "
+          f"concurrency {concurrency}, out {out}")
     if args.dry_run:
         return
 
@@ -100,11 +140,13 @@ def main():
         frame = pd.DataFrame({"id": [d["dsid"] for d in docs], "title": [d["title"] for d in docs],
                               "text": [d["text"] for d in docs], "creation_date": ["" for _ in docs]})
     bc.audit("graphrag_index_start", out=str(out), documents=len(docs), tokens=tokens, limit=args.limit,
-             llm=args.llm, embedding=args.embedding, concurrency=concurrency, workflows=args.workflows)
+             sample=sample, method=args.method, llm=args.llm, embedding=args.embedding, concurrency=concurrency,
+             workflows=args.workflows)
+    method = {"fast": IndexingMethod.Fast, "standard": IndexingMethod.Standard}[args.method]
     start = time.monotonic()
     errors = []
     try:
-        results = asyncio.run(build_index(config=config, method=IndexingMethod.Fast, input_documents=frame))
+        results = asyncio.run(build_index(config=config, method=method, input_documents=frame))
         errors = [f"{r.workflow}: {r.error!r}"[:500] for r in results if r.error is not None]
     except Exception as e:
         errors = [f"{type(e).__name__}: {e}"[:500]]
@@ -124,15 +166,15 @@ def main():
                 "not_json_replies": gh.NOT_JSON["count"] + (previous.get("not_json_replies", 0) if args.workflows else 0),
                 "json_replies_repaired": gh.NOT_JSON["repaired"]
                                          + (previous.get("json_replies_repaired", 0) if args.workflows else 0),
-                "workflows": args.workflows or "all (fast method)",
+                "workflows": args.workflows or f"all ({args.method} method)",
                 "index_wall_clock_s": round(previous.get("index_wall_clock_s", 0) + wall, 1),
-                "documents": len(docs), "limit": args.limit, "corpus_tokens": tokens, "tables": counts,
-                "usage": usage, "estimated_cost_usd": gh.cost(usage, chat, embedding),
-                "method": "fast", "concurrency": concurrency, "index_call_args": {},
+                "documents": len(docs), "limit": args.limit, "sample": sample, "corpus_tokens": tokens,
+                "tables": counts, "usage": usage, "estimated_cost_usd": gh.cost(usage, chat, embedding),
+                "method": args.method, "concurrency": concurrency, "index_call_args": {},
                 "llm": chat.settings(), "embedding": embedding.settings(),
                 "settings": {k: config.model_dump(mode="json")[k] for k in
-                             ("chunking", "extract_graph_nlp", "prune_graph", "cluster_graph", "community_reports",
-                              "embed_text", "local_search")},
+                             ("chunking", "extract_graph_nlp", "prune_graph", "extract_graph", "summarize_descriptions",
+                              "cluster_graph", "community_reports", "embed_text", "local_search")},
                 "document_ids_sha256": hashlib.sha256("\n".join(d["dsid"] for d in docs).encode()).hexdigest(),
                 "corpus": str(bc.CORPUS_FILE), "corpus_sha256": corpus_sha, "packages": bc.package_versions()}
     manifest_path.write_text(json.dumps(manifest, indent=2))

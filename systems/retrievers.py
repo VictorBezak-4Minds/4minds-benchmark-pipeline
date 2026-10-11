@@ -387,8 +387,9 @@ class GraphRAGLocal:
     def readiness(self, questions):
         if not self.index.get("complete"):
             sys.exit(f"Readiness: the index in {self.folder} is not complete: {self.index.get('errors')}")
-        if self.index.get("limit"):
-            sys.exit(f"Readiness: the index in {self.folder} is a --limit {self.index['limit']} test index.")
+        if self.index.get("limit") or self.index.get("sample"):
+            sys.exit(f"Readiness: the index in {self.folder} is a test index "
+                     f"(limit {self.index.get('limit')}, sample {self.index.get('sample')}).")
         if self.index["corpus_sha256"] != bc.sha256(bc.CORPUS_FILE):
             sys.exit(f"Readiness: the index in {self.folder} was built from another corpus file.")
         result, error, _ = self.retrieve(questions[0], 120)

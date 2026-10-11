@@ -77,7 +77,7 @@ The same layout as every benchmark in the hub (see the hub README): find the run
 | `leaderboard_upstream/` | the leaderboard Space at `LEADERBOARD_COMMIT` (only `transform_raw_data.py` is used) |
 | `benchmark_profile.py` | profile for the hub pipeline: prompt, corpus documents, prediction format |
 | `data/` | all questions, the pilot questions, the corpus slice, the pilot manifest |
-| `shared/` | `langchain/` (FAISS index), `graphrag/` (GraphRAG index; `_first20` and `_first500` are tests), `4minds/` (setup state), `ragflow/` (setup state, RAGFlow document ID map), the scorer's uuid index |
+| `shared/` | `langchain/` (FAISS index), `graphrag/` (GraphRAG index; `_first20`, `_first500` and the `_goldplus426` fast and `_standard` indexes are tests), `4minds/` (setup state), `ragflow/` (setup state, RAGFlow document ID map), the scorer's uuid index |
 | `scripts/check_graphrag_retriever.py` | searches a GraphRAG index (also a test index) for a few questions, without answers |
 | `scripts/make_pilot.py` | makes the pilot questions and the corpus slice |
 | `scripts/score.py` | runs the official metrics-based evaluation for one system folder |
@@ -90,7 +90,8 @@ The same layout as every benchmark in the hub (see the hub README): find the run
 ```
 ./bench enterpriserag-bench make_pilot erag make_pilot.py
 ./bench enterpriserag-bench setup_langchain erag systems/setup_langchain.py
-./bench enterpriserag-bench setup_graphrag graphrag systems/setup_graphrag.py [--limit 500] [--dry-run]
+./bench enterpriserag-bench setup_graphrag graphrag systems/setup_graphrag.py [--method standard] [--limit 500 | --gold-plus 426] [--dry-run]
+./bench enterpriserag-bench check_graphrag graphrag check_graphrag_retriever.py --graphrag-index shared/graphrag/<index> --questions 50
 ./bench enterpriserag-bench setup_4minds eval systems/setup_4minds.py
 ./bench enterpriserag-bench setup_ragflow eval systems/setup_ragflow.py --base-url http://<ragflow host>:9380 [--dry-run]
 ./bench enterpriserag-bench restore_ragflow eval systems/setup_ragflow.py --restore-from-log audit/steps/<time>_setup_ragflow.log

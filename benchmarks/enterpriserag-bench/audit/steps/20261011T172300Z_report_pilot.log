@@ -1,0 +1,7 @@
+# step: report_pilot
+# start: 2026-10-11T17:23:00Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/make_report.py --run runs/2026-10-10_gptoss-pilot
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/summary/report.html
+
+# end: 2026-10-11T17:23:00Z  exit: 0  duration_s: 0
