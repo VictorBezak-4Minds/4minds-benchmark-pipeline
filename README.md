@@ -258,7 +258,7 @@ Resources that exist now, and what they cost:
 | 4Minds dataset 4046, model 3604, persona 1291 (prod) | none | EnterpriseRAG-Bench pilot slice (10,000 files, one per document). |
 | LightRAG indexes | none (local) | `benchmarks/<benchmark>/shared/lightrag/workspace/` (Gemini), `workspace_<llm backend>/` (others) |
 | LangChain FAISS indexes | none (local) | `benchmarks/<benchmark>/shared/langchain/<resource name>/` (EnterpriseRAG-Bench pilot slice) |
-| RAGFlow v0.27.2 server (Docker Compose in WSL2 on the operator's Windows PC) | none (local); embedding calls to OpenAI during the parse | EnterpriseRAG-Bench pilot slice (`shared/ragflow/setup.json`). Only the API port 9380 is open to the local network. Stop it with `docker compose -f docker-compose.yml down` in `~/ragflow/docker`. |
+| RAGFlow v0.27.2 server (Docker Compose in WSL2 on the operator's Windows PC) | none (local); embedding calls to OpenAI during the parse | EnterpriseRAG-Bench pilot slice (`shared/ragflow/setup.json`). WSL in NAT mode (mirrored mode did not pass traffic into WSL on this PC); a Windows port proxy sends `192.168.1.230:9380` to `127.0.0.1:9380`, and the firewall rule `RAGFlowAPI-LAN` opens only that port to `192.168.1.0/24` (Private profile). If the PC address changes, update both. Stop it with `docker compose -f docker-compose.yml down` in `~/ragflow/docker`. |
 | GraphRAG indexes | none (local) | `benchmarks/<benchmark>/shared/graphrag/<resource name>/` (EnterpriseRAG-Bench pilot slice; `_first<N>` folders are cost tests) |
 
 **RAG Engine check:** "ACTIVE" in the control plane does not prove that queries work. In the
