@@ -12,6 +12,7 @@ import json
 from html import escape
 from pathlib import Path
 
+import answers_page
 import bench_common as bc
 import run_readme
 from report_html import bar, head, header, pct, rel, title_with_info
@@ -55,6 +56,15 @@ def build(out, config, summary_dir):
         h += [bar(n, "not scored (see below)", None, color(n)) for n in out.get("not_scored", {})]
         h.append("</div>")
     h.append("</div></section>")
+
+    answers = summary_dir.parent / "answers.html"
+    if answers.exists():
+        h.append("<section><div class='label'>Diagnosis</div><h2>Questions and answers</h2>"
+                 "<p class='sub'>Each question with its gold answer, gold facts and gold documents, and the answer, scores, "
+                 "documents and retrieved context of each system. Search and filter by question type.</p>"
+                 f"<a class='pill' style='color:#fff;border-color:var(--violet)' href='{escape(rel(answers, summary_dir))}'>"
+                 f"Open the question browser</a><p class='note'>The page is <code>{escape(rel(answers, bc.BENCH_DIR))}</code>. "
+                 "It has the answers, so git does not track it; make_report.py writes it again.</p></section>")
 
     h.append("<section><div class='label'>All metrics</div><h2>All metric outputs</h2>"
              "<p class='sub'>Every number that the scorers give, as 0–100. Factual Correctness gives claim precision, recall and "
@@ -151,7 +161,8 @@ def build(out, config, summary_dir):
     h += [f"<li>{escape(c)}</li>" for c in out["caveats"]]
     h.append("</ul></div></section>")
 
-    links = [("Summary data (JSON)", summary_dir / "scores.json"), ("Summary (Markdown)", summary_dir / "report.md"),
+    links = [("Question browser (answers, not in git)", summary_dir.parent / "answers.html"),
+             ("Summary data (JSON)", summary_dir / "scores.json"), ("Summary (Markdown)", summary_dir / "report.md"),
              ("Config copy (comparison and scorer)", summary_dir.parent / "config.json"),
              ("Shared assessment questions", bc.SHARED / "extra" / out["scorer"]["name"] / "shared.json"),
              ("Audit log (JSON lines)", bc.AUDIT_DIR / "audit.log"), ("Step logs", bc.AUDIT_DIR / "steps")]
@@ -178,6 +189,8 @@ def main():
     out = json.loads((summary_dir / "scores.json").read_text())
     record = json.loads((run_dir / "config.json").read_text())
     config = {**record["config"], "scorer": {k: v for k, v in record.get("scorer", {}).items() if k != "config"}}
+    answers = answers_page.write(out, record["config"], run_dir)
+    print(f"wrote {answers}")
     target = summary_dir / "report.html"
     target.write_text(build(out, config, summary_dir))
     run_readme.write(run_dir)
