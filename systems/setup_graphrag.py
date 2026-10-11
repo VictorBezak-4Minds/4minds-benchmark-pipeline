@@ -16,6 +16,10 @@ GraphRAG keeps an LLM cache under the index folder, so a stopped build costs lit
 again (a run again also rebuilds the tables, so a report that failed on a reply that the repair
 can now read is added from the cache).
 
+--workflows W [W ...] runs only those GraphRAG workflows on the existing output, for a build that
+failed in a late step (for example `--workflows generate_text_embeddings` after an embedding
+quota error); the earlier tables stay as they are.
+
 --limit N indexes only the first N documents of the corpus list, in a separate folder
 (<RESOURCE_NAME>_first<N>): a test that measures time and cost. The runners do not accept it.
 
@@ -55,6 +59,9 @@ def main():
     parser.add_argument("--max-missing-share", type=float, default=0.02,
                         help="the index is complete if at most this share of communities has no report "
                              "(GraphRAG skips a report when the reply is not valid JSON)")
+    parser.add_argument("--workflows", nargs="+",
+                        help="run only these GraphRAG workflows on the existing output (resume after a failure in a "
+                             "late step, for example generate_text_embeddings); the documents are not loaded again")
     parser.add_argument("--dry-run", action="store_true", help="count the documents and tokens, and stop")
     args = parser.parse_args()
     sys.stdout.reconfigure(line_buffering=True)
@@ -86,10 +93,14 @@ def main():
 
     gh.install_hooks(chat)
     config = gh.config(out, chat, embedding, concurrency)
-    frame = pd.DataFrame({"id": [d["dsid"] for d in docs], "title": [d["title"] for d in docs],
-                          "text": [d["text"] for d in docs], "creation_date": ["" for _ in docs]})
+    frame = None
+    if args.workflows:
+        config.workflows = args.workflows
+    else:
+        frame = pd.DataFrame({"id": [d["dsid"] for d in docs], "title": [d["title"] for d in docs],
+                              "text": [d["text"] for d in docs], "creation_date": ["" for _ in docs]})
     bc.audit("graphrag_index_start", out=str(out), documents=len(docs), tokens=tokens, limit=args.limit,
-             llm=args.llm, embedding=args.embedding, concurrency=concurrency)
+             llm=args.llm, embedding=args.embedding, concurrency=concurrency, workflows=args.workflows)
     start = time.monotonic()
     errors = []
     try:
@@ -110,8 +121,10 @@ def main():
                 "complete": not errors and counts.get("documents") == len(docs)
                             and missing <= args.max_missing_share * counts.get("communities", 0),
                 "errors": errors, "reports_missing": missing, "max_missing_share": args.max_missing_share,
-                "not_json_replies": gh.NOT_JSON["count"],
-                "json_replies_repaired": gh.NOT_JSON["repaired"],
+                "not_json_replies": gh.NOT_JSON["count"] + (previous.get("not_json_replies", 0) if args.workflows else 0),
+                "json_replies_repaired": gh.NOT_JSON["repaired"]
+                                         + (previous.get("json_replies_repaired", 0) if args.workflows else 0),
+                "workflows": args.workflows or "all (fast method)",
                 "index_wall_clock_s": round(previous.get("index_wall_clock_s", 0) + wall, 1),
                 "documents": len(docs), "limit": args.limit, "corpus_tokens": tokens, "tables": counts,
                 "usage": usage, "estimated_cost_usd": gh.cost(usage, chat, embedding),

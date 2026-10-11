@@ -7,10 +7,11 @@ question has a gold answer, a list of facts and a list of gold documents. The pu
 [leaderboard](https://huggingface.co/spaces/onyx-dot-app/EnterpriseRAG-Bench-Leaderboard) shows
 one row per system.
 
-**Status:** pilot scored for 3 systems (50 questions, a 10,000-document corpus slice); more systems
-are to be chosen. LightRAG was removed on 2026-10-10: its index would cost about USD 97 for the
-slice and about USD 4,950 for the full corpus (the `delete` event in `audit/audit.log` has the
-measurements). A full run is not approved.
+**Status:** pilot scored for 4 systems (50 questions, a 10,000-document corpus slice); Microsoft
+GraphRAG was added on 2026-10-11 (index: 7.1 h, USD 32.22). LightRAG was removed on 2026-10-10: its
+index would cost about USD 97 for the slice and about USD 4,950 for the full corpus (the `delete`
+event in `audit/audit.log` has the measurements). RAGFlow is left out for now (its Docker images
+are amd64 only). A full run is not approved.
 
 ## Protocol
 

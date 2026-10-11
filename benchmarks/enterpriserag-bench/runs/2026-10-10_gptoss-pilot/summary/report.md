@@ -6,6 +6,7 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 |---|---|---|---|---|---|---|---|---|---|
 | 4Minds (Constellations) | 52.94 (40.7–65.4) | 52.94 | 62.0 | 63.7 | 71.5 | 12.28 | 2 | 50/50 | $6.68 |
 | GPT-OSS + LangChain | 41.69 (30.1–52.9) | 41.69 | 76.0 | 45.9 | 82.1 | 8.76 | 1 | 50/50 | $5.91 |
+| GPT-OSS + GraphRAG | 5.49 (0.4–12.1) | 5.49 | 14.0 | 14.7 | 3.2 | 4.61 | 2 | 50/50 | $3.90 |
 | GPT-OSS, no RAG | 2.55 (0.0–7.1) | 2.50 | 8.2 | 9.2 | 0.0 | 0.00 | 0 | 49/50 | $0.62 |
 
 ## Leaderboard rows (transform_raw_data.py)
@@ -14,6 +15,7 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 |---|---|---|---|---|---|---|
 | 4Minds Constellations (GPT-OSS-120B) | 52.94 | 62.0 | 63.71 | 71.5 | 12.28 |  |
 | LangChain vector (text-embedding-3-large) + GPT-OSS-120B | 41.69 | 76.0 | 45.88 | 82.13 | 8.76 | one_shot |
+| Microsoft GraphRAG 3.3.0 fast, local search (text-embedding-3-large) + GPT-OSS-120B | 5.49 | 14.0 | 14.67 | 3.2 | 4.61 | one_shot |
 | GPT-OSS-120B, no retrieval | 2.55 | 8.16 | 9.22 | 0.0 | 0.0 | one_shot |
 
 ## Overall by question type
@@ -22,6 +24,7 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 |---|---|---|---|---|---|---|---|---|---|---|
 | 4Minds (Constellations) | 68.2 (n=17) | 33.3 (n=2) | 50.0 (n=2) | 89.2 (n=3) | 0.0 (n=2) | 50.0 (n=2) | 50.0 (n=4) | 30.0 (n=2) | 35.7 (n=4) | 45.8 (n=12) |
 | GPT-OSS + LangChain | 30.6 (n=17) | 22.5 (n=2) | 50.0 (n=2) | 91.4 (n=3) | 0.0 (n=2) | 100.0 (n=2) | 29.2 (n=4) | 30.0 (n=2) | 50.7 (n=4) | 47.1 (n=12) |
+| GPT-OSS + GraphRAG | 1.2 (n=17) | 0.0 (n=2) | 0.0 (n=2) | 0.0 (n=3) | 0.0 (n=2) | 100.0 (n=2) | 0.0 (n=4) | 0.0 (n=2) | 13.6 (n=4) | 0.0 (n=12) |
 | GPT-OSS, no RAG | 0.0 (n=17) | 0.0 (n=1) | 0.0 (n=2) | 0.0 (n=3) | 0.0 (n=2) | 50.0 (n=2) | 0.0 (n=4) | 0.0 (n=2) | 0.0 (n=4) | 2.1 (n=12) |
 
 ## Operations
@@ -30,6 +33,7 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 |---|---|---|---|---|---|---|
 | 4Minds (Constellations) | 50/50 | 0 | 0 | 13.22 | 14.75 s | n/a |
 | GPT-OSS + LangChain | 50/50 | 0 | 0 | 10.0 | 3.5 s | $0.132 |
+| GPT-OSS + GraphRAG | 50/50 | 0 | 0 | 4.74 | 108.39 s | $0.101 |
 | GPT-OSS, no RAG | 49/50 | 1 | 49 | 0.0 | 1.76 s | $0.009 |
 
 ## Not scored
@@ -46,4 +50,8 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 - 4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order. The instructions of the official prompt are the persona's behavioral guidelines; 4Minds builds its own context and has no per-request system prompt, temperature or max-token setting.
 - 4Minds ingestion time: setup.json counts only from the restart of the wait (21:36 UTC). The upload started at 21:22 UTC and the chunk count did not change after 21:39 UTC, so the ingestion took about 17 minutes (then 15 minutes of stable wait).
 - LangChain: a copy of the official vector baseline (index_document_vectors.py and vector_retrieval.py) with LangChain parts in place of Qdrant. The official README says 1,024-token chunks; the code uses 512 tokens with 10% overlap, and we follow the code.
+- GraphRAG: the context is the output of the official local search context builder (reports, entities, relationships and source text units, at most 12,000 tokens), given as one context in the official answer prompt; GraphRAG's own answer prompt is not used. The document IDs are the documents of the text units in the 'sources' table.
+- GraphRAG index: the community-report calls use GraphRAG's default call settings, not the Bedrock settings of the answer calls. Bedrock's JSON mode often puts a '{' in front of the reply; the hub repairs it in memory (audit/patches/graphrag-3.3.0-gptoss-json-repair.py). 117 of 16,179 communities (0.72%) have no report because the reply stayed invalid.
+- GraphRAG latency: the search is single-threaded Python over 5.66 million relationships. With 8 parallel workers the questions wait for each other, so the recorded median latency (about 108 s) is mostly waiting; one search alone took 12 to 15 s.
+- GraphRAG ingestion: the build stopped once in its last step (the OpenAI account had no credits) and that step ran again from the GraphRAG cache. The time is the sum of the two runs, without the wait.
 - No RAG: the official prompt says to answer only from the documents, and the document section is empty. The company is synthetic, so world knowledge cannot answer most questions.

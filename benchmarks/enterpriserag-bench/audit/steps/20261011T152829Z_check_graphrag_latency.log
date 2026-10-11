@@ -1,0 +1,12 @@
+# step: check_graphrag_latency
+# start: 2026-10-11T15:28:29Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/check_graphrag_retriever.py --questions 3
+
+Reached token limit - reverting to previous context state
+{"question_id": "qst_0007", "documents": 4, "gold_found": 0, "gold": 1, "retrieval_documents": 4, "retrieval_text_units": 5, "context_records": {"reports": 1, "relationships": 143, "claims": 0, "entities": 20, "sources": 5}, "context_chars": 40224, "retrieval_search_s": 14.71, "context_start": "-----Reports-----\nid|title|content\n2|Redwood Hosting & Compliance Engagements (2026\u20112027)|\"# Redwood Hosting & Compliance Engagements (2026\u20112027)\n\nRedwood is engaging a series of enterprise customers\u2014AtlasPoint, VegaQuant, Syntara Health, Arcanum Systems, Pinecrest Logistics, and Brightforge\u2014to eval"}
+Reached token limit - reverting to previous context state
+{"question_id": "qst_0008", "documents": 5, "gold_found": 0, "gold": 1, "retrieval_documents": 5, "retrieval_text_units": 6, "context_records": {"reports": 1, "relationships": 130, "claims": 0, "entities": 20, "sources": 6}, "context_chars": 35612, "retrieval_search_s": 12.01, "context_start": "-----Reports-----\nid|title|content\n7|Redwood Inference Ops Incident Community \u2013 2025\u20112026 Critical Outages|\"# Redwood Inference Ops Incident Community \u2013 2025\u20112026 Critical Outages\n\nThis report synthesizes six major operational incidents that impacted Redwood\u2019s inference platform between June\u202f2025 an"}
+Reached token limit - reverting to previous context state
+{"question_id": "qst_0009", "documents": 4, "gold_found": 0, "gold": 1, "retrieval_documents": 4, "retrieval_text_units": 5, "context_records": {"reports": 1, "relationships": 130, "claims": 0, "entities": 20, "sources": 5}, "context_chars": 37120, "retrieval_search_s": 11.84, "context_start": "-----Reports-----\nid|title|content\n3|Redwood Inference Commercial & Partner Negotiation Community (2025\u20112027)|\"# Redwood Inference Commercial & Partner Negotiation Community (2025\u20112027)\n\nThe community comprises Redwood Inference and its key partners \u2013 GreenWave Health, Helios Robotics, BlueHarbor He"}
+
+# end: 2026-10-11T15:29:43Z  exit: 0  duration_s: 74

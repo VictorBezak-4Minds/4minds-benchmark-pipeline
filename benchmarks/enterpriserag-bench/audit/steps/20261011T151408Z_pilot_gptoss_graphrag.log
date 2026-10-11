@@ -1,0 +1,9 @@
+# step: pilot_gptoss_graphrag
+# start: 2026-10-11T15:14:08Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag.py --retriever graphrag_local --llm bedrock-gpt-oss-120b --subset all --questions-file data/pilot_questions.json --out-dir runs/2026-10-10_gptoss-pilot/gptoss_graphrag --workers 8 --timeout 120
+
+== graphrag_local+bedrock-gpt-oss-120b / all: 50 questions, 0 already done, 50 to run, 8 workers
+Reached token limit - reverting to previous context state
+Readiness: LLM backend bedrock-gpt-oss-120b failed one test call: {'code': 'empty_answer', 'finish_reason': 'stop', 'usage': {'completion_tokens': 208, 'prompt_tokens': 199, 'total_tokens': 407}}
+
+# end: 2026-10-11T15:14:56Z  exit: 1  duration_s: 48

@@ -1,0 +1,67 @@
+# step: pilot_gptoss_graphrag
+# start: 2026-10-11T15:15:18Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag.py --retriever graphrag_local --llm bedrock-gpt-oss-120b --subset all --questions-file data/pilot_questions.json --out-dir runs/2026-10-10_gptoss-pilot/gptoss_graphrag --workers 8 --timeout 120
+
+== graphrag_local+bedrock-gpt-oss-120b / all: 50 questions, 0 already done, 50 to run, 8 workers
+Reached token limit - reverting to previous context state
+  readiness: {"retriever": "graphrag_local", "documents": 10000, "tables": {"documents": 10000, "text_units": 14628, "entities": 73507, "relationships": 5657044, "communities": 16179, "community_reports": 16062}, "query_check_documents": 4, "llm_check": {"finish_reason": "stop", "usage": {"completion_tokens": 165, "prompt_tokens": 199, "total_tokens": 364}}}
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+  [25/50] ok (437 s)
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+  [50/50] ok (711 s)
+
+== summary -> runs/2026-10-10_gptoss-pilot/gptoss_graphrag/all/predictions.json
+  answered: 50 / 50   failed: 0   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'embedding_tokens': 1795, 'completion_tokens': 32472, 'prompt_tokens': 540030, 'total_tokens': 572502}
+  latency: {'n': 50, 'mean_s': 109.55, 'median_s': 108.39, 'p90_s': 126.09, 'max_s': 221.08}   estimated cost: 0.1007
+
+# end: 2026-10-11T15:27:56Z  exit: 0  duration_s: 758

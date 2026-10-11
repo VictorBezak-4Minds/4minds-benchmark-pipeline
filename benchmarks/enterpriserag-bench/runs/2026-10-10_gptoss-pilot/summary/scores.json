@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-10T23:08:41+00:00",
+  "created": "2026-10-11T15:35:57+00:00",
   "label": "PILOT",
   "benchmark": "enterpriserag-bench",
   "comparison": "gptoss_pilot",
@@ -325,6 +325,162 @@
         }
       }
     },
+    "GPT-OSS + GraphRAG": {
+      "key": "gptoss_graphrag",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_graphrag/all",
+      "run_started": "2026-10-11T15:16:04+00:00",
+      "official": {
+        "total_questions": 50,
+        "completed_questions": 50,
+        "skipped_rows": 0,
+        "num_corrected_questions": 2,
+        "average_correctness_pct": 14.0,
+        "average_completeness_pct": 14.67,
+        "combined_correctness_completeness_score": 5.49,
+        "average_recall_pct": 3.2,
+        "average_invalid_extra_docs": 4.61,
+        "overall_score": 5.49
+      },
+      "overall_ci95": [
+        0.4,
+        12.07
+      ],
+      "overall_missing_as_zero": 5.49,
+      "scored_questions": 50,
+      "run_questions": 50,
+      "not_scored": [],
+      "by_type": {
+        "basic": {
+          "count": 17,
+          "average_correctness_pct": 11.76,
+          "average_completeness_pct": 1.18,
+          "combined_correctness_completeness_score": 1.18,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 4.59
+        },
+        "semantic": {
+          "count": 12,
+          "average_correctness_pct": 8.33,
+          "average_completeness_pct": 10.02,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 4.92
+        },
+        "intra_document_reasoning": {
+          "count": 4,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 0.0,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 3.25
+        },
+        "project_related": {
+          "count": 4,
+          "average_correctness_pct": 25.0,
+          "average_completeness_pct": 25.17,
+          "combined_correctness_completeness_score": 13.64,
+          "average_recall_pct": 11.8,
+          "average_invalid_extra_docs": 3.25
+        },
+        "constrained": {
+          "count": 3,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 51.95,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 5.33
+        },
+        "conflicting_info": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 47.5,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 5.0
+        },
+        "completeness": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 4.17,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 5.5
+        },
+        "miscellaneous": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 0.0,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 50.0,
+          "average_invalid_extra_docs": 6.0
+        },
+        "high_level": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 16.66,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "info_not_found": {
+          "count": 2,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 100.0,
+          "combined_correctness_completeness_score": 100.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        }
+      },
+      "corrected": [
+        "qst_0421",
+        "qst_0443"
+      ],
+      "failed_judge_questions": {},
+      "documents_per_answer": {
+        "mean": 4.74,
+        "max": 8,
+        "answers_without_documents": 0
+      },
+      "judge": {
+        "models": {
+          "judge": "gpt-5.4",
+          "cheap_judge": "gpt-5-mini"
+        },
+        "cost_usd": 3.9026,
+        "usage": {
+          "gpt-5.4-2026-03-05": {
+            "calls": 404,
+            "input_tokens": 963336,
+            "cached_input_tokens": 136704,
+            "output_tokens": 120120,
+            "reasoning_tokens": 69794,
+            "not_completed": 0
+          }
+        }
+      },
+      "operations": {
+        "questions": 50,
+        "answered": 50,
+        "failed": 0,
+        "no_context": 0,
+        "dont_know": 0,
+        "workers": 8,
+        "latency": {
+          "n": 50,
+          "mean_s": 109.55,
+          "median_s": 108.39,
+          "p90_s": 126.09,
+          "max_s": 221.08
+        },
+        "estimated_cost_usd": 0.1007,
+        "tokens": {
+          "embedding_tokens": 1795,
+          "completion_tokens": 32472,
+          "prompt_tokens": 540030,
+          "total_tokens": 572502
+        }
+      }
+    },
     "GPT-OSS, no RAG": {
       "key": "gptoss_no_rag",
       "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_no_rag/all",
@@ -501,6 +657,15 @@
       "tags": "one_shot"
     },
     {
+      "model": "Microsoft GraphRAG 3.3.0 fast, local search (text-embedding-3-large) + GPT-OSS-120B",
+      "overall_score": "5.49",
+      "correctness": "14.0",
+      "completeness": "14.67",
+      "recall": "3.2",
+      "invalid_extra_docs": "4.61",
+      "tags": "one_shot"
+    },
+    {
       "model": "GPT-OSS-120B, no retrieval",
       "overall_score": "2.55",
       "correctness": "8.16",
@@ -519,6 +684,10 @@
     "4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order. The instructions of the official prompt are the persona's behavioral guidelines; 4Minds builds its own context and has no per-request system prompt, temperature or max-token setting.",
     "4Minds ingestion time: setup.json counts only from the restart of the wait (21:36 UTC). The upload started at 21:22 UTC and the chunk count did not change after 21:39 UTC, so the ingestion took about 17 minutes (then 15 minutes of stable wait).",
     "LangChain: a copy of the official vector baseline (index_document_vectors.py and vector_retrieval.py) with LangChain parts in place of Qdrant. The official README says 1,024-token chunks; the code uses 512 tokens with 10% overlap, and we follow the code.",
+    "GraphRAG: the context is the output of the official local search context builder (reports, entities, relationships and source text units, at most 12,000 tokens), given as one context in the official answer prompt; GraphRAG's own answer prompt is not used. The document IDs are the documents of the text units in the 'sources' table.",
+    "GraphRAG index: the community-report calls use GraphRAG's default call settings, not the Bedrock settings of the answer calls. Bedrock's JSON mode often puts a '{' in front of the reply; the hub repairs it in memory (audit/patches/graphrag-3.3.0-gptoss-json-repair.py). 117 of 16,179 communities (0.72%) have no report because the reply stayed invalid.",
+    "GraphRAG latency: the search is single-threaded Python over 5.66 million relationships. With 8 parallel workers the questions wait for each other, so the recorded median latency (about 108 s) is mostly waiting; one search alone took 12 to 15 s.",
+    "GraphRAG ingestion: the build stopped once in its last step (the OpenAI account had no credits) and that step ran again from the GraphRAG cache. The time is the sum of the two runs, without the wait.",
     "No RAG: the official prompt says to answer only from the documents, and the document section is empty. The company is synthetic, so world knowledge cannot answer most questions."
   ],
   "inputs": {

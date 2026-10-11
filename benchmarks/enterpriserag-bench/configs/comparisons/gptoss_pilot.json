@@ -1,6 +1,6 @@
 {
   "name": "gptoss_pilot",
-  "description": "Three GPT-OSS-120B systems on the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), each scored alone with the official metrics-based evaluation (default settings: citation stripping and document correction on).",
+  "description": "Four GPT-OSS-120B systems on the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), each scored alone with the official metrics-based evaluation (default settings: citation stripping and document correction on).",
   "judge": {
     "judge": "gpt-5.4",
     "cheap_judge": "gpt-5-mini"
@@ -46,6 +46,29 @@
       },
       "caveats": [
         "LangChain: a copy of the official vector baseline (index_document_vectors.py and vector_retrieval.py) with LangChain parts in place of Qdrant. The official README says 1,024-token chunks; the code uses 512 tokens with 10% overlap, and we follow the code."
+      ]
+    },
+    {
+      "key": "gptoss_graphrag",
+      "folder": "gptoss_graphrag",
+      "name": "GPT-OSS + GraphRAG",
+      "leaderboard_name": "Microsoft GraphRAG 3.3.0 fast, local search (text-embedding-3-large) + GPT-OSS-120B",
+      "tags": [
+        "one_shot"
+      ],
+      "description": "Microsoft GraphRAG 3.3.0, fast indexing method with default settings (1,200-token chunks, noun-phrase graph, community reports by GPT-OSS-120B), text-embedding-3-large; the local search context (community level 2) in the official answer prompt; GPT-OSS-120B on Amazon Bedrock",
+      "short": "Microsoft GraphRAG, fast method, local search",
+      "color": "#f59e0b",
+      "ingestion": {
+        "file": "shared/graphrag/enterpriserag-bench-pilot/index_manifest.json",
+        "seconds": "index_wall_clock_s",
+        "cost": "estimated_cost_usd"
+      },
+      "caveats": [
+        "GraphRAG: the context is the output of the official local search context builder (reports, entities, relationships and source text units, at most 12,000 tokens), given as one context in the official answer prompt; GraphRAG's own answer prompt is not used. The document IDs are the documents of the text units in the 'sources' table.",
+        "GraphRAG index: the community-report calls use GraphRAG's default call settings, not the Bedrock settings of the answer calls. Bedrock's JSON mode often puts a '{' in front of the reply; the hub repairs it in memory (audit/patches/graphrag-3.3.0-gptoss-json-repair.py). 117 of 16,179 communities (0.72%) have no report because the reply stayed invalid.",
+        "GraphRAG latency: the search is single-threaded Python over 5.66 million relationships. With 8 parallel workers the questions wait for each other, so the recorded median latency (about 108 s) is mostly waiting; one search alone took 12 to 15 s.",
+        "GraphRAG ingestion: the build stopped once in its last step (the OpenAI account had no credits) and that step ran again from the GraphRAG cache. The time is the sum of the two runs, without the wait."
       ]
     },
     {
