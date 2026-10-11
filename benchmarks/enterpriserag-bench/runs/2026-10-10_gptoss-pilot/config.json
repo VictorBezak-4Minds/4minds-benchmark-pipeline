@@ -1,0 +1,78 @@
+{
+  "source": "configs/comparisons/gptoss_pilot.json",
+  "sha256": "96f243a42f782f08476d295dd4dfbfa448f39790f4e2f20ce9cf3a97a1d2f669",
+  "config": {
+    "name": "gptoss_pilot",
+    "description": "Three GPT-OSS-120B systems on the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), each scored alone with the official metrics-based evaluation (default settings: citation stripping and document correction on).",
+    "judge": {
+      "judge": "gpt-5.4",
+      "cheap_judge": "gpt-5-mini"
+    },
+    "bootstrap": {
+      "resamples": 2000,
+      "seed": 7
+    },
+    "systems": [
+      {
+        "key": "4minds",
+        "folder": "4minds",
+        "name": "4Minds (Constellations)",
+        "leaderboard_name": "4Minds Constellations (GPT-OSS-120B)",
+        "tags": [],
+        "description": "4Minds prod, Constellations engine (WebSocket), GPT-OSS-120B served by 4Minds; one file per document",
+        "short": "4Minds prod, Constellations engine",
+        "color": "#543fed",
+        "ingestion": {
+          "file": "shared/4minds/setup.json",
+          "seconds": "wait_wall_clock_s"
+        },
+        "caveats": [
+          "4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order. The instructions of the official prompt are the persona's behavioral guidelines; 4Minds builds its own context and has no per-request system prompt, temperature or max-token setting.",
+          "4Minds ingestion time: setup.json counts only from the restart of the wait (21:36 UTC). The upload started at 21:22 UTC and the chunk count did not change after 21:39 UTC, so the ingestion took about 17 minutes (then 15 minutes of stable wait)."
+        ]
+      },
+      {
+        "key": "gptoss_langchain",
+        "folder": "gptoss_langchain",
+        "name": "GPT-OSS + LangChain",
+        "leaderboard_name": "LangChain vector (text-embedding-3-large) + GPT-OSS-120B",
+        "tags": [
+          "one_shot"
+        ],
+        "description": "LangChain TokenTextSplitter (512 tokens, 10% overlap), text-embedding-3-large, FAISS; 100 chunks to the top 10 full documents; the official answer prompt; GPT-OSS-120B on Amazon Bedrock",
+        "short": "LangChain vector baseline, top 10 documents",
+        "color": "#80aeff",
+        "ingestion": {
+          "file": "shared/langchain/enterpriserag-bench-pilot/index_manifest.json",
+          "seconds": "build_wall_clock_s",
+          "cost": "estimated_cost_usd"
+        },
+        "caveats": [
+          "LangChain: a copy of the official vector baseline (index_document_vectors.py and vector_retrieval.py) with LangChain parts in place of Qdrant. The official README says 1,024-token chunks; the code uses 512 tokens with 10% overlap, and we follow the code."
+        ]
+      },
+      {
+        "key": "gptoss_no_rag",
+        "folder": "gptoss_no_rag",
+        "name": "GPT-OSS, no RAG",
+        "leaderboard_name": "GPT-OSS-120B, no retrieval",
+        "tags": [
+          "one_shot"
+        ],
+        "description": "GPT-OSS-120B on Amazon Bedrock with the official answer prompt and an empty Context Documents section (world-knowledge baseline)",
+        "short": "No retrieval (world knowledge)",
+        "color": "#a1a1aa",
+        "caveats": [
+          "No RAG: the official prompt says to answer only from the documents, and the document section is empty. The company is synthetic, so world knowledge cannot answer most questions."
+        ]
+      }
+    ],
+    "caveats": [
+      "Pilot: 50 of 500 questions, stratified by question type (2 to 17 per type). The judge (gpt-5.4) is not fully repeatable. Do not rank systems from this table.",
+      "Corpus slice: 10,000 of 511,958 documents (the 74 gold documents of the pilot questions plus 9,926 random others). Retrieval is easier than on the full corpus, so these scores are not comparable with the public leaderboard.",
+      "Official default settings: a retrieved document that is not gold can become gold for that system when 3 judges agree (correction). Recall and invalid extra documents then use a different gold list for each system. The corrected-question count is in the table.",
+      "The official scorer skips a question with no answer and no documents; that question is not in the official averages. The column 'Overall, missing = 0' counts such a question as 0 over all pilot questions.",
+      "GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except 4Minds, which uses its own GPT-OSS-120B deployment."
+    ]
+  }
+}

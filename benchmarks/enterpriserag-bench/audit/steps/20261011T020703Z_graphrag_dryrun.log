@@ -1,0 +1,7 @@
+# step: graphrag_dryrun
+# start: 2026-10-11T02:07:03Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_graphrag.py --dry-run
+
+10000 documents, 12138718 tokens (cl100k_base), concurrency 16, out /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot
+
+# end: 2026-10-11T02:07:09Z  exit: 0  duration_s: 6

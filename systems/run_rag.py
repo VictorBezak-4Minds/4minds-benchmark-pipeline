@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """Run benchmark questions as retriever + LLM backend: the retriever finds chunks, the LLM answers.
 
-  --retriever  none | gemini_file_search | vertex_rag_engine   (systems/retrievers.py)
+  --retriever  none | gemini_file_search | vertex_rag_engine | langchain_vector | graphrag_local
+               (systems/retrievers.py; graphrag_local runs in the graphrag environment)
   --llm        a backend in pipeline/llm_backends.json        (pipeline/llm_backends.py)
 
-The system message is the profile's SYSTEM_PROMPT. The user message has the chunks under
-"---Knowledge Base---" (the layout of the GraphRAG-Bench LightRAG prompt) and then the
-question; with --retriever none it is the question only. The chunks are stored as
+A profile with messages(q, contexts) gives the request itself (EnterpriseRAG-Bench: the
+official answer prompt in one user message). Otherwise the system message is the profile's
+SYSTEM_PROMPT and the user message has the chunks under "---Knowledge Base---" (the layout of
+the GraphRAG-Bench LightRAG prompt) and then the question; with --retriever none it is the
+question only. The IDs of the retrieved documents go to the prediction when the retriever
+returns them (document_ids). The chunks are stored as
 `context`. Retrieval and generation are retried separately, and their latency, tokens and
 cost are recorded separately (extra.retrieval_s, extra.generation_s). A stopped run continues
 where it stopped (runs.jsonl).
@@ -24,7 +28,13 @@ import llm_backends
 import retrievers
 
 
+PROMPT_LAYOUT = getattr(bc.profile, "PROMPT_LAYOUT", None) if hasattr(bc.profile, "messages") else \
+    "system: SYSTEM_PROMPT; user: ---Knowledge Base--- [i] chunk ... ---Question--- question"
+
+
 def messages_for(q, contexts):
+    if hasattr(bc.profile, "messages"):
+        return bc.profile.messages(q, contexts)
     if not contexts:
         user = q["question"]
     else:
@@ -69,12 +79,15 @@ def make_ask(args, retriever, backend):
             return {"status": "failed", "attempts": attempts, "error": {"stage": "generation", **error},
                     "usage": usage, "latency_s": latency}
         usage.update({k: v for k, v in generated["usage"].items() if isinstance(v, (int, float))})
-        return {"status": "ok", "attempts": attempts, "answer": generated["answer"],
-                "contexts": retrieved["contexts"], "usage": usage, "latency_s": latency,
-                "raw": {"retrieval": retrieved["raw"], "generation": generated["raw"]},
-                "extra": {**retrieved["extra"], "retrieval_s": timing.get("retrieval_s"),
-                          "generation_s": timing.get("generation_s"), "finish_reason": generated["finish_reason"],
-                          "retrieval_attempts": r_attempts, "generation_attempts": g_attempts}}
+        result = {"status": "ok", "attempts": attempts, "answer": generated["answer"],
+                  "contexts": retrieved["contexts"], "usage": usage, "latency_s": latency,
+                  "raw": {"retrieval": retrieved["raw"], "generation": generated["raw"]},
+                  "extra": {**retrieved["extra"], "retrieval_s": timing.get("retrieval_s"),
+                            "generation_s": timing.get("generation_s"), "finish_reason": generated["finish_reason"],
+                            "retrieval_attempts": r_attempts, "generation_attempts": g_attempts}}
+        if retrieved.get("document_ids") is not None:
+            result["document_ids"] = retrieved["document_ids"]
+        return result
     return ask
 
 
@@ -110,7 +123,7 @@ def main():
         return sum(p for p in parts if p is not None) if any(p is not None for p in parts) else None
 
     settings = {**retriever.settings(), **backend.settings(), "system_prompt": bc.SYSTEM_PROMPT,
-                "prompt_layout": "system: SYSTEM_PROMPT; user: ---Knowledge Base--- [i] chunk ... ---Question--- question"}
+                "prompt_layout": PROMPT_LAYOUT}
     summary = bc.run(f"{args.retriever}+{backend.name}", args, make_ask(args, retriever, backend), settings, readiness,
                      cost, {"price_usd_per_1m": {"llm": backend.prices, "retrieval": getattr(retriever, "prices", None)}})
     sys.exit(1 if bc.STOP.is_set() or summary["failed"] else 0)

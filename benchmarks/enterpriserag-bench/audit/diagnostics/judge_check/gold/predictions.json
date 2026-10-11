@@ -1,0 +1,22 @@
+[
+  {
+    "question_id": "qst_0007",
+    "question_type": "basic",
+    "question": "In a rolling investigation of a model regression on policy-related prompts after a recent deploy, what was the average triage rubric score change between the older baseline build and the newer optimized build in the first comparison run?",
+    "context": [],
+    "generated_answer": "In the first comparison run, the baseline build averaged 2.7 while the newer optimized build averaged 1.9, a decrease of 0.8 rubric points.",
+    "document_ids": [
+      "dsid_72ec4a9962ba43e88acd61abbba1052d"
+    ]
+  },
+  {
+    "question_id": "qst_0008",
+    "question_type": "basic",
+    "question": "In the internal shiproom runner notes, what is the target time-to-recover threshold for a verified rollback in staging?",
+    "context": [],
+    "generated_answer": "The rollback plan is considered verified in staging if the time-to-recover is under 10 minutes.",
+    "document_ids": [
+      "dsid_5fc2dba9f6ac4af2b49b4f546a4298d0"
+    ]
+  }
+]

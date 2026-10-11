@@ -1,0 +1,56 @@
+{
+  "created": "2026-10-10T21:08:17+00:00",
+  "seed": 42,
+  "quota": {
+    "basic": 17,
+    "semantic": 12,
+    "intra_document_reasoning": 4,
+    "project_related": 4,
+    "constrained": 3,
+    "conflicting_info": 2,
+    "completeness": 2,
+    "miscellaneous": 2,
+    "info_not_found": 2,
+    "high_level": 2
+  },
+  "target_docs": 10000,
+  "upstream_commit": "d36685e273713975ee20299bbf1ab64165575b3c",
+  "official_questions_sha256": "f9524b9157cd43aae36b99333a124738804306ea6d07f332d49faa6d3d147905",
+  "uuid_index_sha256": "854cda12a43334a9b7c9ebbb4a069a089d52fd7033bc71d79bdbf54f708137fb",
+  "corpus_documents_total": 511958,
+  "pilot_questions": 50,
+  "pilot_question_types": {
+    "basic": 17,
+    "semantic": 12,
+    "intra_document_reasoning": 4,
+    "project_related": 4,
+    "constrained": 3,
+    "conflicting_info": 2,
+    "completeness": 2,
+    "miscellaneous": 2,
+    "high_level": 2,
+    "info_not_found": 2
+  },
+  "pilot_questions_without_gold": 4,
+  "gold_documents": 74,
+  "distractor_documents": 9926,
+  "slice_documents": 10000,
+  "slice_by_source": {
+    "slack": 5549,
+    "gmail": 2361,
+    "fireflies": 199,
+    "github": 159,
+    "linear": 689,
+    "confluence": 123,
+    "hubspot": 297,
+    "jira": 133,
+    "google_drive": 490
+  },
+  "unreadable_skipped_by_source": {},
+  "slice_chars": 48872100,
+  "outputs": {
+    "questions.json": "1ab98134b41118c4cd9e1c6e83f960cadcaf29409d8c6dd15c94258b11cefd01",
+    "pilot_questions.json": "dc1affc93b74370d1ce81f8715fbdbc3ccaee7482467d1d5ce58e43ccc57dead",
+    "pilot_corpus.json": "3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec"
+  }
+}

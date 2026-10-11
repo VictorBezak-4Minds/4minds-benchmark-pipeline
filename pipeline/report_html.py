@@ -143,8 +143,9 @@ def bar(name, sub, r, color, scale_max=1.0):
 def quality_latency(div_id, points, quality_title, latency_title="Median latency per question (s)"):
     """Plotly scatter, one point per system: quality (x, higher is better), median latency (y, lower is better).
 
-    points: dicts with key, name, quality, quality_low, quality_high (0-1 scale), latency, latency_p90 and
-    hover (extra text lines). The CI and the p90 are only in the hover text.
+    points: dicts with key, name, quality, quality_low, quality_high (0-1 scale), latency, latency_p90,
+    hover (extra text lines) and optional color (default SYSTEM_COLORS[key]). The CI and the p90 are only
+    in the hover text.
     """
     traces = []
     for p in points:
@@ -153,7 +154,7 @@ def quality_latency(div_id, points, quality_title, latency_title="Median latency
         hover = [f"<b>{escape(p['name'])}</b>",
                  f"{quality_title}: {pct(p['quality'])} (95% CI {pct(p['quality_low'])}–{pct(p['quality_high'])})",
                  f"Latency: median {p['latency']} s, p90 {p.get('latency_p90', 'n/a')} s"] + [escape(line) for line in p.get("hover", [])]
-        color = SYSTEM_COLORS.get(p["key"], "#80aeff")
+        color = p.get("color") or SYSTEM_COLORS.get(p["key"], "#80aeff")
         traces.append({"type": "scatter", "mode": "markers", "name": p["name"],
                        "x": [p["quality"] * 100], "y": [p["latency"]], "text": ["<br>".join(hover)],
                        "hovertemplate": "%{text}<extra></extra>", "marker": {"size": 16, "color": color}})

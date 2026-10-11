@@ -1,0 +1,61 @@
+# step: setup_langchain
+# start: 2026-10-10T21:19:09Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-erag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_langchain.py
+
+/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_langchain.py:54: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+  from langchain_community.vectorstores import FAISS
+10000 documents -> 30189 chunks, 13168346 tokens, estimated cost $1.71
+  2026-10-10T21:20:31+00:00 batch 25/151 (75 s)
+  2026-10-10T21:22:43+00:00 batch 50/151 (207 s)
+  2026-10-10T21:24:55+00:00 batch 75/151 (339 s)
+  2026-10-10T21:27:07+00:00 batch 100/151 (471 s)
+  2026-10-10T21:29:18+00:00 batch 125/151 (602 s)
+  2026-10-10T21:31:31+00:00 batch 150/151 (735 s)
+  2026-10-10T21:31:36+00:00 batch 151/151 (740 s)
+/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-erag/lib/python3.10/site-packages/langchain_community/vectorstores/faiss.py:233: UserWarning: Normalizing L2 is not applicable for metric type: MAX_INNER_PRODUCT
+  warnings.warn(
+{
+  "finished": "2026-10-10T21:31:41+00:00",
+  "build_wall_clock_s": 745.7,
+  "documents": 10000,
+  "chunks": 30189,
+  "embedding_tokens": 13168346,
+  "estimated_cost_usd": 1.7119,
+  "embedding": {
+    "llm_backend": "openai-text-embedding-3-large",
+    "llm_base_url": "https://api.openai.com/v1",
+    "llm_model": "text-embedding-3-large",
+    "llm_params": {},
+    "llm_auth": {
+      "type": "api_key_file",
+      "provider": "openai"
+    }
+  },
+  "splitter": {
+    "class": "TokenTextSplitter",
+    "encoding": "cl100k_base",
+    "chunk_size": 512,
+    "chunk_overlap": 51,
+    "disallowed_special": []
+  },
+  "vector_store": {
+    "class": "FAISS",
+    "distance": "MAX_INNER_PRODUCT",
+    "normalize_L2": true,
+    "ntotal": 30189
+  },
+  "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/data/pilot_corpus.json",
+  "corpus_sha256": "3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec",
+  "packages": {
+    "openai": "3.28.0",
+    "requests": "2.34.2",
+    "websockets": "16.1.1",
+    "langchain-core": "1.6.9",
+    "langchain-openai": "1.7.0",
+    "langchain-community": "0.4.2",
+    "faiss-cpu": "1.15.1",
+    "tiktoken": "0.14.0"
+  }
+}
+
+# end: 2026-10-10T21:31:42Z  exit: 0  duration_s: 753

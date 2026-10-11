@@ -1,0 +1,109 @@
+# step: score_gptoss_no_rag
+# start: 2026-10-10T21:33:52Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-erag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/score.py --system-dir runs/2026-10-10_gptoss-pilot/gptoss_no_rag/all --allow-incomplete
+
+Loading questions from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/upstream/questions.jsonl...
+  Loaded 500 questions
+Loading answers from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_no_rag/all/answers.jsonl...
+  Loaded 49 answer rows
+
+  49 questions to evaluate
+Loading UUID index...
+  Loading UUID index from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/scorer/uuid_index.json...
+  Indexed 511958 documents
+Validating referenced document IDs...
+  Validated 722 referenced document ids
+
+Evaluating 49 questions with 8 parallel workers 
+  qst_0036 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0007 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0023 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0027 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0009 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0008 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0029 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0024 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0063 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0058 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0140 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0056 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0071 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0152 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0109 score: correct=True  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0174 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0164 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0201 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0204 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0205 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0179 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0245 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0253 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0240 score: correct=True  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0247 score: correct=False  completeness=33.33%  recall=0.0%  extra_docs=0
+  qst_0259 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0229 score: correct=True  completeness=25.0%  recall=0.0%  extra_docs=0
+  qst_0265 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0301 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0329 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0267 score: correct=False  completeness=50.0%  recall=0.0%  extra_docs=0
+  qst_0318 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0358 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0368 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0338 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0362 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0351 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0414 score: correct=False  completeness=40.0%  recall=0.0%  extra_docs=0
+  qst_0387 score: correct=False  completeness=50.0%  recall=0.0%  extra_docs=0
+  qst_0433 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0454 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0421 score: correct=False  completeness=66.67%  recall=0.0%  extra_docs=0
+  qst_0385 score: correct=False  completeness=20.0%  recall=0.0%  extra_docs=0
+  qst_0462 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0405 score: correct=False  completeness=66.67%  recall=0.0%  extra_docs=0
+  qst_0471 score: correct=False  completeness=0.0%  recall=N/A  extra_docs=N/A
+  qst_0478 score: correct=False  completeness=0.0%  recall=N/A  extra_docs=N/A
+  qst_0492 score: correct=True  completeness=100.0%  recall=N/A  extra_docs=N/A
+  qst_0489 score: correct=False  completeness=0.0%  recall=N/A  extra_docs=N/A
+
+Finalizing output files (sorting and writing results)...
+  Writing /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_no_rag/all/results.json...
+  Writing /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_no_rag/all/questions_updated.jsonl...
+
+Done.
+  Questions scored:    49
+  Skipped rows:        0
+  Corrected questions: 0
+  Avg correctness:     8.16%
+  Avg completeness:    9.22%
+  Combined corr*comp:  2.55
+  Avg recall:          0.0%
+  Avg invalid extra:   0.0
+{
+  "overall_score": 2.55,
+  "aggregate_stats": {
+    "total_questions": 49,
+    "completed_questions": 49,
+    "skipped_rows": 0,
+    "num_corrected_questions": 0,
+    "average_correctness_pct": 8.16,
+    "average_completeness_pct": 9.22,
+    "combined_correctness_completeness_score": 2.55,
+    "average_recall_pct": 0.0,
+    "average_invalid_extra_docs": 0.0
+  },
+  "judge_usage": {
+    "gpt-5.4-2026-03-05": {
+      "calls": 331,
+      "input_tokens": 90152,
+      "cached_input_tokens": 0,
+      "output_tokens": 25986,
+      "reasoning_tokens": 20619,
+      "not_completed": 0
+    }
+  },
+  "judge_cost_usd": 0.6152,
+  "failed_questions": {},
+  "missing_scores": []
+}
+
+# end: 2026-10-10T21:34:38Z  exit: 0  duration_s: 46

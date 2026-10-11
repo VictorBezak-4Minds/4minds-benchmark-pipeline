@@ -1,0 +1,86 @@
+{
+  "scored": "2026-10-10T21:16:54+00:00",
+  "upstream_commit": "d36685e273713975ee20299bbf1ab64165575b3c",
+  "scorer": "src/scripts/answer_evaluation/metrics_based_eval.py",
+  "argv": [
+    "--answers-file",
+    "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/gold/answers.jsonl",
+    "--questions-file",
+    "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/upstream/questions.jsonl",
+    "--results-file",
+    "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/gold/results.json",
+    "--updated-questions-file",
+    "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/gold/questions_updated.jsonl",
+    "--uuid-index-cache-file",
+    "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/scorer/uuid_index.json",
+    "--parallelism",
+    "8",
+    "--resume"
+  ],
+  "settings": {
+    "citation_stripping": true,
+    "correction": true,
+    "parallelism": 8
+  },
+  "judge_backends": {
+    "judge": "openai-gpt-5.4",
+    "cheap_judge": "openai-gpt-5-mini"
+  },
+  "judge_models": {
+    "judge": "gpt-5.4",
+    "cheap_judge": "gpt-5-mini"
+  },
+  "judge_usage": {
+    "gpt-5.4-2026-03-05": {
+      "calls": 8,
+      "input_tokens": 2317,
+      "cached_input_tokens": 0,
+      "output_tokens": 376,
+      "reasoning_tokens": 200,
+      "not_completed": 0
+    }
+  },
+  "judge_cost_usd": 0.0114,
+  "judge_cost_by_model": {
+    "gpt-5.4-2026-03-05": 0.0114
+  },
+  "failed_questions": {},
+  "invocations": [
+    {
+      "time": "2026-10-10T21:16:54+00:00",
+      "scored": 2,
+      "question_id": null,
+      "usage": {
+        "gpt-5.4-2026-03-05": {
+          "calls": 8,
+          "input_tokens": 2317,
+          "cached_input_tokens": 0,
+          "output_tokens": 376,
+          "reasoning_tokens": 200,
+          "not_completed": 0
+        }
+      }
+    }
+  ],
+  "predictions_sha256": "07bae3c9ff53087fa401fbb3b23fe2a454e21fef97c8f9dfdec94dc5f887db30",
+  "answers_sha256": "38ef672ac278d3a613f2c831f744734b01c96fdc86df13b4c51953c5c09f3f61",
+  "questions_file": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/upstream/questions.jsonl",
+  "questions_sha256": "f9524b9157cd43aae36b99333a124738804306ea6d07f332d49faa6d3d147905",
+  "answered": 2,
+  "scored_questions": 2,
+  "missing_scores": [],
+  "run_failed": 0,
+  "run_not_run": 0,
+  "aggregate_stats": {
+    "total_questions": 2,
+    "completed_questions": 2,
+    "skipped_rows": 0,
+    "num_corrected_questions": 0,
+    "average_correctness_pct": 100.0,
+    "average_completeness_pct": 100.0,
+    "combined_correctness_completeness_score": 100.0,
+    "average_recall_pct": 100.0,
+    "average_invalid_extra_docs": 0.0
+  },
+  "overall_score": 100.0
+}

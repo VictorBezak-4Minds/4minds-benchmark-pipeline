@@ -52,11 +52,38 @@ BENCHMARKS = [
        "Answer-only pilot: the systems do not return paragraph IDs in the gold format.",
        "Not calculated (the evaluator input has empty evidence)."),
       ]),
+    ("EnterpriseRAG-Bench · metrics-based",
+     "Official metrics_based_eval.py at commit d36685e, unchanged, default settings. Judge gpt-5.4 (gpt-5-mini only "
+     "for JSON recovery). Each system is scored alone; the leaderboard Space's transform_raw_data.py makes the rows.",
+     [("Overall score", "All questions (headline, leaderboard column)",
+       "One number that needs a correct answer and rewards a complete one. The public leaderboard sorts by it.",
+       "Per question: completeness if the answer is correct, else 0. Mean over the scored questions. The official scorer "
+       "skips a question with no answer and no documents; the report also shows the score with such a question as 0."),
+      ("Correctness", "All questions",
+       "Does the answer agree with the gold answer as a whole (no wrong or conflicting claim)?",
+       "One judge verdict (true or false) per answer against the question and the gold answer. A judge failure gives "
+       "false. A question without a gold answer counts as correct."),
+      ("Completeness", "All questions",
+       "How much of the needed information the answer has.",
+       "The judge checks each gold fact alone against the answer. Score = facts found / all facts. No facts = 100; "
+       "a judge failure on any fact gives 0."),
+      ("Recall", "Questions with gold documents",
+       "Did the system find the documents that have the answer? Needs the document IDs that the system used.",
+       "Gold documents in the system's document list / all gold documents."),
+      ("Invalid extra docs", "Questions with gold documents",
+       "Shows a system that returns many documents to raise its recall. Lower is better; it is a count, not 0–100.",
+       "Number of returned documents that are not gold and not marked \"valid\" (relevant) for the question."),
+      ("Document correction", "Before scoring (official default)",
+       "The gold lists are not perfect. A document that a system found can have the answer too.",
+       "Three judges read each returned document that is not gold. When all agree that it has the answer, it becomes "
+       "gold for that system and the gold answer can get new facts. The report counts the corrected questions."),
+      ]),
 ]
 
 SHARED = [
     ("95% confidence interval", "Pilot samples are small (10 and 25 questions). The interval shows how sure a mean is.",
-     "Bootstrap of the per-question scores: GraphRAG-Bench 2,000 resamples (seed 7), QASPER 10,000 (seed 0). "
+     "Bootstrap of the per-question scores: GraphRAG-Bench and EnterpriseRAG-Bench 2,000 resamples (seed 7), "
+     "QASPER 10,000 (seed 0). "
      "GraphRAG-Bench also has a paired bootstrap for 4Minds minus each system on the same questions."),
     ("Latency (median, p90)", "Speed is part of the product comparison. The median is not changed by a few slow calls.",
      "Client wall-clock time from request to full answer, per answered question. p90 = the value that 90% of calls are below."),

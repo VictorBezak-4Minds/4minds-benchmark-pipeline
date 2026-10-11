@@ -136,7 +136,7 @@ def write(run_dir, title=None, purpose=None, status=None):
                      f"{', '.join(info.get('linked_files', []))}) |")
         lines.append(f"| Change | {info.get('change', '')} |")
     judge = (summary or {}).get("benchmark", {})
-    if judge.get("judge"):
+    if isinstance(judge, dict) and judge.get("judge"):
         costs = [c for s in summary.get("systems", []) for c in (s.get("scoring", {}).get("judge_cost_usd"),
                                                                   s.get("faithfulness_jsonfix_judge_cost_usd"))
                  if c is not None]

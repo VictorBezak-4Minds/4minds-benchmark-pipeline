@@ -1,0 +1,18 @@
+# step: describe_gptoss_pilot
+# start: 2026-10-10T21:22:50Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-erag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py --run runs/2026-10-10_gptoss-pilot --title EnterpriseRAG-Bench pilot: four GPT-OSS-120B systems --purpose Score GPT-OSS no RAG, GPT-OSS + LangChain vector RAG, GPT-OSS + LightRAG and 4Minds (Constellations) on 50 stratified questions and a 10,000-document corpus slice with the official metrics-based evaluation (default settings, gpt-5.4 judge); write the results in the leaderboard file format; estimate a full run. --status in progress: indexes and ingestion
+
+Traceback (most recent call last):
+  File "/Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py", line 200, in <module>
+    main()
+  File "/Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py", line 196, in main
+    print("wrote", write(args.run, args.title, args.purpose, args.status))
+  File "/Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py", line 125, in write
+    info_file.write_text(json.dumps(info, indent=2) + "\n")
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/pathlib.py", line 1154, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/run.json'
+
+# end: 2026-10-10T21:22:50Z  exit: 1  duration_s: 0

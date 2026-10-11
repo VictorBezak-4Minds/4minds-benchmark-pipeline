@@ -1,0 +1,62 @@
+# step: judge_check_wrong
+# start: 2026-10-10T21:16:59Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-erag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/score.py --system-dir audit/diagnostics/judge_check/wrong
+
+Loading questions from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/upstream/questions.jsonl...
+  Loaded 500 questions
+Loading answers from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/wrong/answers.jsonl...
+  Loaded 2 answer rows
+
+  2 questions to evaluate
+Loading UUID index...
+  Loading UUID index from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/scorer/uuid_index.json...
+  Indexed 511958 documents
+Validating referenced document IDs...
+  Validated 722 referenced document ids
+
+Evaluating 2 questions with 8 parallel workers 
+  qst_0007 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+  qst_0008 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=0
+
+Finalizing output files (sorting and writing results)...
+  Writing /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/wrong/results.json...
+  Writing /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/wrong/questions_updated.jsonl...
+
+Done.
+  Questions scored:    2
+  Skipped rows:        0
+  Corrected questions: 0
+  Avg correctness:     0.0%
+  Avg completeness:    0.0%
+  Combined corr*comp:  0.0
+  Avg recall:          0.0%
+  Avg invalid extra:   0.0
+{
+  "overall_score": 0.0,
+  "aggregate_stats": {
+    "total_questions": 2,
+    "completed_questions": 2,
+    "skipped_rows": 0,
+    "num_corrected_questions": 0,
+    "average_correctness_pct": 0.0,
+    "average_completeness_pct": 0.0,
+    "combined_correctness_completeness_score": 0.0,
+    "average_recall_pct": 0.0,
+    "average_invalid_extra_docs": 0.0
+  },
+  "judge_usage": {
+    "gpt-5.4-2026-03-05": {
+      "calls": 8,
+      "input_tokens": 2482,
+      "cached_input_tokens": 0,
+      "output_tokens": 498,
+      "reasoning_tokens": 261,
+      "not_completed": 0
+    }
+  },
+  "judge_cost_usd": 0.0137,
+  "failed_questions": {},
+  "missing_scores": []
+}
+
+# end: 2026-10-10T21:17:10Z  exit: 0  duration_s: 11

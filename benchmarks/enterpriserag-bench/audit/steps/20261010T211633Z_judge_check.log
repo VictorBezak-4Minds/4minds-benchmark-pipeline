@@ -1,0 +1,7 @@
+# step: judge_check
+# start: 2026-10-10T21:16:34Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-erag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/judge_check.py
+
+Wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/gold and /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/wrong for ['qst_0007', 'qst_0008']
+
+# end: 2026-10-10T21:16:34Z  exit: 0  duration_s: 1

@@ -1,0 +1,2 @@
+{"question_id": "qst_0007", "answer": "In the first comparison run, the baseline build averaged 2.7 while the newer optimized build averaged 1.9, a decrease of 0.8 rubric points.", "document_ids": ["dsid_72ec4a9962ba43e88acd61abbba1052d"]}
+{"question_id": "qst_0008", "answer": "The rollback plan is considered verified in staging if the time-to-recover is under 10 minutes.", "document_ids": ["dsid_5fc2dba9f6ac4af2b49b4f546a4298d0"]}

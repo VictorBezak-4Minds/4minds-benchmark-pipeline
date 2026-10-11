@@ -1,0 +1,64 @@
+# step: judge_check_gold
+# start: 2026-10-10T21:16:39Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-erag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/score.py --system-dir audit/diagnostics/judge_check/gold
+
+Loading questions from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/upstream/questions.jsonl...
+  Loaded 500 questions
+Loading answers from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/gold/answers.jsonl...
+  Loaded 2 answer rows
+
+  2 questions to evaluate
+Loading UUID index...
+  Loading UUID index from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/scorer/uuid_index.json...
+  Indexed 511958 documents
+Validating referenced document IDs...
+  Validated 722 referenced document ids
+
+Evaluating 2 questions with 8 parallel workers 
+  qst_0008 docs: OK qst_0008: document set matches gold
+  qst_0007 docs: OK qst_0007: document set matches gold
+  qst_0008 score: correct=True  completeness=100.0%  recall=100.0%  extra_docs=0
+  qst_0007 score: correct=True  completeness=100.0%  recall=100.0%  extra_docs=0
+
+Finalizing output files (sorting and writing results)...
+  Writing /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/gold/results.json...
+  Writing /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/gold/questions_updated.jsonl...
+
+Done.
+  Questions scored:    2
+  Skipped rows:        0
+  Corrected questions: 0
+  Avg correctness:     100.0%
+  Avg completeness:    100.0%
+  Combined corr*comp:  100.0
+  Avg recall:          100.0%
+  Avg invalid extra:   0.0
+{
+  "overall_score": 100.0,
+  "aggregate_stats": {
+    "total_questions": 2,
+    "completed_questions": 2,
+    "skipped_rows": 0,
+    "num_corrected_questions": 0,
+    "average_correctness_pct": 100.0,
+    "average_completeness_pct": 100.0,
+    "combined_correctness_completeness_score": 100.0,
+    "average_recall_pct": 100.0,
+    "average_invalid_extra_docs": 0.0
+  },
+  "judge_usage": {
+    "gpt-5.4-2026-03-05": {
+      "calls": 8,
+      "input_tokens": 2317,
+      "cached_input_tokens": 0,
+      "output_tokens": 376,
+      "reasoning_tokens": 200,
+      "not_completed": 0
+    }
+  },
+  "judge_cost_usd": 0.0114,
+  "failed_questions": {},
+  "missing_scores": []
+}
+
+# end: 2026-10-10T21:16:54Z  exit: 0  duration_s: 15

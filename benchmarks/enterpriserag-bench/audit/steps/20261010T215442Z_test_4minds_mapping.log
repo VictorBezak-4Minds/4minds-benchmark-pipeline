@@ -1,0 +1,15 @@
+# step: test_4minds_mapping
+# start: 2026-10-10T21:54:42Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_4minds.py --engine constellations --workers 1 --subset all --questions-file runs/2026-10-10_gptoss-pilot/tests/4minds_mapping/question.json --out-dir runs/2026-10-10_gptoss-pilot/tests/4minds_mapping/run --timeout 120
+
+== 4minds_constellations / all: 1 questions, 0 already done, 1 to run, 1 workers
+  readiness: {"dataset_id": 4046, "model_id": 3604, "status": "in_use", "graph_status": "ready", "graph_build_progress": 100, "files_processed_count": 201, "total_chunks_count": 27901, "build_status": "enhancing", "etl_job_status": "completed", "error_message": null, "model_status": "ready"}
+  [1/1] ok (12 s)
+
+== summary -> runs/2026-10-10_gptoss-pilot/tests/4minds_mapping/run/all/predictions.json
+  answered: 1 / 1   failed: 0   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'total_tokens': 42, 'tokens_used_today': 42, 'tokens_used_this_month': 42}
+  latency: {'n': 1, 'mean_s': 11.95, 'median_s': 11.95, 'p90_s': 11.95, 'max_s': 11.95}   estimated cost: None
+
+# end: 2026-10-10T21:54:55Z  exit: 0  duration_s: 13

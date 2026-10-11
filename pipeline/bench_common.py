@@ -147,7 +147,9 @@ def load_log(log_path):
 
 
 def package_versions():
-    names = ("openai", "google-auth", "requests", "websockets", "lightrag-hku", "transformers", "torch")
+    names = ("openai", "google-auth", "requests", "websockets", "lightrag-hku", "transformers", "torch",
+             "langchain-core", "langchain-openai", "langchain-community", "faiss-cpu", "tiktoken",
+             "graphrag", "litellm", "lancedb")
     versions = {}
     for name in names:
         try:
@@ -168,6 +170,12 @@ def latency_stats(values):
         "p90_s": round(values[min(len(values) - 1, int(0.9 * len(values)))], 2),
         "max_s": round(values[-1], 2),
     }
+
+
+def document_ids(result):
+    """The keyword argument for prediction() when a system returns the IDs of the retrieved
+    documents (profiles that score retrieval). Other profiles get no extra argument."""
+    return {"document_ids": result["document_ids"]} if result.get("document_ids") is not None else {}
 
 
 def acquire_lock(path):
@@ -233,7 +241,7 @@ def run(system, args, ask, settings, readiness, cost_fn=None, extra_manifest=Non
             "extra": result.get("extra") or {},
         }
         if result["status"] == "ok":
-            record["prediction"] = prediction(q, result["answer"], result["contexts"])
+            record["prediction"] = prediction(q, result["answer"], result["contexts"], **document_ids(result))
         return record, result.get("raw")
 
     with log_path.open("a") as log, raw_path.open("a") as raw_log, ThreadPoolExecutor(args.workers) as pool:
@@ -301,7 +309,7 @@ def write_predictions(questions, latest, out_dir, cost_fn=None):
             failed.append(record["key"])
             continue
         stored = record["prediction"]
-        predictions.append(prediction(q, stored["generated_answer"], stored["context"]))
+        predictions.append(prediction(q, stored["generated_answer"], stored["context"], **document_ids(stored)))
         no_context += not any(c.strip() for c in stored["context"])
         dont_know += stored["generated_answer"].strip().lower().startswith("i don't know")
         for k, v in (record.get("usage") or {}).items():

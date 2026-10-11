@@ -1,0 +1,9 @@
+# step: setup_langchain_dryrun
+# start: 2026-10-10T21:18:53Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-erag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_langchain.py --dry-run
+
+/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_langchain.py:54: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+  from langchain_community.vectorstores import FAISS
+10000 documents -> 30189 chunks, 13168346 tokens, estimated cost $1.71
+
+# end: 2026-10-10T21:19:03Z  exit: 0  duration_s: 10

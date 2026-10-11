@@ -1,0 +1,46 @@
+{
+  "updated_question_file": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/wrong/questions_updated.jsonl",
+  "aggregate_stats": {
+    "total_questions": 2,
+    "completed_questions": 2,
+    "skipped_rows": 0,
+    "num_corrected_questions": 0,
+    "average_correctness_pct": 0.0,
+    "average_completeness_pct": 0.0,
+    "combined_correctness_completeness_score": 0.0,
+    "average_recall_pct": 0.0,
+    "average_invalid_extra_docs": 0.0
+  },
+  "question_type_stats": {
+    "basic": {
+      "count": 2,
+      "average_correctness_pct": 0.0,
+      "average_completeness_pct": 0.0,
+      "combined_correctness_completeness_score": 0.0,
+      "average_recall_pct": 0.0,
+      "average_invalid_extra_docs": 0.0
+    }
+  },
+  "questions": [
+    {
+      "question_id": "qst_0007",
+      "corrected": false,
+      "question_type": "basic",
+      "answer_correct": false,
+      "correctness_reasoning": "The candidate answer is unrelated to the asked comparison and does not report the baseline 2.7, optimized 1.9, or the 0.8-point decrease.",
+      "completeness_pct": 0.0,
+      "document_recall_pct": 0.0,
+      "invalid_extra_docs": 0
+    },
+    {
+      "question_id": "qst_0008",
+      "corrected": false,
+      "question_type": "basic",
+      "answer_correct": false,
+      "correctness_reasoning": "The candidate answer is unrelated to the asked rollback time-to-recover threshold and does not mention the under-10-minute staging verification target.",
+      "completeness_pct": 0.0,
+      "document_recall_pct": 0.0,
+      "invalid_extra_docs": 0
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+# step: graphrag_test500
+# start: 2026-10-11T01:37:19Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_graphrag.py --limit 500
+
+500 documents, 621389 tokens (cl100k_base), concurrency 16, out /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_first500
+[2026-10-11T02:02:06Z WARN  lance::dataset::write::insert] No existing dataset at /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_first500/output/lancedb/entity_description.lance, it will be created
+[2026-10-11T02:04:04Z WARN  lance::dataset::write::insert] No existing dataset at /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_first500/output/lancedb/community_full_content.lance, it will be created
+[2026-10-11T02:05:27Z WARN  lance::dataset::write::insert] No existing dataset at /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_first500/output/lancedb/text_unit_text.lance, it will be created
+{
+  "finished": "2026-10-11T02:06:15+00:00",
+  "complete": false,
+  "errors": [],
+  "reports_missing": 13,
+  "not_json_replies": 13,
+  "json_replies_repaired": 998,
+  "index_wall_clock_s": 1731.2,
+  "documents": 500,
+  "limit": 500,
+  "corpus_tokens": 621389,
+  "tables": {
+    "documents": 500,
+    "text_units": 748,
+    "entities": 4664,
+    "relationships": 168113,
+    "communities": 1092,
+    "community_reports": 1079
+  },
+  "usage": {
+    "openai/openai.gpt-oss-120b-1:0": {
+      "calls": 1092,
+      "prompt_tokens": 5690170,
+      "completion_tokens": 2016676
+    },
+    "openai/text-embedding-3-large": {
+      "calls": 523,
+      "prompt_tokens": 1776833,
+      "completion_tokens": 0
+    }
+  },
+  "estimated_cost_usd": 2.2945,
+  "method": "fast",
+  "concurrency": 16,
+  "index_call_args": {},
+  "llm": {
+    "llm_backend": "bedrock-gpt-oss-120b",
+    "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+    "llm_model": "openai.gpt-oss-120b-1:0",
+    "llm_params": {
+      "temperature": 0.3,
+      "max_tokens": 4096,
+      "reasoning_effort": "medium"
+    },
+    "llm_auth": {
+      "type": "aws_bedrock_token",
+      "profile": "bedrock",
+      "region": "us-east-1"
+    }
+  },
+  "embedding": {
+    "llm_backend": "openai-text-embedding-3-large",
+    "llm_base_url": "https://api.openai.com/v1",
+    "llm_model": "text-embedding-3-large",
+    "llm_params": {},
+    "llm_auth": {
+      "type": "api_key_file",
+      "provider": "openai"
+    }
+  },
+  "document_ids_sha256": "f0b2baf10b3089908f49ed43b115f13da34b2fe35e578ebd5150be702ba30ac5",
+  "corpus": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/data/pilot_corpus.json",
+  "corpus_sha256": "3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec"
+}
+
+# end: 2026-10-11T02:06:16Z  exit: 1  duration_s: 1737

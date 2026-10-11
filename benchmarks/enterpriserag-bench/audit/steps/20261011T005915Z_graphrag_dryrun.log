@@ -1,0 +1,26 @@
+# step: graphrag_dryrun
+# start: 2026-10-11T00:59:15Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_graphrag.py --limit 500 --dry-run
+
+Traceback (most recent call last):
+  File "/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_graphrag.py", line 117, in <module>
+    main()
+  File "/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_graphrag.py", line 57, in main
+    from graphrag.api import build_index
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/lib/python3.11/site-packages/graphrag/api/__init__.py", line 10, in <module>
+    from graphrag.api.index import build_index
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/lib/python3.11/site-packages/graphrag/api/index.py", line 19, in <module>
+    from graphrag.config.models.graph_rag_config import GraphRagConfig
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/lib/python3.11/site-packages/graphrag/config/models/graph_rag_config.py", line 10, in <module>
+    from graphrag_cache import CacheConfig
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/lib/python3.11/site-packages/graphrag_cache/__init__.py", line 7, in <module>
+    from graphrag_cache.cache_config import CacheConfig
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/lib/python3.11/site-packages/graphrag_cache/cache_config.py", line 6, in <module>
+    from graphrag_storage import StorageConfig, StorageType
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/lib/python3.11/site-packages/graphrag_storage/__init__.py", line 8, in <module>
+    from graphrag_storage.storage_factory import (
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/lib/python3.11/site-packages/graphrag_storage/storage_factory.py", line 9, in <module>
+    from graphrag_common.factory import Factory, ServiceScope
+ModuleNotFoundError: No module named 'graphrag_common.factory'; 'graphrag_common' is not a package
+
+# end: 2026-10-11T00:59:16Z  exit: 1  duration_s: 1

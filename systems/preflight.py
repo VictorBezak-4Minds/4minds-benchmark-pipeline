@@ -13,6 +13,8 @@ judge               the judge with the official GraphRAG-Bench settings, then wi
                     judge_drop_params (the request that the scorers send): snapshot, rate limits
 file-search         one generateContent call with the File Search tool on the first question of
                     the subset: the number and size of the grounding chunks against top_k
+4minds-dataset      one GET of the benchmark's 4Minds dataset: the build state, the scalar fields and
+                    the file list (count, status of each file)
 """
 import argparse
 import json
@@ -119,9 +121,31 @@ def check_file_search(args):
     return 1 if out["errors"] or out["questions_with_top_k"] != len(rows) else 0
 
 
+def check_4minds_dataset(args):
+    import setup_4minds
+    client = setup_4minds.Client()
+    dataset_id = args.dataset_id or int(setup_4minds.find_dataset(client)["id"])
+    dataset = client.call("GET", f"/api/v1/user/dataset/{dataset_id}")
+    files = dataset.get("files") if isinstance(dataset.get("files"), list) else []
+    status_counts = {}
+    for f in files:
+        status = str(f.get("status") or f.get("processing_status") or f.get("etl_status")) if isinstance(f, dict) else "?"
+        status_counts[status] = status_counts.get(status, 0) + 1
+    out = {"dataset_id": dataset_id, "state": setup_4minds.dataset_state(dataset),
+           "scalar_fields": {k: v for k, v in dataset.items() if isinstance(v, (str, int, float, bool)) or v is None},
+           "files": len(files), "file_keys": sorted(files[0]) if files and isinstance(files[0], dict) else None,
+           "file_status_counts": status_counts, "first_file": files[0] if files else None}
+    print(json.dumps(out, indent=2, default=str))
+    bc.audit("preflight_4minds_dataset", dataset_id=dataset_id, files=len(files), file_status_counts=status_counts,
+             state=out["state"])
+    return 0
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="check", required=True)
+    fourminds = sub.add_parser("4minds-dataset")
+    fourminds.add_argument("--dataset-id", type=int, help="default: the dataset with the benchmark name")
     llm = sub.add_parser("llm")
     llm.add_argument("--llm", required=True, choices=llm_backends.names())
     llm.add_argument("--timeout", type=float, default=120)
@@ -134,7 +158,8 @@ def main():
     args = parser.parse_args()
     if args.check == "file-search" and not (args.questions_file or args.sample):
         args.sample = 1
-    checks = {"llm": check_llm, "judge": check_judge, "gemini-key-project": check_gemini_key_project, "file-search": check_file_search}
+    checks = {"llm": check_llm, "judge": check_judge, "gemini-key-project": check_gemini_key_project,
+              "file-search": check_file_search, "4minds-dataset": check_4minds_dataset}
     sys.exit(checks[args.check](args))
 
 

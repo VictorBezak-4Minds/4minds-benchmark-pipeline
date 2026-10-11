@@ -1,0 +1,529 @@
+{
+  "created": "2026-10-10T23:08:41+00:00",
+  "label": "PILOT",
+  "benchmark": "enterpriserag-bench",
+  "comparison": "gptoss_pilot",
+  "upstream_commit": "d36685e273713975ee20299bbf1ab64165575b3c",
+  "leaderboard_commit": "85b78cb52cbcddbfe462dde6b0e68a2a29739613",
+  "transform_raw_data_sha256": "e890f71e4734ef63ff33edcac821f428403b3f596da43432f934c66b9e00155b",
+  "judge": {
+    "judge": "gpt-5.4",
+    "cheap_judge": "gpt-5-mini"
+  },
+  "bootstrap": {
+    "resamples": 2000,
+    "seed": 7
+  },
+  "systems": {
+    "4Minds (Constellations)": {
+      "key": "4minds",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/4minds/all",
+      "run_started": "2026-10-10T21:55:19+00:00",
+      "official": {
+        "total_questions": 50,
+        "completed_questions": 50,
+        "skipped_rows": 0,
+        "num_corrected_questions": 2,
+        "average_correctness_pct": 62.0,
+        "average_completeness_pct": 63.71,
+        "combined_correctness_completeness_score": 52.94,
+        "average_recall_pct": 71.5,
+        "average_invalid_extra_docs": 12.28,
+        "overall_score": 52.94
+      },
+      "overall_ci95": [
+        40.74,
+        65.37
+      ],
+      "overall_missing_as_zero": 52.94,
+      "scored_questions": 50,
+      "run_questions": 50,
+      "not_scored": [],
+      "by_type": {
+        "basic": {
+          "count": 17,
+          "average_correctness_pct": 76.47,
+          "average_completeness_pct": 76.22,
+          "combined_correctness_completeness_score": 68.24,
+          "average_recall_pct": 82.35,
+          "average_invalid_extra_docs": 9.41
+        },
+        "semantic": {
+          "count": 12,
+          "average_correctness_pct": 58.33,
+          "average_completeness_pct": 55.66,
+          "combined_correctness_completeness_score": 45.83,
+          "average_recall_pct": 50.0,
+          "average_invalid_extra_docs": 16.0
+        },
+        "intra_document_reasoning": {
+          "count": 4,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 75.0,
+          "combined_correctness_completeness_score": 50.0,
+          "average_recall_pct": 75.0,
+          "average_invalid_extra_docs": 18.0
+        },
+        "project_related": {
+          "count": 4,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 57.32,
+          "combined_correctness_completeness_score": 35.68,
+          "average_recall_pct": 76.39,
+          "average_invalid_extra_docs": 13.75
+        },
+        "constrained": {
+          "count": 3,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 89.17,
+          "combined_correctness_completeness_score": 89.17,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 13.67
+        },
+        "conflicting_info": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 70.0,
+          "combined_correctness_completeness_score": 50.0,
+          "average_recall_pct": 50.0,
+          "average_invalid_extra_docs": 8.0
+        },
+        "completeness": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 45.84,
+          "combined_correctness_completeness_score": 33.34,
+          "average_recall_pct": 91.66,
+          "average_invalid_extra_docs": 6.0
+        },
+        "miscellaneous": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 30.0,
+          "combined_correctness_completeness_score": 30.0,
+          "average_recall_pct": 50.0,
+          "average_invalid_extra_docs": 8.5
+        },
+        "high_level": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 16.66,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "info_not_found": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 50.0,
+          "combined_correctness_completeness_score": 50.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        }
+      },
+      "corrected": [
+        "qst_0421",
+        "qst_0443"
+      ],
+      "failed_judge_questions": {},
+      "documents_per_answer": {
+        "mean": 13.22,
+        "max": 39,
+        "answers_without_documents": 0
+      },
+      "judge": {
+        "models": {
+          "judge": "gpt-5.4",
+          "cheap_judge": "gpt-5-mini"
+        },
+        "cost_usd": 6.6828,
+        "usage": {
+          "gpt-5.4-2026-03-05": {
+            "calls": 408,
+            "input_tokens": 1846628,
+            "cached_input_tokens": 408064,
+            "output_tokens": 198960,
+            "reasoning_tokens": 104361,
+            "not_completed": 0
+          }
+        }
+      },
+      "operations": {
+        "questions": 50,
+        "answered": 50,
+        "failed": 0,
+        "no_context": 0,
+        "dont_know": 0,
+        "workers": 4,
+        "latency": {
+          "n": 50,
+          "mean_s": 16.18,
+          "median_s": 14.75,
+          "p90_s": 26.69,
+          "max_s": 31.92
+        },
+        "estimated_cost_usd": null,
+        "tokens": {
+          "total_tokens": 12148,
+          "tokens_used_today": 254046,
+          "tokens_used_this_month": 254046
+        }
+      }
+    },
+    "GPT-OSS + LangChain": {
+      "key": "gptoss_langchain",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_langchain/all",
+      "run_started": "2026-10-10T21:37:00+00:00",
+      "official": {
+        "total_questions": 50,
+        "completed_questions": 50,
+        "skipped_rows": 0,
+        "num_corrected_questions": 1,
+        "average_correctness_pct": 76.0,
+        "average_completeness_pct": 45.88,
+        "combined_correctness_completeness_score": 41.69,
+        "average_recall_pct": 82.13,
+        "average_invalid_extra_docs": 8.76,
+        "overall_score": 41.69
+      },
+      "overall_ci95": [
+        30.08,
+        52.94
+      ],
+      "overall_missing_as_zero": 41.69,
+      "scored_questions": 50,
+      "run_questions": 50,
+      "not_scored": [],
+      "by_type": {
+        "basic": {
+          "count": 17,
+          "average_correctness_pct": 82.35,
+          "average_completeness_pct": 30.59,
+          "combined_correctness_completeness_score": 30.59,
+          "average_recall_pct": 88.24,
+          "average_invalid_extra_docs": 9.12
+        },
+        "semantic": {
+          "count": 12,
+          "average_correctness_pct": 66.67,
+          "average_completeness_pct": 50.62,
+          "combined_correctness_completeness_score": 47.14,
+          "average_recall_pct": 75.0,
+          "average_invalid_extra_docs": 9.25
+        },
+        "intra_document_reasoning": {
+          "count": 4,
+          "average_correctness_pct": 75.0,
+          "average_completeness_pct": 29.17,
+          "combined_correctness_completeness_score": 29.17,
+          "average_recall_pct": 75.0,
+          "average_invalid_extra_docs": 9.25
+        },
+        "project_related": {
+          "count": 4,
+          "average_correctness_pct": 75.0,
+          "average_completeness_pct": 66.07,
+          "combined_correctness_completeness_score": 50.68,
+          "average_recall_pct": 73.61,
+          "average_invalid_extra_docs": 7.0
+        },
+        "constrained": {
+          "count": 3,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 91.39,
+          "combined_correctness_completeness_score": 91.39,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 8.33
+        },
+        "conflicting_info": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 70.0,
+          "combined_correctness_completeness_score": 50.0,
+          "average_recall_pct": 50.0,
+          "average_invalid_extra_docs": 9.5
+        },
+        "completeness": {
+          "count": 2,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 22.5,
+          "combined_correctness_completeness_score": 22.5,
+          "average_recall_pct": 91.66,
+          "average_invalid_extra_docs": 5.0
+        },
+        "miscellaneous": {
+          "count": 2,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 30.0,
+          "combined_correctness_completeness_score": 30.0,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 9.0
+        },
+        "high_level": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 33.34,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "info_not_found": {
+          "count": 2,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 100.0,
+          "combined_correctness_completeness_score": 100.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        }
+      },
+      "corrected": [
+        "qst_0421"
+      ],
+      "failed_judge_questions": {},
+      "documents_per_answer": {
+        "mean": 10.0,
+        "max": 10,
+        "answers_without_documents": 0
+      },
+      "judge": {
+        "models": {
+          "judge": "gpt-5.4",
+          "cheap_judge": "gpt-5-mini"
+        },
+        "cost_usd": 5.9145,
+        "usage": {
+          "gpt-5.4-2026-03-05": {
+            "calls": 400,
+            "input_tokens": 1471794,
+            "cached_input_tokens": 139520,
+            "output_tokens": 169927,
+            "reasoning_tokens": 95766,
+            "not_completed": 0
+          }
+        }
+      },
+      "operations": {
+        "questions": 50,
+        "answered": 50,
+        "failed": 0,
+        "no_context": 0,
+        "dont_know": 0,
+        "workers": 8,
+        "latency": {
+          "n": 50,
+          "mean_s": 5.81,
+          "median_s": 3.5,
+          "p90_s": 12.99,
+          "max_s": 23.15
+        },
+        "estimated_cost_usd": 0.1315,
+        "tokens": {
+          "embedding_tokens": 1795,
+          "completion_tokens": 26209,
+          "prompt_tokens": 769981,
+          "total_tokens": 796190
+        }
+      }
+    },
+    "GPT-OSS, no RAG": {
+      "key": "gptoss_no_rag",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_no_rag/all",
+      "run_started": "2026-10-10T21:28:22+00:00",
+      "official": {
+        "total_questions": 49,
+        "completed_questions": 49,
+        "skipped_rows": 0,
+        "num_corrected_questions": 0,
+        "average_correctness_pct": 8.16,
+        "average_completeness_pct": 9.22,
+        "combined_correctness_completeness_score": 2.55,
+        "average_recall_pct": 0.0,
+        "average_invalid_extra_docs": 0.0,
+        "overall_score": 2.55
+      },
+      "overall_ci95": [
+        0.0,
+        7.14
+      ],
+      "overall_missing_as_zero": 2.5,
+      "scored_questions": 49,
+      "run_questions": 50,
+      "not_scored": [
+        "qst_0443"
+      ],
+      "by_type": {
+        "basic": {
+          "count": 17,
+          "average_correctness_pct": 5.88,
+          "average_completeness_pct": 0.0,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "semantic": {
+          "count": 12,
+          "average_correctness_pct": 16.67,
+          "average_completeness_pct": 9.03,
+          "combined_correctness_completeness_score": 2.08,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "intra_document_reasoning": {
+          "count": 4,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 0.0,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "project_related": {
+          "count": 4,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 0.0,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "constrained": {
+          "count": 3,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 45.56,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "conflicting_info": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 53.34,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "completeness": {
+          "count": 1,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 0.0,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "miscellaneous": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 0.0,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "high_level": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 0.0,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "info_not_found": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 50.0,
+          "combined_correctness_completeness_score": 50.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        }
+      },
+      "corrected": [],
+      "failed_judge_questions": {},
+      "documents_per_answer": {
+        "mean": 0.0,
+        "max": 0,
+        "answers_without_documents": 49
+      },
+      "judge": {
+        "models": {
+          "judge": "gpt-5.4",
+          "cheap_judge": "gpt-5-mini"
+        },
+        "cost_usd": 0.6152,
+        "usage": {
+          "gpt-5.4-2026-03-05": {
+            "calls": 331,
+            "input_tokens": 90152,
+            "cached_input_tokens": 0,
+            "output_tokens": 25986,
+            "reasoning_tokens": 20619,
+            "not_completed": 0
+          }
+        }
+      },
+      "operations": {
+        "questions": 50,
+        "answered": 49,
+        "failed": 1,
+        "no_context": 49,
+        "dont_know": 0,
+        "workers": 8,
+        "latency": {
+          "n": 49,
+          "mean_s": 2.16,
+          "median_s": 1.76,
+          "p90_s": 4.65,
+          "max_s": 5.69
+        },
+        "estimated_cost_usd": 0.009,
+        "tokens": {
+          "completion_tokens": 12705,
+          "prompt_tokens": 9433,
+          "total_tokens": 22138
+        }
+      }
+    }
+  },
+  "not_scored": {},
+  "leaderboard": [
+    {
+      "model": "4Minds Constellations (GPT-OSS-120B)",
+      "overall_score": "52.94",
+      "correctness": "62.0",
+      "completeness": "63.71",
+      "recall": "71.5",
+      "invalid_extra_docs": "12.28",
+      "tags": ""
+    },
+    {
+      "model": "LangChain vector (text-embedding-3-large) + GPT-OSS-120B",
+      "overall_score": "41.69",
+      "correctness": "76.0",
+      "completeness": "45.88",
+      "recall": "82.13",
+      "invalid_extra_docs": "8.76",
+      "tags": "one_shot"
+    },
+    {
+      "model": "GPT-OSS-120B, no retrieval",
+      "overall_score": "2.55",
+      "correctness": "8.16",
+      "completeness": "9.22",
+      "recall": "0.0",
+      "invalid_extra_docs": "0.0",
+      "tags": "one_shot"
+    }
+  ],
+  "caveats": [
+    "Pilot: 50 of 500 questions, stratified by question type (2 to 17 per type). The judge (gpt-5.4) is not fully repeatable. Do not rank systems from this table.",
+    "Corpus slice: 10,000 of 511,958 documents (the 74 gold documents of the pilot questions plus 9,926 random others). Retrieval is easier than on the full corpus, so these scores are not comparable with the public leaderboard.",
+    "Official default settings: a retrieved document that is not gold can become gold for that system when 3 judges agree (correction). Recall and invalid extra documents then use a different gold list for each system. The corrected-question count is in the table.",
+    "The official scorer skips a question with no answer and no documents; that question is not in the official averages. The column 'Overall, missing = 0' counts such a question as 0 over all pilot questions.",
+    "GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except 4Minds, which uses its own GPT-OSS-120B deployment.",
+    "4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order. The instructions of the official prompt are the persona's behavioral guidelines; 4Minds builds its own context and has no per-request system prompt, temperature or max-token setting.",
+    "4Minds ingestion time: setup.json counts only from the restart of the wait (21:36 UTC). The upload started at 21:22 UTC and the chunk count did not change after 21:39 UTC, so the ingestion took about 17 minutes (then 15 minutes of stable wait).",
+    "LangChain: a copy of the official vector baseline (index_document_vectors.py and vector_retrieval.py) with LangChain parts in place of Qdrant. The official README says 1,024-token chunks; the code uses 512 tokens with 10% overlap, and we follow the code.",
+    "No RAG: the official prompt says to answer only from the documents, and the document section is empty. The company is synthetic, so world knowledge cannot answer most questions."
+  ],
+  "inputs": {
+    "questions_sha256": "f9524b9157cd43aae36b99333a124738804306ea6d07f332d49faa6d3d147905",
+    "pilot_questions_sha256": "dc1affc93b74370d1ce81f8715fbdbc3ccaee7482467d1d5ce58e43ccc57dead",
+    "corpus_sha256": "3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec"
+  }
+}

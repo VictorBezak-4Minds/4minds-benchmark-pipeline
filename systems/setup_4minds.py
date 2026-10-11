@@ -8,10 +8,21 @@ prompt). The script then waits until the dataset graph build is complete
 (graph_status "ready", not only "rag_ready"), logs every status change, and writes
 shared/4minds/setup.json. It stops if the build shows no progress for --stall-min minutes.
 
+A profile with corpus_documents() gets one file per document, named file_name(): the
+document ID, an underscore and the title, cleaned with the server's sanitize_filename() rule
+(so "__" becomes "_"), with the document text (title, blank line, content). The first
+--batch files create the dataset; the others go to POST /api/v1/user/dataset/upload in
+batches. The server skips a file name that the dataset already has, so a stopped upload can
+run again. shared/4minds/file_map.json maps each file name to its document ID; runners read
+the ID back from the chunk's document_title (dsid_of()). Each upload batch is its own ETL
+batch, so the build counts as complete only when its state (total_chunks_count) has not changed
+for --stable-min minutes; setup.json records that chunk count, and runners check it.
+
     ./bench graphrag-bench setup_4minds eval systems/setup_4minds.py
 """
 import argparse
 import json
+import re
 import sys
 import time
 
@@ -24,6 +35,19 @@ DATASET_NAME = bc.profile.RESOURCE_NAME
 MODEL_NAME = bc.profile.RESOURCE_NAME
 PERSONA_NAME = f"{bc.profile.TITLE} official prompt"
 SETUP_FILE = bc.SHARED / "4minds" / "setup.json"
+FILE_MAP = bc.SHARED / "4minds" / "file_map.json"
+DSID = re.compile(r"dsid_[0-9a-f]{32}")
+
+
+def file_name(doc):
+    """<dsid>_<title>.txt after the server's sanitize_filename() (4minds-platform app/user/file_utils.py)."""
+    name = re.sub(r"_+", "_", re.sub(r"[^\w\-.]", "_", f"{doc['dsid']}__{doc['title']}")).strip("._") or "file"
+    return name[:120] + ".txt"
+
+
+def dsid_of(title):
+    match = DSID.search(title or "")
+    return match.group(0) if match else None
 
 
 class Client:
@@ -76,19 +100,23 @@ def dataset_state(dataset):
     }
 
 
-def readiness(client, dataset_id, model_id):
+def readiness(client, dataset_id, model_id, stable_chunks=None):
     """Return the ready state, or None while the build is still running.
 
     The backend sets graph_status "ready" only after every item of the ETL batch succeeds.
     graph_build_metadata.status can stay "enhancing": the batch counts the dataset manifest
-    as an extra file, so it is not used here.
+    as an extra file, so it is not used here. With a document list, each upload batch is its
+    own ETL batch, and graph_status is "ready" between batches; files_processed_count counts
+    only the first batch. So setup waits until total_chunks_count is stable (--stable-min) and
+    writes it to setup.json; with stable_chunks, the count must still be the same.
     """
     dataset = client.call("GET", f"/api/v1/user/dataset/{dataset_id}")
     state = dataset_state(dataset)
     if state["status"] == "failed" or state["error_message"] or state["etl_job_status"] == "failed":
         sys.exit(f"4Minds dataset {dataset_id} failed: {state}")
     if (state["graph_status"] != "ready" or state["etl_job_status"] not in (None, "completed")
-            or not state["total_chunks_count"]):
+            or not state["total_chunks_count"]
+            or (stable_chunks is not None and state["total_chunks_count"] != stable_chunks)):
         return None, state
     model = client.call("GET", f"/api/v1/user/model/{model_id}")
     state["model_status"] = model.get("status")
@@ -97,24 +125,72 @@ def readiness(client, dataset_id, model_id):
     return {"dataset_id": dataset_id, "model_id": model_id, **state}, state
 
 
+def document_files():
+    """[(file name, bytes)] of the profile's documents; writes FILE_MAP."""
+    docs = bc.profile.corpus_documents()
+    files = [(file_name(d), d["text"].encode()) for d in docs]
+    mapping = {name: d["dsid"] for (name, _), d in zip(files, docs)}
+    if len(mapping) != len(docs) or any(dsid_of(n) != d for n, d in mapping.items()):
+        sys.exit("File names are not unique, or a file name does not give back its document ID.")
+    FILE_MAP.parent.mkdir(parents=True, exist_ok=True)
+    FILE_MAP.write_text(json.dumps(mapping, indent=1))
+    return files
+
+
+def create_dataset(client, files):
+    bc.audit("4minds_create_dataset", name=DATASET_NAME, file=str(bc.CORPUS_FILE), sha256=bc.sha256(bc.CORPUS_FILE),
+             files=len(files))
+    return client.call("POST", "/api/v1/user/dataset", files=[("files", (n, b, "text/plain")) for n, b in files],
+                       data={"dataset_name": DATASET_NAME, "tags": f"{bc.BENCHMARK},benchmark",
+                             "description": bc.profile.RESOURCE_DESCRIPTION, "urls": "[]"})
+
+
+def upload_rest(client, dataset_id, files, batch, pause_s):
+    totals = {"uploaded": 0, "skipped": 0, "failed": 0}
+    batches = range(0, len(files), batch)
+    for n, i in enumerate(batches, 1):
+        part = files[i:i + batch]
+        reply = client.call("POST", "/api/v1/user/dataset/upload", data={"dataset_id": str(dataset_id)},
+                            files=[("files", (name, data, "text/plain")) for name, data in part])
+        totals["uploaded"] += reply.get("files_uploaded") or 0
+        totals["skipped"] += reply.get("files_skipped") or 0
+        totals["failed"] += reply.get("files_failed") or 0
+        if reply.get("failed_files") or reply.get("processing_error"):
+            print(f"  batch {n}: failed {reply.get('failed_files')} processing_error {reply.get('processing_error')}")
+        if n % 5 == 0 or n == len(batches):
+            print(f"  {bc.now()} upload batch {n}/{len(batches)}: {totals}")
+        if reply.get("files_uploaded"):
+            time.sleep(pause_s)
+    bc.audit("4minds_upload", dataset_id=dataset_id, files=len(files), **totals)
+    if totals["failed"]:
+        sys.exit(f"{totals['failed']} files failed to upload. Run the same command again.")
+    return totals
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--poll-s", type=float, default=60)
     parser.add_argument("--stall-min", type=float, default=120)
+    parser.add_argument("--batch", type=int, default=200, help="files per upload request (document lists)")
+    parser.add_argument("--pause-s", type=float, default=2, help="wait between upload requests (document lists)")
+    parser.add_argument("--stable-min", type=float, default=15,
+                        help="document lists: minutes with no change of the build state before it counts as complete")
     args = parser.parse_args()
     client = Client()
     started = time.monotonic()
 
+    files = document_files() if hasattr(bc.profile, "corpus_documents") else None
     dataset = find_dataset(client)
-    if dataset is None:
-        bc.audit("4minds_create_dataset", name=DATASET_NAME, file=str(bc.CORPUS_FILE), sha256=bc.sha256(bc.CORPUS_FILE))
+    if dataset is None and files is not None:
+        dataset = create_dataset(client, files[:args.batch])
+    elif dataset is None:
         with open(bc.CORPUS_FILE, "rb") as f:
-            dataset = client.call("POST", "/api/v1/user/dataset", files=[("files", (bc.CORPUS_FILE.name, f, "text/plain"))],
-                                  data={"dataset_name": DATASET_NAME, "tags": f"{bc.BENCHMARK},benchmark",
-                                        "description": bc.profile.RESOURCE_DESCRIPTION,
-                                        "urls": "[]"})
+            dataset = create_dataset(client, [(bc.CORPUS_FILE.name, f.read())])
     dataset_id = int(dataset["id"])
     print(f"dataset: {dataset_id} {dataset_state(dataset)}")
+    if files is not None:
+        print(f"uploading {len(files)} files in batches of {args.batch} (the server skips files it has)")
+        upload_rest(client, dataset_id, files, args.batch, args.pause_s)
 
     persona = find_persona(client)
     if persona is None:
@@ -148,7 +224,11 @@ def main():
             print(f"  {bc.now()} {state}")
             bc.audit("4minds_build_status", dataset_id=dataset_id, **state)
             last, last_change = state, time.monotonic()
-        if ready:
+        if ready and files is None:
+            break
+        if ready and time.monotonic() - last_change > args.stable_min * 60:
+            ready["stable_total_chunks"] = state["total_chunks_count"]
+            ready["stable_for_min"] = args.stable_min
             break
         if time.monotonic() - last_change > args.stall_min * 60:
             bc.audit("4minds_build_stalled", dataset_id=dataset_id, minutes=args.stall_min, **state)

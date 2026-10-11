@@ -1,0 +1,27 @@
+# step: setup_4minds
+# start: 2026-10-10T21:22:07Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py
+
+dataset: 4046 {'status': 'preparing', 'graph_status': 'preparing', 'graph_build_progress': 0, 'files_processed_count': 0, 'total_chunks_count': 0, 'build_status': None, 'etl_job_status': None, 'error_message': None}
+uploading 10000 files in batches of 200 (the server skips files it has)
+  2026-10-10T21:22:32+00:00 upload batch 5/50: {'uploaded': 800, 'skipped': 200, 'failed': 0}
+  2026-10-10T21:23:01+00:00 upload batch 10/50: {'uploaded': 1800, 'skipped': 200, 'failed': 0}
+  2026-10-10T21:23:29+00:00 upload batch 15/50: {'uploaded': 2800, 'skipped': 200, 'failed': 0}
+  2026-10-10T21:24:00+00:00 upload batch 20/50: {'uploaded': 3800, 'skipped': 200, 'failed': 0}
+  2026-10-10T21:24:37+00:00 upload batch 25/50: {'uploaded': 4800, 'skipped': 200, 'failed': 0}
+  2026-10-10T21:25:13+00:00 upload batch 30/50: {'uploaded': 5800, 'skipped': 200, 'failed': 0}
+  2026-10-10T21:26:05+00:00 upload batch 35/50: {'uploaded': 6800, 'skipped': 200, 'failed': 0}
+  2026-10-10T21:26:40+00:00 upload batch 40/50: {'uploaded': 7800, 'skipped': 200, 'failed': 0}
+  2026-10-10T21:27:14+00:00 upload batch 45/50: {'uploaded': 8800, 'skipped': 200, 'failed': 0}
+  2026-10-10T21:27:48+00:00 upload batch 50/50: {'uploaded': 9800, 'skipped': 200, 'failed': 0}
+persona: 1291
+model: 3604 status=ready base=GPT-OSS-120B
+  2026-10-10T21:27:52+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 10431, 'build_status': None, 'etl_job_status': 'running', 'error_message': None, 'expected_files': 10000}
+  2026-10-10T21:28:52+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 11269, 'build_status': None, 'etl_job_status': 'completed', 'error_message': None, 'expected_files': 10000}
+  2026-10-10T21:29:53+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 12079, 'build_status': 'enhancing', 'etl_job_status': 'completed', 'error_message': None, 'expected_files': 10000}
+  2026-10-10T21:30:53+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 13698, 'build_status': 'enhancing', 'etl_job_status': 'completed', 'error_message': None, 'expected_files': 10000}
+  2026-10-10T21:31:54+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 15261, 'build_status': 'enhancing', 'etl_job_status': 'completed', 'error_message': None, 'expected_files': 10000}
+  2026-10-10T21:32:55+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 17604, 'build_status': None, 'etl_job_status': 'completed', 'error_message': None, 'expected_files': 10000}
+  2026-10-10T21:33:55+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 19943, 'build_status': None, 'etl_job_status': 'completed', 'error_message': None, 'expected_files': 10000}
+  2026-10-10T21:34:56+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 21446, 'build_status': None, 'etl_job_status': 'completed', 'error_message': None, 'expected_files': 10000}
+  2026-10-10T21:35:56+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 22863, 'build_status': 'enhancing', 'etl_job_status': 'completed', 'error_message': None, 'expected_files': 10000}

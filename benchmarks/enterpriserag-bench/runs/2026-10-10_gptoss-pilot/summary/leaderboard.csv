@@ -1,0 +1,4 @@
+model,overall_score,correctness,completeness,recall,invalid_extra_docs,tags
+4Minds Constellations (GPT-OSS-120B),52.94,62.0,63.71,71.5,12.28,
+LangChain vector (text-embedding-3-large) + GPT-OSS-120B,41.69,76.0,45.88,82.13,8.76,one_shot
+"GPT-OSS-120B, no retrieval",2.55,8.16,9.22,0.0,0.0,one_shot

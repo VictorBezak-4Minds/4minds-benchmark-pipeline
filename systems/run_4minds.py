@@ -39,7 +39,7 @@ class Fatal(Exception):
 
 def create_conversation(http, model_id, q):
     response = http.post(f"{setup.BASE}/api/v1/conversations", timeout=60,
-                         json={"model_id": model_id, "title": f"{bc.profile.RESOURCE_NAME} {q['id']}"})
+                         json={"model_id": model_id, "title": f"{bc.profile.RESOURCE_NAME} {bc.question_key(q)}"})
     if response.status_code >= 400:
         raise RuntimeError(f"create conversation: HTTP {response.status_code} {response.text[:300]}")
     return str(response.json()["id"])
@@ -70,7 +70,7 @@ def one_turn(key, http, model_id, engine, q, timeout):
         ws.send(json.dumps({"type": f"{prefix}conversation_prompt", "model_id": model_id,
                             "conversation_id": conversation_id, "prompt": q["question"],
                             "user_message": q["question"], "enable_web_search": False}))
-        deltas, contexts, frames, meta, errors, scores = {}, [], [], {}, [], {}
+        deltas, contexts, frames, meta, errors, scores, titles = {}, [], [], {}, [], {}, {}
         error_deadline = None
         while True:
             try:
@@ -97,6 +97,7 @@ def one_turn(key, http, model_id, engine, q, timeout):
                     if text and text not in contexts:
                         contexts.append(text)
                         scores[text] = chunk.get("score") or 0
+                        titles[text] = chunk.get("document_title")
                     elif text:
                         scores[text] = max(scores[text], chunk.get("score") or 0)
             elif kind == f"{prefix}complete":
@@ -112,11 +113,13 @@ def one_turn(key, http, model_id, engine, q, timeout):
         if text and text not in contexts:
             contexts.append(text)
             scores[text] = chunk.get("score") or 0
+            titles[text] = chunk.get("document_title")
     # Multi-step retrieval sends one context frame per step. The scorer reads only the first
     # 10,000 characters, so keep 4Minds' own relevance order across all steps.
     contexts.sort(key=lambda text: -scores.get(text, 0))
     answer = "".join(deltas[k] for k in sorted(deltas)).strip()
-    return answer, contexts, frames, {"conversation_id": conversation_id, "errors": errors}
+    return answer, contexts, frames, {"conversation_id": conversation_id, "errors": errors,
+                                      "document_titles": [titles.get(text) for text in contexts]}
 
 
 def sse_turn(http, model_id, q, timeout):
@@ -201,7 +204,7 @@ def make_ask(key, args, model_id):
         for k, v in (meta.get("token_usage") or {}).items():
             if isinstance(v, (int, float)):
                 usage[k] = v
-        return {
+        out = {
             "status": "ok", "attempts": attempts, "answer": answer, "contexts": contexts, "usage": usage,
             "raw": {"frames": frames, "answer": answer},
             "extra": {**info, "chunks": len(contexts), "context_chunks": meta.get("context_chunks"),
@@ -210,6 +213,12 @@ def make_ask(key, args, model_id):
                       next((f.get("message_id") for f in frames if f.get("message_id")), None)},
             **timing,
         }
+        if with_ids:
+            ids = [setup.dsid_of(t) for t in info.get("document_titles") or []]
+            out["document_ids"] = list(dict.fromkeys(i for i in ids if i))
+            out["extra"]["unmapped_titles"] = sum(1 for i in ids if not i)
+        return out
+    with_ids = hasattr(bc.profile, "corpus_documents")
     return ask
 
 
@@ -232,7 +241,7 @@ def main():
     client = setup.Client()
 
     def readiness():
-        ready, state = setup.readiness(client, dataset_id, model_id)
+        ready, state = setup.readiness(client, dataset_id, model_id, (ids.get("ready") or {}).get("stable_total_chunks"))
         if ready is None:
             sys.exit(f"Readiness: 4Minds dataset {dataset_id} / model {model_id} not ready: {state}")
         return ready
@@ -242,6 +251,8 @@ def main():
                 "dataset_id": dataset_id, "persona_id": ids["persona_id"],
                 "system_prompt_via": "persona.behavioralGuidelines", "system_prompt": bc.SYSTEM_PROMPT,
                 "context_order": "4Minds chunk score, highest first, across all retrieval steps, no duplicates"}
+    if hasattr(bc.profile, "corpus_documents"):
+        settings["document_ids"] = "dsid in the chunk document_title (setup_4minds.file_name), chunk score order"
     summary = bc.run(f"4minds_{args.engine}", args, make_ask(key, args, model_id), settings, readiness, None,
                      {"endpoint": endpoint, "model": ids.get("model")})
     sys.exit(1 if bc.STOP.is_set() or summary["failed"] else 0)

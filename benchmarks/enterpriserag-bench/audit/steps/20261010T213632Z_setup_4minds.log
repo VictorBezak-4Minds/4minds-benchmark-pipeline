@@ -1,0 +1,35 @@
+# step: setup_4minds
+# start: 2026-10-10T21:36:32Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py
+
+dataset: 4046 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 23826, 'build_status': 'enhancing', 'etl_job_status': 'completed', 'error_message': None}
+uploading 10000 files in batches of 200 (the server skips files it has)
+  2026-10-10T21:36:38+00:00 upload batch 5/50: {'uploaded': 0, 'skipped': 1000, 'failed': 0}
+  2026-10-10T21:36:40+00:00 upload batch 10/50: {'uploaded': 0, 'skipped': 2000, 'failed': 0}
+  2026-10-10T21:36:42+00:00 upload batch 15/50: {'uploaded': 0, 'skipped': 3000, 'failed': 0}
+  2026-10-10T21:36:44+00:00 upload batch 20/50: {'uploaded': 0, 'skipped': 4000, 'failed': 0}
+  2026-10-10T21:36:46+00:00 upload batch 25/50: {'uploaded': 0, 'skipped': 5000, 'failed': 0}
+  2026-10-10T21:36:48+00:00 upload batch 30/50: {'uploaded': 0, 'skipped': 6000, 'failed': 0}
+  2026-10-10T21:36:51+00:00 upload batch 35/50: {'uploaded': 0, 'skipped': 7000, 'failed': 0}
+  2026-10-10T21:36:53+00:00 upload batch 40/50: {'uploaded': 0, 'skipped': 8000, 'failed': 0}
+  2026-10-10T21:36:56+00:00 upload batch 45/50: {'uploaded': 0, 'skipped': 9000, 'failed': 0}
+  2026-10-10T21:36:58+00:00 upload batch 50/50: {'uploaded': 0, 'skipped': 10000, 'failed': 0}
+persona: 1291
+model: 3604 status=ready base=GPT-OSS-120B
+  2026-10-10T21:36:59+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 24711, 'build_status': None, 'etl_job_status': 'completed', 'error_message': None, 'model_status': 'ready'}
+  2026-10-10T21:37:59+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 26874, 'build_status': None, 'etl_job_status': 'completed', 'error_message': None, 'model_status': 'ready'}
+  2026-10-10T21:39:00+00:00 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 27901, 'build_status': 'enhancing', 'etl_job_status': 'completed', 'error_message': None, 'model_status': 'ready'}
+{
+  "id": "3604",
+  "name": "enterpriserag-bench-pilot",
+  "base_model_name": "GPT-OSS-120B",
+  "base_model_id": 5,
+  "training_type_id": "sft",
+  "status": "ready",
+  "graph_status": "ready",
+  "dataset_id": 4046,
+  "personaId": 1291,
+  "trained_at": "2026-10-10T21:27:51.285207Z"
+}
+
+# end: 2026-10-10T21:54:13Z  exit: 0  duration_s: 1061

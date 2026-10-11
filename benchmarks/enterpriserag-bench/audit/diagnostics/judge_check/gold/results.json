@@ -1,0 +1,46 @@
+{
+  "updated_question_file": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/audit/diagnostics/judge_check/gold/questions_updated.jsonl",
+  "aggregate_stats": {
+    "total_questions": 2,
+    "completed_questions": 2,
+    "skipped_rows": 0,
+    "num_corrected_questions": 0,
+    "average_correctness_pct": 100.0,
+    "average_completeness_pct": 100.0,
+    "combined_correctness_completeness_score": 100.0,
+    "average_recall_pct": 100.0,
+    "average_invalid_extra_docs": 0.0
+  },
+  "question_type_stats": {
+    "basic": {
+      "count": 2,
+      "average_correctness_pct": 100.0,
+      "average_completeness_pct": 100.0,
+      "combined_correctness_completeness_score": 100.0,
+      "average_recall_pct": 100.0,
+      "average_invalid_extra_docs": 0.0
+    }
+  },
+  "questions": [
+    {
+      "question_id": "qst_0007",
+      "corrected": false,
+      "question_type": "basic",
+      "answer_correct": true,
+      "correctness_reasoning": "The candidate exactly matches the gold answer, including the baseline and optimized averages and the 0.8-point decrease.",
+      "completeness_pct": 100.0,
+      "document_recall_pct": 100.0,
+      "invalid_extra_docs": 0
+    },
+    {
+      "question_id": "qst_0008",
+      "corrected": false,
+      "question_type": "basic",
+      "answer_correct": true,
+      "correctness_reasoning": "The candidate exactly matches the gold answer, including the under-10-minutes threshold for verified rollback in staging.",
+      "completeness_pct": 100.0,
+      "document_recall_pct": 100.0,
+      "invalid_extra_docs": 0
+    }
+  ]
+}

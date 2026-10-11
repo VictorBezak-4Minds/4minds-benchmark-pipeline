@@ -16,6 +16,7 @@ Agents: read [AGENTS.md](AGENTS.md) before you do any work here.
 |---|---|---|
 | GraphRAG-Bench (Medical) | [benchmarks/graphrag-bench](benchmarks/graphrag-bench/README.md) | Pilot complete (10 questions, 5 systems). Full run not approved. |
 | QASPER (answer-only) | [benchmarks/qasper](benchmarks/qasper/README.md) | Pilot complete (25 questions, 4 systems; RAG Engine blocked). Full run not approved. |
+| EnterpriseRAG-Bench (metrics-based) | [benchmarks/enterpriserag-bench](benchmarks/enterpriserag-bench/README.md) | Pilot in progress (50 questions, 4 GPT-OSS systems, 10,000-document slice). Full run not approved. |
 
 ## Layout
 
@@ -38,14 +39,18 @@ Benchmark Datasets/
 │   ├── run_4minds.py       4Minds Constellations (WebSocket) and SYMI (REST/SSE)
 │   ├── setup_gemini.py     Gemini File Search store: creates it and uploads the corpus
 │   ├── run_gemini.py       Gemini Developer API + File Search
-│   ├── run_lightrag.py     LightRAG 1.2.5 + Gemini: builds the local index (--index-only) and answers
+│   ├── run_lightrag.py     LightRAG 1.2.5 + Gemini or a backend (--llm): builds the local index (--index-only) and answers
+│   ├── lightrag_hooks.py   in-memory LightRAG hooks: usage, Bedrock token, <reasoning> removal, GPT-OSS delimiter repair, document IDs
+│   ├── setup_langchain.py  LangChain vector index (FAISS) of the profile's documents
+│   ├── setup_graphrag.py   Microsoft GraphRAG 3.3.0 index (fast method) of the profile's documents
+│   ├── graphrag_hooks.py   in-memory GraphRAG config and LiteLLM hooks: Bedrock token, <reasoning> removal, JSON repair, usage
 │   ├── setup_rag_engine.py Vertex AI RAG Engine: provisions Spanner Basic if necessary, creates the corpus (--location)
 │   ├── run_rag_engine.py   Gemini + RAG Engine retrieval
 │   ├── cleanup_rag_engine.py  deletes the corpus and stops Spanner billing
-│   ├── retrievers.py       retrieval only: none, gemini_file_search, vertex_rag_engine
+│   ├── retrievers.py       retrieval only: none, gemini_file_search, vertex_rag_engine, langchain_vector, graphrag_local
 │   ├── run_rag.py          any retriever + any LLM backend (--retriever, --llm)
 │   └── preflight.py        one-request checks: LLM backend, Gemini key project, File Search chunk count
-├── envs/                   Python environments (.venv-eval, .venv-lightrag) and setup_envs.sh
+├── envs/                   Python environments (.venv-eval, .venv-lightrag, .venv-erag, .venv-graphrag) and setup_envs.sh
 └── benchmarks/
     └── <benchmark>/
         ├── README.md              protocol, status, findings, caveats
@@ -125,7 +130,7 @@ when its shell call ends, and this also stops `nohup` jobs. Two steps stopped th
 
 - `benchmark`: a folder in `benchmarks/` (for example `graphrag-bench`).
 - `step-name`: a short name for the audit log (for example `pilot_4minds_constellations`).
-- `env`: `eval` or `lightrag` (the folder `envs/.venv-<env>`).
+- `env`: `eval`, `lightrag` or `erag` (the folder `envs/.venv-<env>`).
 - `script`: a path from the hub root (`systems/run_4minds.py`) or from the benchmark folder (`score.py`).
 
 Relative paths in the arguments are relative to the benchmark folder.
@@ -193,16 +198,19 @@ Each `benchmarks/<name>/benchmark_profile.py` defines:
 | `SYSTEM_PROMPT` | the prompt that every system must use |
 | `question_key(q)` | a unique key per question (resume and pairing) |
 | `select_questions(questions, subset, sample)` | subset filter and `--sample` |
-| `prediction(q, answer, contexts)` | one item of `predictions.json`; must have `generated_answer` and `context` |
+| `prediction(q, answer, contexts, document_ids=None)` | one item of `predictions.json`; must have `generated_answer` and `context`. A runner gives `document_ids` only when its result has them |
 | `UPSTREAM_REPO`, `UPSTREAM_COMMIT` | optional: the pinned official repo |
 | `GEMINI_FILE_SEARCH_STORE` | optional: used by `systems/run_gemini.py` |
+| `corpus_documents()` | optional: the corpus as a list of documents (`dsid`, `title`, `text`). The setup scripts of LangChain, GraphRAG, LightRAG and 4Minds then load one document per item, with its ID, instead of `CORPUS_FILE` (which is then the manifest of the list) |
+| `messages(q, contexts)` | optional: the chat messages for `systems/run_rag.py`, when the benchmark has its own prompt layout. Without it: `SYSTEM_PROMPT` as the system message and the contexts in a "Knowledge Base" user message |
+
+A runner result can have `document_ids` (the IDs of the retrieved documents, in rank order).
+Benchmarks that score retrieval (EnterpriseRAG-Bench) need them; the others ignore them.
 
 Known limits of the current contract (change them when a benchmark needs it):
 
-- One corpus file per benchmark. A benchmark with many documents needs a list of files.
 - `systems/run_gemini.py` filters retrieval by the question field `source`.
-- The prediction format follows GraphRAG-Bench (answer + context list). Benchmarks that
-  score retrieval also need the IDs of the retrieved documents.
+- `systems/run_gemini.py` and `run_rag_engine.py` do not use `corpus_documents()` yet.
 
 ## Add a benchmark
 
@@ -245,7 +253,10 @@ Resources that exist now, and what they cost:
 | Gemini File Search store `qaspertestpilot-jva5no5yqkow` | storage only | QASPER pilot slice |
 | RAG Engine, project `minds-vs-gemini-benchmark`, europe-west4 and us-east4 | none | Both unprovisioned on 2026-10-09; no corpus. us-east4 was on Spanner Basic with no corpus (probably since the September attempts) until then. `setup_rag_engine.py` provisions Spanner Basic, which costs money every hour. Run `cleanup_rag_engine.py --location <region>` after use, and check every region you tried. |
 | RAG Engine us-central1 config (Serverless), Vector Search API | none | Serverless corpus creation fails: "No available indexing project" (Sep and Oct 2026). |
+| 4Minds dataset 4046, model 3604, persona 1291 (prod) | none | EnterpriseRAG-Bench pilot slice (10,000 files, one per document). |
 | LightRAG indexes | none (local) | `benchmarks/<benchmark>/shared/lightrag/workspace/` (Gemini), `workspace_<llm backend>/` (others) |
+| LangChain FAISS indexes | none (local) | `benchmarks/<benchmark>/shared/langchain/<resource name>/` (EnterpriseRAG-Bench pilot slice) |
+| GraphRAG indexes | none (local) | `benchmarks/<benchmark>/shared/graphrag/<resource name>/` (EnterpriseRAG-Bench pilot slice; `_first<N>` folders are cost tests) |
 
 **RAG Engine check:** "ACTIVE" in the control plane does not prove that queries work. In the
 QASPER pilot, europe-west4 returned HTTP 500 "Failed to fetch corpus status from spanner" for

@@ -1,0 +1,5 @@
+# step: graphrag_index
+# start: 2026-10-11T02:07:16Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_graphrag.py
+
+10000 documents, 12138718 tokens (cl100k_base), concurrency 16, out /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot

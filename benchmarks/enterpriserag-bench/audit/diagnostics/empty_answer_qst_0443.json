@@ -1,0 +1,53 @@
+{
+  "time": "2026-10-10T21:33:28+00:00",
+  "question": "List every internal communication thread (email, Slack, and meeting notes) about the Redwood Private upgrade 'rollback loop' bug (including references to RRB-17 or 'stuck rollback').",
+  "backend": {
+    "llm_backend": "bedrock-gpt-oss-120b",
+    "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+    "llm_model": "openai.gpt-oss-120b-1:0",
+    "llm_params": {
+      "temperature": 0.3,
+      "max_tokens": 4096,
+      "reasoning_effort": "medium"
+    },
+    "llm_auth": {
+      "type": "aws_bedrock_token",
+      "profile": "bedrock",
+      "region": "us-east-1"
+    }
+  },
+  "replies": [
+    {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 134,
+        "prompt_tokens": 196,
+        "total_tokens": 330
+      },
+      "message_keys": [
+        "content",
+        "refusal",
+        "role"
+      ],
+      "content": "<reasoning>We need to list every internal communication thread (email, Slack, meeting notes) about Redwood Private upgrade 'rollback loop' bug, including references to RRB-17 or 'stuck rollback'. We must base answer purely on provided documents. But there are no documents shown in the prompt. The \"Context Documents\" section is empty. So we have no info. According to instruction, we must not make up info. So answer should be empty? Probably we should respond with nothing (no text). But need to output answer below, no extra text. If no documents, we cannot list any. So output blank.</reasoning>",
+      "content_without_reasoning": ""
+    },
+    {
+      "http_status": 200,
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 130,
+        "prompt_tokens": 196,
+        "total_tokens": 326
+      },
+      "message_keys": [
+        "content",
+        "refusal",
+        "role"
+      ],
+      "content": "<reasoning>The task: list every internal communication thread (email, Slack, meeting notes) about Redwood Private upgrade 'rollback loop' bug, including references to RRB-17 or 'stuck rollback'. Need to base answer purely on provided documents. However, the prompt shows \"## Context Documents\" but none are actually included. So there are no documents. In such case, we cannot fabricate. We must answer with nothing? The instruction: \"Be concise and only provide information directly relevant to the query.\" If no documents, we have no info, so answer should be empty. Probably respond with nothing.</reasoning>",
+      "content_without_reasoning": ""
+    }
+  ]
+}

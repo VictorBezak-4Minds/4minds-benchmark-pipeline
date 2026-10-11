@@ -1,0 +1,10 @@
+# step: check_graphrag_first20
+# start: 2026-10-11T01:40:07Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/check_graphrag_retriever.py --graphrag-index shared/graphrag/enterpriserag-bench-pilot_first20 --questions 2
+
+Reached token limit - reverting to previous context state
+{"question_id": "qst_0007", "documents": 4, "gold_found": 0, "gold": 1, "retrieval_documents": 4, "retrieval_text_units": 5, "context_records": {"reports": 1, "relationships": 156, "claims": 0, "entities": 20, "sources": 5}, "context_chars": 37182, "retrieval_search_s": 0.89, "context_start": "-----Reports-----\nid|title|content\n1|Redwood Inference Customer Engagements & Operational Programs (Q4\u202f2026)|\"# Redwood Inference Customer Engagements & Operational Programs (Q4\u202f2026)\n\nThis report synthesizes the key engagements Redwood has with four distinct customers\u2014Rivermark, Nimbus Niche Goods,"}
+Reached token limit - reverting to previous context state
+{"question_id": "qst_0008", "documents": 5, "gold_found": 0, "gold": 1, "retrieval_documents": 5, "retrieval_text_units": 7, "context_records": {"reports": 1, "relationships": 155, "claims": 0, "entities": 20, "sources": 7}, "context_chars": 40856, "retrieval_search_s": 0.32, "context_start": "-----Reports-----\nid|title|content\n0|Redwood GPU Worker Node Baseline & Operational Community (2025\u20112026)|\"# Redwood GPU Worker Node Baseline & Operational Community (2025\u20112026)\n\nThis report synthesizes the core entities, policies, and events that shape Redwood\u2019s GPU inference infrastructure communi"}
+
+# end: 2026-10-11T01:40:11Z  exit: 0  duration_s: 4
