@@ -14,11 +14,14 @@ from pathlib import Path
 
 import answers_page
 import bench_common as bc
+import export_page
 import run_readme
 from report_html import bar, head, header, pct, rel, title_with_info
 
 
-def build(out, config, summary_dir):
+def build(out, config, summary_dir, export=None):
+    """The report page. With export (the export file name), only the page body for export_page.py:
+    no links to local files, and the question browser is the second tab of the same file."""
     systems = out["systems"]
     specs = {spec["name"]: spec for spec in config["systems"]}
     color = lambda name: specs[name]["color"]
@@ -32,6 +35,7 @@ def build(out, config, summary_dir):
     h = head(f"{title} · 4Minds")
     h.append(header(f"Generated {escape(out['created'])}<br>Scorer {escape(out['scorer']['name'])}, judge "
                     f"{escape(judge)}"))
+    body_start = len(h)
     h.append("<div class='label'>Benchmark report</div>")
     h.append(f"<h1>{title}</h1>")
     h.append(f"<p class='lead'>How correct and complete are the answers of each system, and did it find the right documents? "
@@ -43,6 +47,10 @@ def build(out, config, summary_dir):
              f"<span class='pill'>Judge: {escape(judge)}</span>")
     if label:
         h.append(f"<span class='pill warn'>{escape(label)}: small sample and a corpus slice. Do not use for conclusions.</span>")
+    export_file = summary_dir.parent / "export" / export_page.file_name(summary_dir.parent)
+    if not export and export_file.exists():
+        h.append(f"<br><a class='pill' style='{export_page.BUTTON_STYLE}' href='{escape(rel(export_file, summary_dir))}' download='{escape(export_file.name)}'>"
+                 "Export for sharing (one HTML file)</a>")
 
     h.append("<section><div class='label'>Headline</div><h2>Main metrics</h2>"
              "<p class='sub'>Scores from 0 to 100, higher is better. Bars show the mean over the questions; the white whisker is "
@@ -58,13 +66,16 @@ def build(out, config, summary_dir):
     h.append("</div></section>")
 
     answers = summary_dir.parent / "answers.html"
-    if answers.exists():
+    if answers.exists() or export:
         h.append("<section><div class='label'>Diagnosis</div><h2>Questions and answers</h2>"
                  "<p class='sub'>Each question with its gold answer, gold facts and gold documents, and the answer, scores, "
                  "documents and retrieved context of each system. Search and filter by question type.</p>"
-                 f"<a class='pill' style='color:#fff;border-color:var(--violet)' href='{escape(rel(answers, summary_dir))}'>"
-                 f"Open the question browser</a><p class='note'>The page is <code>{escape(rel(answers, bc.BENCH_DIR))}</code>. "
-                 "It has the answers, so git does not track it; make_report.py writes it again.</p></section>")
+                 f"<a class='pill' style='{export_page.BUTTON_STYLE}' href='{'#answers' if export else escape(rel(answers, summary_dir))}'>"
+                 "Open the question browser</a>")
+        if not export:
+            h.append(f"<p class='note'>The page is <code>{escape(rel(answers, bc.BENCH_DIR))}</code>. It has the answers, so "
+                     "git does not track it; make_report.py writes it again.</p>")
+        h.append("</section>")
 
     h.append("<section><div class='label'>All metrics</div><h2>All metric outputs</h2>"
              "<p class='sub'>Every number that the scorers give, as 0–100. Factual Correctness gives claim precision, recall and "
@@ -170,6 +181,14 @@ def build(out, config, summary_dir):
         folder = Path(s["folder"])
         links += [(f"{n}: predictions (link)", folder / "predictions.json"),
                   (f"{n}: scores", folder / f"{out['scorer']['name']}.json")]
+    if export:
+        h.append("<section><div class='label'>Audit trail</div><h2>Files</h2><p class='sub'>Every score and summary step is "
+                 f"logged. These files are in the benchmark hub, folder <code>benchmarks/{escape(bc.BENCHMARK)}/</code>; they "
+                 "are not in this exported file.</p><div class='card'><table>")
+        h += [f"<tr><td>{escape(n)}</td><td><code>{escape(rel(p, bc.BENCH_DIR))}</code></td></tr>"
+              for n, p in links if p.exists() and p.name != "answers.html"]
+        h.append("</table></div></section>")
+        return h[body_start:]
     h.append("<section><div class='label'>Audit trail</div><h2>Files</h2><p class='sub'>Every score and summary step is "
              "logged. Links are relative to this report.</p><div class='card'><table>")
     h += [f"<tr><td>{escape(n)}</td><td><a href='{escape(rel(p, summary_dir))}'>{escape(rel(p, bc.BENCH_DIR))}</a></td></tr>"
@@ -189,6 +208,8 @@ def main():
     out = json.loads((summary_dir / "scores.json").read_text())
     record = json.loads((run_dir / "config.json").read_text())
     config = {**record["config"], "scorer": {k: v for k, v in record.get("scorer", {}).items() if k != "config"}}
+    exported = export_page.write(out, record["config"], run_dir, build(out, config, summary_dir, export=True))
+    print(f"wrote {exported}")
     answers = answers_page.write(out, record["config"], run_dir)
     print(f"wrote {answers}")
     target = summary_dir / "report.html"
