@@ -1,0 +1,16 @@
+# step: extra_move_check_gptoss_filesearch
+# start: 2026-10-11T18:07:40Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/extra_v1.json --system-dir runs/2026-10-10_gptoss-full/gptoss_filesearch/medical --questions-file data/Questions/pilot_questions.json --out-dir runs/2026-10-10_gptoss-full/tests/score_extra_move_check/gptoss_filesearch
+
+== extra_v1 on runs/2026-10-10_gptoss-full/gptoss_filesearch/medical/predictions.json: 10 answers, 32 items done, 0 to score
+done: 32/32 items scored, not scored 0, cost this run $0.0000, total $0.0196
+  ragas_answer_accuracy: mean 0.425 (n=10)
+  ragas_factual_correctness_precision: mean 0.456 (n=10)
+  ragas_factual_correctness_recall: mean 0.816 (n=10)
+  ragas_factual_correctness_f1: mean 0.538 (n=10)
+  deepeval_summarization: mean 0.6022 (n=2)
+  deepeval_summarization_alignment: mean 0.6022 (n=2)
+  deepeval_summarization_coverage: mean 1.0 (n=2)
+  deepeval_hallucination: mean 0.77 (n=10)
+
+# end: 2026-10-11T18:07:41Z  exit: 0  duration_s: 1

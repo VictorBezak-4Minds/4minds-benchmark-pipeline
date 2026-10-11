@@ -1,0 +1,381 @@
+{
+  "created": "2026-10-11T18:41:11+00:00",
+  "run_a": "runs/2026-10-11_erag-pilot_judge-gpt-4o-mini",
+  "run_b": "runs/2026-10-11_erag-pilot_judge-haiku-nothink",
+  "judge_a": "openai-gpt-4o-mini",
+  "judge_b": "anthropic-claude-haiku-5-5-nothink",
+  "scorer_a": "v1_gpt-4o-mini",
+  "scorer_b": "v2_haiku-nothink",
+  "systems": [
+    "GPT-OSS + RAGFlow",
+    "GPT-OSS + LangChain",
+    "4Minds (Constellations)",
+    "GPT-OSS + GraphRAG",
+    "GPT-OSS, no RAG"
+  ],
+  "metrics": {
+    "ragas_answer_accuracy": {
+      "label": "Answer Accuracy (RAGAS, NVIDIA)",
+      "items": 249,
+      "mean_a": 0.2922,
+      "mean_b": 0.3725,
+      "pearson": 0.878,
+      "spearman": 0.895,
+      "same_value_share": 0.618,
+      "mean_abs_difference": 0.1185,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.46,
+          0.58
+        ],
+        "GPT-OSS + LangChain": [
+          0.455,
+          0.585
+        ],
+        "4Minds (Constellations)": [
+          0.39,
+          0.545
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.09,
+          0.095
+        ],
+        "GPT-OSS, no RAG": [
+          0.0612,
+          0.051
+        ]
+      },
+      "system_rank_spearman": 0.9
+    },
+    "ragas_factual_correctness_precision": {
+      "label": "Factual Correctness (RAGAS): precision",
+      "items": 248,
+      "mean_a": 0.3876,
+      "mean_b": 0.3329,
+      "pearson": 0.612,
+      "spearman": 0.607,
+      "same_value_share": 0.484,
+      "mean_abs_difference": 0.1936,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.5822,
+          0.568
+        ],
+        "GPT-OSS + LangChain": [
+          0.544,
+          0.496
+        ],
+        "4Minds (Constellations)": [
+          0.4388,
+          0.3456
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.223,
+          0.1734
+        ],
+        "GPT-OSS, no RAG": [
+          0.1502,
+          0.081
+        ]
+      },
+      "system_rank_spearman": 1.0
+    },
+    "ragas_factual_correctness_recall": {
+      "label": "Factual Correctness (RAGAS): recall",
+      "items": 248,
+      "mean_a": 0.3649,
+      "mean_b": 0.2842,
+      "pearson": 0.743,
+      "spearman": 0.733,
+      "same_value_share": 0.44,
+      "mean_abs_difference": 0.1644,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.5116,
+          0.3808
+        ],
+        "GPT-OSS + LangChain": [
+          0.527,
+          0.3916
+        ],
+        "4Minds (Constellations)": [
+          0.577,
+          0.5022
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.1558,
+          0.1164
+        ],
+        "GPT-OSS, no RAG": [
+          0.0596,
+          0.0267
+        ]
+      },
+      "system_rank_spearman": 1.0
+    },
+    "ragas_factual_correctness_f1": {
+      "label": "Factual Correctness (RAGAS): f1",
+      "items": 248,
+      "mean_a": 0.3469,
+      "mean_b": 0.2719,
+      "pearson": 0.696,
+      "spearman": 0.683,
+      "same_value_share": 0.403,
+      "mean_abs_difference": 0.169,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.5104,
+          0.4055
+        ],
+        "GPT-OSS + LangChain": [
+          0.5032,
+          0.399
+        ],
+        "4Minds (Constellations)": [
+          0.4718,
+          0.3836
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.17,
+          0.1326
+        ],
+        "GPT-OSS, no RAG": [
+          0.0822,
+          0.0369
+        ]
+      },
+      "system_rank_spearman": 1.0
+    },
+    "deepeval_summarization": {
+      "label": "Summarization (DeepEval)",
+      "items": 246,
+      "mean_a": 0.286,
+      "mean_b": 0.1889,
+      "pearson": 0.758,
+      "spearman": 0.782,
+      "same_value_share": 0.541,
+      "mean_abs_difference": 0.1359,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.407,
+          0.3071
+        ],
+        "GPT-OSS + LangChain": [
+          0.4052,
+          0.2342
+        ],
+        "4Minds (Constellations)": [
+          0.4682,
+          0.3246
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.0866,
+          0.0516
+        ],
+        "GPT-OSS, no RAG": [
+          0.0408,
+          0.0245
+        ]
+      },
+      "system_rank_spearman": 1.0
+    },
+    "deepeval_summarization_alignment": {
+      "label": "Summarization (DeepEval): alignment",
+      "items": 246,
+      "mean_a": 0.4025,
+      "mean_b": 0.2934,
+      "pearson": 0.757,
+      "spearman": 0.789,
+      "same_value_share": 0.593,
+      "mean_abs_difference": 0.1521,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.5942,
+          0.5011
+        ],
+        "GPT-OSS + LangChain": [
+          0.5937,
+          0.4141
+        ],
+        "4Minds (Constellations)": [
+          0.5312,
+          0.3647
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.1781,
+          0.1136
+        ],
+        "GPT-OSS, no RAG": [
+          0.085,
+          0.0721
+        ]
+      },
+      "system_rank_spearman": 1.0
+    },
+    "deepeval_summarization_coverage": {
+      "label": "Summarization (DeepEval): coverage",
+      "items": 246,
+      "mean_a": 0.415,
+      "mean_b": 0.3163,
+      "pearson": 0.814,
+      "spearman": 0.791,
+      "same_value_share": 0.5,
+      "mean_abs_difference": 0.1524,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.5463,
+          0.4279
+        ],
+        "GPT-OSS + LangChain": [
+          0.5593,
+          0.4214
+        ],
+        "4Minds (Constellations)": [
+          0.6873,
+          0.576
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.1627,
+          0.0857
+        ],
+        "GPT-OSS, no RAG": [
+          0.1,
+          0.0653
+        ]
+      },
+      "system_rank_spearman": 0.9
+    },
+    "deepeval_hallucination": {
+      "label": "Hallucination (DeepEval; higher is better)",
+      "items": 249,
+      "mean_a": 0.4898,
+      "mean_b": 0.6704,
+      "pearson": 0.539,
+      "spearman": 0.533,
+      "same_value_share": 0.554,
+      "mean_abs_difference": 0.2686,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.6338,
+          0.8762
+        ],
+        "GPT-OSS + LangChain": [
+          0.6665,
+          0.8725
+        ],
+        "4Minds (Constellations)": [
+          0.6548,
+          0.8072
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.2844,
+          0.4224
+        ],
+        "GPT-OSS, no RAG": [
+          0.2037,
+          0.3677
+        ]
+      },
+      "system_rank_spearman": 0.7
+    },
+    "retrieval_documents_precision": {
+      "label": "Document retrieval (no judge): precision",
+      "items": 229,
+      "mean_a": 0.1076,
+      "mean_b": 0.1076,
+      "pearson": 1.0,
+      "spearman": 1.0,
+      "same_value_share": 1.0,
+      "mean_abs_difference": 0.0,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.2902,
+          0.2902
+        ],
+        "GPT-OSS + LangChain": [
+          0.1261,
+          0.1261
+        ],
+        "4Minds (Constellations)": [
+          0.1013,
+          0.1013
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.0179,
+          0.0179
+        ],
+        "GPT-OSS, no RAG": [
+          0.0,
+          0.0
+        ]
+      },
+      "system_rank_spearman": 1.0
+    },
+    "retrieval_documents_recall": {
+      "label": "Document retrieval (no judge): recall",
+      "items": 229,
+      "mean_a": 0.4819,
+      "mean_b": 0.4819,
+      "pearson": 1.0,
+      "spearman": 1.0,
+      "same_value_share": 1.0,
+      "mean_abs_difference": 0.0,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.8309,
+          0.8309
+        ],
+        "GPT-OSS + LangChain": [
+          0.8213,
+          0.8213
+        ],
+        "4Minds (Constellations)": [
+          0.715,
+          0.715
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.032,
+          0.032
+        ],
+        "GPT-OSS, no RAG": [
+          0.0,
+          0.0
+        ]
+      },
+      "system_rank_spearman": 1.0
+    },
+    "retrieval_documents_f1": {
+      "label": "Document retrieval (no judge): f1",
+      "items": 229,
+      "mean_a": 0.1532,
+      "mean_b": 0.1532,
+      "pearson": 1.0,
+      "spearman": 1.0,
+      "same_value_share": 1.0,
+      "mean_abs_difference": 0.0,
+      "system_means": {
+        "GPT-OSS + RAGFlow": [
+          0.3774,
+          0.3774
+        ],
+        "GPT-OSS + LangChain": [
+          0.2034,
+          0.2034
+        ],
+        "4Minds (Constellations)": [
+          0.1654,
+          0.1654
+        ],
+        "GPT-OSS + GraphRAG": [
+          0.0163,
+          0.0163
+        ],
+        "GPT-OSS, no RAG": [
+          0.0,
+          0.0
+        ]
+      },
+      "system_rank_spearman": 1.0
+    }
+  }
+}

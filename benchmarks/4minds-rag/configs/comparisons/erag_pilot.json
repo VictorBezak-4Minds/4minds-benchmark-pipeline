@@ -1,0 +1,88 @@
+{
+  "name": "erag_pilot",
+  "description": "The five GPT-OSS-120B systems of the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), their saved answers scored with the 4Minds RAG metrics. The scorer config (configs/scorers/) gives the judge.",
+  "source_run": "../enterpriserag-bench/runs/2026-10-10_gptoss-pilot",
+  "bootstrap": {
+    "resamples": 2000,
+    "seed": 7
+  },
+  "headline_metrics": [
+    "ragas_answer_accuracy",
+    "ragas_factual_correctness_f1",
+    "deepeval_summarization",
+    "deepeval_hallucination",
+    "retrieval_documents_f1"
+  ],
+  "metric_notes": {
+    "deepeval_hallucination": "Context is the gold facts, one item per fact. Score = facts with the verdict 'agrees' / all facts (higher is better). The prompt forgives missing detail, but the judges often give 'does not agree' to a non-answer, so 'I don't know' usually scores 0."
+  },
+  "judge_caveats": {
+    "anthropic-claude-haiku-5-5-nothink": [
+      "Haiku judge: the Anthropic OpenAI-compatible endpoint rejects the RAGAS response_format {\"type\": \"json_object\"} (HTTP 400), so the scorer config removes that field (drop_params). The prompt with the JSON schema is the same; Haiku puts the JSON in a code fence, which the scorer removes before parsing (about 340 fences per system). gpt-4o-mini got the field.",
+      "Haiku judge: the first pass hit the rate limit of 80,000 output tokens per minute (HTTP 429) at 16 parallel requests; two retry passes, the same for every system, scored all such items. 4 items stay not scored, and they are not in the means: Summarization of qst_0454 for LangChain, RAGFlow and GraphRAG (the answer is only a date, and Haiku replied in prose that the text to extract claims from was empty; audit step diagnose_v2_qst_0454), and Factual Correctness of qst_0433 for RAGFlow (the claim list was longer than the 4,096-token limit)."
+    ]
+  },
+  "systems": [
+    {
+      "key": "4minds",
+      "folder": "4minds",
+      "name": "4Minds (Constellations)",
+      "description": "4Minds prod, Constellations engine (WebSocket), GPT-OSS-120B served by 4Minds; one file per document",
+      "short": "4Minds prod, Constellations engine",
+      "color": "#543fed",
+      "caveats": [
+        "4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order."
+      ]
+    },
+    {
+      "key": "gptoss_langchain",
+      "folder": "gptoss_langchain",
+      "name": "GPT-OSS + LangChain",
+      "description": "LangChain TokenTextSplitter (512 tokens, 10% overlap), text-embedding-3-large, FAISS; 100 chunks to the top 10 full documents; the official answer prompt; GPT-OSS-120B on Amazon Bedrock",
+      "short": "LangChain vector baseline, top 10 documents",
+      "color": "#80aeff",
+      "caveats": [
+        "LangChain: always gives 10 documents, so its document precision is at most 0.1 for a question with one gold document."
+      ]
+    },
+    {
+      "key": "gptoss_graphrag",
+      "folder": "gptoss_graphrag",
+      "name": "GPT-OSS + GraphRAG",
+      "description": "Microsoft GraphRAG 3.3.0, fast indexing method with default settings, local search (community level 2), text-embedding-3-large; GPT-OSS-120B on Amazon Bedrock",
+      "short": "Microsoft GraphRAG, fast method, local search",
+      "color": "#f59e0b",
+      "caveats": [
+        "GraphRAG: this row is not representative of GraphRAG. The fast method writes no entity descriptions, so local search compares the question only with entity names. On a 500-document test, the standard method found 52 of 74 gold documents and the fast method 17 of 74 (see the EnterpriseRAG-Bench run README)."
+      ]
+    },
+    {
+      "key": "gptoss_ragflow",
+      "folder": "gptoss_ragflow",
+      "name": "GPT-OSS + RAGFlow",
+      "description": "RAGFlow v0.27.2 (self-hosted), naive chunking (512 tokens), text-embedding-3-large; the retrieval API with the default chat-assistant settings (6 chunks, hybrid search); GPT-OSS-120B on Amazon Bedrock",
+      "short": "RAGFlow hybrid search, top 6 chunks",
+      "color": "#10b981",
+      "caveats": []
+    },
+    {
+      "key": "gptoss_no_rag",
+      "folder": "gptoss_no_rag",
+      "name": "GPT-OSS, no RAG",
+      "description": "GPT-OSS-120B on Amazon Bedrock with the official answer prompt and an empty Context Documents section (world-knowledge baseline)",
+      "short": "No retrieval (world knowledge)",
+      "color": "#a1a1aa",
+      "caveats": [
+        "No RAG: the system gets no documents, so all its document scores are 0 by design. It has 49 answers; the question without an answer is not scored."
+      ]
+    }
+  ],
+  "caveats": [
+    "Pilot: 50 of 500 EnterpriseRAG-Bench questions, stratified by question type (2 to 17 per type), on a 10,000-document corpus slice. The judge is not fully repeatable. Do not rank systems from small differences.",
+    "Not an official protocol: these are 4Minds RAG metrics on the saved answers of the EnterpriseRAG-Bench run. The systems did not answer again. The references are the EnterpriseRAG-Bench gold answer (Answer Accuracy, Factual Correctness), gold facts (Summarization, Hallucination) and gold documents (document retrieval).",
+    "Summarization: the 'original text' is the gold facts of the question, not the retrieved context. The score shows how well the answer covers the gold facts (coverage) without statements that the facts do not support (alignment); score = min(alignment, coverage).",
+    "Hallucination: DeepEval checks the answer against each gold fact. The score is the fraction of facts with the verdict 'agrees' (higher is better). The DeepEval prompt says that missing detail is not a contradiction, but the judges often give 'does not agree' to an answer that says the documents do not have the information; so a non-answer scores 0 for most questions and 1 for some (No RAG has 27 non-answers: 22 score 0 with gpt-4o-mini, 18 with Haiku). Read it together with Answer Accuracy and Factual Correctness. (The note in the scorer configs says that 'I don't know' scores 1; that is the intent of the prompt, not what the judges did.)",
+    "Two kinds of precision, recall and F1: Factual Correctness counts claims (claims of the answer supported by the gold answer, and claims of the gold answer found in the answer; judge). Document retrieval counts document IDs (the documents the system gave against the gold documents; no judge, exact match).",
+    "Document retrieval uses the original gold documents (no correction step, unlike the official EnterpriseRAG-Bench scorer) and only the 46 questions that have gold documents. Systems that give many documents get a lower precision."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "derived_from": "../enterpriserag-bench/runs/2026-10-10_gptoss-pilot",
+  "change": "4Minds RAG metrics (configs/scorers/v1_gpt-4o-mini.json), judge gpt-4o-mini",
+  "linked_files": [
+    "predictions.json",
+    "manifest.json",
+    "run_config.json",
+    "runs.jsonl",
+    "raw.jsonl"
+  ],
+  "source_benchmark": "enterpriserag-bench",
+  "title": "4Minds RAG v1: EnterpriseRAG-Bench pilot answers, judge gpt-4o-mini",
+  "purpose": "Score the saved answers of the 5 systems with RAGAS Answer Accuracy and Factual Correctness, DeepEval Summarization and Hallucination, and document precision, recall and F1.",
+  "status": "Scored and reported: 5 systems, 1,225 of 1,225 items; judge cost USD 0.57 (plus USD 0.005 for the assessment questions)."
+}

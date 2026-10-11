@@ -1,0 +1,26 @@
+# step: judge_check_v2_gptoss_langchain
+# start: 2026-10-11T18:17:55Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/v2_haiku-nothink.json --system-dir runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_langchain/all --limit 2 --out-dir runs/2026-10-11_erag-pilot_judge-haiku-nothink/tests/judge_check/gptoss_langchain
+
+== v2_haiku-nothink on runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_langchain/all/predictions.json: 2 answers, 0 items done, 10 to score
+/Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py:270: DeprecationWarning: 'HallucinationMetric' now scores in the same direction as every other deepeval metric: 1 is a pass, 0 is a failure, and 'threshold' is the MINIMUM passing score. It previously scored the proportion of violations, where 'threshold' was a maximum. Review any 'threshold' you pass and any code reading '.score' - a threshold of 0.2 that used to mean 'at most 20% violations' should now be 0.8. This notice will be removed in a future release.
+  scorer = HallucinationMetric(model=judge.deepeval_model(), include_reason=False, async_mode=True, **metric["params"])
+  [3/10] ragas_factual_correctness qst_0008 ERROR BadRequestError: Error code: 400 - {'error': {'code': 'invalid_request_error', 'message': "response_format.type: Input should be 'json_schema'", 'type': 'invali
+  [4/10] ragas_factual_correctness qst_0007 ERROR BadRequestError: Error code: 400 - {'error': {'code': 'invalid_request_error', 'message': "response_format.type: Input should be 'json_schema'", 'type': 'invali
+  [9/10] ragas_answer_accuracy qst_0007 ERROR no score for score (NaN or missing)
+  [10/10] ragas_answer_accuracy qst_0008 ERROR no score for score (NaN or missing)
+done: 6/10 items scored, not scored 4, cost this run $0.0013, total $0.0013
+  judge usage this run: {"calls": 12, "prompt_tokens": 8319, "completion_tokens": 1031, "total_tokens": 9350, "fences_removed": 9, "prose_dropped": 0, "not_json_replies": 0, "truncated_replies": 0}
+  ragas_answer_accuracy: mean None (n=0)
+  ragas_factual_correctness_precision: mean None (n=0)
+  ragas_factual_correctness_recall: mean None (n=0)
+  ragas_factual_correctness_f1: mean None (n=0)
+  deepeval_summarization: mean 0.1 (n=2)
+  deepeval_summarization_alignment: mean 0.5 (n=2)
+  deepeval_summarization_coverage: mean 0.2 (n=2)
+  deepeval_hallucination: mean 1.0 (n=2)
+  retrieval_documents_precision: mean 0.1 (n=2)
+  retrieval_documents_recall: mean 1.0 (n=2)
+  retrieval_documents_f1: mean 0.1818 (n=2)
+
+# end: 2026-10-11T18:18:03Z  exit: 1  duration_s: 8

@@ -25,6 +25,8 @@ QUESTION_FILES = {
     "novel": UPSTREAM_REPO / "Datasets" / "Questions" / "novel_questions.json",
 }
 CORPUS_FILE = HERE / "data" / "Corpus" / "corpus_txt" / "Medical.txt"
+# question_type values that a pipeline/score_extra.py config can select.
+EXTRA_QUESTION_TYPES = ["Fact Retrieval", "Complex Reasoning", "Contextual Summarize", "Creative Generation"]
 GEMINI_FILE_SEARCH_STORE = "fileSearchStores/graphragbench-9lax22b99qlk"
 
 # Role and Goal sections of SYSTEM_PROMPT in GraphRAG-Bench Examples/run_lightrag.py.

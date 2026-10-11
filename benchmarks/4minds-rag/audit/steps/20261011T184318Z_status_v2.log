@@ -1,0 +1,7 @@
+# step: status_v2
+# start: 2026-10-11T18:43:18Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py --run runs/2026-10-11_erag-pilot_judge-haiku-nothink --status Scored and reported: 5 systems, 1,221 of 1,225 items (4 not scored after 2 retry passes, see caveats); judge cost USD 0.83 (plus USD 0.007 for the assessment questions). Judge agreement with v1 in tests/judge_agreement_v1/.
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink/README.md
+
+# end: 2026-10-11T18:43:18Z  exit: 0  duration_s: 0

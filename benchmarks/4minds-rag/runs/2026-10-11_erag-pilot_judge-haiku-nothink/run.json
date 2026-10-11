@@ -1,0 +1,15 @@
+{
+  "derived_from": "../enterpriserag-bench/runs/2026-10-10_gptoss-pilot",
+  "change": "4Minds RAG metrics (configs/scorers/v2_haiku-nothink.json), judge Claude Haiku 5.5 with thinking disabled instead of gpt-4o-mini",
+  "linked_files": [
+    "predictions.json",
+    "manifest.json",
+    "run_config.json",
+    "runs.jsonl",
+    "raw.jsonl"
+  ],
+  "source_benchmark": "enterpriserag-bench",
+  "title": "4Minds RAG v2: EnterpriseRAG-Bench pilot answers, judge Claude Haiku 5.5 (no thinking)",
+  "purpose": "The same as v1; only the judge is different.",
+  "status": "Scored and reported: 5 systems, 1,221 of 1,225 items (4 not scored after 2 retry passes, see caveats); judge cost USD 0.83 (plus USD 0.007 for the assessment questions). Judge agreement with v1 in tests/judge_agreement_v1/."
+}

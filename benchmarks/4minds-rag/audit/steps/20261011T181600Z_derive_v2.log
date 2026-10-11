@@ -1,0 +1,7 @@
+# step: derive_v2
+# start: 2026-10-11T18:16:00Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/derive_run.py --from ../enterpriserag-bench/runs/2026-10-10_gptoss-pilot --to runs/2026-10-11_erag-pilot_judge-haiku-nothink --change 4Minds RAG metrics (configs/scorers/v2_haiku-nothink.json), judge Claude Haiku 5.5 with thinking disabled instead of gpt-4o-mini --title 4Minds RAG v2: EnterpriseRAG-Bench pilot answers, judge Claude Haiku 5.5 (no thinking) --purpose The same as v1; only the judge is different.
+
+/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink: 25 links for ['4minds', 'gptoss_graphrag', 'gptoss_langchain', 'gptoss_no_rag', 'gptoss_ragflow']
+
+# end: 2026-10-11T18:16:00Z  exit: 0  duration_s: 0

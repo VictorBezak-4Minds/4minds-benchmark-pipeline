@@ -1,0 +1,7 @@
+# step: cheatsheet
+# start: 2026-10-11T18:27:11Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/make_cheatsheet.py
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/metrics_cheatsheet.html
+
+# end: 2026-10-11T18:27:11Z  exit: 0  duration_s: 0

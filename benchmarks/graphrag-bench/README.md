@@ -192,7 +192,7 @@ then the assets of that run. The list of runs, with title, status and report, is
 | `README.md`, `benchmark_profile.py` | the protocol, status and findings; the benchmark-specific values for the pipeline |
 | `upstream/`, `data/` | the official repo at the pinned commit (never edited); local data (pilot question files) |
 | `configs/comparisons/` | one file per version of the protocol: the systems, names, colors, reference, timing plan, caveats and sensitivity checks (`gemini.json`, `gptoss.json`) |
-| `configs/scorers/` | scorers that are not part of the official protocol (`extra_v1.json` for `score_extra.py`) |
+| `configs/scorers/` | scorers that are not part of the official protocol (`extra_v1.json` for `pipeline/score_extra.py`) |
 | `scripts/` | the benchmark scripts; `./bench` finds them by name (below) |
 | `runs/<run>/` | one run: a folder per system (`<system>/medical/`), `summary/` (report), `timing.json`, and the files below |
 | `runs/<run>/README.md`, `run.json`, `config.json` | made by `pipeline/run_readme.py`: what the run is, its status, systems, deviations, assets and the steps that made it; `run.json` is the part that you write; `config.json` is the copy of the comparison file that made the summary |
@@ -218,10 +218,13 @@ The LightRAG indexes in `shared/lightrag/`:
 | `run_lightrag_bench.py`, `patch_lightrag.py` | LightRAG through the official runner (env `lightrag`) |
 | `score.py`, `score_launcher.py` | official scorer wrapper (clean-repo check, CPU launcher, shards, manifest) |
 | `score_faithfulness.py`, `diagnose_faithfulness.py` | supplementary faithfulness score and its diagnosis |
-| `score_extra.py` | extra metrics from `configs/scorers/` |
 | `aggregate.py` | per-type metrics, bootstrap CIs, paired differences, caveats → `summary/`, `config.json`, run README (`--matrix`) |
 | `make_timing.py` | full-run time and cost estimate from a pilot → `timing.json` (`--matrix`) |
 | `make_report.py` | the 4Minds-style HTML report → `summary/report.html` |
+
+The extra metrics of `configs/scorers/` run with the hub scorer `pipeline/score_extra.py` (moved from
+`scripts/` on 2026-10-11 because 4Minds RAG uses it too; `EXTRA_QUESTION_TYPES` in the profile):
+`./bench graphrag-bench extra_<system> extra pipeline/score_extra.py score --config configs/scorers/extra_v1.json --system-dir runs/<run>/<system>/medical`.
 
 For a new version of the protocol (other systems, another model, a changed scorer), add a file
 in `configs/comparisons/` and start a new run folder. Do not change a config that a run used:

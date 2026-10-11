@@ -1,0 +1,7 @@
+# step: judge_check_v1_prepare
+# start: 2026-10-11T18:16:06Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py prepare --config configs/scorers/v1_gpt-4o-mini.json --predictions runs/2026-10-11_erag-pilot_judge-gpt-4o-mini/4minds/all/predictions.json --limit 2
+
+/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/shared/extra/v1_gpt-4o-mini/shared.json: 2 questions with assessment questions; made 2, errors 0, cost $0.0002, {"judge_usage": {"calls": 2, "prompt_tokens": 413, "completion_tokens": 212, "total_tokens": 625, "fences_removed": 0, "prose_dropped": 0, "not_json_replies": 0, "truncated_replies": 0}}
+
+# end: 2026-10-11T18:16:11Z  exit: 0  duration_s: 5

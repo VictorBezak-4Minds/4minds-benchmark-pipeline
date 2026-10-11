@@ -1,0 +1,21 @@
+# step: extra_v2_gptoss_graphrag_rerun2
+# start: 2026-10-11T18:39:46Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/v2_haiku-nothink.json --system-dir runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_graphrag/all
+
+== v2_haiku-nothink on runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_graphrag/all/predictions.json: 50 answers, 245 items done, 1 to score
+  [1/1] deepeval_summarization qst_0454 ERROR ValueError: Evaluation LLM outputted an invalid JSON. Please use a better evaluation model. <- JSONDecodeError: Expecting value: line 1 column 1 (char 0) <- Sto
+done: 245/246 items scored, not scored 1, cost this run $0.0001, total $0.1554
+  judge usage this run: {"calls": 1, "prompt_tokens": 511, "completion_tokens": 94, "total_tokens": 605, "fences_removed": 0, "prose_dropped": 0, "not_json_replies": 1, "truncated_replies": 0}
+  ragas_answer_accuracy: mean 0.095 (n=50)
+  ragas_factual_correctness_precision: mean 0.1734 (n=50)
+  ragas_factual_correctness_recall: mean 0.1164 (n=50)
+  ragas_factual_correctness_f1: mean 0.1326 (n=50)
+  deepeval_summarization: mean 0.0516 (n=49)
+  deepeval_summarization_alignment: mean 0.1136 (n=49)
+  deepeval_summarization_coverage: mean 0.0857 (n=49)
+  deepeval_hallucination: mean 0.4224 (n=50)
+  retrieval_documents_precision: mean 0.0179 (n=46)
+  retrieval_documents_recall: mean 0.032 (n=46)
+  retrieval_documents_f1: mean 0.0163 (n=46)
+
+# end: 2026-10-11T18:39:50Z  exit: 1  duration_s: 4

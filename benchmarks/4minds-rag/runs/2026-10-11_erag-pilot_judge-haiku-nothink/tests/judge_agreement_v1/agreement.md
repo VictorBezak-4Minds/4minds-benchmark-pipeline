@@ -1,0 +1,33 @@
+# Judge agreement: openai-gpt-4o-mini (A) against anthropic-claude-haiku-5-5-nothink (B)
+
+Runs: `runs/2026-10-11_erag-pilot_judge-gpt-4o-mini` and `runs/2026-10-11_erag-pilot_judge-haiku-nothink`; the same answers, only the judge is different. Item correlations are over all (system, question) pairs that both judges scored. System-rank Spearman uses the means of the systems.
+
+| Metric | Items | Mean A | Mean B | Pearson | Spearman | Same value | Mean abs. difference | System-rank Spearman |
+|---|---|---|---|---|---|---|---|---|
+| Answer Accuracy (RAGAS, NVIDIA) | 249 | 0.292 | 0.372 | 0.878 | 0.895 | 0.618 | 0.118 | 0.900 |
+| Factual Correctness (RAGAS): precision | 248 | 0.388 | 0.333 | 0.612 | 0.607 | 0.484 | 0.194 | 1.000 |
+| Factual Correctness (RAGAS): recall | 248 | 0.365 | 0.284 | 0.743 | 0.733 | 0.440 | 0.164 | 1.000 |
+| Factual Correctness (RAGAS): f1 | 248 | 0.347 | 0.272 | 0.696 | 0.683 | 0.403 | 0.169 | 1.000 |
+| Summarization (DeepEval) | 246 | 0.286 | 0.189 | 0.758 | 0.782 | 0.541 | 0.136 | 1.000 |
+| Summarization (DeepEval): alignment | 246 | 0.403 | 0.293 | 0.757 | 0.789 | 0.593 | 0.152 | 1.000 |
+| Summarization (DeepEval): coverage | 246 | 0.415 | 0.316 | 0.814 | 0.791 | 0.500 | 0.152 | 0.900 |
+| Hallucination (DeepEval; higher is better) | 249 | 0.490 | 0.670 | 0.539 | 0.533 | 0.554 | 0.269 | 0.700 |
+| Document retrieval (no judge): precision | 229 | 0.108 | 0.108 | 1.000 | 1.000 | 1.000 | 0.000 | 1.000 |
+| Document retrieval (no judge): recall | 229 | 0.482 | 0.482 | 1.000 | 1.000 | 1.000 | 0.000 | 1.000 |
+| Document retrieval (no judge): f1 | 229 | 0.153 | 0.153 | 1.000 | 1.000 | 1.000 | 0.000 | 1.000 |
+
+## System means (A / B)
+
+| Metric | GPT-OSS + RAGFlow | GPT-OSS + LangChain | 4Minds (Constellations) | GPT-OSS + GraphRAG | GPT-OSS, no RAG |
+|---|---|---|---|---|---|
+| Answer Accuracy (RAGAS, NVIDIA) | 0.460 / 0.580 | 0.455 / 0.585 | 0.390 / 0.545 | 0.090 / 0.095 | 0.061 / 0.051 |
+| Factual Correctness (RAGAS): precision | 0.582 / 0.568 | 0.544 / 0.496 | 0.439 / 0.346 | 0.223 / 0.173 | 0.150 / 0.081 |
+| Factual Correctness (RAGAS): recall | 0.512 / 0.381 | 0.527 / 0.392 | 0.577 / 0.502 | 0.156 / 0.116 | 0.060 / 0.027 |
+| Factual Correctness (RAGAS): f1 | 0.510 / 0.406 | 0.503 / 0.399 | 0.472 / 0.384 | 0.170 / 0.133 | 0.082 / 0.037 |
+| Summarization (DeepEval) | 0.407 / 0.307 | 0.405 / 0.234 | 0.468 / 0.325 | 0.087 / 0.052 | 0.041 / 0.025 |
+| Summarization (DeepEval): alignment | 0.594 / 0.501 | 0.594 / 0.414 | 0.531 / 0.365 | 0.178 / 0.114 | 0.085 / 0.072 |
+| Summarization (DeepEval): coverage | 0.546 / 0.428 | 0.559 / 0.421 | 0.687 / 0.576 | 0.163 / 0.086 | 0.100 / 0.065 |
+| Hallucination (DeepEval; higher is better) | 0.634 / 0.876 | 0.666 / 0.873 | 0.655 / 0.807 | 0.284 / 0.422 | 0.204 / 0.368 |
+| Document retrieval (no judge): precision | 0.290 / 0.290 | 0.126 / 0.126 | 0.101 / 0.101 | 0.018 / 0.018 | 0.000 / 0.000 |
+| Document retrieval (no judge): recall | 0.831 / 0.831 | 0.821 / 0.821 | 0.715 / 0.715 | 0.032 / 0.032 | 0.000 / 0.000 |
+| Document retrieval (no judge): f1 | 0.377 / 0.377 | 0.203 / 0.203 | 0.165 / 0.165 | 0.016 / 0.016 | 0.000 / 0.000 |

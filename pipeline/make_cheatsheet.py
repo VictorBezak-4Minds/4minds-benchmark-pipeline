@@ -78,6 +78,35 @@ BENCHMARKS = [
        "Three judges read each returned document that is not gold. When all agree that it has the answer, it becomes "
        "gold for that system and the gold answer can get new facts. The report counts the corrected questions."),
       ]),
+    ("4Minds RAG · our metrics on saved answers",
+     "pipeline/score_extra.py on the saved EnterpriseRAG-Bench pilot answers (the systems do not answer again). "
+     "Two versions with the same settings: judge gpt-4o-mini (v1) and Claude Haiku 5.5, thinking disabled (v2). "
+     "References: the EnterpriseRAG-Bench gold answer, gold facts and gold documents.",
+     [("Answer Accuracy (RAGAS, NVIDIA)", "All questions (headline)",
+       "One overall number for \"does the answer agree with the gold answer\". Two ratings make it less dependent on one judge reply.",
+       "The judge rates the answer against the gold answer as 0, 2 or 4, then again with the two roles swapped. "
+       "Score = mean of the two ratings / 4."),
+      ("Factual Correctness (RAGAS): precision, recall, F1", "All questions (F1 is headline)",
+       "Counts claims, so it shows if an answer is wrong (precision) or incomplete (recall).",
+       "The judge splits the answer into claims and checks each against the gold answer (TP or FP); then it splits the gold "
+       "answer and checks each against the answer (FN if not found). Precision = TP / (TP + FP), recall = TP / (TP + FN), "
+       "F1 from the two (atomicity and coverage \"low\")."),
+      ("Summarization (DeepEval): score, alignment, coverage", "All questions (score is headline)",
+       "Shows if the answer covers the gold facts without statements that the facts do not support.",
+       "The original text is the gold facts. Alignment = answer claims that the facts support / all answer claims "
+       "(0 if the answer has no claims). Coverage: 5 yes/no questions made from the facts (once per question, the same "
+       "for all systems); of the questions that the facts answer \"yes\", the share that the answer also answers \"yes\". "
+       "Score = min(alignment, coverage)."),
+      ("Hallucination (DeepEval)", "All questions (headline)",
+       "Does the answer contradict a gold fact? Higher is better here.",
+       "The judge gives \"yes\" (agrees) or \"no\" for each gold fact. Score = \"yes\" / all facts. The prompt says that "
+       "missing detail is not a contradiction, but the judges usually give \"no\" to a non-answer (\"the documents do not "
+       "have this\"), so \"I don't know\" usually scores 0. Read it with Answer Accuracy."),
+      ("Document retrieval: precision, recall, F1", "Questions with gold documents (F1 is headline)",
+       "Did the system find the right documents, and how many wrong ones did it give? No judge, so it is repeatable.",
+       "Exact match of the document IDs that the system gave against the original gold IDs (no correction). "
+       "Precision = hits / documents given (0 if none), recall = hits / gold documents, F1 = 2PR / (P + R)."),
+      ]),
 ]
 
 SHARED = [

@@ -16,3 +16,4 @@ benchmarks/*/runs/**
 !benchmarks/*/runs/*/timing.json
 !benchmarks/*/runs/*/blocked.json
 !benchmarks/*/runs/*/summary/**
+!benchmarks/*/runs/*/tests/*/agreement.*

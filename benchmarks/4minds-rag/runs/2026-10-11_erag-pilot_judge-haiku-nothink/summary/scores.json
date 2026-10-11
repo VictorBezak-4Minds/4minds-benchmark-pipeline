@@ -1,0 +1,2827 @@
+{
+  "created": "2026-10-11T18:42:07+00:00",
+  "label": "PILOT",
+  "benchmark": "4minds-rag",
+  "comparison": "erag_pilot",
+  "scorer": {
+    "name": "v2_haiku-nothink",
+    "description": "4Minds RAG v2: the metrics of v1 with the same settings; only the judge is different. Judge: Claude Haiku 5.5 with thinking disabled.",
+    "path": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/configs/scorers/v2_haiku-nothink.json",
+    "sha256": "e26216a32c2bd63b0806a9641689f0e79c452e84328282efbeadbd23e3aab8b8",
+    "judge": {
+      "provider": "backend",
+      "backend": "anthropic-claude-haiku-5-5-nothink",
+      "args": {
+        "temperature": 0,
+        "max_tokens": 4096
+      },
+      "drop_params": [
+        "response_format"
+      ],
+      "note": "The backend entry removes temperature and top_p (Haiku 5.5 rejects them) and disables thinking. drop_params also removes the RAGAS response_format {\"type\": \"json_object\"}: the Anthropic OpenAI-compatible endpoint accepts only json_schema (HTTP 400). The JSON schema instructions of the RAGAS prompt stay; the code fence around the JSON is removed before parsing."
+    }
+  },
+  "metrics": [
+    {
+      "name": "ragas_answer_accuracy",
+      "label": "Answer Accuracy (RAGAS, NVIDIA)",
+      "key": "ragas_answer_accuracy",
+      "note": "The question and the answer against the gold answer; two judge ratings (0, 2 or 4), each with the roles swapped, scaled to 0-1 and averaged."
+    },
+    {
+      "name": "ragas_factual_correctness_precision",
+      "label": "Factual Correctness (RAGAS): precision",
+      "key": "ragas_factual_correctness",
+      "note": "Claims of the answer checked against the gold answer (precision) and claims of the gold answer checked against the answer (recall); F1 from the same TP, FP and FN, with the formulas of FactualCorrectness."
+    },
+    {
+      "name": "ragas_factual_correctness_recall",
+      "label": "Factual Correctness (RAGAS): recall",
+      "key": "ragas_factual_correctness",
+      "note": "Claims of the answer checked against the gold answer (precision) and claims of the gold answer checked against the answer (recall); F1 from the same TP, FP and FN, with the formulas of FactualCorrectness."
+    },
+    {
+      "name": "ragas_factual_correctness_f1",
+      "label": "Factual Correctness (RAGAS): f1",
+      "key": "ragas_factual_correctness",
+      "note": "Claims of the answer checked against the gold answer (precision) and claims of the gold answer checked against the answer (recall); F1 from the same TP, FP and FN, with the formulas of FactualCorrectness."
+    },
+    {
+      "name": "deepeval_summarization",
+      "label": "Summarization (DeepEval)",
+      "key": "deepeval_summarization",
+      "note": "The original text is the gold facts of the question, the same for every system. The 5 assessment questions are made once per question by `pipeline/score_extra.py prepare` and used for every system. Score = min(alignment, coverage)."
+    },
+    {
+      "name": "deepeval_summarization_alignment",
+      "label": "Summarization (DeepEval): alignment",
+      "key": "deepeval_summarization",
+      "note": "The original text is the gold facts of the question, the same for every system. The 5 assessment questions are made once per question by `pipeline/score_extra.py prepare` and used for every system. Score = min(alignment, coverage)."
+    },
+    {
+      "name": "deepeval_summarization_coverage",
+      "label": "Summarization (DeepEval): coverage",
+      "key": "deepeval_summarization",
+      "note": "The original text is the gold facts of the question, the same for every system. The 5 assessment questions are made once per question by `pipeline/score_extra.py prepare` and used for every system. Score = min(alignment, coverage)."
+    },
+    {
+      "name": "deepeval_hallucination",
+      "label": "Hallucination (DeepEval; higher is better)",
+      "key": "deepeval_hallucination",
+      "note": "Context is the gold facts, one item per fact. Score = facts with the verdict 'agrees' / all facts (higher is better). The prompt forgives missing detail, but the judges often give 'does not agree' to a non-answer, so 'I don't know' usually scores 0."
+    },
+    {
+      "name": "retrieval_documents_precision",
+      "label": "Document retrieval (no judge): precision",
+      "key": "retrieval_documents",
+      "note": "The document IDs that the system gave against the original gold document IDs (no correction); only questions with gold documents. Precision is 0 when the system gave no documents."
+    },
+    {
+      "name": "retrieval_documents_recall",
+      "label": "Document retrieval (no judge): recall",
+      "key": "retrieval_documents",
+      "note": "The document IDs that the system gave against the original gold document IDs (no correction); only questions with gold documents. Precision is 0 when the system gave no documents."
+    },
+    {
+      "name": "retrieval_documents_f1",
+      "label": "Document retrieval (no judge): f1",
+      "key": "retrieval_documents",
+      "note": "The document IDs that the system gave against the original gold document IDs (no correction); only questions with gold documents. Precision is 0 when the system gave no documents."
+    }
+  ],
+  "headline_metrics": [
+    "ragas_answer_accuracy",
+    "ragas_factual_correctness_f1",
+    "deepeval_summarization",
+    "deepeval_hallucination",
+    "retrieval_documents_f1"
+  ],
+  "bootstrap": {
+    "resamples": 2000,
+    "seed": 7
+  },
+  "derived_from": "../enterpriserag-bench/runs/2026-10-10_gptoss-pilot",
+  "source_upstream_commit": "d36685e273713975ee20299bbf1ab64165575b3c",
+  "systems": {
+    "GPT-OSS + LangChain": {
+      "key": "gptoss_langchain",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_langchain/all",
+      "answers": 50,
+      "missing_answers": [],
+      "items": 246,
+      "not_scored": 1,
+      "not_scored_items": [
+        {
+          "id": "qst_0454",
+          "metric": "deepeval_summarization"
+        }
+      ],
+      "metrics": {
+        "ragas_answer_accuracy": {
+          "mean": 0.585,
+          "ci_low": 0.495,
+          "ci_high": 0.675,
+          "n": 50
+        },
+        "ragas_factual_correctness_precision": {
+          "mean": 0.496,
+          "ci_low": 0.395,
+          "ci_high": 0.6016,
+          "n": 50
+        },
+        "ragas_factual_correctness_recall": {
+          "mean": 0.3916,
+          "ci_low": 0.3112,
+          "ci_high": 0.48,
+          "n": 50
+        },
+        "ragas_factual_correctness_f1": {
+          "mean": 0.399,
+          "ci_low": 0.3206,
+          "ci_high": 0.4808,
+          "n": 50
+        },
+        "deepeval_summarization": {
+          "mean": 0.2342,
+          "ci_low": 0.1576,
+          "ci_high": 0.3153,
+          "n": 49
+        },
+        "deepeval_summarization_alignment": {
+          "mean": 0.4141,
+          "ci_low": 0.309,
+          "ci_high": 0.5277,
+          "n": 49
+        },
+        "deepeval_summarization_coverage": {
+          "mean": 0.4214,
+          "ci_low": 0.3163,
+          "ci_high": 0.5235,
+          "n": 49
+        },
+        "deepeval_hallucination": {
+          "mean": 0.8725,
+          "ci_low": 0.7883,
+          "ci_high": 0.9438,
+          "n": 50
+        },
+        "retrieval_documents_precision": {
+          "mean": 0.1261,
+          "ci_low": 0.0957,
+          "ci_high": 0.163,
+          "n": 46
+        },
+        "retrieval_documents_recall": {
+          "mean": 0.8213,
+          "ci_low": 0.7101,
+          "ci_high": 0.9203,
+          "n": 46
+        },
+        "retrieval_documents_f1": {
+          "mean": 0.2034,
+          "ci_low": 0.1649,
+          "ci_high": 0.2482,
+          "n": 46
+        }
+      },
+      "by_type": {
+        "basic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.6912,
+            "n": 17
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.59,
+            "n": 17
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.4153,
+            "n": 17
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.4306,
+            "n": 17
+          },
+          "deepeval_summarization": {
+            "mean": 0.1858,
+            "n": 17
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5476,
+            "n": 17
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.3088,
+            "n": 17
+          },
+          "deepeval_hallucination": {
+            "mean": 0.8706,
+            "n": 17
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0882,
+            "n": 17
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.8824,
+            "n": 17
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1604,
+            "n": 17
+          }
+        },
+        "completeness": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.34,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.435,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.38,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0625,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0625,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.7,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.9166,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.6459,
+            "n": 2
+          }
+        },
+        "conflicting_info": {
+          "ragas_answer_accuracy": {
+            "mean": 0.375,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.165,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.07,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.1,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.7,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1666,
+            "n": 2
+          }
+        },
+        "constrained": {
+          "ragas_answer_accuracy": {
+            "mean": 0.6667,
+            "n": 3
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.6067,
+            "n": 3
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.7767,
+            "n": 3
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.67,
+            "n": 3
+          },
+          "deepeval_summarization": {
+            "mean": 0.4946,
+            "n": 3
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5169,
+            "n": 3
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.8667,
+            "n": 3
+          },
+          "deepeval_hallucination": {
+            "mean": 0.9778,
+            "n": 3
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1667,
+            "n": 3
+          },
+          "retrieval_documents_recall": {
+            "mean": 1.0,
+            "n": 3
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.2828,
+            "n": 3
+          }
+        },
+        "high_level": {
+          "ragas_answer_accuracy": {
+            "mean": 0.125,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.1,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.165,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.125,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.4,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          }
+        },
+        "info_not_found": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.085,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.125,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.4,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          }
+        },
+        "intra_document_reasoning": {
+          "ragas_answer_accuracy": {
+            "mean": 0.625,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.5825,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.375,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.45,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.2833,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.3,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.6667,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.075,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1363,
+            "n": 4
+          }
+        },
+        "miscellaneous": {
+          "ragas_answer_accuracy": {
+            "mean": 0.75,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.875,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.54,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.625,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.5,
+            "n": 1
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5,
+            "n": 1
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.6,
+            "n": 1
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1818,
+            "n": 2
+          }
+        },
+        "project_related": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.3375,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.39,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.3525,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.1423,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.1757,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.5,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.8933,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.3,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.7361,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.4029,
+            "n": 4
+          }
+        },
+        "semantic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5417,
+            "n": 12
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.4842,
+            "n": 12
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.3783,
+            "n": 12
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.3917,
+            "n": 12
+          },
+          "deepeval_summarization": {
+            "mean": 0.3753,
+            "n": 12
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.4253,
+            "n": 12
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.5,
+            "n": 12
+          },
+          "deepeval_hallucination": {
+            "mean": 0.8542,
+            "n": 12
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.075,
+            "n": 12
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.75,
+            "n": 12
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1363,
+            "n": 12
+          }
+        }
+      },
+      "judge": {
+        "cost_usd": 0.1754,
+        "invocations": 3,
+        "usage": {
+          "calls": 616,
+          "prompt_tokens": 754159,
+          "completion_tokens": 199889,
+          "total_tokens": 954048,
+          "fences_removed": 346,
+          "prose_dropped": 1,
+          "not_json_replies": 5,
+          "truncated_replies": 2
+        }
+      },
+      "versions": {
+        "ragas": "0.4.3",
+        "deepeval": "4.2.8",
+        "openai": "1.109.1"
+      },
+      "predictions_sha256": "dc17265ca53b831424b9cde949a7c2e6154c466aaf5954c15c021ad357ecacb1",
+      "finished": "2026-10-11T18:39:46+00:00"
+    },
+    "GPT-OSS + RAGFlow": {
+      "key": "gptoss_ragflow",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_ragflow/all",
+      "answers": 50,
+      "missing_answers": [],
+      "items": 246,
+      "not_scored": 2,
+      "not_scored_items": [
+        {
+          "id": "qst_0433",
+          "metric": "ragas_factual_correctness"
+        },
+        {
+          "id": "qst_0454",
+          "metric": "deepeval_summarization"
+        }
+      ],
+      "metrics": {
+        "ragas_answer_accuracy": {
+          "mean": 0.58,
+          "ci_low": 0.49,
+          "ci_high": 0.67,
+          "n": 50
+        },
+        "ragas_factual_correctness_precision": {
+          "mean": 0.568,
+          "ci_low": 0.4635,
+          "ci_high": 0.6771,
+          "n": 49
+        },
+        "ragas_factual_correctness_recall": {
+          "mean": 0.3808,
+          "ci_low": 0.3051,
+          "ci_high": 0.4594,
+          "n": 49
+        },
+        "ragas_factual_correctness_f1": {
+          "mean": 0.4055,
+          "ci_low": 0.3343,
+          "ci_high": 0.4773,
+          "n": 49
+        },
+        "deepeval_summarization": {
+          "mean": 0.3071,
+          "ci_low": 0.2259,
+          "ci_high": 0.3877,
+          "n": 49
+        },
+        "deepeval_summarization_alignment": {
+          "mean": 0.5011,
+          "ci_low": 0.4003,
+          "ci_high": 0.6039,
+          "n": 49
+        },
+        "deepeval_summarization_coverage": {
+          "mean": 0.4279,
+          "ci_low": 0.3286,
+          "ci_high": 0.5279,
+          "n": 49
+        },
+        "deepeval_hallucination": {
+          "mean": 0.8762,
+          "ci_low": 0.7932,
+          "ci_high": 0.9461,
+          "n": 50
+        },
+        "retrieval_documents_precision": {
+          "mean": 0.2902,
+          "ci_low": 0.2192,
+          "ci_high": 0.3721,
+          "n": 46
+        },
+        "retrieval_documents_recall": {
+          "mean": 0.8309,
+          "ci_low": 0.7271,
+          "ci_high": 0.9287,
+          "n": 46
+        },
+        "retrieval_documents_f1": {
+          "mean": 0.3774,
+          "ci_low": 0.3101,
+          "ci_high": 0.4495,
+          "n": 46
+        }
+      },
+      "by_type": {
+        "basic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.6912,
+            "n": 17
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.5729,
+            "n": 17
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.3571,
+            "n": 17
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.3841,
+            "n": 17
+          },
+          "deepeval_summarization": {
+            "mean": 0.2314,
+            "n": 17
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5235,
+            "n": 17
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.3471,
+            "n": 17
+          },
+          "deepeval_hallucination": {
+            "mean": 0.8137,
+            "n": 17
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1833,
+            "n": 17
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.8824,
+            "n": 17
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.3017,
+            "n": 17
+          }
+        },
+        "completeness": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.46,
+            "n": 1
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.52,
+            "n": 1
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.49,
+            "n": 1
+          },
+          "deepeval_summarization": {
+            "mean": 0.55,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5833,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.7,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.75,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.75,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.75,
+            "n": 2
+          }
+        },
+        "conflicting_info": {
+          "ragas_answer_accuracy": {
+            "mean": 0.75,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.275,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.43,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.3333,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.3333,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.5,
+            "n": 2
+          }
+        },
+        "constrained": {
+          "ragas_answer_accuracy": {
+            "mean": 0.6667,
+            "n": 3
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.5533,
+            "n": 3
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.7767,
+            "n": 3
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.6333,
+            "n": 3
+          },
+          "deepeval_summarization": {
+            "mean": 0.5704,
+            "n": 3
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5926,
+            "n": 3
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.7333,
+            "n": 3
+          },
+          "deepeval_hallucination": {
+            "mean": 0.9556,
+            "n": 3
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.4556,
+            "n": 3
+          },
+          "retrieval_documents_recall": {
+            "mean": 1.0,
+            "n": 3
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.6,
+            "n": 3
+          }
+        },
+        "high_level": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.165,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.2,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.2,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          }
+        },
+        "info_not_found": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.085,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.145,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.4,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.4,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          }
+        },
+        "intra_document_reasoning": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.5825,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.375,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.45,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.3333,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.4583,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.4,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1875,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.2964,
+            "n": 4
+          }
+        },
+        "miscellaneous": {
+          "ragas_answer_accuracy": {
+            "mean": 0.75,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.8,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.465,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.55,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.6,
+            "n": 1
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.6,
+            "n": 1
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.6,
+            "n": 1
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1667,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.2857,
+            "n": 2
+          }
+        },
+        "project_related": {
+          "ragas_answer_accuracy": {
+            "mean": 0.3125,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.3225,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.3175,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.3175,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.3058,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.3237,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.45,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.8548,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.7917,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.6805,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.6936,
+            "n": 4
+          }
+        },
+        "semantic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5833,
+            "n": 12
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.6183,
+            "n": 12
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.4017,
+            "n": 12
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.4358,
+            "n": 12
+          },
+          "deepeval_summarization": {
+            "mean": 0.3068,
+            "n": 12
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.4985,
+            "n": 12
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.4667,
+            "n": 12
+          },
+          "deepeval_hallucination": {
+            "mean": 0.8909,
+            "n": 12
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1764,
+            "n": 12
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.8333,
+            "n": 12
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.2833,
+            "n": 12
+          }
+        }
+      },
+      "judge": {
+        "cost_usd": 0.1819,
+        "invocations": 3,
+        "usage": {
+          "calls": 622,
+          "prompt_tokens": 754641,
+          "completion_tokens": 212962,
+          "total_tokens": 967603,
+          "fences_removed": 347,
+          "prose_dropped": 0,
+          "not_json_replies": 12,
+          "truncated_replies": 9
+        }
+      },
+      "versions": {
+        "ragas": "0.4.3",
+        "deepeval": "4.2.8",
+        "openai": "1.109.1"
+      },
+      "predictions_sha256": "16e81e50d09bf1f7933d96ead68d1294ad14e6675ed06cbb4cefd0699c3acf53",
+      "finished": "2026-10-11T18:40:41+00:00"
+    },
+    "4Minds (Constellations)": {
+      "key": "4minds",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink/4minds/all",
+      "answers": 50,
+      "missing_answers": [],
+      "items": 246,
+      "not_scored": 0,
+      "not_scored_items": [],
+      "metrics": {
+        "ragas_answer_accuracy": {
+          "mean": 0.545,
+          "ci_low": 0.435,
+          "ci_high": 0.655,
+          "n": 50
+        },
+        "ragas_factual_correctness_precision": {
+          "mean": 0.3456,
+          "ci_low": 0.2642,
+          "ci_high": 0.4348,
+          "n": 50
+        },
+        "ragas_factual_correctness_recall": {
+          "mean": 0.5022,
+          "ci_low": 0.403,
+          "ci_high": 0.6098,
+          "n": 50
+        },
+        "ragas_factual_correctness_f1": {
+          "mean": 0.3836,
+          "ci_low": 0.3006,
+          "ci_high": 0.4736,
+          "n": 50
+        },
+        "deepeval_summarization": {
+          "mean": 0.3246,
+          "ci_low": 0.2315,
+          "ci_high": 0.4222,
+          "n": 50
+        },
+        "deepeval_summarization_alignment": {
+          "mean": 0.3647,
+          "ci_low": 0.2683,
+          "ci_high": 0.4637,
+          "n": 50
+        },
+        "deepeval_summarization_coverage": {
+          "mean": 0.576,
+          "ci_low": 0.467,
+          "ci_high": 0.684,
+          "n": 50
+        },
+        "deepeval_hallucination": {
+          "mean": 0.8072,
+          "ci_low": 0.7013,
+          "ci_high": 0.8963,
+          "n": 50
+        },
+        "retrieval_documents_precision": {
+          "mean": 0.1013,
+          "ci_low": 0.0728,
+          "ci_high": 0.1387,
+          "n": 46
+        },
+        "retrieval_documents_recall": {
+          "mean": 0.715,
+          "ci_low": 0.5821,
+          "ci_high": 0.8357,
+          "n": 46
+        },
+        "retrieval_documents_f1": {
+          "mean": 0.1654,
+          "ci_low": 0.125,
+          "ci_high": 0.2149,
+          "n": 46
+        }
+      },
+      "by_type": {
+        "basic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.7206,
+            "n": 17
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.5106,
+            "n": 17
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.7018,
+            "n": 17
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.5694,
+            "n": 17
+          },
+          "deepeval_summarization": {
+            "mean": 0.4682,
+            "n": 17
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.4731,
+            "n": 17
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.8353,
+            "n": 17
+          },
+          "deepeval_hallucination": {
+            "mean": 0.8824,
+            "n": 17
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0837,
+            "n": 17
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.8235,
+            "n": 17
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1514,
+            "n": 17
+          }
+        },
+        "completeness": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.4,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.625,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.48,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.2059,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.2059,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.9166,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.6459,
+            "n": 2
+          }
+        },
+        "conflicting_info": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.165,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.7,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1429,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.2222,
+            "n": 2
+          }
+        },
+        "constrained": {
+          "ragas_answer_accuracy": {
+            "mean": 0.75,
+            "n": 3
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.31,
+            "n": 3
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.8667,
+            "n": 3
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.4067,
+            "n": 3
+          },
+          "deepeval_summarization": {
+            "mean": 0.3391,
+            "n": 3
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.3391,
+            "n": 3
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.8,
+            "n": 3
+          },
+          "deepeval_hallucination": {
+            "mean": 0.9778,
+            "n": 3
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1065,
+            "n": 3
+          },
+          "retrieval_documents_recall": {
+            "mean": 1.0,
+            "n": 3
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1919,
+            "n": 3
+          }
+        },
+        "high_level": {
+          "ragas_answer_accuracy": {
+            "mean": 0.125,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.035,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.125,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.055,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.2,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          }
+        },
+        "info_not_found": {
+          "ragas_answer_accuracy": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.1,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.5,
+            "n": 2
+          }
+        },
+        "intra_document_reasoning": {
+          "ragas_answer_accuracy": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.375,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.5,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.4175,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.65,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.65,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0396,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0751,
+            "n": 4
+          }
+        },
+        "miscellaneous": {
+          "ragas_answer_accuracy": {
+            "mean": 0.375,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.3,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0556,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1,
+            "n": 2
+          }
+        },
+        "project_related": {
+          "ragas_answer_accuracy": {
+            "mean": 0.375,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.2375,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.3575,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.2775,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.1184,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.2281,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.3,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.8163,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.2139,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.7639,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.3235,
+            "n": 4
+          }
+        },
+        "semantic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.3958,
+            "n": 12
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.2375,
+            "n": 12
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.4017,
+            "n": 12
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.2858,
+            "n": 12
+          },
+          "deepeval_summarization": {
+            "mean": 0.2723,
+            "n": 12
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.2794,
+            "n": 12
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.5167,
+            "n": 12
+          },
+          "deepeval_hallucination": {
+            "mean": 0.7302,
+            "n": 12
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0424,
+            "n": 12
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.5,
+            "n": 12
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0772,
+            "n": 12
+          }
+        }
+      },
+      "judge": {
+        "cost_usd": 0.2024,
+        "invocations": 2,
+        "usage": {
+          "calls": 617,
+          "prompt_tokens": 815649,
+          "completion_tokens": 241645,
+          "total_tokens": 1057294,
+          "fences_removed": 355,
+          "prose_dropped": 0,
+          "not_json_replies": 3,
+          "truncated_replies": 3
+        }
+      },
+      "versions": {
+        "ragas": "0.4.3",
+        "deepeval": "4.2.8",
+        "openai": "1.109.1"
+      },
+      "predictions_sha256": "dbaaf7fd26b2b3cf7352446257d2a372c93b79166149249c54b7ff01ddc56005",
+      "finished": "2026-10-11T18:37:44+00:00"
+    },
+    "GPT-OSS + GraphRAG": {
+      "key": "gptoss_graphrag",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_graphrag/all",
+      "answers": 50,
+      "missing_answers": [],
+      "items": 246,
+      "not_scored": 1,
+      "not_scored_items": [
+        {
+          "id": "qst_0454",
+          "metric": "deepeval_summarization"
+        }
+      ],
+      "metrics": {
+        "ragas_answer_accuracy": {
+          "mean": 0.095,
+          "ci_low": 0.045,
+          "ci_high": 0.15,
+          "n": 50
+        },
+        "ragas_factual_correctness_precision": {
+          "mean": 0.1734,
+          "ci_low": 0.1062,
+          "ci_high": 0.2506,
+          "n": 50
+        },
+        "ragas_factual_correctness_recall": {
+          "mean": 0.1164,
+          "ci_low": 0.075,
+          "ci_high": 0.1634,
+          "n": 50
+        },
+        "ragas_factual_correctness_f1": {
+          "mean": 0.1326,
+          "ci_low": 0.0838,
+          "ci_high": 0.187,
+          "n": 50
+        },
+        "deepeval_summarization": {
+          "mean": 0.0516,
+          "ci_low": 0.0163,
+          "ci_high": 0.0964,
+          "n": 49
+        },
+        "deepeval_summarization_alignment": {
+          "mean": 0.1136,
+          "ci_low": 0.0502,
+          "ci_high": 0.185,
+          "n": 49
+        },
+        "deepeval_summarization_coverage": {
+          "mean": 0.0857,
+          "ci_low": 0.0408,
+          "ci_high": 0.1347,
+          "n": 49
+        },
+        "deepeval_hallucination": {
+          "mean": 0.4224,
+          "ci_low": 0.2993,
+          "ci_high": 0.5412,
+          "n": 50
+        },
+        "retrieval_documents_precision": {
+          "mean": 0.0179,
+          "ci_low": 0.0,
+          "ci_high": 0.0467,
+          "n": 46
+        },
+        "retrieval_documents_recall": {
+          "mean": 0.032,
+          "ci_low": 0.0,
+          "ci_high": 0.0864,
+          "n": 46
+        },
+        "retrieval_documents_f1": {
+          "mean": 0.0163,
+          "ci_low": 0.0,
+          "ci_high": 0.0383,
+          "n": 46
+        }
+      },
+      "by_type": {
+        "basic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0735,
+            "n": 17
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.2412,
+            "n": 17
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.1253,
+            "n": 17
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.1635,
+            "n": 17
+          },
+          "deepeval_summarization": {
+            "mean": 0.0118,
+            "n": 17
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.151,
+            "n": 17
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0353,
+            "n": 17
+          },
+          "deepeval_hallucination": {
+            "mean": 0.2588,
+            "n": 17
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 17
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 17
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 17
+          }
+        },
+        "completeness": {
+          "ragas_answer_accuracy": {
+            "mean": 0.125,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.06,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.055,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.06,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 2
+          }
+        },
+        "conflicting_info": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.6167,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 2
+          }
+        },
+        "constrained": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 3
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0233,
+            "n": 3
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0667,
+            "n": 3
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0333,
+            "n": 3
+          },
+          "deepeval_summarization": {
+            "mean": 0.0256,
+            "n": 3
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0256,
+            "n": 3
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.1333,
+            "n": 3
+          },
+          "deepeval_hallucination": {
+            "mean": 0.6111,
+            "n": 3
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 3
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 3
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 3
+          }
+        },
+        "high_level": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.165,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.2,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0833,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0833,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.2,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          }
+        },
+        "info_not_found": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.4,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.4,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          }
+        },
+        "intra_document_reasoning": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0825,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0625,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0725,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.05,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.1667,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 4
+          }
+        },
+        "miscellaneous": {
+          "ragas_answer_accuracy": {
+            "mean": 0.375,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.165,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.25,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 1
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 1
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0,
+            "n": 1
+          },
+          "deepeval_hallucination": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0625,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1111,
+            "n": 2
+          }
+        },
+        "project_related": {
+          "ragas_answer_accuracy": {
+            "mean": 0.1875,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.2375,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.2275,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.2325,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.0714,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.1241,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.15,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.2415,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.175,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.1181,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1325,
+            "n": 4
+          }
+        },
+        "semantic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0625,
+            "n": 12
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.1475,
+            "n": 12
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.1158,
+            "n": 12
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.1258,
+            "n": 12
+          },
+          "deepeval_summarization": {
+            "mean": 0.0833,
+            "n": 12
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.1051,
+            "n": 12
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.1,
+            "n": 12
+          },
+          "deepeval_hallucination": {
+            "mean": 0.5851,
+            "n": 12
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 12
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 12
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 12
+          }
+        }
+      },
+      "judge": {
+        "cost_usd": 0.1554,
+        "invocations": 3,
+        "usage": {
+          "calls": 615,
+          "prompt_tokens": 699840,
+          "completion_tokens": 170916,
+          "total_tokens": 870756,
+          "fences_removed": 344,
+          "prose_dropped": 0,
+          "not_json_replies": 4,
+          "truncated_replies": 0
+        }
+      },
+      "versions": {
+        "ragas": "0.4.3",
+        "deepeval": "4.2.8",
+        "openai": "1.109.1"
+      },
+      "predictions_sha256": "bc91dc3f39a7afccd8b84c59ad022f784053c3515b432b603340451c8e73d93e",
+      "finished": "2026-10-11T18:39:50+00:00"
+    },
+    "GPT-OSS, no RAG": {
+      "key": "gptoss_no_rag",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_no_rag/all",
+      "answers": 49,
+      "missing_answers": [
+        "qst_0443"
+      ],
+      "items": 241,
+      "not_scored": 0,
+      "not_scored_items": [],
+      "metrics": {
+        "ragas_answer_accuracy": {
+          "mean": 0.051,
+          "ci_low": 0.0102,
+          "ci_high": 0.0969,
+          "n": 49
+        },
+        "ragas_factual_correctness_precision": {
+          "mean": 0.081,
+          "ci_low": 0.0224,
+          "ci_high": 0.1524,
+          "n": 49
+        },
+        "ragas_factual_correctness_recall": {
+          "mean": 0.0267,
+          "ci_low": 0.0069,
+          "ci_high": 0.0514,
+          "n": 49
+        },
+        "ragas_factual_correctness_f1": {
+          "mean": 0.0369,
+          "ci_low": 0.0098,
+          "ci_high": 0.0718,
+          "n": 49
+        },
+        "deepeval_summarization": {
+          "mean": 0.0245,
+          "ci_low": 0.0041,
+          "ci_high": 0.0571,
+          "n": 49
+        },
+        "deepeval_summarization_alignment": {
+          "mean": 0.0721,
+          "ci_low": 0.0204,
+          "ci_high": 0.1395,
+          "n": 49
+        },
+        "deepeval_summarization_coverage": {
+          "mean": 0.0653,
+          "ci_low": 0.0286,
+          "ci_high": 0.1061,
+          "n": 49
+        },
+        "deepeval_hallucination": {
+          "mean": 0.3677,
+          "ci_low": 0.2497,
+          "ci_high": 0.4925,
+          "n": 49
+        },
+        "retrieval_documents_precision": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 45
+        },
+        "retrieval_documents_recall": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 45
+        },
+        "retrieval_documents_f1": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 45
+        }
+      },
+      "by_type": {
+        "basic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0294,
+            "n": 17
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0,
+            "n": 17
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0,
+            "n": 17
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0,
+            "n": 17
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 17
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 17
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0706,
+            "n": 17
+          },
+          "deepeval_hallucination": {
+            "mean": 0.3529,
+            "n": 17
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 17
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 17
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 17
+          }
+        },
+        "completeness": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 1
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 1.0,
+            "n": 1
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.03,
+            "n": 1
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.06,
+            "n": 1
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 1
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 1
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0,
+            "n": 1
+          },
+          "deepeval_hallucination": {
+            "mean": 0.0,
+            "n": 1
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 1
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 1
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 1
+          }
+        },
+        "conflicting_info": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.9,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 2
+          }
+        },
+        "constrained": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 3
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0667,
+            "n": 3
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.06,
+            "n": 3
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0633,
+            "n": 3
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 3
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.1111,
+            "n": 3
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0,
+            "n": 3
+          },
+          "deepeval_hallucination": {
+            "mean": 0.3333,
+            "n": 3
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 3
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 3
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 3
+          }
+        },
+        "high_level": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.5,
+            "n": 2
+          }
+        },
+        "info_not_found": {
+          "ragas_answer_accuracy": {
+            "mean": 0.375,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.3,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.3,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          }
+        },
+        "intra_document_reasoning": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.1,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.25,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 4
+          }
+        },
+        "miscellaneous": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.1,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.3,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 2
+          }
+        },
+        "project_related": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 4
+          }
+        },
+        "semantic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.1042,
+            "n": 12
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.2308,
+            "n": 12
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.0917,
+            "n": 12
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.13,
+            "n": 12
+          },
+          "deepeval_summarization": {
+            "mean": 0.05,
+            "n": 12
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.1833,
+            "n": 12
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.0667,
+            "n": 12
+          },
+          "deepeval_hallucination": {
+            "mean": 0.3849,
+            "n": 12
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0,
+            "n": 12
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.0,
+            "n": 12
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.0,
+            "n": 12
+          }
+        }
+      },
+      "judge": {
+        "cost_usd": 0.1201,
+        "invocations": 2,
+        "usage": {
+          "calls": 599,
+          "prompt_tokens": 620616,
+          "completion_tokens": 116034,
+          "total_tokens": 736650,
+          "fences_removed": 322,
+          "prose_dropped": 1,
+          "not_json_replies": 0,
+          "truncated_replies": 0
+        }
+      },
+      "versions": {
+        "ragas": "0.4.3",
+        "deepeval": "4.2.8",
+        "openai": "1.109.1"
+      },
+      "predictions_sha256": "c357a87263a49ab00e981ad90b6f61e08eea571443b3d6c31d4b6861ea0c701a",
+      "finished": "2026-10-11T18:39:25+00:00"
+    }
+  },
+  "not_scored": {},
+  "caveats": [
+    "Pilot: 50 of 500 EnterpriseRAG-Bench questions, stratified by question type (2 to 17 per type), on a 10,000-document corpus slice. The judge is not fully repeatable. Do not rank systems from small differences.",
+    "Not an official protocol: these are 4Minds RAG metrics on the saved answers of the EnterpriseRAG-Bench run. The systems did not answer again. The references are the EnterpriseRAG-Bench gold answer (Answer Accuracy, Factual Correctness), gold facts (Summarization, Hallucination) and gold documents (document retrieval).",
+    "Summarization: the 'original text' is the gold facts of the question, not the retrieved context. The score shows how well the answer covers the gold facts (coverage) without statements that the facts do not support (alignment); score = min(alignment, coverage).",
+    "Hallucination: DeepEval checks the answer against each gold fact. The score is the fraction of facts with the verdict 'agrees' (higher is better). The DeepEval prompt says that missing detail is not a contradiction, but the judges often give 'does not agree' to an answer that says the documents do not have the information; so a non-answer scores 0 for most questions and 1 for some (No RAG has 27 non-answers: 22 score 0 with gpt-4o-mini, 18 with Haiku). Read it together with Answer Accuracy and Factual Correctness. (The note in the scorer configs says that 'I don't know' scores 1; that is the intent of the prompt, not what the judges did.)",
+    "Two kinds of precision, recall and F1: Factual Correctness counts claims (claims of the answer supported by the gold answer, and claims of the gold answer found in the answer; judge). Document retrieval counts document IDs (the documents the system gave against the gold documents; no judge, exact match).",
+    "Document retrieval uses the original gold documents (no correction step, unlike the official EnterpriseRAG-Bench scorer) and only the 46 questions that have gold documents. Systems that give many documents get a lower precision.",
+    "Haiku judge: the Anthropic OpenAI-compatible endpoint rejects the RAGAS response_format {\"type\": \"json_object\"} (HTTP 400), so the scorer config removes that field (drop_params). The prompt with the JSON schema is the same; Haiku puts the JSON in a code fence, which the scorer removes before parsing (about 340 fences per system). gpt-4o-mini got the field.",
+    "Haiku judge: the first pass hit the rate limit of 80,000 output tokens per minute (HTTP 429) at 16 parallel requests; two retry passes, the same for every system, scored all such items. 4 items stay not scored, and they are not in the means: Summarization of qst_0454 for LangChain, RAGFlow and GraphRAG (the answer is only a date, and Haiku replied in prose that the text to extract claims from was empty; audit step diagnose_v2_qst_0454), and Factual Correctness of qst_0433 for RAGFlow (the claim list was longer than the 4,096-token limit).",
+    "4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order.",
+    "LangChain: always gives 10 documents, so its document precision is at most 0.1 for a question with one gold document.",
+    "GraphRAG: this row is not representative of GraphRAG. The fast method writes no entity descriptions, so local search compares the question only with entity names. On a 500-document test, the standard method found 52 of 74 gold documents and the fast method 17 of 74 (see the EnterpriseRAG-Bench run README).",
+    "No RAG: the system gets no documents, so all its document scores are 0 by design. It has 49 answers; the question without an answer is not scored."
+  ],
+  "inputs": {
+    "questions_sha256": "dc1affc93b74370d1ce81f8715fbdbc3ccaee7482467d1d5ce58e43ccc57dead",
+    "corpus_sha256": "3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec"
+  }
+}

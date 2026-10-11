@@ -14,6 +14,7 @@ aggregate.py calls write() after each summary. --title, --purpose and --status u
 import argparse
 import hashlib
 import json
+import os
 import re
 from pathlib import Path
 
@@ -95,7 +96,9 @@ def systems(run_dir):
                      "questions": summary.get("questions"), "failed": summary.get("failed"),
                      "cost": summary.get("estimated_cost_usd"), "started": manifest.get("started", ""),
                      "finished": manifest.get("finished", "not finished"),
-                     "scored": (folder / "score_manifest.json").exists()})
+                     "scored": (folder / "score_manifest.json").exists()
+                               or any(p.with_name(p.name.replace(".partial.jsonl", ".json")).exists()
+                                      for p in folder.glob("*.partial.jsonl"))})
     return rows
 
 
@@ -131,8 +134,8 @@ def write(run_dir, title=None, purpose=None, status=None):
     if info.get("purpose"):
         lines.append(f"| Purpose | {info['purpose']} |")
     if info.get("derived_from"):
-        source = Path(info["derived_from"]).name
-        lines.append(f"| Answers from | [`{info['derived_from']}/`](../{source}/README.md) (symlinks: "
+        source = os.path.relpath(bc.BENCH_DIR / info["derived_from"] / "README.md", run_dir)
+        lines.append(f"| Answers from | [`{info['derived_from']}/`]({source}) (symlinks: "
                      f"{', '.join(info.get('linked_files', []))}) |")
         lines.append(f"| Change | {info.get('change', '')} |")
     judge = (summary or {}).get("benchmark", {})

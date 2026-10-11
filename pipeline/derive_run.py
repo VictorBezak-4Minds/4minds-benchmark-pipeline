@@ -10,6 +10,9 @@ derived run; the source run is not changed. run.json records the source and the 
         --from runs/2026-10-10_gptoss-full --to runs/2026-10-10_gptoss-full_judge-haiku \\
         --change "Judge: Claude Haiku 5.5 instead of gpt-4o-mini" --title "..." [--systems a b]
 
+--from can be a run of another benchmark (../<benchmark>/runs/<run>), for a benchmark that scores
+the saved answers of another one (4Minds RAG); run.json then also records source_benchmark.
+
 Safe to run again with the same --from and --change: a link that already points to the same
 file is kept. Another existing file, source or change stops the script.
 """
@@ -36,8 +39,12 @@ def main():
     args = parser.parse_args()
 
     source, target = Path(args.source).resolve(), Path(args.target).resolve()
-    if source.parent != bc.RUNS.resolve() or target.parent != bc.RUNS.resolve():
-        raise SystemExit(f"--from and --to must be folders in {bc.RUNS}")
+    benchmarks = bc.BENCH_DIR.resolve().parent
+    if target.parent != bc.RUNS.resolve():
+        raise SystemExit(f"--to must be a folder in {bc.RUNS}")
+    if source.parent.name != "runs" or source.parent.parent.parent != benchmarks:
+        raise SystemExit(f"--from must be a run folder of a benchmark: {benchmarks}/<benchmark>/runs/<run>")
+    derived_from = os.path.relpath(source, bc.BENCH_DIR.resolve())
     folders = [p.parent for p in sorted(source.glob("*/*/predictions.json"))
                if not p.parent.parent.name.startswith("_") and p.parent.parent.name not in ("extra", "tests", "summary")]
     if args.systems:
@@ -48,7 +55,7 @@ def main():
 
     info_file = target / "run.json"
     info = json.loads(info_file.read_text()) if info_file.exists() else {}
-    for key, value in (("derived_from", run_readme.bench_relative(source)), ("change", args.change)):
+    for key, value in (("derived_from", derived_from), ("change", args.change)):
         if info.get(key) not in (None, value):
             raise SystemExit(f"{target} has {key} {info[key]!r}, not {value!r}. Use another --to.")
 
@@ -68,8 +75,9 @@ def main():
         link.parent.mkdir(parents=True, exist_ok=True)
         link.symlink_to(os.path.relpath(real, link.parent))
 
-    info.update({"derived_from": run_readme.bench_relative(source), "change": args.change,
-                 "linked_files": list(ANSWER_FILES)})
+    info.update({"derived_from": derived_from, "change": args.change, "linked_files": list(ANSWER_FILES)})
+    if source.parent.parent != bc.BENCH_DIR.resolve():
+        info["source_benchmark"] = source.parent.parent.name
     target.mkdir(parents=True, exist_ok=True)
     info_file.write_text(json.dumps(info, indent=2) + "\n")
     run_readme.write(target, args.title, args.purpose, args.status if not info.get("status") else None)

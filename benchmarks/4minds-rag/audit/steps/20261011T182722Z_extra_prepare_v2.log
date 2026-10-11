@@ -1,0 +1,7 @@
+# step: extra_prepare_v2
+# start: 2026-10-11T18:27:22Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py prepare --config configs/scorers/v2_haiku-nothink.json --predictions runs/2026-10-11_erag-pilot_judge-haiku-nothink/4minds/all/predictions.json
+
+/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/shared/extra/v2_haiku-nothink/shared.json: 50 questions with assessment questions; made 48, errors 0, cost $0.0066, {"judge_usage": {"calls": 48, "prompt_tokens": 22803, "completion_tokens": 8727, "total_tokens": 31530, "fences_removed": 38, "prose_dropped": 0, "not_json_replies": 0, "truncated_replies": 0}}
+
+# end: 2026-10-11T18:27:31Z  exit: 0  duration_s: 9

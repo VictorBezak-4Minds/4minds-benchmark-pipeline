@@ -1,16 +1,32 @@
 #!/usr/bin/env python3
-"""Extra scorers on saved answers (RAGAS, DeepEval). Not part of the official GraphRAG-Bench protocol.
+"""Extra scorers on saved answers (RAGAS, DeepEval, retrieval counts). Not part of an official protocol.
 
-  ./bench graphrag-bench extra_prepare extra score_extra.py prepare --config configs/scorers/extra_v1.json \\
-      --predictions runs/2026-10-10_gptoss-full/gptoss_norag/medical/predictions.json
-  ./bench graphrag-bench extra_<system> extra score_extra.py score --config configs/scorers/extra_v1.json \\
-      --system-dir runs/2026-10-10_gptoss-full/<system>/medical [--questions-file data/Questions/pilot_questions.json] \\
-      [--out-dir runs/2026-10-10_gptoss-full/extra/extra_v1_pilot/<system>]
+  ./bench <benchmark> extra_prepare extra pipeline/score_extra.py prepare --config configs/scorers/<name>.json \\
+      --predictions runs/<run>/<system>/<subset>/predictions.json
+  ./bench <benchmark> extra_<system> extra pipeline/score_extra.py score --config configs/scorers/<name>.json \\
+      --system-dir runs/<run>/<system>/<subset> [--questions-file <pilot questions>] [--out-dir <folder>] \\
+      [--limit N --out-dir runs/<run>/tests/<name>/<system>]
 
-The config file (configs/scorers/extra_*.json) gives the judge and the metrics: for each metric its key,
+The config file (configs/scorers/*.json) gives the judge and the metrics: for each metric its key,
 its implementation in METRICS, params, question types and inputs. `prepare` makes the inputs that
 must be the same for every system (Summarization assessment questions) in
 shared/extra/<config name>/shared.json; `score` reads them.
+
+Rows: the profile's extra_rows(predictions, questions_file) if it has one (it joins the gold
+answer and evidence to each answer); else predictions.json must have id, question, question_type,
+generated_answer, ground_truth and the evidence field. The question types of a config must be in
+the profile's EXTRA_QUESTION_TYPES.
+
+Judges ("judge" in the config):
+  {"provider": "openai", "model": ...}   the OpenAI API (RAGAS llm_factory, DeepEval OpenAIModel)
+  {"provider": "backend", "backend": ...} a named entry of pipeline/llm_backends.json. RAGAS and
+      DeepEval share one OpenAI-compatible client. Its HTTP transport removes the backend's
+      judge_drop_params, adds judge_extra_body, takes the JSON out of a code fence if
+      judge_strip_code_fence, and counts tokens, replies that are not JSON and replies cut at the
+      token limit (judge_hooks.USAGE_KEYS). The cost comes from the backend's prices. An optional
+      "drop_params" list in the judge block removes more request fields for this scorer only
+      (Anthropic's endpoint rejects the RAGAS response_format {"type": "json_object"}; the JSON
+      schema instructions stay in the prompt).
 
 `score` appends one record per answer and metric to <out-dir>/<config name>.partial.jsonl and
 writes <out-dir>/<config name>.json. A rerun scores only the items that are not done; items
@@ -30,8 +46,7 @@ os.environ.setdefault("DEEPEVAL_UPDATE_WARNING_OPT_IN", "0")
 os.environ.setdefault("RAGAS_DO_NOT_TRACK", "true")
 
 import bench_common as bc  # noqa: E402
-
-TYPES = ["Fact Retrieval", "Complex Reasoning", "Contextual Summarize", "Creative Generation"]
+import judge_hooks  # noqa: E402
 
 
 class OpenAIJudge:
@@ -74,18 +89,146 @@ class OpenAIJudge:
                 generation_kwargs={k: v for k, v in self.args.items() if k != "temperature"})
         return self._deepeval_model
 
-    def ragas_cost(self):
+    def usage(self):
+        return {"judge_tokens_ragas": dict(self.tokens)}
+
+    def cost(self, deepeval_cost):
         return (self.tokens["prompt_tokens"] * self.prices["input"]
-                + self.tokens["completion_tokens"] * self.prices["output"]) / 1e6
+                + self.tokens["completion_tokens"] * self.prices["output"]) / 1e6 + deepeval_cost
 
 
-JUDGES = {"openai": OpenAIJudge}
+class BackendJudge:
+    """A judge from pipeline/llm_backends.json; see the module docstring."""
+
+    def __init__(self, spec):
+        import llm_backends
+        self.backend = llm_backends.Backend(spec["backend"])
+        self.model, self.args = self.backend.model, dict(spec.get("args", {}))
+        self.drop_params = list(self.backend.judge_drop_params) + list(spec.get("drop_params", []))
+        self.counts = dict.fromkeys(judge_hooks.USAGE_KEYS, 0)
+        self._client = self._ragas_llm = self._deepeval_model = None
+
+    def _rewrite_request(self, request):
+        import httpx
+        body = json.loads(request.content)
+        for name in self.drop_params:
+            body.pop(name, None)
+        body.update(self.backend.judge_extra_body)
+        headers = [(k, v) for k, v in request.headers.items() if k.lower() != "content-length"]
+        return httpx.Request(request.method, request.url, headers=headers, json=body)
+
+    def _read_reply(self, response):
+        import httpx
+        try:
+            payload = json.loads(response.content)
+        except ValueError:
+            return response
+        usage = payload.get("usage") or {}
+        self.counts["calls"] += 1
+        for key in ("prompt_tokens", "completion_tokens", "total_tokens"):
+            self.counts[key] += usage.get(key) or 0
+        changed = False
+        for choice in payload.get("choices") or []:
+            message = choice.get("message") or {}
+            self.counts["truncated_replies"] += choice.get("finish_reason") == "length"
+            fixed = judge_hooks.unfence(message.get("content")) if self.backend.judge_strip_code_fence else None
+            if fixed:
+                message["content"], changed = fixed[0], True
+                self.counts["fences_removed"] += 1
+                self.counts["prose_dropped"] += fixed[1]
+            self.counts["not_json_replies"] += not judge_hooks.is_json(message.get("content"))
+        if not changed:
+            return response
+        headers = [(k, v) for k, v in response.headers.items() if k.lower() not in ("content-length", "content-encoding")]
+        return httpx.Response(response.status_code, headers=headers, content=json.dumps(payload).encode())
+
+    def client(self):
+        if self._client is None:
+            import httpx
+            from openai import AsyncOpenAI
+            judge = self
+
+            class Transport(httpx.AsyncBaseTransport):
+                def __init__(self):
+                    self.inner = httpx.AsyncHTTPTransport()
+
+                async def handle_async_request(self, request):
+                    chat = request.url.path.endswith("/chat/completions")
+                    response = await self.inner.handle_async_request(judge._rewrite_request(request) if chat else request)
+                    if not chat or response.status_code != 200:
+                        return response
+                    await response.aread()
+                    return judge._read_reply(response)
+
+                async def aclose(self):
+                    await self.inner.aclose()
+
+            self._client = AsyncOpenAI(api_key=self.backend.api_key(), base_url=self.backend.base_url,
+                                       http_client=httpx.AsyncClient(timeout=120, transport=Transport()))
+        return self._client
+
+    def ragas_llm(self):
+        if self._ragas_llm is None:
+            from ragas.llms import llm_factory
+            self._ragas_llm = llm_factory(self.model, client=self.client(), **self.args)
+        return self._ragas_llm
+
+    def deepeval_model(self):
+        if self._deepeval_model is None:
+            from deepeval.models import DeepEvalBaseLLM
+            judge = self
+
+            class Model(DeepEvalBaseLLM):
+                """Returns the reply text; DeepEval parses the JSON itself (trimAndLoadJson)."""
+
+                def __init__(self):
+                    super().__init__(judge.model)
+
+                def load_model(self):
+                    return judge.client()
+
+                def get_model_name(self):
+                    return f"{judge.backend.name} ({judge.model})"
+
+                def generate(self, prompt, schema=None):
+                    raise NotImplementedError("score_extra.py runs DeepEval metrics with async_mode=True")
+
+                async def a_generate(self, prompt, schema=None):
+                    reply = await judge.client().chat.completions.create(
+                        model=judge.model, messages=[{"role": "user", "content": prompt}], **judge.args)
+                    return reply.choices[0].message.content or ""
+
+            self._deepeval_model = Model()
+        return self._deepeval_model
+
+    def usage(self):
+        return {"judge_usage": dict(self.counts)}
+
+    def cost(self, deepeval_cost):
+        return self.backend.cost(self.counts) or 0.0
+
+
+JUDGES = {"openai": OpenAIJudge, "backend": BackendJudge}
+
+
+def judge_id(spec):
+    return spec.get("backend") or spec["model"]
+
+
+def describe(error):
+    """The error and its causes: the OpenAI client shows an exception in the HTTP transport only as "Connection error"."""
+    parts = []
+    while error is not None and len(parts) < 4:
+        parts.append(f"{type(error).__name__}: {str(error)[:200]}")
+        error = error.__cause__ or error.__context__
+    return " <- ".join(parts)
 
 
 def evidence_items(row, metric):
     separator = metric.get("context_separator")
-    text = row.get(metric.get("context") or metric.get("source") or "evidence") or ""
-    return [s.strip() for s in (text.split(separator) if separator else [text]) if s.strip()]
+    value = row.get(metric.get("context") or metric.get("source") or "evidence") or ""
+    items = value if isinstance(value, list) else (value.split(separator) if separator else [value])
+    return [s.strip() for s in items if s.strip()]
 
 
 async def ragas_answer_accuracy(row, metric, judge, shared):
@@ -136,8 +279,21 @@ async def deepeval_hallucination(row, metric, judge, shared):
     return {"score": scorer.score}, {"contexts": len(context), "contradicted": contradicted}, scorer.evaluation_cost or 0.0
 
 
+async def retrieval_documents(row, metric, judge, shared):
+    """Retrieved document IDs against the gold document IDs; no judge. Precision is 0 when nothing
+    was retrieved."""
+    gold = set(row["gold_document_ids"])
+    retrieved = list(dict.fromkeys(row.get("document_ids") or []))
+    hits = sum(1 for d in retrieved if d in gold)
+    precision = hits / len(retrieved) if retrieved else 0.0
+    recall = hits / len(gold)
+    f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
+    return ({"precision": round(precision, 4), "recall": round(recall, 4), "f1": round(f1, 4)},
+            {"retrieved": len(retrieved), "gold": len(gold), "hits": hits}, 0.0)
+
+
 METRICS = {f.__name__: f for f in (ragas_answer_accuracy, ragas_factual_correctness,
-                                   deepeval_summarization, deepeval_hallucination)}
+                                   deepeval_summarization, deepeval_hallucination, retrieval_documents)}
 SHARED_INPUTS = {"deepeval_summarization"}  # implementations that need `prepare`
 
 
@@ -146,6 +302,7 @@ def load_config(path):
     if not path.is_absolute() and not path.exists():
         path = bc.BENCH_DIR / path
     config = json.loads(path.read_text())
+    types_allowed = list(getattr(bc.profile, "EXTRA_QUESTION_TYPES", []))
     problems = [] if config.get("judge", {}).get("provider") in JUDGES else [
         f"judge provider must be one of {sorted(JUDGES)}"]
     keys = [m.get("key") for m in config.get("metrics", [])]
@@ -154,8 +311,8 @@ def load_config(path):
         if m.get("implementation") not in METRICS:
             problems.append(f"metric {m.get('key')}: unknown implementation {m.get('implementation')}")
         types = m.get("question_types")
-        if types != "all" and not (isinstance(types, list) and set(types) <= set(TYPES)):
-            problems.append(f"metric {m.get('key')}: question_types must be \"all\" or a list of {TYPES}")
+        if types != "all" and not (isinstance(types, list) and set(types) <= set(types_allowed)):
+            problems.append(f"metric {m.get('key')}: question_types must be \"all\" or a list of {types_allowed}")
     if problems:
         sys.exit(f"{path}: " + "; ".join(problems))
     config["path"], config["sha256"] = str(path), bc.sha256(path)
@@ -163,6 +320,8 @@ def load_config(path):
 
 
 def applies(metric, row):
+    if any(not row.get(field) for field in metric.get("requires", [])):
+        return False
     return metric["question_types"] == "all" or row["question_type"] in metric["question_types"]
 
 
@@ -174,12 +333,14 @@ def shared_path(config):
     return bc.SHARED / "extra" / config["name"] / "shared.json"
 
 
-def load_rows(predictions, questions_file):
+def load_rows(predictions, questions_file, limit=None):
     rows = json.loads(Path(predictions).read_text())
-    if questions_file:
+    if hasattr(bc.profile, "extra_rows"):
+        rows = bc.profile.extra_rows(rows, questions_file)
+    elif questions_file:
         wanted = {q["id"] for q in json.loads(Path(questions_file).read_text())}
         rows = [r for r in rows if r["id"] in wanted]
-    return rows
+    return rows[:limit] if limit else rows
 
 
 def versions():
@@ -192,8 +353,8 @@ async def prepare(config, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
     judge = JUDGES[config["judge"]["provider"]](config["judge"])
     shared = json.loads(path.read_text()) if path.exists() else {
-        "created": bc.now(), "judge": config["judge"]["model"], "assessment_questions": {}}
-    if shared["judge"] != config["judge"]["model"]:
+        "created": bc.now(), "judge": judge_id(config["judge"]), "assessment_questions": {}}
+    if shared["judge"] != judge_id(config["judge"]):
         sys.exit(f"{path} was made with judge {shared['judge']}; use a new config name for another judge.")
     questions = shared["assessment_questions"]
     semaphore = asyncio.Semaphore(config.get("concurrency", 8))
@@ -213,11 +374,16 @@ async def prepare(config, rows):
             for row in rows if applies(m, row) and row["id"] not in questions]
     results = await asyncio.gather(*jobs, return_exceptions=True)
     errors = [r for r in results if isinstance(r, Exception)]
+    cost = judge.cost(cost)
+    usage = judge.usage()
+    shared.setdefault("prepare_invocations", []).append({"time": bc.now(), "made": len(jobs) - len(errors),
+                                                         "errors": len(errors), **usage, "cost_usd": round(cost, 6)})
+    path.write_text(json.dumps(shared, indent=2))
     bc.audit("extra_prepare", config=config["path"], made=len(jobs) - len(errors), errors=len(errors), cost_usd=round(cost, 4))
     print(f"{path}: {len(questions)} questions with assessment questions; made {len(jobs) - len(errors)}, "
-          f"errors {len(errors)}, cost ${cost:.4f}")
+          f"errors {len(errors)}, cost ${cost:.4f}, {json.dumps(usage)}")
     for e in errors[:3]:
-        print(f"  error: {type(e).__name__}: {str(e)[:200]}")
+        print(f"  error: {describe(e)}")
     return 1 if errors else 0
 
 
@@ -243,8 +409,8 @@ async def score(config, rows, out_dir, predictions):
     out_dir.mkdir(parents=True, exist_ok=True)
     bc.acquire_lock(out_dir / f".{config['name']}.lock")
     shared = json.loads(shared_path(config).read_text()) if shared_path(config).exists() else {}
-    if shared and shared.get("judge") != config["judge"]["model"]:
-        sys.exit(f"{shared_path(config)} was made with judge {shared.get('judge')}, not {config['judge']['model']}.")
+    if shared and shared.get("judge") != judge_id(config["judge"]):
+        sys.exit(f"{shared_path(config)} was made with judge {shared.get('judge')}, not {judge_id(config['judge'])}.")
     header = {"created": bc.now(), "config": config["path"], "config_sha256": config["sha256"],
               "predictions": str(predictions), "predictions_sha256": bc.sha256(Path(predictions))}
     partial = out_dir / f"{config['name']}.partial.jsonl"
@@ -267,7 +433,7 @@ async def score(config, rows, out_dir, predictions):
                 if bad:
                     record["error"] = f"no score for {', '.join(bad)} (NaN or missing)"
             except Exception as e:  # one failed item must not stop the others; a rerun tries it again
-                record["error"] = f"{type(e).__name__}: {str(e)[:300]}"
+                record["error"] = describe(e)
             with partial.open("a") as f:
                 f.write(json.dumps(record) + "\n")
             if not record.get("error"):
@@ -282,8 +448,7 @@ async def score(config, rows, out_dir, predictions):
             print(f"  [{finished}/{len(todo)}] {record['metric']} {record['id']}"
                   + (f" ERROR {record['error'][:160]}" if record.get("error") else ""))
 
-    invocation = {"time": bc.now(), "items": len(todo), "judge_tokens_ragas": dict(judge.tokens),
-                  "cost_usd": round(judge.ragas_cost() + deepeval_cost, 6)}
+    invocation = {"time": bc.now(), "items": len(todo), **judge.usage(), "cost_usd": round(judge.cost(deepeval_cost), 6)}
     with partial.open("a") as f:
         f.write(json.dumps({"invocation": invocation}) + "\n")
     invocations.append(invocation)
@@ -314,6 +479,8 @@ async def score(config, rows, out_dir, predictions):
              items=len(expected), not_scored=len(missing), cost_usd=out["cost_usd"])
     print(f"done: {len(expected) - len(missing)}/{len(expected)} items scored, not scored {len(missing)}, "
           f"cost this run ${invocation['cost_usd']:.4f}, total ${out['cost_usd']:.4f}")
+    if "judge_usage" in invocation:
+        print(f"  judge usage this run: {json.dumps(invocation['judge_usage'])}")
     for name, s in summary.items():
         print(f"  {name}: mean {s['mean']} (n={s['n']})")
     return 1 if missing else 0
@@ -326,19 +493,23 @@ def main():
     p.add_argument("--config", required=True)
     p.add_argument("--predictions", required=True, help="predictions.json of any system (questions and evidence)")
     p.add_argument("--questions-file")
+    p.add_argument("--limit", type=int, help="only the first N rows (a judge check)")
     s = sub.add_parser("score", help="score the saved answers of one system")
     s.add_argument("--config", required=True)
     s.add_argument("--system-dir", required=True, help="folder with predictions.json")
     s.add_argument("--questions-file", help="score only these questions (pilot)")
     s.add_argument("--out-dir", help="default: --system-dir")
+    s.add_argument("--limit", type=int, help="only the first N rows (a judge check); needs --out-dir")
     args = parser.parse_args()
     config = load_config(args.config)
     if args.command == "prepare":
-        sys.exit(asyncio.run(prepare(config, load_rows(args.predictions, args.questions_file))))
+        sys.exit(asyncio.run(prepare(config, load_rows(args.predictions, args.questions_file, args.limit))))
+    if args.limit and not args.out_dir:
+        sys.exit("--limit needs --out-dir (a partial score must not go to the system folder)")
     system_dir = Path(args.system_dir)
     predictions = system_dir / "predictions.json"
     out_dir = Path(args.out_dir) if args.out_dir else system_dir
-    sys.exit(asyncio.run(score(config, load_rows(predictions, args.questions_file), out_dir, predictions)))
+    sys.exit(asyncio.run(score(config, load_rows(predictions, args.questions_file, args.limit), out_dir, predictions)))
 
 
 if __name__ == "__main__":

@@ -17,6 +17,7 @@ Agents: read [AGENTS.md](AGENTS.md) before you do any work here.
 | GraphRAG-Bench (Medical) | [benchmarks/graphrag-bench](benchmarks/graphrag-bench/README.md) | Pilot complete (10 questions, 5 systems). Full run not approved. |
 | QASPER (answer-only) | [benchmarks/qasper](benchmarks/qasper/README.md) | Pilot complete (25 questions, 4 systems; RAG Engine blocked). Full run not approved. |
 | EnterpriseRAG-Bench (metrics-based) | [benchmarks/enterpriserag-bench](benchmarks/enterpriserag-bench/README.md) | Pilot complete (50 questions, 5 systems, 10,000-document slice). Full run not approved. |
+| 4Minds RAG (our metrics on saved answers) | [benchmarks/4minds-rag](benchmarks/4minds-rag/README.md) | RAGAS, DeepEval and document P/R/F1 on the EnterpriseRAG-Bench pilot answers; two judge versions (gpt-4o-mini, Claude Haiku 5.5). |
 
 ## Layout
 
@@ -31,6 +32,9 @@ Benchmark Datasets/
 │   ├── llm_backends.json   named LLM backends: endpoint, auth method, model, generation params, prices
 │   ├── llm_backends.py     one chat() for all backends; Bedrock tokens made in memory from an AWS profile
 │   ├── make_cheatsheet.py  writes metrics_cheatsheet.html; edit its text when a metric changes
+│   ├── score_extra.py      scorers outside an official protocol (RAGAS, DeepEval, document P/R/F1) on saved answers
+│   ├── derive_run.py       a new run that links the answers of a run (also of another benchmark) to change only the scorer
+│   ├── run_readme.py       writes the run README and runs/README.md from run.json, config.json and the audit log
 │   ├── report_html.py      4Minds HTML style for reports: CSS, logo, system colors, bar with CI,
 │   │                       quality vs. median latency scatter (plotly.js 4.1.2 from cdn.plot.ly, SRI-pinned)
 │   └── run_logged.sh       records each step in the benchmark's audit log
@@ -51,7 +55,7 @@ Benchmark Datasets/
 │   ├── retrievers.py       retrieval only: none, gemini_file_search, vertex_rag_engine, langchain_vector, graphrag_local, ragflow
 │   ├── run_rag.py          any retriever + any LLM backend (--retriever, --llm)
 │   └── preflight.py        one-request checks: LLM backend, Gemini key project, File Search chunk count
-├── envs/                   Python environments (.venv-eval, .venv-lightrag, .venv-erag, .venv-graphrag) and setup_envs.sh
+├── envs/                   Python environments (.venv-eval, .venv-lightrag, .venv-erag, .venv-graphrag, .venv-extra) and setup_envs.sh
 └── benchmarks/
     └── <benchmark>/
         ├── README.md              protocol, status, findings, caveats
@@ -107,6 +111,8 @@ each `aggregate.py`).
   cost go to the score manifest (`pipeline/judge_hooks.py`). A comparison file names its judge
   (`"judge"`), and `aggregate.py` stops if a system was scored by another judge. To change only
   the judge, start a new run with the same answers: `pipeline/derive_run.py`.
+  `pipeline/score_extra.py` takes the judge from its scorer config: `{"provider": "backend",
+  "backend": <name>}` uses the same backend entry and the same request and reply fixes.
 - **Retriever** (`systems/retrievers.py`): `systems/run_rag.py --retriever <name> --llm <name>`
   combines any retriever with any backend. A new retriever is one class with `settings()`,
   `readiness()`, `retrieve()` and `cost()`.
@@ -204,6 +210,8 @@ Each `benchmarks/<name>/benchmark_profile.py` defines:
 | `GEMINI_FILE_SEARCH_STORE` | optional: used by `systems/run_gemini.py` |
 | `corpus_documents()` | optional: the corpus as a list of documents (`dsid`, `title`, `text`). The setup scripts of LangChain, GraphRAG, LightRAG and 4Minds then load one document per item, with its ID, instead of `CORPUS_FILE` (which is then the manifest of the list) |
 | `messages(q, contexts)` | optional: the chat messages for `systems/run_rag.py`, when the benchmark has its own prompt layout. Without it: `SYSTEM_PROMPT` as the system message and the contexts in a "Knowledge Base" user message |
+| `EXTRA_QUESTION_TYPES` | optional: the `question_type` values that a `pipeline/score_extra.py` config can select |
+| `extra_rows(predictions, questions_file)` | optional: the `pipeline/score_extra.py` rows (answer joined with its gold answer, evidence and gold document IDs). Without it, `predictions.json` must have these fields |
 
 A runner result can have `document_ids` (the IDs of the retrieved documents, in rank order).
 Benchmarks that score retrieval (EnterpriseRAG-Bench) need them; the others ignore them.

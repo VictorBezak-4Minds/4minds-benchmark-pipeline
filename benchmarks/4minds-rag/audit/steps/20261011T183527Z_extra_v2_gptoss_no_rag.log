@@ -1,0 +1,37 @@
+# step: extra_v2_gptoss_no_rag
+# start: 2026-10-11T18:35:27Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/v2_haiku-nothink.json --system-dir runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_no_rag/all
+
+== v2_haiku-nothink on runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_no_rag/all/predictions.json: 49 answers, 0 items done, 241 to score
+/Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py:274: DeprecationWarning: 'HallucinationMetric' now scores in the same direction as every other deepeval metric: 1 is a pass, 0 is a failure, and 'threshold' is the MINIMUM passing score. It previously scored the proportion of violations, where 'threshold' was a maximum. Review any 'threshold' you pass and any code reading '.score' - a threshold of 0.2 that used to mean 'at most 20% violations' should now be 0.8. This notice will be removed in a future release.
+  scorer = HallucinationMetric(model=judge.deepeval_model(), include_reason=False, async_mode=True, **metric["params"])
+  [36/241] deepeval_hallucination qst_0007 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [37/241] deepeval_summarization qst_0478 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [39/241] deepeval_summarization qst_0489 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [40/241] deepeval_summarization qst_0492 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [65/241] deepeval_hallucination qst_0036 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [97/241] deepeval_hallucination qst_0174 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [100/241] ragas_answer_accuracy qst_0174
+  [115/241] deepeval_hallucination qst_0205 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [186/241] deepeval_summarization qst_0164 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [187/241] deepeval_summarization qst_0201 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [188/241] deepeval_hallucination qst_0433 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [189/241] deepeval_summarization qst_0174 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [200/241] ragas_answer_accuracy qst_0462
+  [217/241] deepeval_summarization qst_0259 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [241/241] ragas_factual_correctness qst_0071
+done: 229/241 items scored, not scored 12, cost this run $0.1135, total $0.1135
+  judge usage this run: {"calls": 559, "prompt_tokens": 589540, "completion_tokens": 109179, "total_tokens": 698719, "fences_removed": 292, "prose_dropped": 1, "not_json_replies": 0, "truncated_replies": 0}
+  ragas_answer_accuracy: mean 0.051 (n=49)
+  ragas_factual_correctness_precision: mean 0.081 (n=49)
+  ragas_factual_correctness_recall: mean 0.0267 (n=49)
+  ragas_factual_correctness_f1: mean 0.0369 (n=49)
+  deepeval_summarization: mean 0.0143 (n=42)
+  deepeval_summarization_alignment: mean 0.0603 (n=42)
+  deepeval_summarization_coverage: mean 0.0524 (n=42)
+  deepeval_hallucination: mean 0.3641 (n=44)
+  retrieval_documents_precision: mean 0.0 (n=45)
+  retrieval_documents_recall: mean 0.0 (n=45)
+  retrieval_documents_f1: mean 0.0 (n=45)
+
+# end: 2026-10-11T18:36:49Z  exit: 1  duration_s: 82

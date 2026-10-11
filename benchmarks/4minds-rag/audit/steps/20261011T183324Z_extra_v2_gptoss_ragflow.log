@@ -1,0 +1,52 @@
+# step: extra_v2_gptoss_ragflow
+# start: 2026-10-11T18:33:24Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/v2_haiku-nothink.json --system-dir runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_ragflow/all
+
+== v2_haiku-nothink on runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_ragflow/all/predictions.json: 50 answers, 0 items done, 246 to score
+  [14/246] deepeval_summarization qst_0454 ERROR ValueError: Evaluation LLM outputted an invalid JSON. Please use a better evaluation model. <- JSONDecodeError: Expecting value: line 1 column 1 (char 0) <- Sto
+  [21/246] deepeval_summarization qst_0433 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [22/246] deepeval_summarization qst_0443 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [29/246] deepeval_summarization qst_0471 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+/Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py:274: DeprecationWarning: 'HallucinationMetric' now scores in the same direction as every other deepeval metric: 1 is a pass, 0 is a failure, and 'threshold' is the MINIMUM passing score. It previously scored the proportion of violations, where 'threshold' was a maximum. Review any 'threshold' you pass and any code reading '.score' - a threshold of 0.2 that used to mean 'at most 20% violations' should now be 0.8. This notice will be removed in a future release.
+  scorer = HallucinationMetric(model=judge.deepeval_model(), include_reason=False, async_mode=True, **metric["params"])
+  [45/246] deepeval_hallucination qst_0008 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [47/246] deepeval_summarization qst_0492 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [50/246] deepeval_hallucination qst_0009 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [78/246] deepeval_hallucination qst_0058 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [100/246] retrieval_documents qst_0387
+  [107/246] deepeval_hallucination qst_0179 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [125/246] deepeval_hallucination qst_0229 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [130/246] deepeval_hallucination qst_0240 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [132/246] deepeval_summarization qst_0007 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [179/246] deepeval_summarization qst_0109 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [180/246] deepeval_hallucination qst_0368 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [181/246] deepeval_hallucination qst_0385 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [182/246] deepeval_summarization qst_0164 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [183/246] deepeval_hallucination qst_0387 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [184/246] deepeval_summarization qst_0140 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [200/246] deepeval_hallucination qst_0443
+  [205/246] deepeval_summarization qst_0245 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [206/246] deepeval_hallucination qst_0471 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [207/246] deepeval_summarization qst_0229 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [208/246] deepeval_summarization qst_0247 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [211/246] deepeval_hallucination qst_0478 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [220/246] deepeval_summarization qst_0265 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [222/246] deepeval_summarization qst_0267 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [223/246] deepeval_summarization qst_0318 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [225/246] ragas_factual_correctness qst_0433 ERROR IncompleteOutputException: 
+  [246/246] deepeval_summarization qst_0358
+done: 219/246 items scored, not scored 27, cost this run $0.1486, total $0.1486
+  judge usage this run: {"calls": 530, "prompt_tokens": 651602, "completion_tokens": 166955, "total_tokens": 818557, "fences_removed": 281, "prose_dropped": 0, "not_json_replies": 4, "truncated_replies": 3}
+  ragas_answer_accuracy: mean 0.58 (n=50)
+  ragas_factual_correctness_precision: mean 0.568 (n=49)
+  ragas_factual_correctness_recall: mean 0.3808 (n=49)
+  ragas_factual_correctness_f1: mean 0.4055 (n=49)
+  deepeval_summarization: mean 0.3061 (n=35)
+  deepeval_summarization_alignment: mean 0.5215 (n=35)
+  deepeval_summarization_coverage: mean 0.4448 (n=35)
+  deepeval_hallucination: mean 0.874 (n=39)
+  retrieval_documents_precision: mean 0.2902 (n=46)
+  retrieval_documents_recall: mean 0.8309 (n=46)
+  retrieval_documents_f1: mean 0.3774 (n=46)
+
+# end: 2026-10-11T18:35:27Z  exit: 1  duration_s: 123

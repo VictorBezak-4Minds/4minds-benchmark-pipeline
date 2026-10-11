@@ -1,0 +1,16 @@
+# step: extra_move_check_4minds_constellations
+# start: 2026-10-11T18:07:41Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/extra_v1.json --system-dir runs/2026-10-10_gptoss-full/4minds_constellations/medical --questions-file data/Questions/pilot_questions.json --out-dir runs/2026-10-10_gptoss-full/tests/score_extra_move_check/4minds_constellations
+
+== extra_v1 on runs/2026-10-10_gptoss-full/4minds_constellations/medical/predictions.json: 10 answers, 32 items done, 0 to score
+done: 32/32 items scored, not scored 0, cost this run $0.0000, total $0.0238
+  ragas_answer_accuracy: mean 0.4 (n=10)
+  ragas_factual_correctness_precision: mean 0.397 (n=10)
+  ragas_factual_correctness_recall: mean 0.895 (n=10)
+  ragas_factual_correctness_f1: mean 0.526 (n=10)
+  deepeval_summarization: mean 0.5042 (n=2)
+  deepeval_summarization_alignment: mean 0.5042 (n=2)
+  deepeval_summarization_coverage: mean 0.9 (n=2)
+  deepeval_hallucination: mean 0.8467 (n=10)
+
+# end: 2026-10-11T18:07:42Z  exit: 0  duration_s: 1

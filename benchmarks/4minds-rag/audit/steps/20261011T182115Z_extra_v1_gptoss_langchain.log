@@ -1,0 +1,25 @@
+# step: extra_v1_gptoss_langchain
+# start: 2026-10-11T18:21:15Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/v1_gpt-4o-mini.json --system-dir runs/2026-10-11_erag-pilot_judge-gpt-4o-mini/gptoss_langchain/all
+
+== v1_gpt-4o-mini on runs/2026-10-11_erag-pilot_judge-gpt-4o-mini/gptoss_langchain/all/predictions.json: 50 answers, 0 items done, 246 to score
+/Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py:274: DeprecationWarning: 'HallucinationMetric' now scores in the same direction as every other deepeval metric: 1 is a pass, 0 is a failure, and 'threshold' is the MINIMUM passing score. It previously scored the proportion of violations, where 'threshold' was a maximum. Review any 'threshold' you pass and any code reading '.score' - a threshold of 0.2 that used to mean 'at most 20% violations' should now be 0.8. This notice will be removed in a future release.
+  scorer = HallucinationMetric(model=judge.deepeval_model(), include_reason=False, async_mode=True, **metric["params"])
+  [100/246] retrieval_documents qst_0029
+  [200/246] deepeval_hallucination qst_0058
+  [246/246] ragas_factual_correctness qst_0433
+done: 246/246 items scored, not scored 0, cost this run $0.1178, total $0.1178
+  judge usage this run: {"calls": 598, "prompt_tokens": 456854, "completion_tokens": 82182, "total_tokens": 539036, "fences_removed": 0, "prose_dropped": 0, "not_json_replies": 6, "truncated_replies": 0}
+  ragas_answer_accuracy: mean 0.455 (n=50)
+  ragas_factual_correctness_precision: mean 0.544 (n=50)
+  ragas_factual_correctness_recall: mean 0.527 (n=50)
+  ragas_factual_correctness_f1: mean 0.5032 (n=50)
+  deepeval_summarization: mean 0.4052 (n=50)
+  deepeval_summarization_alignment: mean 0.5937 (n=50)
+  deepeval_summarization_coverage: mean 0.5593 (n=50)
+  deepeval_hallucination: mean 0.6665 (n=50)
+  retrieval_documents_precision: mean 0.1261 (n=46)
+  retrieval_documents_recall: mean 0.8213 (n=46)
+  retrieval_documents_f1: mean 0.2034 (n=46)
+
+# end: 2026-10-11T18:22:42Z  exit: 0  duration_s: 87

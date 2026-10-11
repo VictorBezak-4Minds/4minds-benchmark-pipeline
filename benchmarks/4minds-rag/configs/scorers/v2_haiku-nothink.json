@@ -1,0 +1,60 @@
+{
+  "name": "v2_haiku-nothink",
+  "description": "4Minds RAG v2: the metrics of v1 with the same settings; only the judge is different. Judge: Claude Haiku 5.5 with thinking disabled.",
+  "judge": {
+    "provider": "backend",
+    "backend": "anthropic-claude-haiku-5-5-nothink",
+    "args": {"temperature": 0, "max_tokens": 4096},
+    "drop_params": ["response_format"],
+    "note": "The backend entry removes temperature and top_p (Haiku 5.5 rejects them) and disables thinking. drop_params also removes the RAGAS response_format {\"type\": \"json_object\"}: the Anthropic OpenAI-compatible endpoint accepts only json_schema (HTTP 400). The JSON schema instructions of the RAGAS prompt stay; the code fence around the JSON is removed before parsing."
+  },
+  "concurrency": 16,
+  "metrics": [
+    {
+      "key": "ragas_answer_accuracy",
+      "implementation": "ragas_answer_accuracy",
+      "label": "Answer Accuracy (RAGAS, NVIDIA)",
+      "question_types": "all",
+      "params": {},
+      "note": "The question and the answer against the gold answer; two judge ratings (0, 2 or 4), each with the roles swapped, scaled to 0-1 and averaged."
+    },
+    {
+      "key": "ragas_factual_correctness",
+      "implementation": "ragas_factual_correctness",
+      "label": "Factual Correctness (RAGAS)",
+      "question_types": "all",
+      "params": {"atomicity": "low", "coverage": "low", "beta": 1.0},
+      "outputs": ["precision", "recall", "f1"],
+      "note": "Claims of the answer checked against the gold answer (precision) and claims of the gold answer checked against the answer (recall); F1 from the same TP, FP and FN, with the formulas of FactualCorrectness."
+    },
+    {
+      "key": "deepeval_summarization",
+      "implementation": "deepeval_summarization",
+      "label": "Summarization (DeepEval)",
+      "question_types": "all",
+      "source": "evidence",
+      "params": {"n": 5},
+      "outputs": ["score", "alignment", "coverage"],
+      "note": "The original text is the gold facts of the question, the same for every system. The 5 assessment questions are made once per question by `pipeline/score_extra.py prepare` and used for every system. Score = min(alignment, coverage)."
+    },
+    {
+      "key": "deepeval_hallucination",
+      "implementation": "deepeval_hallucination",
+      "label": "Hallucination (DeepEval; higher is better)",
+      "question_types": "all",
+      "context": "evidence",
+      "params": {},
+      "note": "Context is the gold facts, one context item per fact. The score is the fraction of facts that the answer does not contradict, so \"I don't know\" scores 1."
+    },
+    {
+      "key": "retrieval_documents",
+      "implementation": "retrieval_documents",
+      "label": "Document retrieval (no judge)",
+      "question_types": "all",
+      "requires": ["gold_document_ids"],
+      "params": {},
+      "outputs": ["precision", "recall", "f1"],
+      "note": "The document IDs that the system gave against the original gold document IDs (no correction); only questions with gold documents. Precision is 0 when the system gave no documents."
+    }
+  ]
+}

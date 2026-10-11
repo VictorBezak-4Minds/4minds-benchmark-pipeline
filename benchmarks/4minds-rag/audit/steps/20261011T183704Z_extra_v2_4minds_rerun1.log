@@ -1,0 +1,23 @@
+# step: extra_v2_4minds_rerun1
+# start: 2026-10-11T18:37:04Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/v2_haiku-nothink.json --system-dir runs/2026-10-11_erag-pilot_judge-haiku-nothink/4minds/all
+
+== v2_haiku-nothink on runs/2026-10-11_erag-pilot_judge-haiku-nothink/4minds/all/predictions.json: 50 answers, 226 items done, 20 to score
+/Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py:274: DeprecationWarning: 'HallucinationMetric' now scores in the same direction as every other deepeval metric: 1 is a pass, 0 is a failure, and 'threshold' is the MINIMUM passing score. It previously scored the proportion of violations, where 'threshold' was a maximum. Review any 'threshold' you pass and any code reading '.score' - a threshold of 0.2 that used to mean 'at most 20% violations' should now be 0.8. This notice will be removed in a future release.
+  scorer = HallucinationMetric(model=judge.deepeval_model(), include_reason=False, async_mode=True, **metric["params"])
+  [20/20] ragas_factual_correctness qst_0358
+done: 246/246 items scored, not scored 0, cost this run $0.0247, total $0.2024
+  judge usage this run: {"calls": 79, "prompt_tokens": 90857, "completion_tokens": 31161, "total_tokens": 122018, "fences_removed": 62, "prose_dropped": 0, "not_json_replies": 0, "truncated_replies": 0}
+  ragas_answer_accuracy: mean 0.545 (n=50)
+  ragas_factual_correctness_precision: mean 0.3456 (n=50)
+  ragas_factual_correctness_recall: mean 0.5022 (n=50)
+  ragas_factual_correctness_f1: mean 0.3836 (n=50)
+  deepeval_summarization: mean 0.3246 (n=50)
+  deepeval_summarization_alignment: mean 0.3647 (n=50)
+  deepeval_summarization_coverage: mean 0.576 (n=50)
+  deepeval_hallucination: mean 0.8072 (n=50)
+  retrieval_documents_precision: mean 0.1013 (n=46)
+  retrieval_documents_recall: mean 0.715 (n=46)
+  retrieval_documents_f1: mean 0.1654 (n=46)
+
+# end: 2026-10-11T18:37:44Z  exit: 0  duration_s: 40

@@ -1,0 +1,25 @@
+# step: extra_v1_gptoss_no_rag
+# start: 2026-10-11T18:25:33Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/v1_gpt-4o-mini.json --system-dir runs/2026-10-11_erag-pilot_judge-gpt-4o-mini/gptoss_no_rag/all
+
+== v1_gpt-4o-mini on runs/2026-10-11_erag-pilot_judge-gpt-4o-mini/gptoss_no_rag/all/predictions.json: 49 answers, 0 items done, 241 to score
+/Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py:274: DeprecationWarning: 'HallucinationMetric' now scores in the same direction as every other deepeval metric: 1 is a pass, 0 is a failure, and 'threshold' is the MINIMUM passing score. It previously scored the proportion of violations, where 'threshold' was a maximum. Review any 'threshold' you pass and any code reading '.score' - a threshold of 0.2 that used to mean 'at most 20% violations' should now be 0.8. This notice will be removed in a future release.
+  scorer = HallucinationMetric(model=judge.deepeval_model(), include_reason=False, async_mode=True, **metric["params"])
+  [100/241] deepeval_hallucination qst_0358
+  [200/241] retrieval_documents qst_0338
+  [241/241] ragas_factual_correctness qst_0362
+done: 241/241 items scored, not scored 0, cost this run $0.0915, total $0.0915
+  judge usage this run: {"calls": 585, "prompt_tokens": 384032, "completion_tokens": 56426, "total_tokens": 440458, "fences_removed": 0, "prose_dropped": 0, "not_json_replies": 0, "truncated_replies": 0}
+  ragas_answer_accuracy: mean 0.0612 (n=49)
+  ragas_factual_correctness_precision: mean 0.1502 (n=49)
+  ragas_factual_correctness_recall: mean 0.0596 (n=49)
+  ragas_factual_correctness_f1: mean 0.0822 (n=49)
+  deepeval_summarization: mean 0.0408 (n=49)
+  deepeval_summarization_alignment: mean 0.085 (n=49)
+  deepeval_summarization_coverage: mean 0.1 (n=49)
+  deepeval_hallucination: mean 0.2037 (n=49)
+  retrieval_documents_precision: mean 0.0 (n=45)
+  retrieval_documents_recall: mean 0.0 (n=45)
+  retrieval_documents_f1: mean 0.0 (n=45)
+
+# end: 2026-10-11T18:26:28Z  exit: 0  duration_s: 55

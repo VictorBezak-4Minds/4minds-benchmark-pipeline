@@ -1,0 +1,23 @@
+# step: extra_v2_gptoss_no_rag_rerun1
+# start: 2026-10-11T18:39:20Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/v2_haiku-nothink.json --system-dir runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_no_rag/all
+
+== v2_haiku-nothink on runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_no_rag/all/predictions.json: 49 answers, 229 items done, 12 to score
+/Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py:274: DeprecationWarning: 'HallucinationMetric' now scores in the same direction as every other deepeval metric: 1 is a pass, 0 is a failure, and 'threshold' is the MINIMUM passing score. It previously scored the proportion of violations, where 'threshold' was a maximum. Review any 'threshold' you pass and any code reading '.score' - a threshold of 0.2 that used to mean 'at most 20% violations' should now be 0.8. This notice will be removed in a future release.
+  scorer = HallucinationMetric(model=judge.deepeval_model(), include_reason=False, async_mode=True, **metric["params"])
+  [12/12] deepeval_hallucination qst_0433
+done: 241/241 items scored, not scored 0, cost this run $0.0065, total $0.1201
+  judge usage this run: {"calls": 40, "prompt_tokens": 31076, "completion_tokens": 6855, "total_tokens": 37931, "fences_removed": 30, "prose_dropped": 0, "not_json_replies": 0, "truncated_replies": 0}
+  ragas_answer_accuracy: mean 0.051 (n=49)
+  ragas_factual_correctness_precision: mean 0.081 (n=49)
+  ragas_factual_correctness_recall: mean 0.0267 (n=49)
+  ragas_factual_correctness_f1: mean 0.0369 (n=49)
+  deepeval_summarization: mean 0.0245 (n=49)
+  deepeval_summarization_alignment: mean 0.0721 (n=49)
+  deepeval_summarization_coverage: mean 0.0653 (n=49)
+  deepeval_hallucination: mean 0.3677 (n=49)
+  retrieval_documents_precision: mean 0.0 (n=45)
+  retrieval_documents_recall: mean 0.0 (n=45)
+  retrieval_documents_f1: mean 0.0 (n=45)
+
+# end: 2026-10-11T18:39:25Z  exit: 0  duration_s: 5

@@ -1,0 +1,24 @@
+# step: extra_v2_gptoss_langchain_rerun1
+# start: 2026-10-11T18:37:44Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/v2_haiku-nothink.json --system-dir runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_langchain/all
+
+== v2_haiku-nothink on runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_langchain/all/predictions.json: 50 answers, 224 items done, 22 to score
+/Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py:274: DeprecationWarning: 'HallucinationMetric' now scores in the same direction as every other deepeval metric: 1 is a pass, 0 is a failure, and 'threshold' is the MINIMUM passing score. It previously scored the proportion of violations, where 'threshold' was a maximum. Review any 'threshold' you pass and any code reading '.score' - a threshold of 0.2 that used to mean 'at most 20% violations' should now be 0.8. This notice will be removed in a future release.
+  scorer = HallucinationMetric(model=judge.deepeval_model(), include_reason=False, async_mode=True, **metric["params"])
+  [13/22] deepeval_summarization qst_0454 ERROR ValueError: Evaluation LLM outputted an invalid JSON. Please use a better evaluation model. <- JSONDecodeError: Expecting value: line 1 column 1 (char 0) <- Sto
+  [22/22] ragas_factual_correctness qst_0433
+done: 245/246 items scored, not scored 1, cost this run $0.0178, total $0.1752
+  judge usage this run: {"calls": 65, "prompt_tokens": 65316, "completion_tokens": 22453, "total_tokens": 87769, "fences_removed": 46, "prose_dropped": 0, "not_json_replies": 1, "truncated_replies": 0}
+  ragas_answer_accuracy: mean 0.585 (n=50)
+  ragas_factual_correctness_precision: mean 0.496 (n=50)
+  ragas_factual_correctness_recall: mean 0.3916 (n=50)
+  ragas_factual_correctness_f1: mean 0.399 (n=50)
+  deepeval_summarization: mean 0.2342 (n=49)
+  deepeval_summarization_alignment: mean 0.4141 (n=49)
+  deepeval_summarization_coverage: mean 0.4214 (n=49)
+  deepeval_hallucination: mean 0.8725 (n=50)
+  retrieval_documents_precision: mean 0.1261 (n=46)
+  retrieval_documents_recall: mean 0.8213 (n=46)
+  retrieval_documents_f1: mean 0.2034 (n=46)
+
+# end: 2026-10-11T18:38:18Z  exit: 1  duration_s: 34
