@@ -5,6 +5,8 @@
   ./bench graphrag-bench preflight_gemini_key eval systems/preflight.py gemini-key-project
   ./bench graphrag-bench preflight_file_search eval systems/preflight.py file-search
   ./bench graphrag-bench preflight_judge eval systems/preflight.py judge --llm anthropic-claude-haiku-5-5
+  ./bench enterpriserag-bench preflight_ragflow eval systems/preflight.py ragflow --subset all \
+      --questions-file data/pilot_questions.json --sample 1
 
 llm                 one chat call: model, finish reason, usage, latency and the answer
 gemini-key-project  the Google Cloud project of the Gemini API key, from the error of an API that
@@ -15,6 +17,9 @@ file-search         one generateContent call with the File Search tool on the fi
                     the subset: the number and size of the grounding chunks against top_k
 4minds-dataset      one GET of the benchmark's 4Minds dataset: the build state, the scalar fields and
                     the file list (count, status of each file)
+ragflow             the readiness check of the ragflow retriever, then one retrieval per question: chunks,
+                    documents, scores, and the expected documents that are in the result (a check of
+                    the document ID mapping, not a score)
 """
 import argparse
 import json
@@ -141,6 +146,35 @@ def check_4minds_dataset(args):
     return 0
 
 
+def check_ragflow(args):
+    retriever = retrievers.make("ragflow", args)
+    questions = bc.load_questions(args)
+    ready = retriever.readiness(questions)
+    print(json.dumps(ready))
+    rows = []
+    for question in questions:
+        start = time.monotonic()
+        result, error, _ = retriever.retrieve(question, args.timeout)
+        row = {"id": bc.question_key(question), "type": question.get("question_type"),
+               "latency_s": round(time.monotonic() - start, 2)}
+        if error:
+            row["error"] = error
+        else:
+            expected = question.get("expected_doc_ids") or []
+            row.update(chunks=len(result["contexts"]), documents=len(result["document_ids"]),
+                       scores=result["extra"]["retrieval_scores"], context_chars=result["extra"]["context_chars"],
+                       expected=len(expected), expected_found=len(set(expected) & set(result["document_ids"])))
+        rows.append(row)
+        print(json.dumps(row))
+    out = {"dataset": retriever.dataset_id, "top_n": retriever.top_n, "readiness": ready, "questions": len(rows),
+           "errors": sum("error" in r for r in rows), "no_context": sum(r.get("chunks") == 0 for r in rows),
+           "expected_found": sum(r.get("expected_found", 0) for r in rows),
+           "expected": sum(r.get("expected", 0) for r in rows)}
+    print(json.dumps(out, indent=2))
+    bc.audit("preflight_ragflow", **out, rows=rows)
+    return 1 if out["errors"] else 0
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="check", required=True)
@@ -155,11 +189,14 @@ def main():
     file_search = sub.add_parser("file-search")
     bc.add_common_args(file_search, "preflight")
     retrievers.add_args(file_search)
+    ragflow = sub.add_parser("ragflow")
+    bc.add_common_args(ragflow, "preflight")
+    retrievers.add_args(ragflow)
     args = parser.parse_args()
-    if args.check == "file-search" and not (args.questions_file or args.sample):
+    if args.check in ("file-search", "ragflow") and not (args.questions_file or args.sample):
         args.sample = 1
     checks = {"llm": check_llm, "judge": check_judge, "gemini-key-project": check_gemini_key_project,
-              "file-search": check_file_search, "4minds-dataset": check_4minds_dataset}
+              "file-search": check_file_search, "4minds-dataset": check_4minds_dataset, "ragflow": check_ragflow}
     sys.exit(checks[args.check](args))
 
 
