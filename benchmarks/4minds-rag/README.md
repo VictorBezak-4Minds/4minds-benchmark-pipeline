@@ -49,7 +49,7 @@ A question without an answer has no row, so it is not in that system's means (No
 | `configs/scorers/` | one scorer config per version (judge and metrics) |
 | `configs/comparisons/erag_pilot.json` | the 5 systems, colors, headline metrics, bootstrap settings, caveats |
 | `scripts/aggregate.py` | `summary/scores.json` and `report.md`: means, bootstrap 95% CI, per question type, judge use |
-| `scripts/make_report.py` | `summary/report.html` (4Minds style, `pipeline/report_html.py`), `answers.html` and the export file |
+| `scripts/make_report.py` | `summary/report.html` (4Minds style, `pipeline/report_html.py`), `answers.html` and the export file. The ingestion section (time and cost to load the corpus) reads the `ingestion` entry of each system in the comparison file: the setup files of the source benchmark, and what the cost pays for and where it ran |
 | `scripts/export_page.py` | `runs/<run>/export/4minds-rag_<run>.html`: the report and the question browser in one file to share (two tabs; all CSS, data and scripts inline; only the fonts come from the internet). It has the answers, so git does not track it |
 | `scripts/answers_page.py` | `runs/<run>/answers.html`: the question browser (each question, its gold data, and each system's answer, scores, documents and context). It has the answers, so git does not track it |
 | `scripts/compare_judges.py` | agreement of two runs that differ only in the judge |

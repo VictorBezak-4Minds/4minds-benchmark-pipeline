@@ -3,7 +3,7 @@
 
     ./bench 4minds-rag report_v1 eval make_report.py --run runs/2026-10-11_erag-pilot_judge-gpt-4o-mini
 
-Run aggregate.py first. The systems (names, colors, descriptions) come from the comparison file copy
+Run aggregate.py first. The systems (names, colors, descriptions, ingestion files) come from the comparison file copy
 in runs/<run>/config.json; the metric texts come from the scorer config copy in the same file.
 Links to the audit files are relative to the summary folder.
 """
@@ -17,6 +17,27 @@ import bench_common as bc
 import export_page
 import run_readme
 from report_html import bar, head, header, pct, rel, title_with_info
+
+
+def ingestion_rows(specs):
+    """(spec, info, seconds, cost, file) per system with an ingestion entry; a value is None if it is not known."""
+    rows = []
+    for spec in specs:
+        info = spec.get("ingestion")
+        if not info:
+            continue
+        file = (bc.BENCH_DIR / info["file"]).resolve() if info.get("file") else None
+        data = json.loads(file.read_text()) if file and file.exists() else {}
+        seconds = info["seconds_value"] if "seconds_value" in info else data.get(info.get("seconds"))
+        cost = info["cost_value"] if "cost_value" in info else data.get(info.get("cost"))
+        rows.append((spec, info, seconds, cost, file))
+    return rows
+
+
+def duration(seconds):
+    if seconds is None:
+        return "n/a"
+    return f"{seconds / 3600:.1f} h" if seconds >= 3600 else f"{seconds / 60:.0f} min"
 
 
 def build(out, config, summary_dir, export=None):
@@ -103,6 +124,26 @@ def build(out, config, summary_dir, export=None):
         h.append("</table></div>")
     h.append("</section>")
 
+    ingestion = ingestion_rows(config["systems"])
+    if ingestion:
+        h.append("<section><div class='label'>Ingestion</div><h2>Time and cost to load the corpus</h2>"
+                 f"<p class='sub'>Each system loaded the same {manifest['slice_documents']:,} documents once, before it answered "
+                 "(EnterpriseRAG-Bench run; a readiness check gated each run). Time: from the start of the upload or index "
+                 "build until the system was ready. Cost: an estimate from the token counts and list prices, not an invoice. "
+                 "The systems ran on different machines and with different parallel requests, so compare the times only "
+                 "roughly.</p><div class='card'><table><tr><th>System</th><th>Time</th><th>Est. cost (USD)</th>"
+                 "<th>The cost pays for</th><th>Ran on</th></tr>")
+        for spec, info, seconds, cost, _ in ingestion:
+            h.append(f"<tr><td>{dot(spec['name'])}</td><td>{duration(seconds)}</td>"
+                     f"<td>{'n/a' if cost is None else f'{cost:.2f}'}</td><td>{escape(info.get('cost_covers', ''))}</td>"
+                     f"<td>{escape(info.get('ran_on', ''))}</td></tr>")
+        h.append("</table>")
+        notes = [f"<li><strong style='font-weight:500'>{escape(spec['name'])}</strong>: {escape(info['note'])}</li>"
+                 for spec, info, *_ in ingestion if info.get("note")]
+        if notes:
+            h.append("<ul class='caveats'>" + "".join(notes) + "</ul>")
+        h.append("</div></section>")
+
     h.append("<section><div class='label'>Scoring</div><h2>Judge use and cost</h2>"
              "<p class='sub'>From the score files. An item is one answer and one metric. “Not JSON” counts judge replies that "
              "were not valid JSON after the code-fence fix; the metric then tries again or records an error. Cost is from "
@@ -181,6 +222,7 @@ def build(out, config, summary_dir, export=None):
         folder = Path(s["folder"])
         links += [(f"{n}: predictions (link)", folder / "predictions.json"),
                   (f"{n}: scores", folder / f"{out['scorer']['name']}.json")]
+    links += [(f"{spec['name']}: ingestion", file) for spec, _, _, _, file in ingestion if file]
     if export:
         h.append("<section><div class='label'>Audit trail</div><h2>Files</h2><p class='sub'>Every score and summary step is "
                  f"logged. These files are in the benchmark hub, folder <code>benchmarks/{escape(bc.BENCHMARK)}/</code>; they "

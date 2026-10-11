@@ -30,6 +30,13 @@
       "description": "4Minds prod, Constellations engine (WebSocket), GPT-OSS-120B served by 4Minds; one file per document",
       "short": "4Minds prod, Constellations engine",
       "color": "#543fed",
+      "ingestion": {
+        "file": "../enterpriserag-bench/shared/4minds/setup.json",
+        "seconds": "wait_wall_clock_s",
+        "cost_covers": "not known: 4Minds runs the ETL, embeddings and graph build on its servers and does not report a cost",
+        "ran_on": "4Minds prod servers",
+        "note": "The time counts from the restart of the wait (21:36 UTC). The upload started at 21:22 UTC and the chunk count did not change after 21:39 UTC, so the ingestion itself took about 17 minutes."
+      },
       "caveats": [
         "4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order."
       ]
@@ -41,6 +48,13 @@
       "description": "LangChain TokenTextSplitter (512 tokens, 10% overlap), text-embedding-3-large, FAISS; 100 chunks to the top 10 full documents; the official answer prompt; GPT-OSS-120B on Amazon Bedrock",
       "short": "LangChain vector baseline, top 10 documents",
       "color": "#80aeff",
+      "ingestion": {
+        "file": "../enterpriserag-bench/shared/langchain/enterpriserag-bench-pilot/index_manifest.json",
+        "seconds": "build_wall_clock_s",
+        "cost": "estimated_cost_usd",
+        "cost_covers": "embeddings (text-embedding-3-large, 13.2 M tokens)",
+        "ran_on": "operator's Mac (FAISS index); embeddings on the OpenAI API"
+      },
       "caveats": [
         "LangChain: always gives 10 documents, so its document precision is at most 0.1 for a question with one gold document."
       ]
@@ -52,6 +66,14 @@
       "description": "Microsoft GraphRAG 3.3.0, fast indexing method with default settings, local search (community level 2), text-embedding-3-large; GPT-OSS-120B on Amazon Bedrock",
       "short": "Microsoft GraphRAG, fast method, local search",
       "color": "#f59e0b",
+      "ingestion": {
+        "file": "../enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot/index_manifest.json",
+        "seconds": "index_wall_clock_s",
+        "cost": "estimated_cost_usd",
+        "cost_covers": "GPT-OSS-120B on Bedrock (16,173 calls) and embeddings (29.1 M tokens)",
+        "ran_on": "operator's Mac, 16 parallel LLM requests",
+        "note": "The build stopped once in its last step (the OpenAI account had no credits); that step ran again from the GraphRAG cache. The time is the sum of the two runs, without the wait."
+      },
       "caveats": [
         "GraphRAG: this row is not representative of GraphRAG. The fast method writes no entity descriptions, so local search compares the question only with entity names. On a 500-document test, the standard method found 52 of 74 gold documents and the fast method 17 of 74 (see the EnterpriseRAG-Bench run README)."
       ]
@@ -63,6 +85,14 @@
       "description": "RAGFlow v0.27.2 (self-hosted), naive chunking (512 tokens), text-embedding-3-large; the retrieval API with the default chat-assistant settings (6 chunks, hybrid search); GPT-OSS-120B on Amazon Bedrock",
       "short": "RAGFlow hybrid search, top 6 chunks",
       "color": "#10b981",
+      "ingestion": {
+        "file": "../enterpriserag-bench/shared/ragflow/setup.json",
+        "seconds": "ingest_wall_clock_s",
+        "cost": "estimated_cost_usd",
+        "cost_covers": "embeddings (text-embedding-3-large, 12.5 M tokens as RAGFlow counts them)",
+        "ran_on": "operator's Windows PC (Docker in WSL2, CPU parsing); embeddings on the OpenAI API",
+        "note": "Upload 281 s and parse 8,385 s. The parse time depends on the CPU of that PC."
+      },
       "caveats": []
     },
     {
@@ -72,6 +102,12 @@
       "description": "GPT-OSS-120B on Amazon Bedrock with the official answer prompt and an empty Context Documents section (world-knowledge baseline)",
       "short": "No retrieval (world knowledge)",
       "color": "#a1a1aa",
+      "ingestion": {
+        "seconds_value": 0,
+        "cost_value": 0,
+        "cost_covers": "nothing: no index",
+        "ran_on": "–"
+      },
       "caveats": [
         "No RAG: the system gets no documents, so all its document scores are 0 by design. It has 49 answers; the question without an answer is not scored."
       ]
