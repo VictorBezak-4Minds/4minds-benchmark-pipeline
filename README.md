@@ -16,7 +16,7 @@ Agents: read [AGENTS.md](AGENTS.md) before you do any work here.
 |---|---|---|
 | GraphRAG-Bench (Medical) | [benchmarks/graphrag-bench](benchmarks/graphrag-bench/README.md) | Pilot complete (10 questions, 5 systems). Full run not approved. |
 | QASPER (answer-only) | [benchmarks/qasper](benchmarks/qasper/README.md) | Pilot complete (25 questions, 4 systems; RAG Engine blocked). Full run not approved. |
-| EnterpriseRAG-Bench (metrics-based) | [benchmarks/enterpriserag-bench](benchmarks/enterpriserag-bench/README.md) | Pilot in progress (50 questions, 4 GPT-OSS systems, 10,000-document slice). Full run not approved. |
+| EnterpriseRAG-Bench (metrics-based) | [benchmarks/enterpriserag-bench](benchmarks/enterpriserag-bench/README.md) | Pilot complete (50 questions, 5 systems, 10,000-document slice). Full run not approved. |
 
 ## Layout
 

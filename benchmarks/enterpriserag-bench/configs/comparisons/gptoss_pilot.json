@@ -1,6 +1,6 @@
 {
   "name": "gptoss_pilot",
-  "description": "Four GPT-OSS-120B systems on the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), each scored alone with the official metrics-based evaluation (default settings: citation stripping and document correction on).",
+  "description": "Five GPT-OSS-120B systems on the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), each scored alone with the official metrics-based evaluation (default settings: citation stripping and document correction on).",
   "judge": {
     "judge": "gpt-5.4",
     "cheap_judge": "gpt-5-mini"
@@ -69,6 +69,27 @@
         "GraphRAG index: the community-report calls use GraphRAG's default call settings, not the Bedrock settings of the answer calls. Bedrock's JSON mode often puts a '{' in front of the reply; the hub repairs it in memory (audit/patches/graphrag-3.3.0-gptoss-json-repair.py). 117 of 16,179 communities (0.72%) have no report because the reply stayed invalid.",
         "GraphRAG latency: the search is single-threaded Python over 5.66 million relationships. With 8 parallel workers the questions wait for each other, so the recorded median latency (about 108 s) is mostly waiting; one search alone took 12 to 15 s.",
         "GraphRAG ingestion: the build stopped once in its last step (the OpenAI account had no credits) and that step ran again from the GraphRAG cache. The time is the sum of the two runs, without the wait."
+      ]
+    },
+    {
+      "key": "gptoss_ragflow",
+      "folder": "gptoss_ragflow",
+      "name": "GPT-OSS + RAGFlow",
+      "leaderboard_name": "RAGFlow v0.27.2 hybrid search (text-embedding-3-large) + GPT-OSS-120B",
+      "tags": [
+        "one_shot"
+      ],
+      "description": "RAGFlow v0.27.2 (self-hosted), naive chunking (512 tokens, DeepDOC), text-embedding-3-large; POST /api/v1/retrieval with the default chat-assistant settings (6 chunks, hybrid keyword + vector search with vector weight 0.3, similarity threshold 0.2, no reranker); the chunks in the official answer prompt; GPT-OSS-120B on Amazon Bedrock",
+      "short": "RAGFlow hybrid search, top 6 chunks",
+      "color": "#10b981",
+      "ingestion": {
+        "file": "shared/ragflow/setup.json",
+        "seconds": "ingest_wall_clock_s",
+        "cost": "estimated_cost_usd"
+      },
+      "caveats": [
+        "RAGFlow: the context is the 6 chunks of the RAGFlow retrieval API, in RAGFlow rank order, each chunk as one context document in the official answer prompt; RAGFlow's own chat prompt is not used. The document IDs are the documents of these chunks (documents.json maps the RAGFlow document IDs).",
+        "RAGFlow ingestion: RAGFlow ran in Docker (WSL2) on a separate Windows PC; the Mac sent the searches over the local network. The time (upload 281 s + parse 8,385 s) depends on the CPU of that PC. The cost is only the embedding tokens that RAGFlow counted. setup.json on the Mac was restored from the step log of the setup run (same values), and documents.json was read again from the server."
       ]
     },
     {

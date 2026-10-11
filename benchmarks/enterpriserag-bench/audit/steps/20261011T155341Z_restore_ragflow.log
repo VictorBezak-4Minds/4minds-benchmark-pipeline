@@ -1,0 +1,7 @@
+# step: restore_ragflow
+# start: 2026-10-11T15:53:42Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_ragflow.py --restore-from-log audit/steps/20261011T050443Z_setup_ragflow.log
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/ragflow/setup.json and /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/ragflow/documents.json: {'documents': 10000, 'runs': {'DONE': 10000}, 'chunks': 22993, 'tokens': 12457969}
+
+# end: 2026-10-11T15:54:01Z  exit: 0  duration_s: 20

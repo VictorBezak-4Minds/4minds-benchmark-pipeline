@@ -1,0 +1,85 @@
+# step: rag_help
+# start: 2026-10-11T15:44:18Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-graphrag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_rag.py --help
+
+usage: run_rag.py [-h] --subset {all} [--questions-file QUESTIONS_FILE]
+                  [--sample SAMPLE] [--full] [--workers WORKERS]
+                  [--max-attempts MAX_ATTEMPTS] [--backoff BACKOFF]
+                  [--timeout TIMEOUT] [--out-dir OUT_DIR] [--dry-run] --llm
+                  {anthropic-claude-haiku-5-5,anthropic-claude-haiku-5-5-nothink,bedrock-gpt-oss-120b,gemini-3.8-flash,openai-gpt-4o-mini,openai-gpt-5-mini,openai-gpt-5.4,openai-text-embedding-3-large}
+                  --retriever
+                  {none,gemini_file_search,vertex_rag_engine,langchain_vector,graphrag_local,ragflow}
+                  [--top-k TOP_K] [--store STORE]
+                  [--retrieval-model RETRIEVAL_MODEL]
+                  [--retrieval-instruction {cite_each,official}]
+                  [--rag-setup RAG_SETUP] [--chunk-limit CHUNK_LIMIT]
+                  [--langchain-index LANGCHAIN_INDEX]
+                  [--graphrag-index GRAPHRAG_INDEX]
+                  [--community-level COMMUNITY_LEVEL]
+                  [--ragflow-setup RAGFLOW_SETUP]
+                  [--ragflow-top-n RAGFLOW_TOP_N]
+
+Run benchmark questions as retriever + LLM backend: the retriever finds chunks, the LLM answers.
+
+  --retriever  none | gemini_file_search | vertex_rag_engine | langchain_vector | graphrag_local | ragflow
+               (systems/retrievers.py; graphrag_local runs in the graphrag environment)
+  --llm        a backend in pipeline/llm_backends.json        (pipeline/llm_backends.py)
+
+A profile with messages(q, contexts) gives the request itself (EnterpriseRAG-Bench: the
+official answer prompt in one user message). Otherwise the system message is the profile's
+SYSTEM_PROMPT and the user message has the chunks under "---Knowledge Base---" (the layout of
+the GraphRAG-Bench LightRAG prompt) and then the question; with --retriever none it is the
+question only. The IDs of the retrieved documents go to the prediction when the retriever
+returns them (document_ids). The chunks are stored as
+`context`. Retrieval and generation are retried separately, and their latency, tokens and
+cost are recorded separately (extra.retrieval_s, extra.generation_s). A stopped run continues
+where it stopped (runs.jsonl).
+
+    ./bench graphrag-bench pilot_gptoss_norag eval systems/run_rag.py --subset medical \
+        --llm bedrock-gpt-oss-120b --retriever none \
+        --questions-file data/Questions/pilot_questions.json --out-dir runs/<YYYY-MM-DD>_<name>/gptoss_norag
+
+options:
+  -h, --help            show this help message and exit
+  --subset {all}        EnterpriseRAG-Bench subset to process
+  --questions-file QUESTIONS_FILE
+                        a question file in the official format (default: the
+                        full subset)
+  --sample SAMPLE       first N questions of each source (0 = all)
+  --full                run the full question set (only when the operator has
+                        approved a full run)
+  --workers WORKERS
+  --max-attempts MAX_ATTEMPTS
+  --backoff BACKOFF     first retry wait in seconds; doubles each time
+  --timeout TIMEOUT
+  --out-dir OUT_DIR     for a comparison: runs/<YYYY-MM-DD>_<name>/<system>
+  --dry-run             print the first request and stop
+  --llm {anthropic-claude-haiku-5-5,anthropic-claude-haiku-5-5-nothink,bedrock-gpt-oss-120b,gemini-3.8-flash,openai-gpt-4o-mini,openai-gpt-5-mini,openai-gpt-5.4,openai-text-embedding-3-large}
+  --retriever {none,gemini_file_search,vertex_rag_engine,langchain_vector,graphrag_local,ragflow}
+  --top-k TOP_K         chunks per search (reference runner: 5)
+  --store STORE         gemini_file_search: the File Search store
+  --retrieval-model RETRIEVAL_MODEL
+                        gemini_file_search: the Gemini model that makes the
+                        search
+  --retrieval-instruction {cite_each,official}
+                        gemini_file_search: system instruction of the search
+                        call (see RETRIEVAL_INSTRUCTIONS)
+  --rag-setup RAG_SETUP
+                        vertex_rag_engine: setup.json from setup_rag_engine.py
+  --chunk-limit CHUNK_LIMIT
+                        langchain_vector: chunks to fetch before deduplication
+                        to --top-k documents
+  --langchain-index LANGCHAIN_INDEX
+                        langchain_vector: the folder from setup_langchain.py
+  --graphrag-index GRAPHRAG_INDEX
+                        graphrag_local: the folder from setup_graphrag.py
+  --community-level COMMUNITY_LEVEL
+                        graphrag_local: community level of the reports
+                        (GraphRAG CLI default: 2)
+  --ragflow-setup RAGFLOW_SETUP
+                        ragflow: setup.json from setup_ragflow.py
+  --ragflow-top-n RAGFLOW_TOP_N
+                        ragflow: chunks per search (top_n of a default RAGFlow
+                        chat assistant: 6)
+
+# end: 2026-10-11T15:44:19Z  exit: 0  duration_s: 1

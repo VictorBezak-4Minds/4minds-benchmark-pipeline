@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-11T15:35:57+00:00",
+  "created": "2026-10-11T16:02:38+00:00",
   "label": "PILOT",
   "benchmark": "enterpriserag-bench",
   "comparison": "gptoss_pilot",
@@ -481,6 +481,161 @@
         }
       }
     },
+    "GPT-OSS + RAGFlow": {
+      "key": "gptoss_ragflow",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_ragflow/all",
+      "run_started": "2026-10-11T15:54:39+00:00",
+      "official": {
+        "total_questions": 50,
+        "completed_questions": 50,
+        "skipped_rows": 0,
+        "num_corrected_questions": 1,
+        "average_correctness_pct": 74.0,
+        "average_completeness_pct": 48.93,
+        "combined_correctness_completeness_score": 43.41,
+        "average_recall_pct": 83.15,
+        "average_invalid_extra_docs": 3.7,
+        "overall_score": 43.41
+      },
+      "overall_ci95": [
+        31.79,
+        55.31
+      ],
+      "overall_missing_as_zero": 43.41,
+      "scored_questions": 50,
+      "run_questions": 50,
+      "not_scored": [],
+      "by_type": {
+        "basic": {
+          "count": 17,
+          "average_correctness_pct": 82.35,
+          "average_completeness_pct": 37.11,
+          "combined_correctness_completeness_score": 28.29,
+          "average_recall_pct": 88.24,
+          "average_invalid_extra_docs": 4.24
+        },
+        "semantic": {
+          "count": 12,
+          "average_correctness_pct": 75.0,
+          "average_completeness_pct": 62.7,
+          "combined_correctness_completeness_score": 59.23,
+          "average_recall_pct": 83.33,
+          "average_invalid_extra_docs": 4.5
+        },
+        "intra_document_reasoning": {
+          "count": 4,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 29.17,
+          "combined_correctness_completeness_score": 29.17,
+          "average_recall_pct": 75.0,
+          "average_invalid_extra_docs": 4.0
+        },
+        "project_related": {
+          "count": 4,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 43.74,
+          "combined_correctness_completeness_score": 35.91,
+          "average_recall_pct": 68.75,
+          "average_invalid_extra_docs": 0.5
+        },
+        "constrained": {
+          "count": 3,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 84.44,
+          "combined_correctness_completeness_score": 84.44,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 2.33
+        },
+        "conflicting_info": {
+          "count": 2,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 73.34,
+          "combined_correctness_completeness_score": 73.34,
+          "average_recall_pct": 50.0,
+          "average_invalid_extra_docs": 3.0
+        },
+        "completeness": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 39.16,
+          "combined_correctness_completeness_score": 29.16,
+          "average_recall_pct": 75.0,
+          "average_invalid_extra_docs": 1.5
+        },
+        "miscellaneous": {
+          "count": 2,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 30.0,
+          "combined_correctness_completeness_score": 30.0,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 5.0
+        },
+        "high_level": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 16.66,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "info_not_found": {
+          "count": 2,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 100.0,
+          "combined_correctness_completeness_score": 100.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        }
+      },
+      "corrected": [
+        "qst_0362"
+      ],
+      "failed_judge_questions": {},
+      "documents_per_answer": {
+        "mean": 4.98,
+        "max": 6,
+        "answers_without_documents": 0
+      },
+      "judge": {
+        "models": {
+          "judge": "gpt-5.4",
+          "cheap_judge": "gpt-5-mini"
+        },
+        "cost_usd": 3.3844,
+        "usage": {
+          "gpt-5.4-2026-03-05": {
+            "calls": 401,
+            "input_tokens": 824748,
+            "cached_input_tokens": 230400,
+            "output_tokens": 122726,
+            "reasoning_tokens": 77264,
+            "not_completed": 0
+          }
+        }
+      },
+      "operations": {
+        "questions": 50,
+        "answered": 50,
+        "failed": 0,
+        "no_context": 0,
+        "dont_know": 0,
+        "workers": 8,
+        "latency": {
+          "n": 50,
+          "mean_s": 4.14,
+          "median_s": 3.0,
+          "p90_s": 8.98,
+          "max_s": 11.45
+        },
+        "estimated_cost_usd": 0.0461,
+        "tokens": {
+          "embedding_tokens": 1795,
+          "completion_tokens": 24152,
+          "prompt_tokens": 209409,
+          "total_tokens": 233561
+        }
+      }
+    },
     "GPT-OSS, no RAG": {
       "key": "gptoss_no_rag",
       "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_no_rag/all",
@@ -648,6 +803,15 @@
       "tags": ""
     },
     {
+      "model": "RAGFlow v0.27.2 hybrid search (text-embedding-3-large) + GPT-OSS-120B",
+      "overall_score": "43.41",
+      "correctness": "74.0",
+      "completeness": "48.93",
+      "recall": "83.15",
+      "invalid_extra_docs": "3.7",
+      "tags": "one_shot"
+    },
+    {
       "model": "LangChain vector (text-embedding-3-large) + GPT-OSS-120B",
       "overall_score": "41.69",
       "correctness": "76.0",
@@ -688,6 +852,8 @@
     "GraphRAG index: the community-report calls use GraphRAG's default call settings, not the Bedrock settings of the answer calls. Bedrock's JSON mode often puts a '{' in front of the reply; the hub repairs it in memory (audit/patches/graphrag-3.3.0-gptoss-json-repair.py). 117 of 16,179 communities (0.72%) have no report because the reply stayed invalid.",
     "GraphRAG latency: the search is single-threaded Python over 5.66 million relationships. With 8 parallel workers the questions wait for each other, so the recorded median latency (about 108 s) is mostly waiting; one search alone took 12 to 15 s.",
     "GraphRAG ingestion: the build stopped once in its last step (the OpenAI account had no credits) and that step ran again from the GraphRAG cache. The time is the sum of the two runs, without the wait.",
+    "RAGFlow: the context is the 6 chunks of the RAGFlow retrieval API, in RAGFlow rank order, each chunk as one context document in the official answer prompt; RAGFlow's own chat prompt is not used. The document IDs are the documents of these chunks (documents.json maps the RAGFlow document IDs).",
+    "RAGFlow ingestion: RAGFlow ran in Docker (WSL2) on a separate Windows PC; the Mac sent the searches over the local network. The time (upload 281 s + parse 8,385 s) depends on the CPU of that PC. The cost is only the embedding tokens that RAGFlow counted. setup.json on the Mac was restored from the step log of the setup run (same values), and documents.json was read again from the server.",
     "No RAG: the official prompt says to answer only from the documents, and the document section is empty. The company is synthetic, so world knowledge cannot answer most questions."
   ],
   "inputs": {

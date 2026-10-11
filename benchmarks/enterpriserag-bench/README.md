@@ -7,11 +7,11 @@ question has a gold answer, a list of facts and a list of gold documents. The pu
 [leaderboard](https://huggingface.co/spaces/onyx-dot-app/EnterpriseRAG-Bench-Leaderboard) shows
 one row per system.
 
-**Status:** pilot scored for 4 systems (50 questions, a 10,000-document corpus slice); Microsoft
-GraphRAG was added on 2026-10-11 (index: 7.1 h, USD 32.22). LightRAG was removed on 2026-10-10: its
+**Status:** pilot scored for 5 systems (50 questions, a 10,000-document corpus slice); Microsoft
+GraphRAG (index: 7.1 h, USD 32.22) and RAGFlow (ingestion on the operator's Windows PC: 2.4 h,
+USD 1.62) were added on 2026-10-11. LightRAG was removed on 2026-10-10: its
 index would cost about USD 97 for the slice and about USD 4,950 for the full corpus (the `delete`
-event in `audit/audit.log` has the measurements). RAGFlow is left out for now (its Docker images
-are amd64 only). A full run is not approved.
+event in `audit/audit.log` has the measurements). A full run is not approved.
 
 ## Protocol
 
@@ -60,7 +60,7 @@ answer is correct, and 0 when it is not.
 | `gptoss_no_rag` | GPT-OSS-120B, no retrieval | none (world knowledge baseline) |
 | `gptoss_langchain` | GPT-OSS-120B + LangChain vector RAG | a copy of the official vector baseline: 512-token chunks with 10% overlap, text-embedding-3-large, FAISS, 100 chunks, the top 10 documents in full |
 | `gptoss_graphrag` | GPT-OSS-120B + Microsoft GraphRAG | GraphRAG 3.3.0, fast method, default settings (1,200-token chunks, noun-phrase graph, community reports by GPT-OSS-120B), text-embedding-3-large; the context of GraphRAG local search (community level 2) in the official prompt |
-| `gptoss_ragflow` | GPT-OSS-120B + RAGFlow (setup in progress) | self-hosted RAGFlow v0.27.2, default dataset settings (General chunk method, 512 tokens), text-embedding-3-large; the retrieval of a default RAGFlow chat assistant (6 chunks, hybrid keyword + vector search with vector weight 0.3, similarity threshold 0.2, no reranker), each chunk in the official document layout of the official prompt |
+| `gptoss_ragflow` | GPT-OSS-120B + RAGFlow | self-hosted RAGFlow v0.27.2, default dataset settings (General chunk method, 512 tokens), text-embedding-3-large; the retrieval of a default RAGFlow chat assistant (6 chunks, hybrid keyword + vector search with vector weight 0.3, similarity threshold 0.2, no reranker), each chunk in the official document layout of the official prompt |
 | `4minds` | 4Minds (GPT-OSS-120B + Constellation) | 4Minds prod; one file per document (`<dsid>_<title>.txt`; the runner reads the dsid back from the chunk `document_title`) |
 
 All answers come from GPT-OSS-120B on Amazon Bedrock (`pipeline/llm_backends.json`,
@@ -77,7 +77,7 @@ The same layout as every benchmark in the hub (see the hub README): find the run
 | `leaderboard_upstream/` | the leaderboard Space at `LEADERBOARD_COMMIT` (only `transform_raw_data.py` is used) |
 | `benchmark_profile.py` | profile for the hub pipeline: prompt, corpus documents, prediction format |
 | `data/` | all questions, the pilot questions, the corpus slice, the pilot manifest |
-| `shared/` | `langchain/` (FAISS index), `graphrag/` (GraphRAG index; `_first20` and `_first500` are tests), `4minds/` (setup state), the scorer's uuid index |
+| `shared/` | `langchain/` (FAISS index), `graphrag/` (GraphRAG index; `_first20` and `_first500` are tests), `4minds/` (setup state), `ragflow/` (setup state, RAGFlow document ID map), the scorer's uuid index |
 | `scripts/check_graphrag_retriever.py` | searches a GraphRAG index (also a test index) for a few questions, without answers |
 | `scripts/make_pilot.py` | makes the pilot questions and the corpus slice |
 | `scripts/score.py` | runs the official metrics-based evaluation for one system folder |
@@ -93,6 +93,7 @@ The same layout as every benchmark in the hub (see the hub README): find the run
 ./bench enterpriserag-bench setup_graphrag graphrag systems/setup_graphrag.py [--limit 500] [--dry-run]
 ./bench enterpriserag-bench setup_4minds eval systems/setup_4minds.py
 ./bench enterpriserag-bench setup_ragflow eval systems/setup_ragflow.py --base-url http://<ragflow host>:9380 [--dry-run]
+./bench enterpriserag-bench restore_ragflow eval systems/setup_ragflow.py --restore-from-log audit/steps/<time>_setup_ragflow.log
 ./bench enterpriserag-bench pilot_ragflow erag systems/run_rag.py --retriever ragflow \
     --llm bedrock-gpt-oss-120b --subset all --questions-file data/pilot_questions.json --out-dir runs/<run>/gptoss_ragflow
 ./bench enterpriserag-bench pilot_no_rag erag systems/run_rag.py --retriever none --llm bedrock-gpt-oss-120b \

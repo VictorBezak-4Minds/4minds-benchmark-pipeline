@@ -1,0 +1,7 @@
+# step: describe_pilot
+# start: 2026-10-11T16:03:05Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py --run runs/2026-10-10_gptoss-pilot --title EnterpriseRAG-Bench pilot: GPT-OSS-120B systems --purpose Score GPT-OSS no RAG, GPT-OSS + LangChain vector RAG, GPT-OSS + Microsoft GraphRAG (fast method, local search), GPT-OSS + RAGFlow (hybrid search, server on the operator's Windows PC) and 4Minds (Constellations) on 50 stratified questions and a 10,000-document corpus slice with the official metrics-based evaluation (default settings, gpt-5.4 judge); write the results in the leaderboard file format; estimate a full run. LightRAG was removed on 2026-10-10 (ingestion cost); more systems can be added to this run. --status 5 systems scored (GraphRAG and RAGFlow added 2026-10-11); LightRAG removed
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/README.md
+
+# end: 2026-10-11T16:03:05Z  exit: 0  duration_s: 0

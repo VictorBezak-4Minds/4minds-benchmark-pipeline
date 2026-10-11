@@ -22,11 +22,18 @@ until every document is DONE. It stops if the counts do not change for --stall-m
 Output: shared/ragflow/setup.json (server, dataset, parser config, counts, times, estimated
 embedding cost) and shared/ragflow/documents.json (RAGFlow document ID -> document ID, title and
 file name). The retriever `ragflow` (systems/retrievers.py) reads both.
+
+On a second computer that only has the step log of the setup run:
+    ./bench enterpriserag-bench restore_ragflow eval systems/setup_ragflow.py \\
+        --restore-from-log audit/steps/<time>_setup_ragflow.log
+writes setup.json from the log and documents.json from the server (GET requests only), after a
+check that the server has the same dataset, document states, chunks and tokens as the log.
 """
 import argparse
 import json
 import sys
 import time
+from pathlib import Path
 
 import requests
 
@@ -141,6 +148,53 @@ def start_parse(client, dataset_id, docs, retry_failed):
     return len(ids)
 
 
+def document_map(docs, files):
+    """documents.json: RAGFlow document ID -> document ID, title and file name."""
+    name_doc = {name: d for name, _, d in files}
+    return {d["id"]: {"dsid": name_doc[d["name"]]["dsid"], "title": name_doc[d["name"]]["title"], "name": d["name"]}
+            for d in docs}
+
+
+def setup_from_log(log_path):
+    """The setup.json that a setup run printed at its end (the printed copy has no 'failed' list)."""
+    text = Path(log_path).read_text()
+    start = text.rindex("\n{\n", 0, text.rindex('"documents_file"')) + 1
+    setup = json.loads(text[start:text.index("\n}\n", start) + 2])
+    if setup.get("failed_count"):
+        sys.exit(f"{log_path}: {setup['failed_count']} documents were not DONE; the 'failed' list is not in the log.")
+    return {**setup, "failed": []}
+
+
+def restore(args):
+    """setup.json from a step log, documents.json from the server (GET requests only)."""
+    setup = setup_from_log(args.restore_from_log)
+    if args.base_url:
+        setup["base_url"] = args.base_url
+    if setup["corpus_sha256"] != bc.sha256(bc.CORPUS_FILE):
+        sys.exit("The setup in the log was made from another corpus file.")
+    files = document_files()
+    client = Client(setup["base_url"])
+    dataset = find_dataset(client, setup["dataset"]["name"])
+    if dataset is None or dataset["id"] != setup["dataset"]["id"]:
+        sys.exit(f"The server has no dataset {setup['dataset']['id']} ({setup['dataset']['name']}).")
+    docs = list_documents(client, dataset["id"])
+    state = counts(docs)
+    logged = {k: setup[k] for k in ("documents", "runs", "chunks", "tokens")}
+    if state != logged:
+        sys.exit(f"The server ({state}) does not agree with the log ({logged}).")
+    unknown = sorted(d["name"] for d in docs if d["name"] not in {name for name, _, _ in files})
+    if unknown:
+        sys.exit(f"The dataset has {len(unknown)} files that are not in the corpus list: {unknown[:5]}")
+    setup["restored"] = {"time": bc.now(), "from_log": str(args.restore_from_log),
+                         "note": "setup.json from the step log of the setup run; documents.json from the server"}
+    OUT.mkdir(parents=True, exist_ok=True)
+    DOCUMENTS_FILE.write_text(json.dumps(document_map(docs, files), indent=1))
+    SETUP_FILE.write_text(json.dumps(setup, indent=2))
+    bc.audit("ragflow_restore", dataset_id=dataset["id"], base_url=setup["base_url"], log=str(args.restore_from_log),
+             **state)
+    print(f"wrote {SETUP_FILE} and {DOCUMENTS_FILE}: {state}")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--base-url", help="the RAGFlow API, for example http://<host>:9380 "
@@ -153,8 +207,13 @@ def main():
     parser.add_argument("--stall-min", type=float, default=30)
     parser.add_argument("--retry-failed", action="store_true", help="parse FAIL documents again")
     parser.add_argument("--dry-run", action="store_true", help="make the files and count them; send nothing")
+    parser.add_argument("--restore-from-log", metavar="STEP_LOG",
+                        help="on a second computer: write setup.json from the step log of the setup run and "
+                             "documents.json from the server (GET requests only), then stop")
     args = parser.parse_args()
     sys.stdout.reconfigure(line_buffering=True)
+    if args.restore_from_log:
+        return restore(args)
 
     previous = json.loads(SETUP_FILE.read_text()) if SETUP_FILE.exists() else {}
     base_url = args.base_url or previous.get("base_url")
@@ -216,11 +275,7 @@ def main():
 
     failed = [{"name": d["name"], "run": run_name(d), "progress_msg": (d.get("progress_msg") or "")[-300:]}
               for d in docs if run_name(d) != "DONE"]
-    name_dsid = {name: d["dsid"] for name, _, d in files}
-    titles = {d["dsid"]: d["title"] for _, _, d in files}
-    documents = {d["id"]: {"dsid": name_dsid[d["name"]], "title": titles[name_dsid[d["name"]]], "name": d["name"]}
-                 for d in docs}
-    DOCUMENTS_FILE.write_text(json.dumps(documents, indent=1))
+    DOCUMENTS_FILE.write_text(json.dumps(document_map(docs, files), indent=1))
     state = counts(docs)
     dataset = find_dataset(client, bc.profile.RESOURCE_NAME) or dataset
     status, version = client.request("GET", "/system/version")
