@@ -47,7 +47,8 @@ Benchmark Datasets/
 │   ├── setup_rag_engine.py Vertex AI RAG Engine: provisions Spanner Basic if necessary, creates the corpus (--location)
 │   ├── run_rag_engine.py   Gemini + RAG Engine retrieval
 │   ├── cleanup_rag_engine.py  deletes the corpus and stops Spanner billing
-│   ├── retrievers.py       retrieval only: none, gemini_file_search, vertex_rag_engine, langchain_vector, graphrag_local
+│   ├── setup_ragflow.py    self-hosted RAGFlow: one dataset, one file per document, waits for the parse
+│   ├── retrievers.py       retrieval only: none, gemini_file_search, vertex_rag_engine, langchain_vector, graphrag_local, ragflow
 │   ├── run_rag.py          any retriever + any LLM backend (--retriever, --llm)
 │   └── preflight.py        one-request checks: LLM backend, Gemini key project, File Search chunk count
 ├── envs/                   Python environments (.venv-eval, .venv-lightrag, .venv-erag, .venv-graphrag) and setup_envs.sh
@@ -232,6 +233,7 @@ Keys are in files with mode 600. Code reads them with `bench_common.load_key(pro
 | 4Minds (prod API key) | `~/.config/4minds/api_key` |
 | Gemini Developer API | `~/.config/gemini/api_key` |
 | OpenAI (judge) | `~/.config/openai/api_key` |
+| RAGFlow (self-hosted server API key) | `~/.config/ragflow/api_key`. The embedding key of the server is set in the RAGFlow web page (Model providers), and the server keeps it in its own database. |
 | Google Cloud (Vertex AI) | application default credentials (`gcloud auth application-default login`) |
 | Amazon Bedrock | the AWS profile in the backend's `auth.profile` (now `bedrock`, region us-east-1). No key file: `llm_backends.py` makes a short-term Bedrock token in memory and makes it again before it expires. |
 
@@ -256,6 +258,7 @@ Resources that exist now, and what they cost:
 | 4Minds dataset 4046, model 3604, persona 1291 (prod) | none | EnterpriseRAG-Bench pilot slice (10,000 files, one per document). |
 | LightRAG indexes | none (local) | `benchmarks/<benchmark>/shared/lightrag/workspace/` (Gemini), `workspace_<llm backend>/` (others) |
 | LangChain FAISS indexes | none (local) | `benchmarks/<benchmark>/shared/langchain/<resource name>/` (EnterpriseRAG-Bench pilot slice) |
+| RAGFlow v0.27.2 server (Docker Compose in WSL2 on the operator's Windows PC) | none (local); embedding calls to OpenAI during the parse | EnterpriseRAG-Bench pilot slice (`shared/ragflow/setup.json`). WSL in NAT mode (mirrored mode did not pass traffic into WSL on this PC); a Windows port proxy sends `192.168.1.230:9380` to `127.0.0.1:9380`, and the firewall rule `RAGFlowAPI-LAN` opens only that port to `192.168.1.0/24` (Private profile). If the PC address changes, update both. Stop it with `docker compose -f docker-compose.yml down` in `~/ragflow/docker`. |
 | GraphRAG indexes | none (local) | `benchmarks/<benchmark>/shared/graphrag/<resource name>/` (EnterpriseRAG-Bench pilot slice; `_first<N>` folders are cost tests) |
 
 **RAG Engine check:** "ACTIVE" in the control plane does not prove that queries work. In the

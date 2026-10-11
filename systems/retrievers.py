@@ -16,6 +16,11 @@
                       search (the official engine's context builder, default settings, community
                       level --community-level), as one context; GraphRAG's own answer prompt is not
                       used. document_ids are the documents of the text units in the "sources" table.
+  ragflow             self-hosted RAGFlow dataset (setup_ragflow.py): POST /api/v1/retrieval with the
+                      retrieval settings of a default RAGFlow chat assistant (RAGFLOW_CHAT_RETRIEVAL,
+                      --ragflow-top-n chunks, hybrid keyword + vector search, no reranker); each chunk
+                      is one context in the profile's format_context_document() layout, in RAGFlow's
+                      rank order. document_ids are the documents of the chunks, in rank order.
 
 Each retriever: settings() for run_config.json, readiness(questions) with one real query
 (it exits if the store or corpus cannot answer), retrieve(q, timeout) -> (result, error,
@@ -37,7 +42,12 @@ RETRYABLE_HTTP = {0, 408, 429, 500, 502, 503, 504}
 # A File Search reply without chunks is a result only if Gemini ended normally. With no finish
 # reason or a MALFORMED_* reason, the reply is incomplete (seen after very long search loops).
 COMPLETE_FINISH_REASONS = {"STOP", "MAX_TOKENS"}
-NAMES = ["none", "gemini_file_search", "vertex_rag_engine", "langchain_vector", "graphrag_local"]
+NAMES = ["none", "gemini_file_search", "vertex_rag_engine", "langchain_vector", "graphrag_local", "ragflow"]
+# The retrieval of a RAGFlow v0.27.2 chat assistant with default settings (Dialog defaults in
+# api/db/db_models.py; the retriever.retrieval() call in api/db/services/dialog_service.py).
+RAGFLOW_CHAT_RETRIEVAL = {"similarity_threshold": 0.2, "vector_similarity_weight": 0.3, "knn_top_k": 1024,
+                          "knn_num_candidates": 2048, "rerank_candidates_count": 64, "keyword": False,
+                          "highlight": False}
 # System instruction of the Gemini call that makes the File Search. groundingChunks holds only
 # the chunks that Gemini's text cites, so "cite_each" asks for one cited line per passage. The
 # chunk text always comes from groundingChunks, never from Gemini's text.
@@ -67,11 +77,15 @@ def add_args(parser):
                         help="graphrag_local: the folder from setup_graphrag.py")
     parser.add_argument("--community-level", type=int, default=2,
                         help="graphrag_local: community level of the reports (GraphRAG CLI default: 2)")
+    parser.add_argument("--ragflow-setup", default=str(bc.SHARED / "ragflow" / "setup.json"),
+                        help="ragflow: setup.json from setup_ragflow.py")
+    parser.add_argument("--ragflow-top-n", type=int, default=6,
+                        help="ragflow: chunks per search (top_n of a default RAGFlow chat assistant: 6)")
 
 
 def make(name, args):
     return {"none": NoRetrieval, "gemini_file_search": GeminiFileSearch, "vertex_rag_engine": VertexRagEngine,
-            "langchain_vector": LangChainVector, "graphrag_local": GraphRAGLocal}[name](args)
+            "langchain_vector": LangChainVector, "graphrag_local": GraphRAGLocal, "ragflow": RagFlow}[name](args)
 
 
 def http_error(status, payload):
@@ -382,6 +396,83 @@ class GraphRAGLocal:
             sys.exit(f"Readiness: a query on {self.folder} failed: {error or result['extra']}")
         return {"retriever": self.name, "documents": self.index["documents"], "tables": self.index["tables"],
                 "query_check_documents": len(result["document_ids"])}
+
+    def cost(self, tokens):
+        return tokens.get("embedding_tokens", 0) * self.prices.get("input", 0) / 1e6
+
+
+class RagFlow:
+    name = "ragflow"
+
+    def __init__(self, args):
+        import tiktoken
+        import setup_ragflow
+        path = Path(args.ragflow_setup)
+        if not path.exists():
+            sys.exit(f"{path} does not exist. Run systems/setup_ragflow.py first.")
+        self.setup = json.loads(path.read_text())
+        self.documents = json.loads((path.parent / self.setup["documents_file"]).read_text())
+        self.client = setup_ragflow.Client(self.setup["base_url"])
+        self.dataset_id = self.setup["dataset"]["id"]
+        self.prices = llm_backends.Backend(self.setup["embedding"]["llm_backend"]).prices
+        self.encoding = tiktoken.get_encoding("cl100k_base")
+        self.top_n = args.ragflow_top_n
+
+    def settings(self):
+        return {"retriever": self.name, "base_url": self.setup["base_url"], "server_version": self.setup["server_version"],
+                "dataset": self.setup["dataset"], "embedding_model": self.setup["embedding_model"],
+                "top_n": self.top_n, "retrieval": RAGFLOW_CHAT_RETRIEVAL, "retrieval_api": "POST /api/v1/retrieval",
+                "context": "one context per chunk, profile format_context_document(), RAGFlow rank order"}
+
+    def retrieve(self, q, timeout):
+        start = time.monotonic()
+        status, payload = self.client.request("POST", "/retrieval", timeout=timeout, json={
+            "question": q["question"], "dataset_ids": [self.dataset_id], "page": 1, "page_size": self.top_n,
+            **RAGFLOW_CHAT_RETRIEVAL})
+        if status != 200 or payload.get("code") != 0:
+            error = {"code": payload.get("code"), "message": str(payload.get("message"))[:500], "http_status": status}
+            return None, error, status in RETRYABLE_HTTP or payload.get("code") == 500
+        chunks = (payload.get("data") or {}).get("chunks") or []
+        unknown = [c.get("document_id") for c in chunks if c.get("document_id") not in self.documents]
+        if unknown:
+            return None, {"code": "unknown_document", "message": f"chunks of documents not in setup: {unknown[:5]}"}, False
+        contexts, document_ids = [], []
+        for i, chunk in enumerate(chunks, 1):
+            doc = self.documents[chunk["document_id"]]
+            text = chunk.get("content") or ""
+            if hasattr(bc.profile, "format_context_document"):
+                text = bc.profile.format_context_document(i, {"dsid": doc["dsid"], "title": doc["title"], "content": text})
+            contexts.append(text)
+            if doc["dsid"] not in document_ids:
+                document_ids.append(doc["dsid"])
+        usage = {"embedding_tokens": len(self.encoding.encode(q["question"], disallowed_special=()))}
+        extra = {"retrieval_chunks": len(chunks), "retrieval_documents": len(document_ids),
+                 "retrieval_total": (payload.get("data") or {}).get("total"),
+                 "retrieval_scores": [round(float(c.get("similarity") or 0), 4) for c in chunks],
+                 "context_chars": sum(map(len, contexts)), "retrieval_search_s": round(time.monotonic() - start, 2)}
+        raw = {"chunks": [{k: c.get(k) for k in ("id", "document_id", "document_keyword", "similarity",
+                                                 "vector_similarity", "term_similarity")} for c in chunks],
+               "total": (payload.get("data") or {}).get("total")}
+        return {"contexts": contexts, "document_ids": document_ids, "usage": usage, "extra": extra, "raw": raw}, None, False
+
+    def readiness(self, questions):
+        if not self.setup.get("complete"):
+            sys.exit(f"Readiness: RAGFlow setup is not complete ({self.setup.get('failed_count')} documents not DONE).")
+        if self.setup["corpus_sha256"] != bc.sha256(bc.CORPUS_FILE):
+            sys.exit("Readiness: the RAGFlow dataset was loaded from another corpus file.")
+        status, payload = self.client.request("GET", "/datasets", params={"id": self.dataset_id})
+        datasets = (payload.get("data") or []) if status == 200 and payload.get("code") == 0 else []
+        if not datasets:
+            sys.exit(f"Readiness: cannot read RAGFlow dataset {self.dataset_id}: HTTP {status} {payload.get('message')}")
+        dataset = datasets[0]
+        state = {"documents": dataset.get("document_count"), "chunks": dataset.get("chunk_count")}
+        if state != {"documents": self.setup["documents"], "chunks": self.setup["chunks"]}:
+            sys.exit(f"Readiness: RAGFlow dataset has {state}, setup.json has "
+                     f"{ {'documents': self.setup['documents'], 'chunks': self.setup['chunks']} }.")
+        result, error, _ = self.retrieve(questions[0], 120)
+        if error or not result["contexts"]:
+            sys.exit(f"Readiness: a RAGFlow retrieval failed: {error or result['extra']}")
+        return {"retriever": self.name, **state, "query_check_chunks": len(result["contexts"])}
 
     def cost(self, tokens):
         return tokens.get("embedding_tokens", 0) * self.prices.get("input", 0) / 1e6

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run benchmark questions as retriever + LLM backend: the retriever finds chunks, the LLM answers.
 
-  --retriever  none | gemini_file_search | vertex_rag_engine | langchain_vector | graphrag_local
+  --retriever  none | gemini_file_search | vertex_rag_engine | langchain_vector | graphrag_local | ragflow
                (systems/retrievers.py; graphrag_local runs in the graphrag environment)
   --llm        a backend in pipeline/llm_backends.json        (pipeline/llm_backends.py)
 
