@@ -1,0 +1,7 @@
+# step: setup_graphrag_standard_dry
+# start: 2026-10-11T20:51:46Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-graphrag/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/systems/setup_graphrag.py --method standard --dry-run
+
+10000 documents, 12138718 tokens (cl100k_base), method standard, concurrency 16, out /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_standard
+
+# end: 2026-10-11T20:51:53Z  exit: 0  duration_s: 7

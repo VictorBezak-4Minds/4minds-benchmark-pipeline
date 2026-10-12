@@ -1,0 +1,97 @@
+# step: setup_graphrag_standard
+# start: 2026-10-11T20:56:06Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-graphrag/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/systems/setup_graphrag.py --method standard
+
+10000 documents, 12138718 tokens (cl100k_base), method standard, concurrency 16, out /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_standard
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x731a4c44aa10>
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x731a296f8c50>
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x731a1c912090>
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x731a1a554110>
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x731a9585a110>
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7319fb6f2410>
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7319f9664690>
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7319ea5586d0>
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7319eb9e9d50>
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x731a2a32d6d0>
+[2026-10-12T10:50:56Z WARN  lance::dataset::write::insert] No existing dataset at /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_standard/output/lancedb/entity_description.lance, it will be created
+[2026-10-12T12:29:05Z WARN  lance::dataset::write::insert] No existing dataset at /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_standard/output/lancedb/community_full_content.lance, it will be created
+[2026-10-12T13:12:52Z WARN  lance::dataset::write::insert] No existing dataset at /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_standard/output/lancedb/text_unit_text.lance, it will be created
+{
+  "finished": "2026-10-12T13:32:55+00:00",
+  "complete": true,
+  "errors": [],
+  "reports_missing": 53,
+  "max_missing_share": 0.02,
+  "not_json_replies": 53,
+  "json_replies_repaired": 19100,
+  "workflows": "all (standard method)",
+  "index_wall_clock_s": 59801.6,
+  "documents": 10000,
+  "limit": null,
+  "sample": null,
+  "corpus_tokens": 12138718,
+  "tables": {
+    "documents": 10000,
+    "text_units": 14628,
+    "entities": 121944,
+    "relationships": 256481,
+    "communities": 21727,
+    "community_reports": 21674
+  },
+  "usage": {
+    "openai/openai.gpt-oss-120b-1:0": {
+      "calls": 82740,
+      "prompt_tokens": 176259677,
+      "completion_tokens": 117553246
+    },
+    "openai/text-embedding-3-large": {
+      "calls": 11729,
+      "prompt_tokens": 39481198,
+      "completion_tokens": 0
+    }
+  },
+  "estimated_cost_usd": 102.1035,
+  "method": "standard",
+  "concurrency": 16,
+  "index_call_args": {},
+  "llm": {
+    "llm_backend": "bedrock-gpt-oss-120b",
+    "llm_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+    "llm_model": "openai.gpt-oss-120b-1:0",
+    "llm_params": {
+      "temperature": 0.3,
+      "max_tokens": 4096,
+      "reasoning_effort": "medium"
+    },
+    "llm_auth": {
+      "type": "aws_bedrock_token",
+      "profile": "bedrock",
+      "region": "us-east-1"
+    }
+  },
+  "embedding": {
+    "llm_backend": "openai-text-embedding-3-large",
+    "llm_base_url": "https://api.openai.com/v1",
+    "llm_model": "text-embedding-3-large",
+    "llm_params": {},
+    "llm_auth": {
+      "type": "api_key_file",
+      "provider": "openai"
+    }
+  },
+  "document_ids_sha256": "353295506a18090365b5ed4637add10e75190790a52271b5f97b5a81879f4f37",
+  "corpus": "/home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/data/pilot_corpus.json",
+  "corpus_sha256": "3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec"
+}
+
+# end: 2026-10-12T13:32:56Z  exit: 0  duration_s: 59810

@@ -1,0 +1,31 @@
+# step: preflight_llm_victormini1
+# start: 2026-10-11T20:52:17Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-graphrag/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/systems/preflight.py llm --llm bedrock-gpt-oss-120b
+
+{
+  "backend": "bedrock-gpt-oss-120b",
+  "base_url": "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
+  "model": "openai.gpt-oss-120b-1:0",
+  "params": {
+    "temperature": 0.3,
+    "max_tokens": 4096,
+    "reasoning_effort": "medium"
+  },
+  "latency_s": 1.57,
+  "answer": "I\u2019m sorry, but I don\u2019t have the information needed to answer that question.",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 110,
+    "prompt_tokens": 157,
+    "total_tokens": 267
+  },
+  "served_model": "openai.gpt-oss-120b-1:0",
+  "message_keys": [
+    "content",
+    "refusal",
+    "role"
+  ],
+  "content_has_reasoning_tags": true
+}
+
+# end: 2026-10-11T20:52:19Z  exit: 0  duration_s: 2

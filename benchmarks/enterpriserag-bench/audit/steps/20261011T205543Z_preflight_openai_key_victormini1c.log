@@ -1,0 +1,38 @@
+# step: preflight_openai_key_victormini1c
+# start: 2026-10-11T20:55:43Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-graphrag/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/systems/preflight.py llm --llm openai-gpt-4o-mini
+
+{
+  "backend": "openai-gpt-4o-mini",
+  "base_url": "https://api.openai.com/v1",
+  "model": "gpt-4o-mini",
+  "params": {},
+  "latency_s": 1.69,
+  "answer": "The documents provided do not contain relevant information regarding the capital of France. However, based on my training, I can confirm that the capital of France is Paris.",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 97,
+    "completion_tokens": 32,
+    "total_tokens": 129,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "served_model": "gpt-4o-mini-2024-07-18",
+  "message_keys": [
+    "annotations",
+    "content",
+    "refusal",
+    "role"
+  ],
+  "content_has_reasoning_tags": false
+}
+
+# end: 2026-10-11T20:55:45Z  exit: 0  duration_s: 2

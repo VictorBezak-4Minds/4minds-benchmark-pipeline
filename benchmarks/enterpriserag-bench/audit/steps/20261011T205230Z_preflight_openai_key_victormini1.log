@@ -1,0 +1,7 @@
+# step: preflight_openai_key_victormini1
+# start: 2026-10-11T20:52:30Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-graphrag/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/systems/preflight.py llm --llm openai-gpt-4o-mini
+
+Credential file /home/victormini1/.config/openai/api_key is empty.
+
+# end: 2026-10-11T20:52:30Z  exit: 1  duration_s: 0
