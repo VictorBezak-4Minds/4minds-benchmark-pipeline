@@ -1,0 +1,202 @@
+# step: score_gptoss_graphrag_standard
+# start: 2026-10-12T13:52:36Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-erag/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/scripts/score.py --system-dir runs/2026-10-10_gptoss-pilot/gptoss_graphrag_standard/all
+
+Loading questions from /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/upstream/questions.jsonl...
+  Loaded 500 questions
+Loading answers from /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_graphrag_standard/all/answers.jsonl...
+  Loaded 50 answer rows
+
+  50 questions to evaluate
+Loading UUID index...
+  Loading UUID index from /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/shared/scorer/uuid_index.json...
+  Indexed 511958 documents
+Validating referenced document IDs...
+  Validated 980 referenced document ids
+
+Evaluating 50 questions with 8 parallel workers 
+    Consensus run 1/3 confirmed gold documents
+  qst_0009 docs: OK qst_0009: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0007 docs: OK qst_0007: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0027 docs: OK qst_0027: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0024 docs: OK qst_0024: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0008 docs: OK qst_0008: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0029 docs: OK qst_0029: gold documents confirmed by consensus
+  qst_0009 score: correct=True  completeness=60.0%  recall=100.0%  extra_docs=4
+  qst_0007 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=5
+  qst_0027 score: correct=True  completeness=0.0%  recall=100.0%  extra_docs=4
+    Consensus run 1/3 confirmed gold documents
+  qst_0023 docs: OK qst_0023: gold documents confirmed by consensus
+  qst_0008 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=6
+  qst_0029 score: correct=True  completeness=100.0%  recall=100.0%  extra_docs=4
+  qst_0024 score: correct=True  completeness=0.0%  recall=100.0%  extra_docs=6
+  qst_0023 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=10
+    Consensus run 1/3 confirmed gold documents
+  qst_0036 docs: OK qst_0036: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0058 docs: OK qst_0058: gold documents confirmed by consensus
+  qst_0036 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=7
+    Consensus run 1/3 confirmed gold documents
+  qst_0056 docs: OK qst_0056: gold documents confirmed by consensus
+  qst_0058 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=5
+    Consensus run 1/3 confirmed gold documents
+  qst_0063 docs: OK qst_0063: gold documents confirmed by consensus
+  qst_0056 score: correct=True  completeness=100.0%  recall=100.0%  extra_docs=4
+    Consensus run 1/3 confirmed gold documents
+  qst_0071 docs: OK qst_0071: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0109 docs: OK qst_0109: gold documents confirmed by consensus
+  qst_0071 score: correct=True  completeness=50.0%  recall=100.0%  extra_docs=7
+  qst_0063 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=6
+    Consensus run 1/3 confirmed gold documents
+  qst_0140 docs: OK qst_0140: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0152 docs: OK qst_0152: gold documents confirmed by consensus
+  qst_0109 score: correct=True  completeness=0.0%  recall=100.0%  extra_docs=7
+  qst_0140 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=5
+    Consensus run 1/3 confirmed gold documents
+  qst_0174 docs: OK qst_0174: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0164 docs: OK qst_0164: gold documents confirmed by consensus
+  qst_0152 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=5
+  qst_0174 score: correct=True  completeness=100.0%  recall=100.0%  extra_docs=5
+  qst_0164 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=7
+    Consensus run 1/3 confirmed gold documents
+  qst_0201 docs: OK qst_0201: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0179 docs: OK qst_0179: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0205 docs: OK qst_0205: gold documents confirmed by consensus
+  qst_0201 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=5
+    Consensus run 1/3 confirmed gold documents
+  qst_0229 docs: OK qst_0229: gold documents confirmed by consensus
+  qst_0179 score: correct=False  completeness=42.86%  recall=0.0%  extra_docs=5
+  qst_0205 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=5
+    Consensus run 1/3 confirmed gold documents
+  qst_0204 docs: OK qst_0204: gold documents confirmed by consensus
+  qst_0229 score: correct=True  completeness=0.0%  recall=0.0%  extra_docs=6
+    Consensus run 1/3 confirmed gold documents
+  qst_0245 docs: OK qst_0245: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0240 docs: OK qst_0240: gold documents confirmed by consensus
+  qst_0245 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=5
+    Consensus run 1/3 confirmed gold documents
+  qst_0247 docs: OK qst_0247: gold documents confirmed by consensus
+  qst_0204 score: correct=True  completeness=0.0%  recall=0.0%  extra_docs=5
+  qst_0247 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=6
+  qst_0240 score: correct=False  completeness=50.0%  recall=0.0%  extra_docs=6
+    Consensus run 1/3 confirmed gold documents
+  qst_0259 docs: OK qst_0259: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0253 docs: OK qst_0253: gold documents confirmed by consensus
+  qst_0253 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=5
+    Consensus run 1/3 confirmed gold documents
+  qst_0301 docs: OK qst_0301: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0265 docs: OK qst_0265: gold documents confirmed by consensus
+  qst_0259 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=6
+    Consensus run 1/3 confirmed gold documents
+  qst_0318 docs: OK qst_0318: gold documents confirmed by consensus
+  qst_0301 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=5
+    Consensus run 1/3 confirmed gold documents
+  qst_0267 docs: OK qst_0267: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0329 docs: OK qst_0329: gold documents confirmed by consensus
+  qst_0318 score: correct=True  completeness=100.0%  recall=100.0%  extra_docs=4
+  qst_0329 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=6
+  qst_0267 score: correct=False  completeness=25.0%  recall=0.0%  extra_docs=5
+  qst_0265 score: correct=False  completeness=20.0%  recall=0.0%  extra_docs=5
+    Consensus run 1/3 confirmed gold documents
+  qst_0338 docs: OK qst_0338: gold documents confirmed by consensus
+  qst_0338 score: correct=False  completeness=33.33%  recall=100.0%  extra_docs=5
+    Consensus run 1/3 confirmed gold documents
+  qst_0387 docs: OK qst_0387: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0385 docs: OK qst_0385: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0405 docs: OK qst_0405: gold documents confirmed by consensus
+  qst_0387 score: correct=True  completeness=100.0%  recall=100.0%  extra_docs=6
+  qst_0385 score: correct=True  completeness=80.0%  recall=100.0%  extra_docs=3
+  qst_0405 score: correct=True  completeness=100.0%  recall=50.0%  extra_docs=6
+    Consensus majority vote confirmed gold documents
+  qst_0368 docs: OK qst_0368: gold documents confirmed by consensus
+    Consensus majority vote confirmed gold documents
+  qst_0414 docs: OK qst_0414: gold documents confirmed by consensus
+  qst_0414 score: correct=False  completeness=40.0%  recall=0.0%  extra_docs=4
+  qst_0368 score: correct=False  completeness=50.0%  recall=100.0%  extra_docs=4
+    Consensus: 3/3 runs completed, majority vote differs from gold
+  qst_0421 docs: UPDATED qst_0421: document set changed (2 -> 1 docs)
+    Consensus run 1/3 confirmed gold documents
+  qst_0462 docs: OK qst_0462: gold documents confirmed by consensus
+    Consensus run 1/3 confirmed gold documents
+  qst_0454 docs: OK qst_0454: gold documents confirmed by consensus
+  qst_0421 score: correct=True  completeness=75.0%  recall=100.0%  extra_docs=5
+  qst_0462 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=6
+  qst_0454 score: correct=False  completeness=0.0%  recall=0.0%  extra_docs=10
+  qst_0471 score: correct=False  completeness=0.0%  recall=N/A  extra_docs=N/A
+  qst_0489 score: correct=False  completeness=0.0%  recall=N/A  extra_docs=N/A
+  qst_0478 score: correct=False  completeness=66.67%  recall=N/A  extra_docs=N/A
+  qst_0492 score: correct=True  completeness=100.0%  recall=N/A  extra_docs=N/A
+    Consensus majority vote confirmed gold documents
+  qst_0351 docs: OK qst_0351: gold documents confirmed by consensus
+    Consensus majority vote confirmed gold documents
+  qst_0358 docs: OK qst_0358: gold documents confirmed by consensus
+    Consensus: 3/3 runs completed, majority vote differs from gold
+  qst_0351 score: correct=True  completeness=45.45%  recall=50.0%  extra_docs=3
+  qst_0358 score: correct=True  completeness=15.0%  recall=25.0%  extra_docs=4
+  qst_0443 docs: UPDATED qst_0443: document set changed (5 -> 3 docs)
+  qst_0443 score: correct=False  completeness=12.5%  recall=33.33%  extra_docs=5
+    Consensus majority vote confirmed gold documents
+  qst_0433 docs: OK qst_0433: gold documents confirmed by consensus
+  qst_0433 score: correct=True  completeness=16.67%  recall=33.33%  extra_docs=6
+    Consensus majority vote confirmed gold documents
+  qst_0362 docs: OK qst_0362: gold documents confirmed by consensus
+  qst_0362 score: correct=False  completeness=30.77%  recall=22.22%  extra_docs=1
+
+Finalizing output files (sorting and writing results)...
+  Writing /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_graphrag_standard/all/results.json...
+  Writing /home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_graphrag_standard/all/questions_updated.jsonl...
+
+Done.
+  Questions scored:    50
+  Skipped rows:        0
+  Corrected questions: 2
+  Avg correctness:     38.0%
+  Avg completeness:    28.27%
+  Combined corr*comp:  20.84
+  Avg recall:          35.08%
+  Avg invalid extra:   5.3
+{
+  "overall_score": 20.84,
+  "aggregate_stats": {
+    "total_questions": 50,
+    "completed_questions": 50,
+    "skipped_rows": 0,
+    "num_corrected_questions": 2,
+    "average_correctness_pct": 38.0,
+    "average_completeness_pct": 28.27,
+    "combined_correctness_completeness_score": 20.84,
+    "average_recall_pct": 35.08,
+    "average_invalid_extra_docs": 5.3
+  },
+  "judge_usage": {
+    "gpt-5.4-2026-03-05": {
+      "calls": 407,
+      "input_tokens": 994632,
+      "cached_input_tokens": 149760,
+      "output_tokens": 141580,
+      "reasoning_tokens": 85564,
+      "not_completed": 0
+    }
+  },
+  "judge_cost_usd": 4.2733,
+  "failed_questions": {},
+  "missing_scores": []
+}
+
+# end: 2026-10-12T13:56:58Z  exit: 0  duration_s: 262

@@ -1,0 +1,27 @@
+# step: extra_v2_gptoss_graphrag_standard
+# start: 2026-10-12T14:12:42Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-extra/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/pipeline/score_extra.py score --config configs/scorers/v2_haiku-nothink.json --system-dir runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_graphrag_standard/all
+
+== v2_haiku-nothink on runs/2026-10-11_erag-pilot_judge-haiku-nothink/gptoss_graphrag_standard/all/predictions.json: 50 answers, 0 items done, 246 to score
+/home/victormini1/Documents/4minds-benchmark-pipeline/pipeline/score_extra.py:274: DeprecationWarning: 'HallucinationMetric' now scores in the same direction as every other deepeval metric: 1 is a pass, 0 is a failure, and 'threshold' is the MINIMUM passing score. It previously scored the proportion of violations, where 'threshold' was a maximum. Review any 'threshold' you pass and any code reading '.score' - a threshold of 0.2 that used to mean 'at most 20% violations' should now be 0.8. This notice will be removed in a future release.
+  scorer = HallucinationMetric(model=judge.deepeval_model(), include_reason=False, async_mode=True, **metric["params"])
+  [100/246] deepeval_hallucination qst_0174
+  [126/246] deepeval_hallucination qst_0245 ERROR ValueError: Evaluation LLM outputted an invalid JSON. Please use a better evaluation model. <- JSONDecodeError: Expecting value: line 1 column 1 (char 0) <- Sto
+  [200/246] deepeval_summarization qst_0204
+  [240/246] deepeval_summarization qst_0351 ERROR RateLimitError: Error code: 429 - {'error': {'code': 'rate_limit_error', 'message': 'This request would exceed your rate limit of 80,000 output tokens per minut
+  [246/246] deepeval_summarization qst_0358
+done: 244/246 items scored, not scored 2, cost this run $0.1594, total $0.1594
+  judge usage this run: {"calls": 598, "prompt_tokens": 709879, "completion_tokens": 176813, "total_tokens": 886692, "fences_removed": 346, "prose_dropped": 2, "not_json_replies": 1, "truncated_replies": 0}
+  ragas_answer_accuracy: mean 0.305 (n=50)
+  ragas_factual_correctness_precision: mean 0.2754 (n=50)
+  ragas_factual_correctness_recall: mean 0.2276 (n=50)
+  ragas_factual_correctness_f1: mean 0.234 (n=50)
+  deepeval_summarization: mean 0.1323 (n=49)
+  deepeval_summarization_alignment: mean 0.2673 (n=49)
+  deepeval_summarization_coverage: mean 0.2367 (n=49)
+  deepeval_hallucination: mean 0.5845 (n=49)
+  retrieval_documents_precision: mean 0.1035 (n=46)
+  retrieval_documents_recall: mean 0.3479 (n=46)
+  retrieval_documents_f1: mean 0.1401 (n=46)
+
+# end: 2026-10-12T14:14:00Z  exit: 1  duration_s: 78

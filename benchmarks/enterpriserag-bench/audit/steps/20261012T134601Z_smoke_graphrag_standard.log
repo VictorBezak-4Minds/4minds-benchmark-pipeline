@@ -1,0 +1,19 @@
+# step: smoke_graphrag_standard
+# start: 2026-10-12T13:46:01Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-graphrag/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/systems/run_rag.py --retriever graphrag_local --graphrag-index shared/graphrag/enterpriserag-bench-pilot_standard --llm bedrock-gpt-oss-120b --subset all --questions-file runs/2026-10-10_gptoss-pilot/tests/smoke_questions.json --out-dir runs/2026-10-10_gptoss-pilot/tests/graphrag_standard_smoke --workers 3 --timeout 120
+
+== graphrag_local+bedrock-gpt-oss-120b / all: 3 questions, 0 already done, 3 to run, 3 workers
+Reached token limit - reverting to previous context state
+  readiness: {"retriever": "graphrag_local", "documents": 10000, "tables": {"documents": 10000, "text_units": 14628, "entities": 121944, "relationships": 256481, "communities": 21727, "community_reports": 21674}, "query_check_documents": 5, "llm_check": {"finish_reason": "stop", "usage": {"completion_tokens": 401, "prompt_tokens": 193, "total_tokens": 594}}}
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+Reached token limit - reverting to previous context state
+  [3/3] ok (16 s)
+
+== summary -> runs/2026-10-10_gptoss-pilot/tests/graphrag_standard_smoke/all/predictions.json
+  answered: 3 / 3   failed: 0   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'embedding_tokens': 125, 'completion_tokens': 2357, 'prompt_tokens': 31973, 'total_tokens': 34330}
+  latency: {'n': 3, 'mean_s': 10.93, 'median_s': 11.43, 'p90_s': 15.6, 'max_s': 15.6}   estimated cost: 0.0062
+
+# end: 2026-10-12T13:46:40Z  exit: 0  duration_s: 39

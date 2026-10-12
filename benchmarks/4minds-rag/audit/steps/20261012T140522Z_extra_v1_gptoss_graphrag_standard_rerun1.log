@@ -1,0 +1,21 @@
+# step: extra_v1_gptoss_graphrag_standard_rerun1
+# start: 2026-10-12T14:05:22Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-extra/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/pipeline/score_extra.py score --config configs/scorers/v1_gpt-4o-mini.json --system-dir runs/2026-10-11_erag-pilot_judge-gpt-4o-mini/gptoss_graphrag_standard/all
+
+== v1_gpt-4o-mini on runs/2026-10-11_erag-pilot_judge-gpt-4o-mini/gptoss_graphrag_standard/all/predictions.json: 50 answers, 245 items done, 1 to score
+  [1/1] deepeval_summarization qst_0007
+done: 246/246 items scored, not scored 0, cost this run $0.0005, total $0.0005
+  judge usage this run: {"calls": 5, "prompt_tokens": 2176, "completion_tokens": 228, "total_tokens": 2404, "fences_removed": 0, "prose_dropped": 0, "not_json_replies": 0, "truncated_replies": 0}
+  ragas_answer_accuracy: mean 0.245 (n=50)
+  ragas_factual_correctness_precision: mean 0.3298 (n=50)
+  ragas_factual_correctness_recall: mean 0.2638 (n=50)
+  ragas_factual_correctness_f1: mean 0.2766 (n=50)
+  deepeval_summarization: mean 0.2269 (n=50)
+  deepeval_summarization_alignment: mean 0.3393 (n=50)
+  deepeval_summarization_coverage: mean 0.347 (n=50)
+  deepeval_hallucination: mean 0.3678 (n=50)
+  retrieval_documents_precision: mean 0.1035 (n=46)
+  retrieval_documents_recall: mean 0.3479 (n=46)
+  retrieval_documents_f1: mean 0.1401 (n=46)
+
+# end: 2026-10-12T14:05:26Z  exit: 0  duration_s: 4

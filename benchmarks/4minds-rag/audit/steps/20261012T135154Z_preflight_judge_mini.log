@@ -1,0 +1,29 @@
+# step: preflight_judge_mini
+# start: 2026-10-12T13:51:54Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-extra/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/systems/preflight.py judge --llm openai-gpt-4o-mini
+
+{
+  "backend": "openai-gpt-4o-mini",
+  "model": "gpt-4o-mini",
+  "dropped_params": [],
+  "scorer_settings": {
+    "snapshot": "gpt-4o-mini-2024-07-18",
+    "settings_sent": {
+      "temperature": 0.0,
+      "top_p": 1,
+      "seed": 42,
+      "presence_penalty": 0,
+      "frequency_penalty": 0
+    },
+    "rate_limits": {
+      "x-ratelimit-limit-requests": "5000",
+      "x-ratelimit-limit-tokens": "2000000",
+      "x-ratelimit-remaining-requests": "4999",
+      "x-ratelimit-remaining-tokens": "1999996",
+      "x-ratelimit-reset-requests": "12ms",
+      "x-ratelimit-reset-tokens": "0s"
+    }
+  }
+}
+
+# end: 2026-10-12T13:51:56Z  exit: 0  duration_s: 2

@@ -1,0 +1,20 @@
+# step: preflight_judge_mini
+# start: 2026-10-12T14:06:27Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-extra/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/systems/preflight.py judge --llm anthropic-claude-haiku-5-5-nothink
+
+{
+  "backend": "anthropic-claude-haiku-5-5-nothink",
+  "model": "claude-haiku-5-5",
+  "dropped_params": [
+    "temperature",
+    "top_p"
+  ],
+  "official_settings": {
+    "error": "Missing credential file /home/victormini1/.config/anthropic/api_key."
+  },
+  "scorer_settings": {
+    "error": "Missing credential file /home/victormini1/.config/anthropic/api_key."
+  }
+}
+
+# end: 2026-10-12T14:06:27Z  exit: 1  duration_s: 0

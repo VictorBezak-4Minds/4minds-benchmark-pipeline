@@ -1,0 +1,7 @@
+# step: derive_v2_graphrag_standard
+# start: 2026-10-12T13:52:15Z
+# command: /home/victormini1/Documents/4minds-benchmark-pipeline/envs/.venv-graphrag/bin/python /home/victormini1/Documents/4minds-benchmark-pipeline/pipeline/derive_run.py --from ../enterpriserag-bench/runs/2026-10-10_gptoss-pilot --to runs/2026-10-11_erag-pilot_judge-haiku-nothink --change 4Minds RAG metrics (configs/scorers/v2_haiku-nothink.json), judge Claude Haiku 5.5 with thinking disabled instead of gpt-4o-mini --title 4Minds RAG v2: EnterpriseRAG-Bench pilot answers, judge Claude Haiku 5.5 (no thinking) --purpose The same as v1; only the judge is different. --systems gptoss_graphrag_standard
+
+/home/victormini1/Documents/4minds-benchmark-pipeline/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink: 5 links for ['gptoss_graphrag_standard']
+
+# end: 2026-10-12T13:52:15Z  exit: 0  duration_s: 0
