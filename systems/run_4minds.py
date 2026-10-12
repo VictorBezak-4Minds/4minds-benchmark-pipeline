@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Run benchmark questions against 4Minds (prod) with the API key.
+"""Run benchmark questions against 4Minds with the API key.
 
-The dataset, persona and model are made by setup_4minds.py. Each question gets a new
-conversation (no history).
+The dataset, persona and model are made by setup_4minds.py with the same --target (default
+prod; servers in 4minds_targets.json). Each question gets a new conversation (no history).
   --engine constellations: WebSocket wss://.../api/v1/user/inference ("conversation_prompt").
       The answer is the joined stream_chunk deltas; the context is the retrieved chunk text.
   --engine symi: POST /api/v1/user/inference with inference_engine "symi" (SSE). The SYMI
@@ -26,8 +26,6 @@ from websockets.sync.client import connect
 import bench_common as bc
 import setup_4minds as setup
 
-WS_URL = "wss://api.4minds.ai/api/v1/user/inference"
-SSE_URL = f"{setup.BASE}/api/v1/user/inference"
 PREFIX = {"constellations": "", "symi": "symi."}
 IGNORED = {"ping", "pong", "banner", "conversation_created", "token_refreshed", "user_message", "connection_established",
            "agent_status", "agent_update", "planning", "verification", "regeneration_start"}
@@ -35,6 +33,10 @@ IGNORED = {"ping", "pong", "banner", "conversation_created", "token_refreshed", 
 
 class Fatal(Exception):
     pass
+
+
+def sse_url():
+    return f"{setup.BASE}/api/v1/user/inference"
 
 
 def create_conversation(http, model_id, q):
@@ -57,7 +59,7 @@ def one_turn(key, http, model_id, engine, q, timeout):
     prefix = PREFIX[engine]
     conversation_id = create_conversation(http, model_id, q)
     deadline = time.monotonic() + timeout
-    with connect(WS_URL, open_timeout=30, close_timeout=5, max_size=None) as ws:
+    with connect(setup.WS_URL, open_timeout=30, close_timeout=5, max_size=None) as ws:
         ws.send(json.dumps({"type": "authenticate", "token": key}))
         while True:
             frame = receive(ws, deadline)
@@ -132,7 +134,7 @@ def sse_turn(http, model_id, q, timeout):
     deadline = time.monotonic() + timeout
     body = {"query": q["question"], "model_id": model_id, "inference_engine": "symi", "enable_web_search": False}
     frames, chunks, message, complete, event = [], [], "", None, None
-    with http.post(SSE_URL, json=body, stream=True, timeout=(30, 120)) as response:
+    with http.post(sse_url(), json=body, stream=True, timeout=(30, 120)) as response:
         if response.status_code in (401, 403):
             raise Fatal(f"HTTP {response.status_code}: {response.text[:300]}")
         if response.status_code >= 400:
@@ -225,19 +227,23 @@ def make_ask(key, args, model_id):
 def main():
     parser = bc.parser(__doc__, "4minds", workers=4)
     parser.add_argument("--engine", required=True, choices=sorted(PREFIX))
+    parser.add_argument("--target", default="prod", choices=sorted(setup.TARGETS), help="server in 4minds_targets.json")
     args = parser.parse_args()
+    setup.use_target(args.target)
     if args.out_dir == str(bc.RUNS / "4minds"):
         args.out_dir = str(bc.RUNS / f"4minds_{args.engine}")
     if not setup.SETUP_FILE.exists():
-        sys.exit(f"Run setup_4minds.py first ({setup.SETUP_FILE} is missing).")
+        sys.exit(f"Run setup_4minds.py --target {args.target} first ({setup.SETUP_FILE} is missing).")
     ids = json.loads(setup.SETUP_FILE.read_text())
+    if ids.get("base_url") != setup.BASE:
+        sys.exit(f"{setup.SETUP_FILE} is for {ids.get('base_url')}, not the {args.target} target {setup.BASE}.")
     model_id, dataset_id = ids["model_id"], ids["dataset_id"]
     questions = bc.load_questions(args)
     if args.dry_run:
         print(json.dumps({"type": f"{PREFIX[args.engine]}conversation_prompt", "model_id": model_id,
                           "conversation_id": "<new per question>", "prompt": questions[0]["question"]}, indent=2))
         return
-    key = bc.load_key("4minds")
+    key = bc.load_key(setup.KEY_PROVIDER)
     client = setup.Client()
 
     def readiness():
@@ -246,7 +252,7 @@ def main():
             sys.exit(f"Readiness: 4Minds dataset {dataset_id} / model {model_id} not ready: {state}")
         return ready
 
-    endpoint = SSE_URL if args.engine == "symi" else WS_URL
+    endpoint = sse_url() if args.engine == "symi" else setup.WS_URL
     settings = {"base_url": setup.BASE, "engine": args.engine, "endpoint": endpoint, "model_id": model_id,
                 "dataset_id": dataset_id, "persona_id": ids["persona_id"],
                 "system_prompt_via": "persona.behavioralGuidelines", "system_prompt": bc.SYSTEM_PROMPT,

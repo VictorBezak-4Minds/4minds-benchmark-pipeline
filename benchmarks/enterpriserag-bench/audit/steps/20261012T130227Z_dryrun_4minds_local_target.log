@@ -1,0 +1,7 @@
+# step: dryrun_4minds_local_target
+# start: 2026-10-12T13:02:27Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_4minds.py --engine constellations --target local --subset all --questions-file data/pilot_questions.json --out-dir runs/2026-10-10_gptoss-pilot/4minds_local_sysprompt --dry-run
+
+Run setup_4minds.py --target local first (/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/4minds_local/setup.json is missing).
+
+# end: 2026-10-12T13:02:27Z  exit: 1  duration_s: 0

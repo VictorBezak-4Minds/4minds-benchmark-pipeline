@@ -1,0 +1,16 @@
+{
+  "prod": {
+    "base_url": "https://api.4minds.ai",
+    "ws_url": "wss://api.4minds.ai/api/v1/user/inference",
+    "key_provider": "4minds",
+    "shared_name": "4minds",
+    "note": "4Minds prod with the benchmark API key"
+  },
+  "local": {
+    "base_url": "http://localhost:8000",
+    "ws_url": "ws://localhost:8000/api/v1/user/inference",
+    "key_provider": "4minds-local",
+    "shared_name": "4minds_local",
+    "note": "the operator's minikube-dev stack (4minds-main/minikube-dev, make deploy); port forward to backend-service. The code version is the operator's branch, not the prod release."
+  }
+}

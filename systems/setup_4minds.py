@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Load the benchmark corpus into 4Minds (prod): one dataset, one persona, one model.
+"""Load the benchmark corpus into 4Minds: one dataset, one persona, one model.
+
+--target (default prod) selects the server, the key file and the shared/ folder from
+systems/4minds_targets.json. local is the operator's minikube-dev stack.
 
 Names, corpus file and system prompt come from the active benchmark profile.
 Safe to run again: it reuses the dataset, persona and model with the benchmark names.
@@ -19,6 +22,7 @@ batch, so the build counts as complete only when its state (total_chunks_count) 
 for --stable-min minutes; setup.json records that chunk count, and runners check it.
 
     ./bench graphrag-bench setup_4minds eval systems/setup_4minds.py
+    ./bench enterpriserag-bench setup_4minds_local eval systems/setup_4minds.py --target local
 
 A second dataset of the same benchmark (for example the full corpus) needs its own
 --corpus-file, --name and --shared-name, so that it does not reuse the first dataset or
@@ -29,22 +33,35 @@ import json
 import re
 import sys
 import time
+from pathlib import Path
 
 import requests
 
 import bench_common as bc
 
-BASE = "https://api.4minds.ai"
+TARGETS = json.loads((Path(__file__).parent / "4minds_targets.json").read_text())
 DATASET_NAME = bc.profile.RESOURCE_NAME
 MODEL_NAME = bc.profile.RESOURCE_NAME
 RESOURCE_DESCRIPTION = bc.profile.RESOURCE_DESCRIPTION
 CORPUS_FILE = bc.CORPUS_FILE
 PERSONA_NAME = f"{bc.profile.TITLE} official prompt"
-SETUP_FILE = bc.SHARED / "4minds" / "setup.json"
-FILE_MAP = bc.SHARED / "4minds" / "file_map.json"
 DSID = re.compile(r"dsid_[0-9a-f]{32}")
 RETRY_STATUS = {429, 500, 502, 503, 504}
 RETRY_WAIT_S = (30, 60, 120, 300, 600)
+
+
+def use_target(name, shared_name=None):
+    """Set the server, WebSocket URL, key file and shared/ files of a target in 4minds_targets.json."""
+    global TARGET, BASE, WS_URL, KEY_PROVIDER, SETUP_FILE, FILE_MAP
+    if name not in TARGETS:
+        sys.exit(f"Unknown 4Minds target {name!r}; known: {sorted(TARGETS)}")
+    target = TARGETS[name]
+    TARGET, BASE, WS_URL, KEY_PROVIDER = name, target["base_url"], target["ws_url"], target["key_provider"]
+    shared = bc.SHARED / (shared_name or target["shared_name"])
+    SETUP_FILE, FILE_MAP = shared / "setup.json", shared / "file_map.json"
+
+
+use_target("prod")
 
 
 def file_name(doc):
@@ -61,7 +78,7 @@ def dsid_of(title):
 class Client:
     def __init__(self):
         self.http = requests.Session()
-        self.http.headers["X-API-Key"] = bc.load_key("4minds")
+        self.http.headers["X-API-Key"] = bc.load_key(KEY_PROVIDER)
 
     def call(self, method, path, **kwargs):
         """Retries rate limits, server errors and lost connections; uploads are safe to retry
@@ -160,7 +177,7 @@ def document_files():
 
 
 def create_dataset(client, files):
-    bc.audit("4minds_create_dataset", name=DATASET_NAME, file=str(CORPUS_FILE), sha256=bc.sha256(CORPUS_FILE),
+    bc.audit("4minds_create_dataset", target=TARGET, name=DATASET_NAME, file=str(CORPUS_FILE), sha256=bc.sha256(CORPUS_FILE),
              files=len(files))
     return client.call("POST", "/api/v1/user/dataset", files=[("files", (n, b, "text/plain")) for n, b in files],
                        data={"dataset_name": DATASET_NAME, "tags": f"{bc.BENCHMARK},benchmark",
@@ -200,18 +217,22 @@ def main():
     parser.add_argument("--corpus-file", help="corpus file instead of the profile's CORPUS_FILE")
     parser.add_argument("--name", help="dataset and model name instead of the profile's RESOURCE_NAME")
     parser.add_argument("--description", help="dataset description instead of the profile's RESOURCE_DESCRIPTION")
-    parser.add_argument("--shared-name", default="4minds", help="folder in shared/ for setup.json and file_map.json")
+    parser.add_argument("--target", default="prod", choices=sorted(TARGETS), help="server in 4minds_targets.json")
+    parser.add_argument("--shared-name", help="folder in shared/ for setup.json and file_map.json "
+                                              "(default: the target's shared_name)")
     args = parser.parse_args()
-    global DATASET_NAME, MODEL_NAME, RESOURCE_DESCRIPTION, CORPUS_FILE, SETUP_FILE, FILE_MAP
+    global DATASET_NAME, MODEL_NAME, RESOURCE_DESCRIPTION, CORPUS_FILE
     if args.corpus_file:
         CORPUS_FILE = bc.BENCH_DIR / args.corpus_file
     if args.name:
         DATASET_NAME = MODEL_NAME = args.name
     if args.description:
         RESOURCE_DESCRIPTION = args.description
-    SETUP_FILE, FILE_MAP = (bc.SHARED / args.shared_name / name for name in ("setup.json", "file_map.json"))
-    if args.shared_name != "4minds" and DATASET_NAME == bc.profile.RESOURCE_NAME:
+    use_target(args.target, args.shared_name)
+    default_shared = TARGETS[args.target]["shared_name"]
+    if args.shared_name not in (None, default_shared) and DATASET_NAME == bc.profile.RESOURCE_NAME:
         sys.exit(f"--shared-name {args.shared_name} needs its own --name (not {DATASET_NAME}).")
+    print(f"target: {TARGET} ({BASE}), setup file: {SETUP_FILE}")
     client = Client()
     started = time.monotonic()
 
@@ -230,7 +251,7 @@ def main():
 
     persona = find_persona(client)
     if persona is None:
-        bc.audit("4minds_create_persona", name=PERSONA_NAME)
+        bc.audit("4minds_create_persona", target=TARGET, name=PERSONA_NAME)
         persona = client.call("POST", "/api/v1/user/personas", json={
             "name": PERSONA_NAME,
             "description": f"The official {bc.profile.TITLE} system prompt, benchmark only.",
@@ -244,7 +265,7 @@ def main():
 
     model = find_model(client, dataset_id)
     if model is None:
-        bc.audit("4minds_create_model", name=MODEL_NAME, dataset_id=dataset_id, persona_id=persona_id)
+        bc.audit("4minds_create_model", target=TARGET, name=MODEL_NAME, dataset_id=dataset_id, persona_id=persona_id)
         model = client.call("POST", "/api/v1/user/model", json={
             "model_name": MODEL_NAME, "dataset_id": dataset_id, "persona_id": persona_id,
             "description": f"{RESOURCE_DESCRIPTION}; standard weights + RAG"})
@@ -273,14 +294,14 @@ def main():
 
     model = client.call("GET", f"/api/v1/user/model/{model_id}")
     persona = find_persona(client)
-    setup = {"checked": bc.now(), "base_url": BASE, "dataset_id": dataset_id, "model_id": model_id,
+    setup = {"checked": bc.now(), "target": TARGET, "base_url": BASE, "dataset_id": dataset_id, "model_id": model_id,
              "persona_id": persona_id, "ready": ready, "wait_wall_clock_s": round(time.monotonic() - started, 1),
              "model": {k: model.get(k) for k in ("id", "name", "base_model_name", "base_model_id", "training_type_id",
                                                 "status", "graph_status", "dataset_id", "personaId", "trained_at")},
              "persona": persona}
     SETUP_FILE.parent.mkdir(parents=True, exist_ok=True)
     SETUP_FILE.write_text(json.dumps(setup, indent=2))
-    bc.audit("4minds_ready", dataset_id=dataset_id, model_id=model_id, persona_id=persona_id)
+    bc.audit("4minds_ready", target=TARGET, dataset_id=dataset_id, model_id=model_id, persona_id=persona_id)
     print(json.dumps(setup["model"], indent=2))
 
 

@@ -1,0 +1,2 @@
+# Two machines append to the same audit logs; keep the lines of both sides on merge.
+benchmarks/*/audit/audit.log merge=union
