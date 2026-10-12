@@ -1,0 +1,61 @@
+# step: setup_4minds_full
+# start: 2026-10-11T22:58:43Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py --corpus-file data/full_corpus.json --name enterpriserag-bench-full --description EnterpriseRAG-Bench (commit d36685e), full corpus (511,958 documents), benchmark only --shared-name 4minds_full
+
+dataset: 4051 {'status': 'preparing', 'graph_status': 'preparing', 'graph_build_progress': 0, 'files_processed_count': 0, 'total_chunks_count': 0, 'build_status': None, 'etl_job_status': None, 'error_message': None}
+uploading 511958 files in batches of 200 (the server skips files it has)
+  2026-10-11T23:01:03+00:00 upload batch 5/2560: {'uploaded': 800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:01:30+00:00 upload batch 10/2560: {'uploaded': 1800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:02:01+00:00 upload batch 15/2560: {'uploaded': 2800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:02:36+00:00 upload batch 20/2560: {'uploaded': 3800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:03:05+00:00 upload batch 25/2560: {'uploaded': 4800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:03:55+00:00 upload batch 30/2560: {'uploaded': 5800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:04:32+00:00 upload batch 35/2560: {'uploaded': 6800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:05:18+00:00 upload batch 40/2560: {'uploaded': 7800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:06:15+00:00 upload batch 45/2560: {'uploaded': 8800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:06:53+00:00 upload batch 50/2560: {'uploaded': 9800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:07:43+00:00 upload batch 55/2560: {'uploaded': 10800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:08:40+00:00 upload batch 60/2560: {'uploaded': 11800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:09:26+00:00 upload batch 65/2560: {'uploaded': 12800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:10:19+00:00 upload batch 70/2560: {'uploaded': 13800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:12:29+00:00 upload batch 75/2560: {'uploaded': 14800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:18:32+00:00 upload batch 80/2560: {'uploaded': 15800, 'skipped': 200, 'failed': 0}
+  2026-10-11T23:20:40+00:00 upload batch 85/2560: {'uploaded': 16800, 'skipped': 200, 'failed': 0}
+  batch 89: failed None processing_error Files were saved, but processing could not be started.
+  2026-10-11T23:23:14+00:00 upload batch 90/2560: {'uploaded': 17800, 'skipped': 200, 'failed': 0}
+Traceback (most recent call last):
+  File "/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py", line 288, in <module>
+    main()
+  File "/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py", line 229, in main
+    upload_rest(client, dataset_id, files, args.batch, args.pause_s)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py", line 175, in upload_rest
+    reply = client.call("POST", "/api/v1/user/dataset/upload", data={"dataset_id": str(dataset_id)},
+  File "/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py", line 71, in call
+    response = self.http.request(method, BASE + path, timeout=300, **kwargs)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/urllib3/connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/urllib3/connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/socket.py", line 717, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/ssl.py", line 1307, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/ssl.py", line 1163, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+
+# end: 2026-10-11T23:23:30Z  exit: 130  duration_s: 1488

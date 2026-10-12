@@ -1,0 +1,65 @@
+# step: setup_4minds_full_b1000
+# start: 2026-10-11T23:23:39Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py --corpus-file data/full_corpus.json --name enterpriserag-bench-full --description EnterpriseRAG-Bench (commit d36685e), full corpus (511,958 documents), benchmark only --shared-name 4minds_full --batch 1000
+
+dataset: 4051 {'status': 'in_use', 'graph_status': 'ready', 'graph_build_progress': 100, 'files_processed_count': 201, 'total_chunks_count': 21121, 'build_status': 'enhancing', 'etl_job_status': 'completed', 'error_message': 'Files were saved, but processing could not be started.'}
+uploading 511958 files in batches of 1000 (the server skips files it has)
+  2026-10-11T23:26:56+00:00 upload batch 5/512: {'uploaded': 0, 'skipped': 5000, 'failed': 0}
+  2026-10-11T23:27:09+00:00 upload batch 10/512: {'uploaded': 0, 'skipped': 10000, 'failed': 0}
+  2026-10-11T23:27:17+00:00 upload batch 15/512: {'uploaded': 0, 'skipped': 15000, 'failed': 0}
+  2026-10-11T23:28:29+00:00 upload batch 20/512: {'uploaded': 1600, 'skipped': 18400, 'failed': 0}
+  2026-10-11T23:31:02+00:00 upload batch 25/512: {'uploaded': 6600, 'skipped': 18400, 'failed': 0}
+  2026-10-11T23:36:13+00:00 upload batch 30/512: {'uploaded': 11600, 'skipped': 18400, 'failed': 0}
+  2026-10-11T23:43:22+00:00 upload batch 35/512: {'uploaded': 16600, 'skipped': 18400, 'failed': 0}
+  batch 38: failed None processing_error Files were saved, but processing could not be started.
+  batch 40: failed None processing_error Files were saved, but processing could not be started.
+  2026-10-11T23:50:36+00:00 upload batch 40/512: {'uploaded': 21600, 'skipped': 18400, 'failed': 0}
+  batch 41: failed None processing_error Files were saved, but processing could not be started.
+  2026-10-11T23:59:41+00:00 POST /api/v1/user/dataset/upload -> ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')); retry in 30 s
+  2026-10-12T00:00:29+00:00 POST /api/v1/user/dataset/upload -> HTTP 500: Internal Server Error; retry in 60 s
+  2026-10-12T00:05:15+00:00 upload batch 45/512: {'uploaded': 25600, 'skipped': 19400, 'failed': 0}
+  2026-10-12T00:08:45+00:00 upload batch 50/512: {'uploaded': 30600, 'skipped': 19400, 'failed': 0}
+  2026-10-12T00:13:12+00:00 upload batch 55/512: {'uploaded': 35600, 'skipped': 19400, 'failed': 0}
+  2026-10-12T00:17:09+00:00 upload batch 60/512: {'uploaded': 40600, 'skipped': 19400, 'failed': 0}
+  2026-10-12T00:22:07+00:00 POST /api/v1/user/dataset/upload -> ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')); retry in 30 s
+  batch 64: failed None processing_error Files were saved, but processing could not be started.
+  2026-10-12T00:30:16+00:00 upload batch 65/512: {'uploaded': 44600, 'skipped': 20400, 'failed': 0}
+  batch 68: failed None processing_error Files were saved, but processing could not be started.
+  batch 70: failed None processing_error Files were saved, but processing could not be started.
+  2026-10-12T00:41:44+00:00 upload batch 70/512: {'uploaded': 49600, 'skipped': 20400, 'failed': 0}
+Traceback (most recent call last):
+  File "/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py", line 288, in <module>
+    main()
+  File "/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py", line 229, in main
+    upload_rest(client, dataset_id, files, args.batch, args.pause_s)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py", line 175, in upload_rest
+    reply = client.call("POST", "/api/v1/user/dataset/upload", data={"dataset_id": str(dataset_id)},
+  File "/Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py", line 71, in call
+    response = self.http.request(method, BASE + path, timeout=300, **kwargs)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/urllib3/connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+  File "/Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/lib/python3.10/site-packages/urllib3/connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/socket.py", line 717, in readinto
+    return self._sock.recv_into(b)
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/ssl.py", line 1307, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Users/victorbezak/.local/share/mise/installs/python/3.10.16/lib/python3.10/ssl.py", line 1163, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+
+# end: 2026-10-12T00:42:08Z  exit: 130  duration_s: 4709

@@ -1,0 +1,18 @@
+# step: check_4minds_full
+# start: 2026-10-11T23:37:40Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/check_4minds_files.py --dataset-id 4051 --shared-name 4minds_full
+
+{
+  "dataset_id": 4051,
+  "dataset_name": "enterpriserag-bench-full",
+  "files": 32000,
+  "unique_names": 32000,
+  "duplicate_names": 0,
+  "duplicate_dsids": 0,
+  "unknown_files": 0,
+  "file_map_documents": 511958,
+  "not_uploaded_yet": 479958,
+  "total_chunks_count": 23717
+}
+
+# end: 2026-10-11T23:37:42Z  exit: 0  duration_s: 2

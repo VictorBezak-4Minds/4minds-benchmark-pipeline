@@ -6,6 +6,7 @@ __pycache__/
 # A file cannot be re-included when its folder is excluded, so runs/** excludes the contents and
 # the folders are re-included.
 benchmarks/*/shared/
+benchmarks/enterpriserag-bench/data/full_corpus.json
 benchmarks/*/archive/
 benchmarks/*/runs/**
 !benchmarks/*/runs/**/

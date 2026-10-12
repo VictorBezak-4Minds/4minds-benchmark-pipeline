@@ -1,0 +1,4 @@
+# step: setup_4minds_full
+# start: 2026-10-11T22:54:39Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_4minds.py --corpus-file data/full_corpus.json --name enterpriserag-bench-full --description EnterpriseRAG-Bench (commit d36685e), full corpus (511,958 documents), benchmark only --shared-name 4minds_full
+

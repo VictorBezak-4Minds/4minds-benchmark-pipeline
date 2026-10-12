@@ -1,0 +1,23 @@
+{
+  "created": "2026-10-11T22:54:27+00:00",
+  "upstream_commit": "d36685e273713975ee20299bbf1ab64165575b3c",
+  "uuid_index_sha256": "854cda12a43334a9b7c9ebbb4a069a089d52fd7033bc71d79bdbf54f708137fb",
+  "corpus_documents_total": 511958,
+  "documents": 511958,
+  "by_source": {
+    "slack": 285605,
+    "gmail": 121390,
+    "linear": 35308,
+    "fireflies": 10173,
+    "github": 8052,
+    "hubspot": 15016,
+    "google_drive": 25108,
+    "confluence": 5188,
+    "jira": 6118
+  },
+  "unreadable": [],
+  "chars": 2485644219,
+  "outputs": {
+    "full_corpus.json": "baab7196c2cd74e3d61bafbfb9f1cccc6dc34a844815f624468dd9e4ef32b2b1"
+  }
+}

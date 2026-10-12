@@ -19,6 +19,10 @@ batch, so the build counts as complete only when its state (total_chunks_count) 
 for --stable-min minutes; setup.json records that chunk count, and runners check it.
 
     ./bench graphrag-bench setup_4minds eval systems/setup_4minds.py
+
+A second dataset of the same benchmark (for example the full corpus) needs its own
+--corpus-file, --name and --shared-name, so that it does not reuse the first dataset or
+overwrite its shared/4minds/ files.
 """
 import argparse
 import json
@@ -33,10 +37,14 @@ import bench_common as bc
 BASE = "https://api.4minds.ai"
 DATASET_NAME = bc.profile.RESOURCE_NAME
 MODEL_NAME = bc.profile.RESOURCE_NAME
+RESOURCE_DESCRIPTION = bc.profile.RESOURCE_DESCRIPTION
+CORPUS_FILE = bc.CORPUS_FILE
 PERSONA_NAME = f"{bc.profile.TITLE} official prompt"
 SETUP_FILE = bc.SHARED / "4minds" / "setup.json"
 FILE_MAP = bc.SHARED / "4minds" / "file_map.json"
 DSID = re.compile(r"dsid_[0-9a-f]{32}")
+RETRY_STATUS = {429, 500, 502, 503, 504}
+RETRY_WAIT_S = (30, 60, 120, 300, 600)
 
 
 def file_name(doc):
@@ -56,9 +64,23 @@ class Client:
         self.http.headers["X-API-Key"] = bc.load_key("4minds")
 
     def call(self, method, path, **kwargs):
-        response = self.http.request(method, BASE + path, timeout=300, **kwargs)
-        if response.status_code >= 400:
-            sys.exit(f"{method} {path} -> HTTP {response.status_code}: {response.text[:800]}")
+        """Retries rate limits, server errors and lost connections; uploads are safe to retry
+        because the server skips a file name that the dataset already has."""
+        for wait_s in (*RETRY_WAIT_S, None):
+            try:
+                response = self.http.request(method, BASE + path, timeout=300, **kwargs)
+                problem = f"HTTP {response.status_code}: {response.text[:800]}"
+                if response.status_code not in RETRY_STATUS:
+                    break
+            except requests.RequestException as e:
+                response, problem = None, f"{type(e).__name__}: {str(e)[:300]}"
+            if wait_s is None:
+                break
+            print(f"  {bc.now()} {method} {path} -> {problem}; retry in {wait_s} s")
+            bc.audit("4minds_retry", method=method, path=path, problem=problem[:300], wait_s=wait_s)
+            time.sleep(wait_s)
+        if response is None or response.status_code >= 400:
+            sys.exit(f"{method} {path} -> {problem}")
         return response.json() if response.content else {}
 
 
@@ -127,7 +149,7 @@ def readiness(client, dataset_id, model_id, stable_chunks=None):
 
 def document_files():
     """[(file name, bytes)] of the profile's documents; writes FILE_MAP."""
-    docs = bc.profile.corpus_documents()
+    docs = bc.profile.corpus_documents(CORPUS_FILE)
     files = [(file_name(d), d["text"].encode()) for d in docs]
     mapping = {name: d["dsid"] for (name, _), d in zip(files, docs)}
     if len(mapping) != len(docs) or any(dsid_of(n) != d for n, d in mapping.items()):
@@ -138,11 +160,11 @@ def document_files():
 
 
 def create_dataset(client, files):
-    bc.audit("4minds_create_dataset", name=DATASET_NAME, file=str(bc.CORPUS_FILE), sha256=bc.sha256(bc.CORPUS_FILE),
+    bc.audit("4minds_create_dataset", name=DATASET_NAME, file=str(CORPUS_FILE), sha256=bc.sha256(CORPUS_FILE),
              files=len(files))
     return client.call("POST", "/api/v1/user/dataset", files=[("files", (n, b, "text/plain")) for n, b in files],
                        data={"dataset_name": DATASET_NAME, "tags": f"{bc.BENCHMARK},benchmark",
-                             "description": bc.profile.RESOURCE_DESCRIPTION, "urls": "[]"})
+                             "description": RESOURCE_DESCRIPTION, "urls": "[]"})
 
 
 def upload_rest(client, dataset_id, files, batch, pause_s):
@@ -175,7 +197,21 @@ def main():
     parser.add_argument("--pause-s", type=float, default=2, help="wait between upload requests (document lists)")
     parser.add_argument("--stable-min", type=float, default=15,
                         help="document lists: minutes with no change of the build state before it counts as complete")
+    parser.add_argument("--corpus-file", help="corpus file instead of the profile's CORPUS_FILE")
+    parser.add_argument("--name", help="dataset and model name instead of the profile's RESOURCE_NAME")
+    parser.add_argument("--description", help="dataset description instead of the profile's RESOURCE_DESCRIPTION")
+    parser.add_argument("--shared-name", default="4minds", help="folder in shared/ for setup.json and file_map.json")
     args = parser.parse_args()
+    global DATASET_NAME, MODEL_NAME, RESOURCE_DESCRIPTION, CORPUS_FILE, SETUP_FILE, FILE_MAP
+    if args.corpus_file:
+        CORPUS_FILE = bc.BENCH_DIR / args.corpus_file
+    if args.name:
+        DATASET_NAME = MODEL_NAME = args.name
+    if args.description:
+        RESOURCE_DESCRIPTION = args.description
+    SETUP_FILE, FILE_MAP = (bc.SHARED / args.shared_name / name for name in ("setup.json", "file_map.json"))
+    if args.shared_name != "4minds" and DATASET_NAME == bc.profile.RESOURCE_NAME:
+        sys.exit(f"--shared-name {args.shared_name} needs its own --name (not {DATASET_NAME}).")
     client = Client()
     started = time.monotonic()
 
@@ -184,8 +220,8 @@ def main():
     if dataset is None and files is not None:
         dataset = create_dataset(client, files[:args.batch])
     elif dataset is None:
-        with open(bc.CORPUS_FILE, "rb") as f:
-            dataset = create_dataset(client, [(bc.CORPUS_FILE.name, f.read())])
+        with open(CORPUS_FILE, "rb") as f:
+            dataset = create_dataset(client, [(CORPUS_FILE.name, f.read())])
     dataset_id = int(dataset["id"])
     print(f"dataset: {dataset_id} {dataset_state(dataset)}")
     if files is not None:
@@ -211,7 +247,7 @@ def main():
         bc.audit("4minds_create_model", name=MODEL_NAME, dataset_id=dataset_id, persona_id=persona_id)
         model = client.call("POST", "/api/v1/user/model", json={
             "model_name": MODEL_NAME, "dataset_id": dataset_id, "persona_id": persona_id,
-            "description": f"{bc.profile.RESOURCE_DESCRIPTION}; standard weights + RAG"})
+            "description": f"{RESOURCE_DESCRIPTION}; standard weights + RAG"})
     model_id = int(model["id"])
     if model.get("personaId") not in (None, persona_id) or model.get("persona_id") not in (None, persona_id):
         print(f"  warning: model persona is {model.get('personaId') or model.get('persona_id')}, expected {persona_id}")
