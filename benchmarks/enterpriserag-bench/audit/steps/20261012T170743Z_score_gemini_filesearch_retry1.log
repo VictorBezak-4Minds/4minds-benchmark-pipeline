@@ -1,0 +1,69 @@
+# step: score_gemini_filesearch_retry1
+# start: 2026-10-12T17:07:43Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-erag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/score.py --system-dir runs/2026-10-10_gptoss-pilot/gemini_filesearch_retry1/all --allow-incomplete
+
+Loading questions from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/upstream/questions.jsonl...
+  Loaded 500 questions
+Loading answers from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gemini_filesearch_retry1/all/answers.jsonl...
+  Loaded 44 answer rows
+
+  Found 42 already-evaluated questions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gemini_filesearch_retry1/all/results.json
+  42 overlapping with current answer set
+  2 new questions to evaluate
+
+  Resuming evaluation for 2 missing questions...
+  Loaded 1 updated questions from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gemini_filesearch_retry1/all/questions_updated.jsonl
+Loading UUID index...
+  Loading UUID index from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/scorer/uuid_index.json...
+  Indexed 511958 documents
+Validating referenced document IDs...
+  Validated 727 referenced document ids
+
+Evaluating 2 questions with 8 parallel workers 
+  qst_0329 docs: OK qst_0329: document set matches gold
+  qst_0329 score: correct=True  completeness=100.0%  recall=100.0%  extra_docs=0
+  qst_0385 docs: OK qst_0385: document set matches gold
+  qst_0385 score: correct=True  completeness=93.33%  recall=100.0%  extra_docs=0
+
+Finalizing output files (sorting and writing results)...
+  Writing /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gemini_filesearch_retry1/all/results.json...
+  Writing /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gemini_filesearch_retry1/all/questions_updated.jsonl...
+
+Done.
+  Questions scored:    44
+  Skipped rows:        N/A
+  Corrected questions: 1
+  Avg correctness:     81.82%
+  Avg completeness:    68.07%
+  Combined corr*comp:  59.11
+  Avg recall:          90.41%
+  Avg invalid extra:   0.1
+{
+  "overall_score": 59.11,
+  "aggregate_stats": {
+    "total_questions": 44,
+    "completed_questions": 44,
+    "skipped_rows": "N/A",
+    "num_corrected_questions": 1,
+    "average_correctness_pct": 81.82,
+    "average_completeness_pct": 68.07,
+    "combined_correctness_completeness_score": 59.11,
+    "average_recall_pct": 90.41,
+    "average_invalid_extra_docs": 0.1
+  },
+  "judge_usage": {
+    "gpt-5.4-2026-03-05": {
+      "calls": 329,
+      "input_tokens": 377180,
+      "cached_input_tokens": 119808,
+      "output_tokens": 77376,
+      "reasoning_tokens": 54228,
+      "not_completed": 0
+    }
+  },
+  "judge_cost_usd": 1.834,
+  "failed_questions": {},
+  "missing_scores": []
+}
+
+# end: 2026-10-12T17:08:02Z  exit: 0  duration_s: 19

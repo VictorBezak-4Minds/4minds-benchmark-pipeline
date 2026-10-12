@@ -68,6 +68,12 @@ a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underli
 .legend { display:flex; flex-wrap:wrap; gap:16px; color:var(--muted); font-size:13px; margin-bottom:12px; }
 .note { color:var(--muted); font-size:13px; margin:14px 0 0; }
 .pos { color:#86efac; } .neg { color:#fca5a5; } .neutral { color:var(--muted); }
+.tabs { display:flex; flex-wrap:wrap; gap:8px; margin:-16px 0 40px; }
+.tabs a, .tabs button { padding:8px 16px; border-radius:999px; border:1px solid var(--border); color:var(--muted);
+  font:inherit; font-size:14px; background:none; cursor:pointer; }
+.tabs a.active { color:#fff; border-color:var(--violet); background:rgba(84,63,237,0.18); text-decoration:none; }
+.tabs button { margin-left:auto; color:#fff; border-color:var(--violet); }
+.tabs button:hover, .tabs a:hover { text-decoration:none; border-color:var(--violet); }
 footer { margin-top:80px; padding-top:24px; border-top:1px solid var(--border); color:var(--muted); font-size:13px; }
 @media (max-width:720px) { .bar-row { grid-template-columns:1fr; } h1 { font-size:34px; } }
 </style></head><body><div class='wrap'>
@@ -84,6 +90,7 @@ footer { margin-top:80px; padding-top:24px; border-top:1px solid var(--border); 
 <path d="M30.1716 16.8558V15.1435H24.3593C23.9831 15.1435 23.6226 15.2929 23.3572 15.5578L22.0081 16.9046C21.4907 17.4209 21.4524 18.2459 21.9201 18.8074L23.5247 20.7371L24.8447 19.643L22.5255 16.8565H30.1716V16.8558Z" fill="#F7F6F3"/>
 </svg>
 </div><div class='meta'>Generated 2026-10-12T14:51:32+00:00<br>Scorer v1_gpt-4o-mini, judge openai-gpt-4o-mini</div></header>
+<nav class='tabs'><a id='to-report' class='active' href='#'>Report</a><a id='to-answers' class='' href='../answers.html'>Questions and answers</a></nav>
 <div class='label'>Benchmark report</div>
 <h1>4Minds RAG · PILOT</h1>
 <p class='lead'>How correct and complete are the answers of each system, and did it find the right documents? 7 systems with the same model (GPT-OSS-120B) answered the same 50 EnterpriseRAG-Bench questions from the same 10,000 company documents. Here, the saved answers are scored again with RAGAS and DeepEval metrics (judge: openai-gpt-4o-mini) and with document precision, recall and F1.</p>
@@ -137,9 +144,6 @@ footer { margin-top:80px; padding-top:24px; border-top:1px solid var(--border); 
 <div class="bar-row"><div class="bar-name">GPT-OSS, no RAG<small>No retrieval (world knowledge)</small></div><div class="track"><div class="fill" style="width:0.00%;background:#a1a1aa"></div><div class="ci" style="left:0.00%;width:0.00%"></div></div><div class="val">0.0<small>95% CI 0.0–0.0 · n=45</small></div></div>
 </div>
 </div></section>
-<section><div class='label'>Diagnosis</div><h2>Questions and answers</h2><p class='sub'>Each question with its gold answer, gold facts and gold documents, and the answer, scores, documents and retrieved context of each system. Search and filter by question type.</p><a class='pill' style='color:#fff;border-color:var(--violet)' href='../answers.html'>Open the question browser</a>
-<p class='note'>The page is <code>runs/2026-10-11_erag-pilot_judge-gpt-4o-mini/answers.html</code>. It has the answers, so git does not track it; make_report.py writes it again.</p>
-</section>
 <section><div class='label'>All metrics</div><h2>All metric outputs</h2><p class='sub'>Every number that the scorers give, as 0–100. Factual Correctness gives claim precision, recall and F1 (judge); document retrieval gives document precision, recall and F1 (no judge). Summarization score = min(alignment, coverage). n = scored questions.</p><div class='card'><table><tr><th>Metric</th><th><span class='dot' style='background:#10b981'></span>GPT-OSS + RAGFlow</th><th><span class='dot' style='background:#80aeff'></span>GPT-OSS + LangChain</th><th><span class='dot' style='background:#a78bfa'></span>4Minds (benchmark system prompt, local)</th><th><span class='dot' style='background:#543fed'></span>4Minds (Constellations)</th><th><span class='dot' style='background:#c2410c'></span>GPT-OSS + GraphRAG (standard)</th><th><span class='dot' style='background:#f59e0b'></span>GPT-OSS + GraphRAG</th><th><span class='dot' style='background:#a1a1aa'></span>GPT-OSS, no RAG</th></tr>
 <tr><td>Answer Accuracy (RAGAS, NVIDIA)</td><td>46.0 <small>n=50</small></td><td>45.5 <small>n=50</small></td><td>44.5 <small>n=50</small></td><td>39.0 <small>n=50</small></td><td>24.5 <small>n=50</small></td><td>9.0 <small>n=50</small></td><td>6.1 <small>n=49</small></td></tr>
 <tr><td>Factual Correctness (RAGAS): precision</td><td>58.2 <small>n=50</small></td><td>54.4 <small>n=50</small></td><td>52.6 <small>n=50</small></td><td>43.9 <small>n=50</small></td><td>33.0 <small>n=50</small></td><td>22.3 <small>n=50</small></td><td>15.0 <small>n=49</small></td></tr>

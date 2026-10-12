@@ -1,0 +1,15 @@
+# step: report_tabs
+# start: 2026-10-12T15:22:08Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/make_report.py --run runs/2026-10-10_gptoss-pilot
+
+Traceback (most recent call last):
+  File "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/make_report.py", line 14, in <module>
+    import answers_page
+  File "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/answers_page.py", line 12, in <module>
+    from report_html import head, header, rel, tabs
+  File "/Users/victorbezak/Documents/Benchmark Datasets/pipeline/report_html.py", line 115
+    for key, label, href in items) + extra + "</nav>")
+    ^^^
+SyntaxError: f-string expression part cannot include a backslash
+
+# end: 2026-10-12T15:22:08Z  exit: 1  duration_s: 0

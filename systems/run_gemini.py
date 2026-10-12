@@ -4,6 +4,9 @@
 Each question is sent with a metadata filter on its own `source`, so retrieval only sees
 that one corpus (the isolation used by GraphRAG-Bench's reference runners). The questions
 of the profile must have a `source` field, and the store documents a matching metadata key.
+A profile can filter on another metadata key: GEMINI_FILTER_KEY and gemini_filter_value(q).
+When the profile sets GEMINI_DOCUMENT_ID_KEY, the document IDs of a prediction are the values
+of that metadata key in the citations of the answer, in citation order.
 
 Output: runs/<run>/gemini/<subset>/predictions.json, in the format of the profile's
 prediction(). Progress is logged to runs.jsonl, so a stopped run continues where it stopped.
@@ -22,6 +25,8 @@ import bench_common as bc
 
 API = "https://generativelanguage.googleapis.com/v1beta"
 DEFAULT_STORE = getattr(bc.profile, "GEMINI_FILE_SEARCH_STORE", None)
+FILTER_KEY = getattr(bc.profile, "GEMINI_FILTER_KEY", "source")
+DOCUMENT_ID_KEY = getattr(bc.profile, "GEMINI_DOCUMENT_ID_KEY", None)
 RETRYABLE_HTTP = {0, 408, 429, 500, 502, 503, 504}
 RETRYABLE_CODES = {"service_unavailable", "resource_exhausted", "unavailable", "internal",
                    "deadline_exceeded", "too_many_requests"}
@@ -33,6 +38,10 @@ def cost(tokens):
     tokens_in = tokens.get("total_input_tokens", 0) + tokens.get("total_tool_use_tokens", 0)
     tokens_out = tokens.get("total_output_tokens", 0) + tokens.get("total_thought_tokens", 0)
     return (tokens_in * PRICE_IN + tokens_out * PRICE_OUT) / 1e6
+
+
+def filter_value(q):
+    return bc.profile.gemini_filter_value(q) if hasattr(bc.profile, "gemini_filter_value") else q["source"]
 
 
 def request(api_key, method, url, body=None, timeout=60):
@@ -56,7 +65,7 @@ def build_request(args, q):
     tool = {
         "type": "file_search",
         "file_search_store_names": [args.store],
-        "metadata_filter": f'source = "{q["source"]}"',
+        "metadata_filter": f'{FILTER_KEY} = "{filter_value(q)}"',
         "top_k": args.top_k,
     }
     body = {"model": args.model, "input": q["question"], "system_instruction": bc.SYSTEM_PROMPT, "tools": [tool]}
@@ -73,8 +82,8 @@ def build_request(args, q):
 
 
 def parse_response(payload):
-    """Return (answer, cited chunk texts, cited sources, number of searches)."""
-    texts, contexts, cited_sources, searches = [], [], set(), 0
+    """Return (answer, cited chunk texts, cited filter values, cited document IDs, number of searches)."""
+    texts, contexts, cited_sources, document_ids, searches = [], [], set(), [], 0
     for step in payload.get("steps", []):
         if step.get("type") == "file_search_call":
             searches += 1
@@ -87,11 +96,15 @@ def parse_response(payload):
             for ann in part.get("annotations", []):
                 if ann.get("type") != "file_citation":
                     continue
-                cited_sources.add((ann.get("custom_metadata") or {}).get("source"))
+                metadata = ann.get("custom_metadata") or {}
+                cited_sources.add(metadata.get(FILTER_KEY))
+                document_id = metadata.get(DOCUMENT_ID_KEY) if DOCUMENT_ID_KEY else None
+                if document_id and document_id not in document_ids:
+                    document_ids.append(document_id)
                 chunk = ann.get("source")
                 if chunk and chunk not in contexts:
                     contexts.append(chunk)
-    return "".join(texts).strip(), contexts, cited_sources, searches
+    return "".join(texts).strip(), contexts, cited_sources, document_ids, searches
 
 
 def make_ask(api_key, args):
@@ -121,9 +134,9 @@ def make_ask(api_key, args):
             return None
         if payload is None:
             return {"status": "failed", "attempts": attempts, "error": error, **timing}
-        answer, contexts, cited_sources, searches = parse_response(payload)
+        answer, contexts, cited_sources, document_ids, searches = parse_response(payload)
         usage = payload.get("usage", {})
-        leaks = sorted(str(s) for s in cited_sources if s != q["source"])
+        leaks = sorted(str(s) for s in cited_sources if s != filter_value(q))
         if leaks:
             print(f"  LEAK {bc.question_key(q)} cited {leaks}")
         return {
@@ -131,6 +144,7 @@ def make_ask(api_key, args):
             "usage": {k: usage.get(k, 0) for k in ("total_input_tokens", "total_output_tokens",
                                                    "total_tool_use_tokens", "total_thought_tokens")},
             "extra": {"interaction_id": payload.get("id"), "searches": searches, "leaked_sources": leaks},
+            **({"document_ids": document_ids} if DOCUMENT_ID_KEY else {}),
             **timing,
         }
     return ask
@@ -153,15 +167,17 @@ def make_readiness(api_key, args, subset_sources):
             token = page.get("nextPageToken")
             if not token:
                 break
-        by_source = {}
+        states = {}
         for d in docs:
             for m in d.get("customMetadata", []):
-                if m.get("key") == "source":
-                    by_source[m.get("stringValue")] = d.get("state")
-        missing = sorted(s for s in subset_sources if by_source.get(s) != "STATE_ACTIVE")
+                if m.get("key") == FILTER_KEY:
+                    states.setdefault(m.get("stringValue"), []).append(d.get("state"))
+        missing = sorted(s for s in subset_sources
+                         if not states.get(s) or any(state != "STATE_ACTIVE" for state in states[s]))
         if counts["pendingDocumentsCount"] or counts["failedDocumentsCount"] or missing:
-            sys.exit(f"Readiness: store not ready: {counts}, sources not active: {missing}")
-        return {"store": args.store, **counts, "sources_active": sorted(subset_sources)}
+            sys.exit(f"Readiness: store not ready: {counts}, {FILTER_KEY} values not active: {missing}")
+        return {"store": args.store, **counts, "sources_active": sorted(subset_sources),
+                "documents_per_source": {s: len(states[s]) for s in sorted(subset_sources)}}
     return readiness
 
 
@@ -182,8 +198,12 @@ def main():
     api_key = bc.load_key("gemini")
     settings = {"store": args.store, "model": args.model, "top_k": args.top_k, "temperature": args.temperature,
                 "seed": args.seed, "thinking_level": args.thinking_level, "system_prompt": bc.SYSTEM_PROMPT}
+    if hasattr(bc.profile, "GEMINI_FILTER_KEY"):
+        settings["metadata_filter_key"] = FILTER_KEY
+    if DOCUMENT_ID_KEY:
+        settings["document_id_key"] = DOCUMENT_ID_KEY
     summary = bc.run("gemini_file_search", args, make_ask(api_key, args), settings,
-                     make_readiness(api_key, args, {q["source"] for q in questions}), cost,
+                     make_readiness(api_key, args, {filter_value(q) for q in questions}), cost,
                      {"endpoint": f"{API}/interactions", "price_usd_per_1m": {"input": PRICE_IN, "output": PRICE_OUT}})
     sys.exit(1 if bc.STOP.is_set() or summary["failed"] else 0)
 

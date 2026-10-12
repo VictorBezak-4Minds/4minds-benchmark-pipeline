@@ -1,0 +1,8 @@
+{
+  "time": "2026-10-12T17:48:41+00:00",
+  "reason": "Operator decision 2026-10-12: gemini_filesearch_retry2 (a copy of retry1 with a third attempt for the 6 questions that failed twice; all 6 failed again with HTTP 400 too many tool calls) replaces retry1 in the report. Same 44 answers and judge results; retry2 adds the record of the third attempt.",
+  "root": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot",
+  "moves": {
+    "gemini_filesearch_retry1": "_superseded_retry2/gemini_filesearch_retry1"
+  }
+}

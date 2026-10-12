@@ -1,0 +1,21 @@
+# step: dryrun_gemini_filesearch
+# start: 2026-10-12T16:35:11Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_gemini.py --subset all --questions-file runs/2026-10-10_gptoss-pilot/tests/smoke_questions.json --out-dir runs/2026-10-10_gptoss-pilot/tests/gemini_filesearch_smoke --dry-run
+
+{
+  "model": "gemini-3.8-flash",
+  "input": "In a recent GPU incident in us-east after a driver update, what load balancer network setting change was suspected as contributing to the NCCL watchdog timeouts and Xid errors?",
+  "system_instruction": "You are a helpful and precise assistant that generates answers based on the provided documents. The documents came from a retrieval system which is imperfect. Base your answer purely on the documents and do not make up any information. Many of the documents provided are likely to be irrelevant. Be concise and only provide information directly relevant to the query.\n\nOutput your answer below, do not include any additional text or formatting:",
+  "tools": [
+    {
+      "type": "file_search",
+      "file_search_store_names": [
+        "fileSearchStores/enterpriseragbenchpilot3e18-0g3c3vyjxpj9"
+      ],
+      "metadata_filter": "corpus_sha256 = \"3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec\"",
+      "top_k": 5
+    }
+  ]
+}
+
+# end: 2026-10-12T16:35:11Z  exit: 0  duration_s: 0

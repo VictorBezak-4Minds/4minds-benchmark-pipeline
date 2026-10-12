@@ -1,6 +1,6 @@
 {
   "name": "gptoss_pilot",
-  "description": "GPT-OSS-120B systems on the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), each scored alone with the official metrics-based evaluation (default settings: citation stripping and document correction on).",
+  "description": "GPT-OSS-120B systems and Gemini + File Search on the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), each scored alone with the official metrics-based evaluation (default settings: citation stripping and document correction on).",
   "judge": {
     "judge": "gpt-5.4",
     "cheap_judge": "gpt-5-mini"
@@ -136,6 +136,48 @@
       ]
     },
     {
+      "key": "gemini_filesearch",
+      "folder": "gemini_filesearch",
+      "name": "Gemini + File Search (first run)",
+      "leaderboard_name": "Gemini File Search (gemini-3.8-flash), first run",
+      "tags": [],
+      "description": "Gemini Developer API (Interactions API), gemini-3.8-flash with the File Search tool (top_k 5 per search; Gemini default temperature and thinking level); one store file per document with the File Search default chunking and embedding; the official instructions as the system instruction",
+      "short": "Gemini 3.8 Flash with File Search",
+      "color": "#4285f4",
+      "ingestion": {
+        "file": "shared/gemini/setup.json",
+        "seconds": "ingest_wall_clock_s"
+      },
+      "caveats": [
+        "Gemini + File Search: the answer model is gemini-3.8-flash, not GPT-OSS-120B, so this row changes the model and the retrieval together. It is a managed RAG product row, not a retrieval comparison with the GPT-OSS rows.",
+        "Gemini + File Search: the document IDs are the dsid metadata of the chunks that the answer cites, in citation order. File Search has no search-only API and returns only the cited chunks, not all the chunks that the tool read, so recall and invalid extra documents use the cited documents. `context` holds the cited chunk text.",
+        "Gemini + File Search (first run): 8 of 50 questions have no answer (qst_0023, qst_0027, qst_0036, qst_0267, qst_0329, qst_0385, qst_0489, qst_0492; 3 basic, 2 info_not_found, 1 semantic, 1 intra_document_reasoning, 1 constrained). After 90 to 120 s of searches, the Gemini API returned HTTP 400 'Model generated too many tool calls. Please retry the request.' The runner does not retry HTTP 400, so each question stopped at its first HTTP 400. These are failures of the system: the official averages skip them, and 'Overall, missing = 0' counts them as 0. The row Gemini + File Search (3 attempts)* gives these 8 questions two more attempts.",
+        "Gemini + File Search: Gemini decides how many searches to make (1 to 22 per answered question, median 2.5), so the system is not one-shot. The cost is in the retrieved tokens: the recorded cost of the 42 answers is USD 4.34 (median USD 0.02, maximum USD 0.73 for 22 searches). The usage of the 10 failed attempts (8 HTTP 400 replies and 2 earlier attempts that the runner retried) is not recorded, so the real cost is higher.",
+        "Gemini + File Search: the official instructions are the system instruction and the question is the input (as for 4Minds); Gemini builds the context itself. Each request filters on the store metadata corpus_sha256 of data/pilot_corpus.json.",
+        "Gemini + File Search ingestion: the store was made on 2026-10-11 outside setup_gemini.py (probably from another machine), and the hub has no record of the upload or its cost. shared/gemini/setup.json is a check of the store from the API on 2026-10-12 (10,000 active documents; dsid and text sha256 equal to the local corpus). The time is from the first document createTime to the last updateTime."
+      ]
+    },
+    {
+      "key": "gemini_filesearch_retry2",
+      "folder": "gemini_filesearch_retry2",
+      "name": "Gemini + File Search (3 attempts)*",
+      "leaderboard_name": "Gemini File Search (gemini-3.8-flash), 3 attempts",
+      "tags": [],
+      "description": "The first-run folder of Gemini + File Search with up to two more attempts for its failed questions (same settings; the third attempt with a 300 s client timeout)",
+      "short": "Gemini 3.8 Flash with File Search, 3 attempts",
+      "color": "#93c5fd",
+      "ingestion": {
+        "file": "shared/gemini/setup.json",
+        "seconds": "ingest_wall_clock_s"
+      },
+      "caveats": [
+        "* Gemini + File Search (3 attempts): 6 of 50 questions (12%) have no answer after 3 attempts: qst_0023, qst_0027, qst_0036 (basic), qst_0267 (semantic), qst_0489, qst_0492 (info_not_found, both questions of this type). Each attempt ended with HTTP 400 'Model generated too many tool calls' from the Gemini API after 87 to 119 s of searches; this is a limit of the system, not a client timeout. The official averages skip these questions; 'Overall, missing = 0' counts them as 0. Correctness, completeness and recall are averages over the 44 answered questions only.",
+        "Gemini + File Search (3 attempts): a copy of the first-run folder (answers, judge results and corrected gold lists of the 42 answered questions). Attempt 2 (same settings and command) answered qst_0329 and qst_0385. Attempt 3 for the other 6 used a 300 s client timeout instead of 120 s, to rule out a client timeout (one attempt for qst_0492 had no reply after 300 s; its automatic retry ended with the same HTTP 400). score.py resumed, so the judge scored only the 2 new answers; the 42 shared judge results are identical to the first run. The attempt-2 folder is in _superseded_retry2/.",
+        "Gemini + File Search (3 attempts): the other rows had one attempt per question (retries only for network and rate-limit errors); this row had up to three attempts for its failed questions.",
+        "Gemini + File Search (3 attempts): the judge cost includes the first-run judge cost (copied score manifest); attempt 2 added USD 0.08. The recorded answer cost is USD 4.81 (first run USD 4.34, attempt 2 USD 0.47); the usage of the 24 failed attempts (20 HTTP 400 replies and 4 earlier attempts that the runner retried) is not recorded, so the real cost is higher."
+      ]
+    },
+    {
       "key": "gptoss_no_rag",
       "folder": "gptoss_no_rag",
       "name": "GPT-OSS, no RAG",
@@ -156,6 +198,6 @@
     "Corpus slice: 10,000 of 511,958 documents (the 74 gold documents of the pilot questions plus 9,926 random others). Retrieval is easier than on the full corpus, so these scores are not comparable with the public leaderboard.",
     "Official default settings: a retrieved document that is not gold can become gold for that system when 3 judges agree (correction). Recall and invalid extra documents then use a different gold list for each system. The corrected-question count is in the table.",
     "The official scorer skips a question with no answer and no documents; that question is not in the official averages. The column 'Overall, missing = 0' counts such a question as 0 over all pilot questions.",
-    "GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except the two 4Minds rows, which use the 4Minds GPT-OSS-120B deployment."
+    "GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except the two 4Minds rows, which use the 4Minds GPT-OSS-120B deployment, and Gemini + File Search, which uses gemini-3.8-flash."
   ]
 }

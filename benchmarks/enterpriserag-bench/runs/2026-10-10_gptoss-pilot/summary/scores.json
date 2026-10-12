@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-12T14:51:31+00:00",
+  "created": "2026-10-12T17:49:19+00:00",
   "label": "PILOT",
   "benchmark": "enterpriserag-bench",
   "comparison": "gptoss_pilot",
@@ -947,6 +947,316 @@
         }
       }
     },
+    "Gemini + File Search (first run)": {
+      "key": "gemini_filesearch",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gemini_filesearch/all",
+      "run_started": "2026-10-12T16:40:47+00:00",
+      "official": {
+        "total_questions": 42,
+        "completed_questions": 42,
+        "skipped_rows": 0,
+        "num_corrected_questions": 1,
+        "average_correctness_pct": 80.95,
+        "average_completeness_pct": 66.71,
+        "combined_correctness_completeness_score": 57.33,
+        "average_recall_pct": 89.93,
+        "average_invalid_extra_docs": 0.1,
+        "overall_score": 57.33
+      },
+      "overall_ci95": [
+        44.83,
+        70.26
+      ],
+      "overall_missing_as_zero": 48.15,
+      "scored_questions": 42,
+      "run_questions": 50,
+      "not_scored": [
+        "qst_0023",
+        "qst_0027",
+        "qst_0036",
+        "qst_0267",
+        "qst_0329",
+        "qst_0385",
+        "qst_0489",
+        "qst_0492"
+      ],
+      "by_type": {
+        "basic": {
+          "count": 14,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 62.86,
+          "combined_correctness_completeness_score": 62.86,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "semantic": {
+          "count": 11,
+          "average_correctness_pct": 81.82,
+          "average_completeness_pct": 79.0,
+          "combined_correctness_completeness_score": 70.67,
+          "average_recall_pct": 90.91,
+          "average_invalid_extra_docs": 0.09
+        },
+        "intra_document_reasoning": {
+          "count": 3,
+          "average_correctness_pct": 66.67,
+          "average_completeness_pct": 88.89,
+          "combined_correctness_completeness_score": 66.67,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "project_related": {
+          "count": 4,
+          "average_correctness_pct": 75.0,
+          "average_completeness_pct": 63.22,
+          "combined_correctness_completeness_score": 45.91,
+          "average_recall_pct": 49.3,
+          "average_invalid_extra_docs": 0.25
+        },
+        "constrained": {
+          "count": 2,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 100.0,
+          "combined_correctness_completeness_score": 100.0,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "conflicting_info": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 55.0,
+          "combined_correctness_completeness_score": 30.0,
+          "average_recall_pct": 75.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "completeness": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 58.34,
+          "combined_correctness_completeness_score": 33.34,
+          "average_recall_pct": 75.0,
+          "average_invalid_extra_docs": 1.0
+        },
+        "miscellaneous": {
+          "count": 2,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 20.0,
+          "combined_correctness_completeness_score": 20.0,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "high_level": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 33.34,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        }
+      },
+      "corrected": [
+        "qst_0443"
+      ],
+      "failed_judge_questions": {},
+      "documents_per_answer": {
+        "mean": 1.36,
+        "max": 5,
+        "answers_without_documents": 0
+      },
+      "judge": {
+        "models": {
+          "judge": "gpt-5.4",
+          "cheap_judge": "gpt-5-mini"
+        },
+        "cost_usd": 1.7514,
+        "usage": {
+          "gpt-5.4-2026-03-05": {
+            "calls": 308,
+            "input_tokens": 361074,
+            "cached_input_tokens": 119808,
+            "output_tokens": 74555,
+            "reasoning_tokens": 52383,
+            "not_completed": 0
+          }
+        }
+      },
+      "operations": {
+        "questions": 50,
+        "answered": 42,
+        "failed": 8,
+        "no_context": 0,
+        "dont_know": 0,
+        "workers": 10,
+        "latency": {
+          "n": 42,
+          "mean_s": 31.86,
+          "median_s": 20.22,
+          "p90_s": 76.58,
+          "max_s": 109.0
+        },
+        "estimated_cost_usd": 4.338,
+        "tokens": {
+          "total_input_tokens": 27641,
+          "total_output_tokens": 16975,
+          "total_tool_use_tokens": 5452072,
+          "total_thought_tokens": 43883
+        }
+      }
+    },
+    "Gemini + File Search (3 attempts)*": {
+      "key": "gemini_filesearch_retry2",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gemini_filesearch_retry2/all",
+      "run_started": "2026-10-12T17:30:35+00:00",
+      "official": {
+        "total_questions": 44,
+        "completed_questions": 44,
+        "skipped_rows": "N/A",
+        "num_corrected_questions": 1,
+        "average_correctness_pct": 81.82,
+        "average_completeness_pct": 68.07,
+        "combined_correctness_completeness_score": 59.11,
+        "average_recall_pct": 90.41,
+        "average_invalid_extra_docs": 0.1,
+        "overall_score": 59.11
+      },
+      "overall_ci95": [
+        45.93,
+        71.49
+      ],
+      "overall_missing_as_zero": 52.02,
+      "scored_questions": 44,
+      "run_questions": 50,
+      "not_scored": [
+        "qst_0023",
+        "qst_0027",
+        "qst_0036",
+        "qst_0267",
+        "qst_0489",
+        "qst_0492"
+      ],
+      "by_type": {
+        "basic": {
+          "count": 14,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 62.86,
+          "combined_correctness_completeness_score": 62.86,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "semantic": {
+          "count": 11,
+          "average_correctness_pct": 81.82,
+          "average_completeness_pct": 79.0,
+          "combined_correctness_completeness_score": 70.67,
+          "average_recall_pct": 90.91,
+          "average_invalid_extra_docs": 0.09
+        },
+        "intra_document_reasoning": {
+          "count": 4,
+          "average_correctness_pct": 75.0,
+          "average_completeness_pct": 91.67,
+          "combined_correctness_completeness_score": 75.0,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "project_related": {
+          "count": 4,
+          "average_correctness_pct": 75.0,
+          "average_completeness_pct": 63.22,
+          "combined_correctness_completeness_score": 45.91,
+          "average_recall_pct": 49.3,
+          "average_invalid_extra_docs": 0.25
+        },
+        "constrained": {
+          "count": 3,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 97.78,
+          "combined_correctness_completeness_score": 97.78,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "conflicting_info": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 55.0,
+          "combined_correctness_completeness_score": 30.0,
+          "average_recall_pct": 75.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "completeness": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 58.34,
+          "combined_correctness_completeness_score": 33.34,
+          "average_recall_pct": 75.0,
+          "average_invalid_extra_docs": 1.0
+        },
+        "miscellaneous": {
+          "count": 2,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 20.0,
+          "combined_correctness_completeness_score": 20.0,
+          "average_recall_pct": 100.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "high_level": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 33.34,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        }
+      },
+      "corrected": [
+        "qst_0443"
+      ],
+      "failed_judge_questions": {},
+      "documents_per_answer": {
+        "mean": 1.36,
+        "max": 5,
+        "answers_without_documents": 0
+      },
+      "judge": {
+        "models": {
+          "judge": "gpt-5.4",
+          "cheap_judge": "gpt-5-mini"
+        },
+        "cost_usd": 1.834,
+        "usage": {
+          "gpt-5.4-2026-03-05": {
+            "calls": 329,
+            "input_tokens": 377180,
+            "cached_input_tokens": 119808,
+            "output_tokens": 77376,
+            "reasoning_tokens": 54228,
+            "not_completed": 0
+          }
+        }
+      },
+      "operations": {
+        "questions": 50,
+        "answered": 44,
+        "failed": 6,
+        "no_context": 0,
+        "dont_know": 0,
+        "workers": 6,
+        "latency": {
+          "n": 44,
+          "mean_s": 33.08,
+          "median_s": 21.61,
+          "p90_s": 76.58,
+          "max_s": 109.0
+        },
+        "estimated_cost_usd": 4.8088,
+        "tokens": {
+          "total_input_tokens": 29476,
+          "total_output_tokens": 18620,
+          "total_tool_use_tokens": 6055770,
+          "total_thought_tokens": 46683
+        }
+      }
+    },
     "GPT-OSS, no RAG": {
       "key": "gptoss_no_rag",
       "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_no_rag/all",
@@ -1105,12 +1415,30 @@
   "not_scored": {},
   "leaderboard": [
     {
+      "model": "Gemini File Search (gemini-3.8-flash), 3 attempts",
+      "overall_score": "59.11",
+      "correctness": "81.82",
+      "completeness": "68.07",
+      "recall": "90.41",
+      "invalid_extra_docs": "0.1",
+      "tags": ""
+    },
+    {
       "model": "4Minds Constellations, benchmark system prompt, local build (GPT-OSS-120B)",
       "overall_score": "58.93",
       "correctness": "70.0",
       "completeness": "66.24",
       "recall": "80.5",
       "invalid_extra_docs": "11.93",
+      "tags": ""
+    },
+    {
+      "model": "Gemini File Search (gemini-3.8-flash), first run",
+      "overall_score": "57.33",
+      "correctness": "80.95",
+      "completeness": "66.71",
+      "recall": "89.93",
+      "invalid_extra_docs": "0.1",
       "tags": ""
     },
     {
@@ -1173,7 +1501,7 @@
     "Corpus slice: 10,000 of 511,958 documents (the 74 gold documents of the pilot questions plus 9,926 random others). Retrieval is easier than on the full corpus, so these scores are not comparable with the public leaderboard.",
     "Official default settings: a retrieved document that is not gold can become gold for that system when 3 judges agree (correction). Recall and invalid extra documents then use a different gold list for each system. The corrected-question count is in the table.",
     "The official scorer skips a question with no answer and no documents; that question is not in the official averages. The column 'Overall, missing = 0' counts such a question as 0 over all pilot questions.",
-    "GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except the two 4Minds rows, which use the 4Minds GPT-OSS-120B deployment.",
+    "GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except the two 4Minds rows, which use the 4Minds GPT-OSS-120B deployment, and Gemini + File Search, which uses gemini-3.8-flash.",
     "4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order. The instructions of the official prompt are the persona's behavioral guidelines; 4Minds builds its own context and has no per-request system prompt, temperature or max-token setting.",
     "4Minds ingestion time: setup.json counts only from the restart of the wait (21:36 UTC). The upload started at 21:22 UTC and the chunk count did not change after 21:39 UTC, so the ingestion took about 17 minutes (then 15 minutes of stable wait).",
     "4Minds local: not the prod release. Local edit in constellations/assembler/prompts/preliminary_response_prompt.py: when the persona has behavioral guidelines, they replace PRELIMINARY_RESPONSE_SYSTEM (which asks for markdown and bold). The rest of the 4Minds prompt stays, including the DOCUMENT SUMMARIES section ('structure your coverage'); the stored document summaries are markdown. 26 of 50 answers have bold text (prod: 43 of 50). The document IDs come from the chunk document_title, as for prod.",
@@ -1191,6 +1519,16 @@
     "GraphRAG (standard): the index (16.6 h at 16 parallel LLM requests, about USD 102), the answers and the score were made on the operator's Linux machine (victormini1) with the same corpus slice (same corpus_sha256 as the fast index), code and scorer; the scoring environment uses the package versions of envs/pip_freeze_erag.txt. The answer latency (median 11 s, 8 parallel workers) is much lower than the fast row because the graph has fewer relationships.",
     "RAGFlow: the context is the 6 chunks of the RAGFlow retrieval API, in RAGFlow rank order, each chunk as one context document in the official answer prompt; RAGFlow's own chat prompt is not used. The document IDs are the documents of these chunks (documents.json maps the RAGFlow document IDs).",
     "RAGFlow ingestion: RAGFlow ran in Docker (WSL2) on a separate Windows PC; the Mac sent the searches over the local network. The time (upload 281 s + parse 8,385 s) depends on the CPU of that PC. The cost is only the embedding tokens that RAGFlow counted. setup.json on the Mac was restored from the step log of the setup run (same values), and documents.json was read again from the server.",
+    "Gemini + File Search: the answer model is gemini-3.8-flash, not GPT-OSS-120B, so this row changes the model and the retrieval together. It is a managed RAG product row, not a retrieval comparison with the GPT-OSS rows.",
+    "Gemini + File Search: the document IDs are the dsid metadata of the chunks that the answer cites, in citation order. File Search has no search-only API and returns only the cited chunks, not all the chunks that the tool read, so recall and invalid extra documents use the cited documents. `context` holds the cited chunk text.",
+    "Gemini + File Search (first run): 8 of 50 questions have no answer (qst_0023, qst_0027, qst_0036, qst_0267, qst_0329, qst_0385, qst_0489, qst_0492; 3 basic, 2 info_not_found, 1 semantic, 1 intra_document_reasoning, 1 constrained). After 90 to 120 s of searches, the Gemini API returned HTTP 400 'Model generated too many tool calls. Please retry the request.' The runner does not retry HTTP 400, so each question stopped at its first HTTP 400. These are failures of the system: the official averages skip them, and 'Overall, missing = 0' counts them as 0. The row Gemini + File Search (3 attempts)* gives these 8 questions two more attempts.",
+    "Gemini + File Search: Gemini decides how many searches to make (1 to 22 per answered question, median 2.5), so the system is not one-shot. The cost is in the retrieved tokens: the recorded cost of the 42 answers is USD 4.34 (median USD 0.02, maximum USD 0.73 for 22 searches). The usage of the 10 failed attempts (8 HTTP 400 replies and 2 earlier attempts that the runner retried) is not recorded, so the real cost is higher.",
+    "Gemini + File Search: the official instructions are the system instruction and the question is the input (as for 4Minds); Gemini builds the context itself. Each request filters on the store metadata corpus_sha256 of data/pilot_corpus.json.",
+    "Gemini + File Search ingestion: the store was made on 2026-10-11 outside setup_gemini.py (probably from another machine), and the hub has no record of the upload or its cost. shared/gemini/setup.json is a check of the store from the API on 2026-10-12 (10,000 active documents; dsid and text sha256 equal to the local corpus). The time is from the first document createTime to the last updateTime.",
+    "* Gemini + File Search (3 attempts): 6 of 50 questions (12%) have no answer after 3 attempts: qst_0023, qst_0027, qst_0036 (basic), qst_0267 (semantic), qst_0489, qst_0492 (info_not_found, both questions of this type). Each attempt ended with HTTP 400 'Model generated too many tool calls' from the Gemini API after 87 to 119 s of searches; this is a limit of the system, not a client timeout. The official averages skip these questions; 'Overall, missing = 0' counts them as 0. Correctness, completeness and recall are averages over the 44 answered questions only.",
+    "Gemini + File Search (3 attempts): a copy of the first-run folder (answers, judge results and corrected gold lists of the 42 answered questions). Attempt 2 (same settings and command) answered qst_0329 and qst_0385. Attempt 3 for the other 6 used a 300 s client timeout instead of 120 s, to rule out a client timeout (one attempt for qst_0492 had no reply after 300 s; its automatic retry ended with the same HTTP 400). score.py resumed, so the judge scored only the 2 new answers; the 42 shared judge results are identical to the first run. The attempt-2 folder is in _superseded_retry2/.",
+    "Gemini + File Search (3 attempts): the other rows had one attempt per question (retries only for network and rate-limit errors); this row had up to three attempts for its failed questions.",
+    "Gemini + File Search (3 attempts): the judge cost includes the first-run judge cost (copied score manifest); attempt 2 added USD 0.08. The recorded answer cost is USD 4.81 (first run USD 4.34, attempt 2 USD 0.47); the usage of the 24 failed attempts (20 HTTP 400 replies and 4 earlier attempts that the runner retried) is not recorded, so the real cost is higher.",
     "No RAG: the official prompt says to answer only from the documents, and the document section is empty. The company is synthetic, so world knowledge cannot answer most questions."
   ],
   "inputs": {

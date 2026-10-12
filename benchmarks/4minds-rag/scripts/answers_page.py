@@ -9,7 +9,7 @@ from html import escape
 from pathlib import Path
 
 import bench_common as bc
-from report_html import head, header, rel
+from report_html import head, header, rel, tabs
 
 CONTEXT_CHARS = 300
 
@@ -143,23 +143,25 @@ def build(out, config, run_dir, export=False):
     """The page; with export, only the page body (with its script) for export_page.py."""
     import export_page
     questions = json.loads(Path(bc.profile.QUESTION_FILES["all"]).read_text())
-    specs = {spec["name"]: spec for spec in config["systems"]}
     name = out["scorer"]["name"]
     judge = out["scorer"]["judge"].get("backend") or out["scorer"]["judge"].get("model")
     systems = []
-    for system, s in out["systems"].items():
-        folder = Path(s["folder"])
+    # The order of the comparison file, not of scores.json: the systems to compare stay side by side.
+    for spec in config["systems"]:
+        if spec["name"] not in out["systems"]:
+            continue
+        folder = Path(out["systems"][spec["name"]]["folder"])
         data = json.loads((folder / f"{name}.json").read_text())
         predictions = {p["question_id"]: p for p in json.loads((folder / "predictions.json").read_text())}
-        systems.append((specs[system], predictions, data["scores"], details(folder / f"{name}.partial.jsonl")))
+        systems.append((spec, predictions, data["scores"], details(folder / f"{name}.partial.jsonl")))
 
     h = head(f"4Minds RAG · questions and answers · {escape(name)}")
     h[-1] = h[-1].replace("</style>", PAGE_CSS + "</style>")
     export_file = run_dir / "export" / export_page.file_name(run_dir)
-    h.append(header(f"Scorer {escape(name)}, judge {escape(judge)}<br>"
-                    f"<a href='{escape(rel(run_dir / 'summary' / 'report.html', run_dir))}'>Back to the report</a>"
-                    + (f" · <a href='{escape(rel(export_file, run_dir))}' download='{escape(export_file.name)}'>Export for "
+    h.append(header(f"Scorer {escape(name)}, judge {escape(judge)}"
+                    + (f"<br><a href='{escape(rel(export_file, run_dir))}' download='{escape(export_file.name)}'>Export for "
                        "sharing</a>" if export_file.exists() else "")))
+    h.append(tabs("answers", rel(run_dir / "summary" / "report.html", run_dir), "#"))
     body_start = len(h)
     h.append("<div class='label'>Diagnosis</div><h1>Questions and answers</h1>"
              f"<p class='lead'>Each of the {len(questions)} questions with its gold answer, gold facts and gold documents, "

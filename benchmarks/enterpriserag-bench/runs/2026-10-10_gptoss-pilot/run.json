@@ -1,5 +1,5 @@
 {
-  "title": "EnterpriseRAG-Bench pilot: GPT-OSS-120B systems",
-  "purpose": "Score GPT-OSS no RAG, GPT-OSS + LangChain vector RAG, GPT-OSS + Microsoft GraphRAG (fast method, local search), GPT-OSS + RAGFlow (hybrid search, server on the operator's Windows PC) and 4Minds (Constellations) on 50 stratified questions and a 10,000-document corpus slice with the official metrics-based evaluation (default settings, gpt-5.4 judge); write the results in the leaderboard file format; estimate a full run. LightRAG was removed on 2026-10-10 (ingestion cost); more systems can be added to this run.",
-  "status": "5 systems scored (GraphRAG and RAGFlow added 2026-10-11); LightRAG removed"
+  "title": "EnterpriseRAG-Bench pilot: GPT-OSS-120B systems and Gemini + File Search",
+  "purpose": "Score GPT-OSS no RAG, GPT-OSS + LangChain vector RAG, GPT-OSS + Microsoft GraphRAG (fast and standard methods, local search), GPT-OSS + RAGFlow (hybrid search, server on the operator's Windows PC), 4Minds (Constellations; prod and a local build) and Gemini + File Search (gemini-3.8-flash with the managed File Search tool) on 50 stratified questions and a 10,000-document corpus slice with the official metrics-based evaluation (default settings, gpt-5.4 judge); write the results in the leaderboard file format; estimate a full run. LightRAG was removed on 2026-10-10 (ingestion cost); more systems can be added to this run.",
+  "status": "8 systems scored (9 rows); Gemini + File Search added 2026-10-12: first run (42/50 answered) and 3 attempts* (44/50; 6 questions fail each time with HTTP 400 too many tool calls); LightRAG removed"
 }

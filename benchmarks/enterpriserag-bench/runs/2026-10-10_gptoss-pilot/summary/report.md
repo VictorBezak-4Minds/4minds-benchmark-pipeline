@@ -4,7 +4,9 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 
 | System | Overall (95% CI) | Overall, missing = 0 | Correctness | Completeness | Recall | Invalid extra docs | Corrected | Scored | Judge cost |
 |---|---|---|---|---|---|---|---|---|---|
+| Gemini + File Search (3 attempts)* | 59.11 (45.9–71.5) | 52.02 | 81.8 | 68.1 | 90.4 | 0.10 | 1 | 44/50 | $1.83 |
 | 4Minds (benchmark system prompt, local) | 58.93 (46.4–71.0) | 58.93 | 70.0 | 66.2 | 80.5 | 11.93 | 2 | 50/50 | $0.51 |
+| Gemini + File Search (first run) | 57.33 (44.8–70.3) | 48.15 | 81.0 | 66.7 | 89.9 | 0.10 | 1 | 42/50 | $1.75 |
 | 4Minds (Constellations) | 52.94 (40.7–65.4) | 52.94 | 62.0 | 63.7 | 71.5 | 12.28 | 2 | 50/50 | $6.68 |
 | GPT-OSS + RAGFlow | 43.41 (31.8–55.3) | 43.41 | 74.0 | 48.9 | 83.2 | 3.70 | 1 | 50/50 | $3.38 |
 | GPT-OSS + LangChain | 41.69 (30.1–52.9) | 41.69 | 76.0 | 45.9 | 82.1 | 8.76 | 1 | 50/50 | $5.91 |
@@ -16,7 +18,9 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 
 | model | overall_score | correctness | completeness | recall | invalid_extra_docs | tags |
 |---|---|---|---|---|---|---|
+| Gemini File Search (gemini-3.8-flash), 3 attempts | 59.11 | 81.82 | 68.07 | 90.41 | 0.1 |  |
 | 4Minds Constellations, benchmark system prompt, local build (GPT-OSS-120B) | 58.93 | 70.0 | 66.24 | 80.5 | 11.93 |  |
+| Gemini File Search (gemini-3.8-flash), first run | 57.33 | 80.95 | 66.71 | 89.93 | 0.1 |  |
 | 4Minds Constellations (GPT-OSS-120B) | 52.94 | 62.0 | 63.71 | 71.5 | 12.28 |  |
 | RAGFlow v0.27.2 hybrid search (text-embedding-3-large) + GPT-OSS-120B | 43.41 | 74.0 | 48.93 | 83.15 | 3.7 | one_shot |
 | LangChain vector (text-embedding-3-large) + GPT-OSS-120B | 41.69 | 76.0 | 45.88 | 82.13 | 8.76 | one_shot |
@@ -34,6 +38,8 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 | GPT-OSS + GraphRAG | 1.2 (n=17) | 0.0 (n=2) | 0.0 (n=2) | 0.0 (n=3) | 0.0 (n=2) | 100.0 (n=2) | 0.0 (n=4) | 0.0 (n=2) | 13.6 (n=4) | 0.0 (n=12) |
 | GPT-OSS + GraphRAG (standard) | 24.1 (n=17) | 8.3 (n=2) | 37.5 (n=2) | 93.3 (n=3) | 0.0 (n=2) | 50.0 (n=2) | 25.0 (n=4) | 0.0 (n=2) | 15.1 (n=4) | 0.0 (n=12) |
 | GPT-OSS + RAGFlow | 28.3 (n=17) | 29.2 (n=2) | 73.3 (n=2) | 84.4 (n=3) | 0.0 (n=2) | 100.0 (n=2) | 29.2 (n=4) | 30.0 (n=2) | 35.9 (n=4) | 59.2 (n=12) |
+| Gemini + File Search (first run) | 62.9 (n=14) | 33.3 (n=2) | 30.0 (n=2) | 100.0 (n=2) | 0.0 (n=2) | – | 66.7 (n=3) | 20.0 (n=2) | 45.9 (n=4) | 70.7 (n=11) |
+| Gemini + File Search (3 attempts)* | 62.9 (n=14) | 33.3 (n=2) | 30.0 (n=2) | 97.8 (n=3) | 0.0 (n=2) | – | 75.0 (n=4) | 20.0 (n=2) | 45.9 (n=4) | 70.7 (n=11) |
 | GPT-OSS, no RAG | 0.0 (n=17) | 0.0 (n=1) | 0.0 (n=2) | 0.0 (n=3) | 0.0 (n=2) | 50.0 (n=2) | 0.0 (n=4) | 0.0 (n=2) | 0.0 (n=4) | 2.1 (n=12) |
 
 ## Operations
@@ -46,10 +52,14 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 | GPT-OSS + GraphRAG | 50/50 | 0 | 0 | 4.74 | 108.39 s | $0.101 |
 | GPT-OSS + GraphRAG (standard) | 50/50 | 0 | 0 | 5.9 | 10.94 s | $0.096 |
 | GPT-OSS + RAGFlow | 50/50 | 0 | 0 | 4.98 | 3.0 s | $0.046 |
+| Gemini + File Search (first run) | 42/50 | 8 | 0 | 1.36 | 20.22 s | $4.338 |
+| Gemini + File Search (3 attempts)* | 44/50 | 6 | 0 | 1.36 | 21.61 s | $4.809 |
 | GPT-OSS, no RAG | 49/50 | 1 | 49 | 0.0 | 1.76 s | $0.009 |
 
 ## Not scored
 
+- Gemini + File Search (first run): questions qst_0023, qst_0027, qst_0036, qst_0267, qst_0329, qst_0385, qst_0489, qst_0492 (not in the official averages)
+- Gemini + File Search (3 attempts)*: questions qst_0023, qst_0027, qst_0036, qst_0267, qst_0489, qst_0492 (not in the official averages)
 - GPT-OSS, no RAG: questions qst_0443 (not in the official averages)
 
 ## Caveats
@@ -58,7 +68,7 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 - Corpus slice: 10,000 of 511,958 documents (the 74 gold documents of the pilot questions plus 9,926 random others). Retrieval is easier than on the full corpus, so these scores are not comparable with the public leaderboard.
 - Official default settings: a retrieved document that is not gold can become gold for that system when 3 judges agree (correction). Recall and invalid extra documents then use a different gold list for each system. The corrected-question count is in the table.
 - The official scorer skips a question with no answer and no documents; that question is not in the official averages. The column 'Overall, missing = 0' counts such a question as 0 over all pilot questions.
-- GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except the two 4Minds rows, which use the 4Minds GPT-OSS-120B deployment.
+- GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except the two 4Minds rows, which use the 4Minds GPT-OSS-120B deployment, and Gemini + File Search, which uses gemini-3.8-flash.
 - 4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order. The instructions of the official prompt are the persona's behavioral guidelines; 4Minds builds its own context and has no per-request system prompt, temperature or max-token setting.
 - 4Minds ingestion time: setup.json counts only from the restart of the wait (21:36 UTC). The upload started at 21:22 UTC and the chunk count did not change after 21:39 UTC, so the ingestion took about 17 minutes (then 15 minutes of stable wait).
 - 4Minds local: not the prod release. Local edit in constellations/assembler/prompts/preliminary_response_prompt.py: when the persona has behavioral guidelines, they replace PRELIMINARY_RESPONSE_SYSTEM (which asks for markdown and bold). The rest of the 4Minds prompt stays, including the DOCUMENT SUMMARIES section ('structure your coverage'); the stored document summaries are markdown. 26 of 50 answers have bold text (prod: 43 of 50). The document IDs come from the chunk document_title, as for prod.
@@ -76,4 +86,14 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 - GraphRAG (standard): the index (16.6 h at 16 parallel LLM requests, about USD 102), the answers and the score were made on the operator's Linux machine (victormini1) with the same corpus slice (same corpus_sha256 as the fast index), code and scorer; the scoring environment uses the package versions of envs/pip_freeze_erag.txt. The answer latency (median 11 s, 8 parallel workers) is much lower than the fast row because the graph has fewer relationships.
 - RAGFlow: the context is the 6 chunks of the RAGFlow retrieval API, in RAGFlow rank order, each chunk as one context document in the official answer prompt; RAGFlow's own chat prompt is not used. The document IDs are the documents of these chunks (documents.json maps the RAGFlow document IDs).
 - RAGFlow ingestion: RAGFlow ran in Docker (WSL2) on a separate Windows PC; the Mac sent the searches over the local network. The time (upload 281 s + parse 8,385 s) depends on the CPU of that PC. The cost is only the embedding tokens that RAGFlow counted. setup.json on the Mac was restored from the step log of the setup run (same values), and documents.json was read again from the server.
+- Gemini + File Search: the answer model is gemini-3.8-flash, not GPT-OSS-120B, so this row changes the model and the retrieval together. It is a managed RAG product row, not a retrieval comparison with the GPT-OSS rows.
+- Gemini + File Search: the document IDs are the dsid metadata of the chunks that the answer cites, in citation order. File Search has no search-only API and returns only the cited chunks, not all the chunks that the tool read, so recall and invalid extra documents use the cited documents. `context` holds the cited chunk text.
+- Gemini + File Search (first run): 8 of 50 questions have no answer (qst_0023, qst_0027, qst_0036, qst_0267, qst_0329, qst_0385, qst_0489, qst_0492; 3 basic, 2 info_not_found, 1 semantic, 1 intra_document_reasoning, 1 constrained). After 90 to 120 s of searches, the Gemini API returned HTTP 400 'Model generated too many tool calls. Please retry the request.' The runner does not retry HTTP 400, so each question stopped at its first HTTP 400. These are failures of the system: the official averages skip them, and 'Overall, missing = 0' counts them as 0. The row Gemini + File Search (3 attempts)* gives these 8 questions two more attempts.
+- Gemini + File Search: Gemini decides how many searches to make (1 to 22 per answered question, median 2.5), so the system is not one-shot. The cost is in the retrieved tokens: the recorded cost of the 42 answers is USD 4.34 (median USD 0.02, maximum USD 0.73 for 22 searches). The usage of the 10 failed attempts (8 HTTP 400 replies and 2 earlier attempts that the runner retried) is not recorded, so the real cost is higher.
+- Gemini + File Search: the official instructions are the system instruction and the question is the input (as for 4Minds); Gemini builds the context itself. Each request filters on the store metadata corpus_sha256 of data/pilot_corpus.json.
+- Gemini + File Search ingestion: the store was made on 2026-10-11 outside setup_gemini.py (probably from another machine), and the hub has no record of the upload or its cost. shared/gemini/setup.json is a check of the store from the API on 2026-10-12 (10,000 active documents; dsid and text sha256 equal to the local corpus). The time is from the first document createTime to the last updateTime.
+- * Gemini + File Search (3 attempts): 6 of 50 questions (12%) have no answer after 3 attempts: qst_0023, qst_0027, qst_0036 (basic), qst_0267 (semantic), qst_0489, qst_0492 (info_not_found, both questions of this type). Each attempt ended with HTTP 400 'Model generated too many tool calls' from the Gemini API after 87 to 119 s of searches; this is a limit of the system, not a client timeout. The official averages skip these questions; 'Overall, missing = 0' counts them as 0. Correctness, completeness and recall are averages over the 44 answered questions only.
+- Gemini + File Search (3 attempts): a copy of the first-run folder (answers, judge results and corrected gold lists of the 42 answered questions). Attempt 2 (same settings and command) answered qst_0329 and qst_0385. Attempt 3 for the other 6 used a 300 s client timeout instead of 120 s, to rule out a client timeout (one attempt for qst_0492 had no reply after 300 s; its automatic retry ended with the same HTTP 400). score.py resumed, so the judge scored only the 2 new answers; the 42 shared judge results are identical to the first run. The attempt-2 folder is in _superseded_retry2/.
+- Gemini + File Search (3 attempts): the other rows had one attempt per question (retries only for network and rate-limit errors); this row had up to three attempts for its failed questions.
+- Gemini + File Search (3 attempts): the judge cost includes the first-run judge cost (copied score manifest); attempt 2 added USD 0.08. The recorded answer cost is USD 4.81 (first run USD 4.34, attempt 2 USD 0.47); the usage of the 24 failed attempts (20 HTTP 400 replies and 4 earlier attempts that the runner retried) is not recorded, so the real cost is higher.
 - No RAG: the official prompt says to answer only from the documents, and the document section is empty. The company is synthetic, so world knowledge cannot answer most questions.

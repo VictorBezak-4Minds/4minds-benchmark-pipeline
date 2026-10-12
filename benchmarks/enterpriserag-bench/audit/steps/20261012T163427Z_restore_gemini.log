@@ -1,0 +1,29 @@
+# step: restore_gemini
+# start: 2026-10-12T16:34:27Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/setup_gemini.py --restore fileSearchStores/enterpriseragbenchpilot3e18-0g3c3vyjxpj9
+
+{
+  "store": "fileSearchStores/enterpriseragbenchpilot3e18-0g3c3vyjxpj9",
+  "check": {
+    "documents": 10000,
+    "states": {
+      "STATE_ACTIVE": 10000
+    },
+    "pending": 0,
+    "failed": 0,
+    "local_documents": 10000,
+    "missing": 0,
+    "extra": 0,
+    "text_sha256_mismatch": 0,
+    "corpus_sha256_values": {
+      "3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec": 10000
+    }
+  },
+  "ingest_window": {
+    "first_create": "2026-10-11T05:48:49.811766Z",
+    "last_create": "2026-10-11T05:58:50.182846Z",
+    "last_update": "2026-10-11T06:10:42.374245Z"
+  }
+}
+
+# end: 2026-10-12T16:35:06Z  exit: 0  duration_s: 39

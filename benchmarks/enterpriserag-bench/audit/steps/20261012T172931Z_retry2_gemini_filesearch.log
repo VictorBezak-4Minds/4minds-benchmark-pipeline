@@ -1,0 +1,21 @@
+# step: retry2_gemini_filesearch
+# start: 2026-10-12T17:29:31Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/systems/run_gemini.py --subset all --questions-file data/pilot_questions.json --out-dir runs/2026-10-10_gptoss-pilot/gemini_filesearch_retry2 --workers 6 --timeout 300
+
+== gemini_file_search / all: 50 questions, 44 already done, 6 to run, 6 workers
+  readiness: {"store": "fileSearchStores/enterpriseragbenchpilot3e18-0g3c3vyjxpj9", "activeDocumentsCount": 10000, "pendingDocumentsCount": 0, "failedDocumentsCount": 0, "sources_active": ["3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec"], "documents_per_source": {"3e183c309177ae072cdb1de47e5a061be1b08d8a87f7c3e8a5496d88b670f4ec": 10000}}
+  [1/6] FAILED qst_0036: {"message": "Model generated too many tool calls. Please retry the request. If the issue persists, include this error message in the retry prompt to allow the model to call a valid number of tools.", "code": "Model generated function call(s).", "http_status": 400}
+  [2/6] FAILED qst_0489: {"message": "Model generated too many tool calls. Please retry the request. If the issue persists, include this error message in the retry prompt to allow the model to call a valid number of tools.", "code": "Model generated function call(s).", "http_status": 400}
+  [3/6] FAILED qst_0023: {"message": "Model generated too many tool calls. Please retry the request. If the issue persists, include this error message in the retry prompt to allow the model to call a valid number of tools.", "code": "Model generated function call(s).", "http_status": 400}
+  [4/6] FAILED qst_0027: {"message": "Model generated too many tool calls. Please retry the request. If the issue persists, include this error message in the retry prompt to allow the model to call a valid number of tools.", "code": "Model generated function call(s).", "http_status": 400}
+  [5/6] FAILED qst_0267: {"message": "Model generated too many tool calls. Please retry the request. If the issue persists, include this error message in the retry prompt to allow the model to call a valid number of tools.", "code": "Model generated function call(s).", "http_status": 400}
+  [6/6] FAILED qst_0492: {"message": "Model generated too many tool calls. Please retry the request. If the issue persists, include this error message in the retry prompt to allow the model to call a valid number of tools.", "code": "Model generated function call(s).", "http_status": 400}
+
+== summary -> runs/2026-10-10_gptoss-pilot/gemini_filesearch_retry2/all/predictions.json
+  answered: 44 / 50   failed: 6   not run: 0
+  no context: 0   "I don't know": 0
+  tokens: {'total_input_tokens': 29476, 'total_output_tokens': 18620, 'total_tool_use_tokens': 6055770, 'total_thought_tokens': 46683}
+  latency: {'n': 44, 'mean_s': 33.08, 'median_s': 21.61, 'p90_s': 76.58, 'max_s': 109.0}   estimated cost: 4.8088
+  Run the same command again to retry the failed questions.
+
+# end: 2026-10-12T17:37:39Z  exit: 1  duration_s: 488

@@ -9,6 +9,7 @@ document as the official answer-generation code makes it ("<title>\\n\\n<content
 Each prediction carries the IDs of the retrieved documents (`document_ids`), because the
 official scorer measures document recall and invalid extra documents.
 """
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -35,6 +36,20 @@ SUBSETS = ["all"]
 # JSON), and the document list of the pilot slice.
 QUESTION_FILES = {"all": HERE / "data" / "questions.json"}
 CORPUS_FILE = HERE / "data" / "pilot_corpus.json"
+
+# Gemini File Search (systems/run_gemini.py): one store file per corpus document, with the
+# metadata dsid, text_sha256 and corpus_sha256 (no `source`). shared/gemini/setup.json has the check.
+GEMINI_FILE_SEARCH_STORE = "fileSearchStores/enterpriseragbenchpilot3e18-0g3c3vyjxpj9"
+GEMINI_FILTER_KEY = "corpus_sha256"
+GEMINI_DOCUMENT_ID_KEY = "dsid"
+_corpus_sha256 = None
+
+
+def gemini_filter_value(q):
+    global _corpus_sha256
+    if _corpus_sha256 is None:
+        _corpus_sha256 = hashlib.sha256(CORPUS_FILE.read_bytes()).hexdigest()
+    return _corpus_sha256
 
 
 def _load_upstream(relative, name):

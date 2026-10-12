@@ -1,0 +1,7 @@
+# step: describe_pilot_gemini_retry1
+# start: 2026-10-12T17:10:07Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/run_readme.py --run runs/2026-10-10_gptoss-pilot --status 8 systems scored (9 rows); Gemini + File Search added 2026-10-12: first run (42/50 answered) and retry 1 (44/50, one more attempt for the 8 failed questions); LightRAG removed
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/README.md
+
+# end: 2026-10-12T17:10:07Z  exit: 0  duration_s: 0

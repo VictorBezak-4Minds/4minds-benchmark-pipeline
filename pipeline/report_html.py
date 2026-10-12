@@ -83,6 +83,12 @@ a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underli
 .legend { display:flex; flex-wrap:wrap; gap:16px; color:var(--muted); font-size:13px; margin-bottom:12px; }
 .note { color:var(--muted); font-size:13px; margin:14px 0 0; }
 .pos { color:#86efac; } .neg { color:#fca5a5; } .neutral { color:var(--muted); }
+.tabs { display:flex; flex-wrap:wrap; gap:8px; margin:-16px 0 40px; }
+.tabs a, .tabs button { padding:8px 16px; border-radius:999px; border:1px solid var(--border); color:var(--muted);
+  font:inherit; font-size:14px; background:none; cursor:pointer; }
+.tabs a.active { color:#fff; border-color:var(--violet); background:rgba(84,63,237,0.18); text-decoration:none; }
+.tabs button { margin-left:auto; color:#fff; border-color:var(--violet); }
+.tabs button:hover, .tabs a:hover { text-decoration:none; border-color:var(--violet); }
 footer { margin-top:80px; padding-top:24px; border-top:1px solid var(--border); color:var(--muted); font-size:13px; }
 @media (max-width:720px) { .bar-row { grid-template-columns:1fr; } h1 { font-size:34px; } }
 """
@@ -99,6 +105,51 @@ def head(title):
 def header(meta):
     logo = LOGO.read_text() if LOGO.exists() else "<strong>4Minds</strong>"
     return f"<header><div>{logo}</div><div class='meta'>{meta}</div></header>"
+
+
+def tabs(active, report_href, answers_href, extra=""):
+    """The pill bar under the header that switches between the report and the question browser."""
+    items = [("report", "Report", report_href), ("answers", "Questions and answers", answers_href)]
+    links = "".join(f"<a id='to-{key}' class='{'active' if key == active else ''}' href='{escape(href)}'>{label}</a>"
+                    for key, label, href in items)
+    return f"<nav class='tabs'>{links}{extra}</nav>"
+
+
+DOWNLOAD_BUTTON = "<button id='download' type='button'>Download this file</button>"
+
+# Saves the page again from the browser, in its first state. Relative links become absolute, so the
+# saved copy still opens the hub files on this machine. Charts are emptied, so they draw again on open.
+DOWNLOAD_SCRIPT = """<script>
+(function(){
+  document.getElementById('download').onclick=function(){
+    var copy=document.documentElement.cloneNode(true);
+    [].forEach.call(copy.querySelectorAll('details'),function(d){d.open=false;});
+    [].forEach.call(copy.querySelectorAll('.js-plotly-plot'),function(d){d.className='';d.removeAttribute('style');d.innerHTML='';});
+    [].forEach.call(copy.querySelectorAll('[id$="-fallback"]'),function(d){d.style.display='';});
+    [].forEach.call(copy.querySelectorAll('a[href]'),function(a){
+      var v=a.getAttribute('href'); if(v.charAt(0)!=='#')a.setAttribute('href',new URL(v,location.href).href);
+    });
+    var blob=new Blob(['<!doctype html>\\n'+copy.outerHTML],{type:'text/html'}), url=URL.createObjectURL(blob),
+        link=document.createElement('a');
+    link.href=url; link.download=FILE_NAME; document.body.appendChild(link); link.click();
+    setTimeout(function(){URL.revokeObjectURL(url); link.remove();},0);
+  };
+})();
+</script>"""
+
+
+def download_bar():
+    """The pill bar with only the download button, for a report without a question browser."""
+    return f"<nav class='tabs'>{DOWNLOAD_BUTTON}</nav>"
+
+
+def download_script(summary_dir):
+    """The script of DOWNLOAD_BUTTON for runs/<run>/summary/report.html. Put it before the footer.
+
+    The saved file is <benchmark>_<run>_report.html.
+    """
+    run_dir = Path(summary_dir).resolve().parent
+    return DOWNLOAD_SCRIPT.replace("FILE_NAME", json.dumps(f"{run_dir.parent.parent.name}_{run_dir.name}_report.html"))
 
 
 def info(paragraphs, source=None):
