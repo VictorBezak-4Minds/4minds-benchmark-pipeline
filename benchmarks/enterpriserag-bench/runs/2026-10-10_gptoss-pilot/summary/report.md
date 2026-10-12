@@ -4,6 +4,7 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 
 | System | Overall (95% CI) | Overall, missing = 0 | Correctness | Completeness | Recall | Invalid extra docs | Corrected | Scored | Judge cost |
 |---|---|---|---|---|---|---|---|---|---|
+| 4Minds (benchmark system prompt, local) | 58.93 (46.4–71.0) | 58.93 | 70.0 | 66.2 | 80.5 | 11.93 | 2 | 50/50 | $0.51 |
 | 4Minds (Constellations) | 52.94 (40.7–65.4) | 52.94 | 62.0 | 63.7 | 71.5 | 12.28 | 2 | 50/50 | $6.68 |
 | GPT-OSS + RAGFlow | 43.41 (31.8–55.3) | 43.41 | 74.0 | 48.9 | 83.2 | 3.70 | 1 | 50/50 | $3.38 |
 | GPT-OSS + LangChain | 41.69 (30.1–52.9) | 41.69 | 76.0 | 45.9 | 82.1 | 8.76 | 1 | 50/50 | $5.91 |
@@ -15,6 +16,7 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 
 | model | overall_score | correctness | completeness | recall | invalid_extra_docs | tags |
 |---|---|---|---|---|---|---|
+| 4Minds Constellations, benchmark system prompt, local build (GPT-OSS-120B) | 58.93 | 70.0 | 66.24 | 80.5 | 11.93 |  |
 | 4Minds Constellations (GPT-OSS-120B) | 52.94 | 62.0 | 63.71 | 71.5 | 12.28 |  |
 | RAGFlow v0.27.2 hybrid search (text-embedding-3-large) + GPT-OSS-120B | 43.41 | 74.0 | 48.93 | 83.15 | 3.7 | one_shot |
 | LangChain vector (text-embedding-3-large) + GPT-OSS-120B | 41.69 | 76.0 | 45.88 | 82.13 | 8.76 | one_shot |
@@ -27,6 +29,7 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 | System | basic | completeness | conflicting_info | constrained | high_level | info_not_found | intra_document_reasoning | miscellaneous | project_related | semantic |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 4Minds (Constellations) | 68.2 (n=17) | 33.3 (n=2) | 50.0 (n=2) | 89.2 (n=3) | 0.0 (n=2) | 50.0 (n=2) | 50.0 (n=4) | 30.0 (n=2) | 35.7 (n=4) | 45.8 (n=12) |
+| 4Minds (benchmark system prompt, local) | 69.4 (n=17) | 29.2 (n=2) | 50.0 (n=2) | 100.0 (n=3) | 0.0 (n=2) | 100.0 (n=2) | 83.3 (n=4) | 40.0 (n=2) | 38.0 (n=4) | 45.2 (n=12) |
 | GPT-OSS + LangChain | 30.6 (n=17) | 22.5 (n=2) | 50.0 (n=2) | 91.4 (n=3) | 0.0 (n=2) | 100.0 (n=2) | 29.2 (n=4) | 30.0 (n=2) | 50.7 (n=4) | 47.1 (n=12) |
 | GPT-OSS + GraphRAG | 1.2 (n=17) | 0.0 (n=2) | 0.0 (n=2) | 0.0 (n=3) | 0.0 (n=2) | 100.0 (n=2) | 0.0 (n=4) | 0.0 (n=2) | 13.6 (n=4) | 0.0 (n=12) |
 | GPT-OSS + GraphRAG (standard) | 24.1 (n=17) | 8.3 (n=2) | 37.5 (n=2) | 93.3 (n=3) | 0.0 (n=2) | 50.0 (n=2) | 25.0 (n=4) | 0.0 (n=2) | 15.1 (n=4) | 0.0 (n=12) |
@@ -38,6 +41,7 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 | System | Answered | Failed | No context | Docs per answer | Median latency | Answer cost |
 |---|---|---|---|---|---|---|
 | 4Minds (Constellations) | 50/50 | 0 | 0 | 13.22 | 14.75 s | n/a |
+| 4Minds (benchmark system prompt, local) | 50/50 | 0 | 1 | 13.0 | 15.73 s | n/a |
 | GPT-OSS + LangChain | 50/50 | 0 | 0 | 10.0 | 3.5 s | $0.132 |
 | GPT-OSS + GraphRAG | 50/50 | 0 | 0 | 4.74 | 108.39 s | $0.101 |
 | GPT-OSS + GraphRAG (standard) | 50/50 | 0 | 0 | 5.9 | 10.94 s | $0.096 |
@@ -54,9 +58,13 @@ Official `metrics_based_eval.py`, default settings (citation stripping, document
 - Corpus slice: 10,000 of 511,958 documents (the 74 gold documents of the pilot questions plus 9,926 random others). Retrieval is easier than on the full corpus, so these scores are not comparable with the public leaderboard.
 - Official default settings: a retrieved document that is not gold can become gold for that system when 3 judges agree (correction). Recall and invalid extra documents then use a different gold list for each system. The corrected-question count is in the table.
 - The official scorer skips a question with no answer and no documents; that question is not in the official averages. The column 'Overall, missing = 0' counts such a question as 0 over all pilot questions.
-- GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except 4Minds, which uses its own GPT-OSS-120B deployment.
+- GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except the two 4Minds rows, which use the 4Minds GPT-OSS-120B deployment.
 - 4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order. The instructions of the official prompt are the persona's behavioral guidelines; 4Minds builds its own context and has no per-request system prompt, temperature or max-token setting.
 - 4Minds ingestion time: setup.json counts only from the restart of the wait (21:36 UTC). The upload started at 21:22 UTC and the chunk count did not change after 21:39 UTC, so the ingestion took about 17 minutes (then 15 minutes of stable wait).
+- 4Minds local: not the prod release. Local edit in constellations/assembler/prompts/preliminary_response_prompt.py: when the persona has behavioral guidelines, they replace PRELIMINARY_RESPONSE_SYSTEM (which asks for markdown and bold). The rest of the 4Minds prompt stays, including the DOCUMENT SUMMARIES section ('structure your coverage'); the stored document summaries are markdown. 26 of 50 answers have bold text (prod: 43 of 50). The document IDs come from the chunk document_title, as for prod.
+- 4Minds local: qst_0027 has no context. The Graph Engine timed out (15 s) on the local stack, and the system answered without chunks; prod had 10 chunks for this question. The answer is kept and scored.
+- 4Minds local scoring: the first pass hung on qst_0362 (no reply on 3 judge connections for 8 minutes) and was stopped; a second pass scored that question. The judge usage of the first pass is probably not in the recorded judge cost.
+- 4Minds local ingestion: the time is the whole setup step (upload, ingestion from 13:04 to 14:05 UTC, then 15 minutes of stable wait). Final chunk count 27,901, the same as prod. The build status was still 'enhancing' during the answers (document summaries still being written).
 - LangChain: a copy of the official vector baseline (index_document_vectors.py and vector_retrieval.py) with LangChain parts in place of Qdrant. The official README says 1,024-token chunks; the code uses 512 tokens with 10% overlap, and we follow the code.
 - GraphRAG: the context is the output of the official local search context builder (reports, entities, relationships and source text units, at most 12,000 tokens), given as one context in the official answer prompt; GraphRAG's own answer prompt is not used. The document IDs are the documents of the text units in the 'sources' table.
 - GraphRAG index: the community-report calls use GraphRAG's default call settings, not the Bedrock settings of the answer calls. Bedrock's JSON mode often puts a '{' in front of the reply; the hub repairs it in memory (audit/patches/graphrag-3.3.0-gptoss-json-repair.py). 117 of 16,179 communities (0.72%) have no report because the reply stayed invalid.

@@ -1,0 +1,67 @@
+# step: score_4minds_local_sysprompt_rerun1
+# start: 2026-10-12T14:47:07Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-erag/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/scripts/score.py --system-dir runs/2026-10-10_gptoss-pilot/4minds_local_sysprompt/all
+
+Loading questions from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/upstream/questions.jsonl...
+  Loaded 500 questions
+Loading answers from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/4minds_local_sysprompt/all/answers.jsonl...
+  Loaded 50 answer rows
+
+  Found 49 already-evaluated questions in /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/4minds_local_sysprompt/all/results.json
+  49 overlapping with current answer set
+  1 new questions to evaluate
+
+  Resuming evaluation for 1 missing questions...
+Loading UUID index...
+  Loading UUID index from /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/shared/scorer/uuid_index.json...
+  Indexed 511958 documents
+Validating referenced document IDs...
+  Validated 1260 referenced document ids
+
+Evaluating 1 questions with 8 parallel workers 
+    Consensus majority vote confirmed gold documents
+  qst_0362 docs: OK qst_0362: gold documents confirmed by consensus
+  qst_0362 score: correct=False  completeness=69.23%  recall=44.44%  extra_docs=7
+
+Finalizing output files (sorting and writing results)...
+  Writing /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/4minds_local_sysprompt/all/results.json...
+  Writing /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/4minds_local_sysprompt/all/questions_updated.jsonl...
+
+Done.
+  Questions scored:    50
+  Skipped rows:        N/A
+  Corrected questions: 2
+  Avg correctness:     70.0%
+  Avg completeness:    66.24%
+  Combined corr*comp:  58.93
+  Avg recall:          80.5%
+  Avg invalid extra:   11.93
+{
+  "overall_score": 58.93,
+  "aggregate_stats": {
+    "total_questions": 50,
+    "completed_questions": 50,
+    "skipped_rows": "N/A",
+    "num_corrected_questions": 2,
+    "average_correctness_pct": 70.0,
+    "average_completeness_pct": 66.24,
+    "combined_correctness_completeness_score": 58.93,
+    "average_recall_pct": 80.5,
+    "average_invalid_extra_docs": 11.93
+  },
+  "judge_usage": {
+    "gpt-5.4-2026-03-05": {
+      "calls": 18,
+      "input_tokens": 138322,
+      "cached_input_tokens": 74752,
+      "output_tokens": 21966,
+      "reasoning_tokens": 16565,
+      "not_completed": 0
+    }
+  },
+  "judge_cost_usd": 0.5071,
+  "failed_questions": {},
+  "missing_scores": []
+}
+
+# end: 2026-10-12T14:51:11Z  exit: 0  duration_s: 244

@@ -1,0 +1,9 @@
+# step: report_v2_4minds_local_sysprompt
+# start: 2026-10-12T14:51:32Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/scripts/make_report.py --run runs/2026-10-11_erag-pilot_judge-haiku-nothink
+
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink/export/4minds-rag_2026-10-11_erag-pilot_judge-haiku-nothink.html
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink/answers.html
+wrote /Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-haiku-nothink/summary/report.html
+
+# end: 2026-10-12T14:51:33Z  exit: 0  duration_s: 1

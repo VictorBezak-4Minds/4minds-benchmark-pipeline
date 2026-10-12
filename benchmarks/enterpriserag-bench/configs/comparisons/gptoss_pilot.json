@@ -29,6 +29,26 @@
       ]
     },
     {
+      "key": "4minds_local_sysprompt",
+      "folder": "4minds_local_sysprompt",
+      "name": "4Minds (benchmark system prompt, local)",
+      "leaderboard_name": "4Minds Constellations, benchmark system prompt, local build (GPT-OSS-120B)",
+      "tags": [],
+      "description": "4Minds on the operator's local stack (minikube, branch vb/evals at 51f9f51df plus one local edit), Constellations engine (WebSocket), the same GPT-OSS-120B endpoint as prod; the persona's behavioral guidelines (the official prompt) replace the 4Minds response system prompt",
+      "short": "4Minds local, benchmark system prompt",
+      "color": "#a78bfa",
+      "ingestion": {
+        "file": "shared/4minds_local/setup.json",
+        "seconds": "wait_wall_clock_s"
+      },
+      "caveats": [
+        "4Minds local: not the prod release. Local edit in constellations/assembler/prompts/preliminary_response_prompt.py: when the persona has behavioral guidelines, they replace PRELIMINARY_RESPONSE_SYSTEM (which asks for markdown and bold). The rest of the 4Minds prompt stays, including the DOCUMENT SUMMARIES section ('structure your coverage'); the stored document summaries are markdown. 26 of 50 answers have bold text (prod: 43 of 50). The document IDs come from the chunk document_title, as for prod.",
+        "4Minds local: qst_0027 has no context. The Graph Engine timed out (15 s) on the local stack, and the system answered without chunks; prod had 10 chunks for this question. The answer is kept and scored.",
+        "4Minds local scoring: the first pass hung on qst_0362 (no reply on 3 judge connections for 8 minutes) and was stopped; a second pass scored that question. The judge usage of the first pass is probably not in the recorded judge cost.",
+        "4Minds local ingestion: the time is the whole setup step (upload, ingestion from 13:04 to 14:05 UTC, then 15 minutes of stable wait). Final chunk count 27,901, the same as prod. The build status was still 'enhancing' during the answers (document summaries still being written)."
+      ]
+    },
+    {
       "key": "gptoss_langchain",
       "folder": "gptoss_langchain",
       "name": "GPT-OSS + LangChain",
@@ -136,6 +156,6 @@
     "Corpus slice: 10,000 of 511,958 documents (the 74 gold documents of the pilot questions plus 9,926 random others). Retrieval is easier than on the full corpus, so these scores are not comparable with the public leaderboard.",
     "Official default settings: a retrieved document that is not gold can become gold for that system when 3 judges agree (correction). Recall and invalid extra documents then use a different gold list for each system. The corrected-question count is in the table.",
     "The official scorer skips a question with no answer and no documents; that question is not in the official averages. The column 'Overall, missing = 0' counts such a question as 0 over all pilot questions.",
-    "GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except 4Minds, which uses its own GPT-OSS-120B deployment."
+    "GPT-OSS-120B on Amazon Bedrock: temperature 0.3, 4,096 max tokens, reasoning effort medium (the 4Minds server defaults), for every system except the two 4Minds rows, which use the 4Minds GPT-OSS-120B deployment."
   ]
 }

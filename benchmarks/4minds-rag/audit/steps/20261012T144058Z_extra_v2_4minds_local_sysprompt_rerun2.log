@@ -1,0 +1,21 @@
+# step: extra_v2_4minds_local_sysprompt_rerun2
+# start: 2026-10-12T14:40:58Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-extra/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/score_extra.py score --config configs/scorers/v2_haiku-nothink.json --system-dir runs/2026-10-11_erag-pilot_judge-haiku-nothink/4minds_local_sysprompt/all
+
+== v2_haiku-nothink on runs/2026-10-11_erag-pilot_judge-haiku-nothink/4minds_local_sysprompt/all/predictions.json: 50 answers, 245 items done, 1 to score
+  [1/1] ragas_factual_correctness qst_0204
+done: 246/246 items scored, not scored 0, cost this run $0.0050, total $0.0433
+  judge usage this run: {"calls": 4, "prompt_tokens": 11699, "completion_tokens": 7580, "total_tokens": 19279, "fences_removed": 3, "prose_dropped": 0, "not_json_replies": 0, "truncated_replies": 0}
+  ragas_answer_accuracy: mean 0.63 (n=50)
+  ragas_factual_correctness_precision: mean 0.394 (n=50)
+  ragas_factual_correctness_recall: mean 0.5508 (n=50)
+  ragas_factual_correctness_f1: mean 0.4322 (n=50)
+  deepeval_summarization: mean 0.3672 (n=50)
+  deepeval_summarization_alignment: mean 0.4073 (n=50)
+  deepeval_summarization_coverage: mean 0.627 (n=50)
+  deepeval_hallucination: mean 0.8631 (n=50)
+  retrieval_documents_precision: mean 0.1051 (n=46)
+  retrieval_documents_recall: mean 0.8006 (n=46)
+  retrieval_documents_f1: mean 0.1721 (n=46)
+
+# end: 2026-10-12T14:41:26Z  exit: 0  duration_s: 28

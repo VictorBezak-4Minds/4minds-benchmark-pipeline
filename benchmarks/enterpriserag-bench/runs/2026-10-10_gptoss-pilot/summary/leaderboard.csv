@@ -1,4 +1,5 @@
 model,overall_score,correctness,completeness,recall,invalid_extra_docs,tags
+"4Minds Constellations, benchmark system prompt, local build (GPT-OSS-120B)",58.93,70.0,66.24,80.5,11.93,
 4Minds Constellations (GPT-OSS-120B),52.94,62.0,63.71,71.5,12.28,
 RAGFlow v0.27.2 hybrid search (text-embedding-3-large) + GPT-OSS-120B,43.41,74.0,48.93,83.15,3.7,one_shot
 LangChain vector (text-embedding-3-large) + GPT-OSS-120B,41.69,76.0,45.88,82.13,8.76,one_shot

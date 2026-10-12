@@ -42,6 +42,27 @@
       ]
     },
     {
+      "key": "4minds_local_sysprompt",
+      "folder": "4minds_local_sysprompt",
+      "name": "4Minds (benchmark system prompt, local)",
+      "description": "4Minds on the operator's local stack (minikube, branch vb/evals at 51f9f51df plus one local edit), Constellations engine (WebSocket), the same GPT-OSS-120B endpoint as prod; the persona's behavioral guidelines (the official EnterpriseRAG-Bench prompt) replace the 4Minds response system prompt",
+      "short": "4Minds local, benchmark system prompt",
+      "color": "#a78bfa",
+      "ingestion": {
+        "file": "../enterpriserag-bench/shared/4minds_local/setup.json",
+        "seconds": "wait_wall_clock_s",
+        "cost_covers": "not known: the local stack runs the ETL and graph build and uses the shared 4Minds model endpoints, which report no cost",
+        "ran_on": "operator's Mac (minikube) with the shared 4Minds model endpoints",
+        "note": "The time is the whole setup step: upload, ingestion (13:04 to 14:05 UTC, about 61 minutes) and 15 minutes of stable wait. Final chunk count 27,901, the same as prod."
+      },
+      "caveats": [
+        "4Minds local: not the prod release. Local edit in constellations/assembler/prompts/preliminary_response_prompt.py: when the persona has behavioral guidelines, they replace PRELIMINARY_RESPONSE_SYSTEM (which asks for markdown and bold). The rest of the 4Minds prompt stays, including the DOCUMENT SUMMARIES section ('structure your coverage'); the stored document summaries are markdown. 26 of 50 answers have bold text (prod: 43 of 50).",
+        "4Minds local: qst_0027 has no context. The Graph Engine timed out (15 s) on the local stack, and the system answered without chunks; prod had 10 chunks for this question. The answer is kept and scored.",
+        "4Minds local, v2 run (Haiku): the first pass hit the rate limit (HTTP 429) on 17 items and then hung on its last request; it was stopped, and two retry passes (the same as for the other systems) scored all 246 items. The judge usage of the first pass was not saved, so the judge cost of this row in the v2 run is too low.",
+        "4Minds local: the build status was still 'enhancing' during the answers (document summaries still being written), so the number of summaries in the prompt can differ between questions."
+      ]
+    },
+    {
       "key": "gptoss_langchain",
       "folder": "gptoss_langchain",
       "name": "GPT-OSS + LangChain",

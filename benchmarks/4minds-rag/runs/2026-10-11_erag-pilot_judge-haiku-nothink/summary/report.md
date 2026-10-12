@@ -8,6 +8,7 @@ Judge: `anthropic-claude-haiku-5-5-nothink`. Scores are 0 to 1, higher is better
 
 | System | Answer Accuracy (RAGAS, NVIDIA) | Factual Correctness (RAGAS): f1 | Summarization (DeepEval) | Hallucination (DeepEval; higher is better) | Document retrieval (no judge): f1 |
 |---|---|---|---|---|---|
+| 4Minds (benchmark system prompt, local) | 0.630 (0.54–0.73) | 0.432 (0.34–0.52) | 0.367 (0.27–0.47) | 0.863 (0.77–0.94) | 0.172 (0.14–0.21) |
 | GPT-OSS + LangChain | 0.585 (0.49–0.68) | 0.399 (0.32–0.48) | 0.234 (0.16–0.32) | 0.873 (0.79–0.94) | 0.203 (0.16–0.25) |
 | GPT-OSS + RAGFlow | 0.580 (0.49–0.67) | 0.406 (0.33–0.48) | 0.307 (0.23–0.39) | 0.876 (0.79–0.95) | 0.377 (0.31–0.45) |
 | 4Minds (Constellations) | 0.545 (0.43–0.66) | 0.384 (0.30–0.47) | 0.325 (0.23–0.42) | 0.807 (0.70–0.90) | 0.165 (0.12–0.21) |
@@ -17,24 +18,25 @@ Judge: `anthropic-claude-haiku-5-5-nothink`. Scores are 0 to 1, higher is better
 
 ## All metric outputs
 
-| Metric | GPT-OSS + LangChain | GPT-OSS + RAGFlow | 4Minds (Constellations) | GPT-OSS + GraphRAG (standard) | GPT-OSS + GraphRAG | GPT-OSS, no RAG |
-|---|---|---|---|---|---|---|
-| Answer Accuracy (RAGAS, NVIDIA) | 0.585 (n=50) | 0.580 (n=50) | 0.545 (n=50) | 0.305 (n=50) | 0.095 (n=50) | 0.051 (n=49) |
-| Factual Correctness (RAGAS): precision | 0.496 (n=50) | 0.568 (n=49) | 0.346 (n=50) | 0.275 (n=50) | 0.173 (n=50) | 0.081 (n=49) |
-| Factual Correctness (RAGAS): recall | 0.392 (n=50) | 0.381 (n=49) | 0.502 (n=50) | 0.228 (n=50) | 0.116 (n=50) | 0.027 (n=49) |
-| Factual Correctness (RAGAS): f1 | 0.399 (n=50) | 0.406 (n=49) | 0.384 (n=50) | 0.234 (n=50) | 0.133 (n=50) | 0.037 (n=49) |
-| Summarization (DeepEval) | 0.234 (n=49) | 0.307 (n=49) | 0.325 (n=50) | 0.134 (n=50) | 0.052 (n=49) | 0.025 (n=49) |
-| Summarization (DeepEval): alignment | 0.414 (n=49) | 0.501 (n=49) | 0.365 (n=50) | 0.266 (n=50) | 0.114 (n=49) | 0.072 (n=49) |
-| Summarization (DeepEval): coverage | 0.421 (n=49) | 0.428 (n=49) | 0.576 (n=50) | 0.244 (n=50) | 0.086 (n=49) | 0.065 (n=49) |
-| Hallucination (DeepEval; higher is better) | 0.873 (n=50) | 0.876 (n=50) | 0.807 (n=50) | 0.573 (n=50) | 0.422 (n=50) | 0.368 (n=49) |
-| Document retrieval (no judge): precision | 0.126 (n=46) | 0.290 (n=46) | 0.101 (n=46) | 0.103 (n=46) | 0.018 (n=46) | 0.000 (n=45) |
-| Document retrieval (no judge): recall | 0.821 (n=46) | 0.831 (n=46) | 0.715 (n=46) | 0.348 (n=46) | 0.032 (n=46) | 0.000 (n=45) |
-| Document retrieval (no judge): f1 | 0.203 (n=46) | 0.377 (n=46) | 0.165 (n=46) | 0.140 (n=46) | 0.016 (n=46) | 0.000 (n=45) |
+| Metric | 4Minds (benchmark system prompt, local) | GPT-OSS + LangChain | GPT-OSS + RAGFlow | 4Minds (Constellations) | GPT-OSS + GraphRAG (standard) | GPT-OSS + GraphRAG | GPT-OSS, no RAG |
+|---|---|---|---|---|---|---|---|
+| Answer Accuracy (RAGAS, NVIDIA) | 0.630 (n=50) | 0.585 (n=50) | 0.580 (n=50) | 0.545 (n=50) | 0.305 (n=50) | 0.095 (n=50) | 0.051 (n=49) |
+| Factual Correctness (RAGAS): precision | 0.394 (n=50) | 0.496 (n=50) | 0.568 (n=49) | 0.346 (n=50) | 0.275 (n=50) | 0.173 (n=50) | 0.081 (n=49) |
+| Factual Correctness (RAGAS): recall | 0.551 (n=50) | 0.392 (n=50) | 0.381 (n=49) | 0.502 (n=50) | 0.228 (n=50) | 0.116 (n=50) | 0.027 (n=49) |
+| Factual Correctness (RAGAS): f1 | 0.432 (n=50) | 0.399 (n=50) | 0.406 (n=49) | 0.384 (n=50) | 0.234 (n=50) | 0.133 (n=50) | 0.037 (n=49) |
+| Summarization (DeepEval) | 0.367 (n=50) | 0.234 (n=49) | 0.307 (n=49) | 0.325 (n=50) | 0.134 (n=50) | 0.052 (n=49) | 0.025 (n=49) |
+| Summarization (DeepEval): alignment | 0.407 (n=50) | 0.414 (n=49) | 0.501 (n=49) | 0.365 (n=50) | 0.266 (n=50) | 0.114 (n=49) | 0.072 (n=49) |
+| Summarization (DeepEval): coverage | 0.627 (n=50) | 0.421 (n=49) | 0.428 (n=49) | 0.576 (n=50) | 0.244 (n=50) | 0.086 (n=49) | 0.065 (n=49) |
+| Hallucination (DeepEval; higher is better) | 0.863 (n=50) | 0.873 (n=50) | 0.876 (n=50) | 0.807 (n=50) | 0.573 (n=50) | 0.422 (n=50) | 0.368 (n=49) |
+| Document retrieval (no judge): precision | 0.105 (n=46) | 0.126 (n=46) | 0.290 (n=46) | 0.101 (n=46) | 0.103 (n=46) | 0.018 (n=46) | 0.000 (n=45) |
+| Document retrieval (no judge): recall | 0.801 (n=46) | 0.821 (n=46) | 0.831 (n=46) | 0.715 (n=46) | 0.348 (n=46) | 0.032 (n=46) | 0.000 (n=45) |
+| Document retrieval (no judge): f1 | 0.172 (n=46) | 0.203 (n=46) | 0.377 (n=46) | 0.165 (n=46) | 0.140 (n=46) | 0.016 (n=46) | 0.000 (n=45) |
 
 ## Answer Accuracy (RAGAS, NVIDIA) by question type
 
 | System | basic | completeness | conflicting_info | constrained | high_level | info_not_found | intra_document_reasoning | miscellaneous | project_related | semantic |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 4Minds (benchmark system prompt, local) | 0.75 (n=17) | 0.50 (n=2) | 0.50 (n=2) | 0.75 (n=3) | 0.25 (n=2) | 0.50 (n=2) | 1.00 (n=4) | 0.88 (n=2) | 0.38 (n=4) | 0.48 (n=12) |
 | GPT-OSS + LangChain | 0.69 (n=17) | 0.50 (n=2) | 0.38 (n=2) | 0.67 (n=3) | 0.12 (n=2) | 0.50 (n=2) | 0.62 (n=4) | 0.75 (n=2) | 0.50 (n=4) | 0.54 (n=12) |
 | GPT-OSS + RAGFlow | 0.69 (n=17) | 0.50 (n=2) | 0.75 (n=2) | 0.67 (n=3) | 0.00 (n=2) | 0.50 (n=2) | 0.50 (n=4) | 0.75 (n=2) | 0.31 (n=4) | 0.58 (n=12) |
 | 4Minds (Constellations) | 0.72 (n=17) | 0.50 (n=2) | 0.50 (n=2) | 0.75 (n=3) | 0.12 (n=2) | 0.25 (n=2) | 0.75 (n=4) | 0.38 (n=2) | 0.38 (n=4) | 0.40 (n=12) |
@@ -46,6 +48,7 @@ Judge: `anthropic-claude-haiku-5-5-nothink`. Scores are 0 to 1, higher is better
 
 | System | basic | completeness | conflicting_info | constrained | high_level | info_not_found | intra_document_reasoning | miscellaneous | project_related | semantic |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 4Minds (benchmark system prompt, local) | 0.54 (n=17) | 0.57 (n=2) | 0.39 (n=2) | 0.60 (n=3) | 0.00 (n=2) | 0.00 (n=2) | 0.67 (n=4) | 0.57 (n=2) | 0.32 (n=4) | 0.30 (n=12) |
 | GPT-OSS + LangChain | 0.43 (n=17) | 0.38 (n=2) | 0.10 (n=2) | 0.67 (n=3) | 0.12 (n=2) | 0.12 (n=2) | 0.45 (n=4) | 0.62 (n=2) | 0.35 (n=4) | 0.39 (n=12) |
 | GPT-OSS + RAGFlow | 0.38 (n=17) | 0.49 (n=1) | 0.43 (n=2) | 0.63 (n=3) | 0.20 (n=2) | 0.14 (n=2) | 0.45 (n=4) | 0.55 (n=2) | 0.32 (n=4) | 0.44 (n=12) |
 | 4Minds (Constellations) | 0.57 (n=17) | 0.48 (n=2) | 0.25 (n=2) | 0.41 (n=3) | 0.06 (n=2) | 0.00 (n=2) | 0.42 (n=4) | 0.25 (n=2) | 0.28 (n=4) | 0.29 (n=12) |
@@ -57,6 +60,7 @@ Judge: `anthropic-claude-haiku-5-5-nothink`. Scores are 0 to 1, higher is better
 
 | System | basic | completeness | conflicting_info | constrained | high_level | info_not_found | intra_document_reasoning | miscellaneous | project_related | semantic |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 4Minds (benchmark system prompt, local) | 0.50 (n=17) | 0.40 (n=2) | 0.00 (n=2) | 0.45 (n=3) | 0.00 (n=2) | 0.20 (n=2) | 0.69 (n=4) | 0.55 (n=2) | 0.18 (n=4) | 0.22 (n=12) |
 | GPT-OSS + LangChain | 0.19 (n=17) | 0.06 (n=2) | 0.00 (n=2) | 0.49 (n=3) | 0.00 (n=2) | 0.00 (n=2) | 0.28 (n=4) | 0.50 (n=1) | 0.14 (n=4) | 0.38 (n=12) |
 | GPT-OSS + RAGFlow | 0.23 (n=17) | 0.55 (n=2) | 0.33 (n=2) | 0.57 (n=3) | 0.00 (n=2) | 0.40 (n=2) | 0.33 (n=4) | 0.60 (n=1) | 0.31 (n=4) | 0.31 (n=12) |
 | 4Minds (Constellations) | 0.47 (n=17) | 0.21 (n=2) | 0.00 (n=2) | 0.34 (n=3) | 0.00 (n=2) | 0.00 (n=2) | 0.65 (n=4) | 0.25 (n=2) | 0.12 (n=4) | 0.27 (n=12) |
@@ -68,6 +72,7 @@ Judge: `anthropic-claude-haiku-5-5-nothink`. Scores are 0 to 1, higher is better
 
 | System | basic | completeness | conflicting_info | constrained | high_level | info_not_found | intra_document_reasoning | miscellaneous | project_related | semantic |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 4Minds (benchmark system prompt, local) | 0.87 (n=17) | 1.00 (n=2) | 0.70 (n=2) | 1.00 (n=3) | 1.00 (n=2) | 1.00 (n=2) | 0.83 (n=4) | 1.00 (n=2) | 0.85 (n=4) | 0.76 (n=12) |
 | GPT-OSS + LangChain | 0.87 (n=17) | 1.00 (n=2) | 0.70 (n=2) | 0.98 (n=3) | 1.00 (n=2) | 1.00 (n=2) | 0.67 (n=4) | 1.00 (n=2) | 0.89 (n=4) | 0.85 (n=12) |
 | GPT-OSS + RAGFlow | 0.81 (n=17) | 1.00 (n=2) | 1.00 (n=2) | 0.96 (n=3) | 1.00 (n=2) | 1.00 (n=2) | 0.75 (n=4) | 1.00 (n=2) | 0.85 (n=4) | 0.89 (n=12) |
 | 4Minds (Constellations) | 0.88 (n=17) | 1.00 (n=2) | 0.70 (n=2) | 0.98 (n=3) | 1.00 (n=2) | 0.50 (n=2) | 0.75 (n=4) | 0.50 (n=2) | 0.82 (n=4) | 0.73 (n=12) |
@@ -79,6 +84,7 @@ Judge: `anthropic-claude-haiku-5-5-nothink`. Scores are 0 to 1, higher is better
 
 | System | basic | completeness | conflicting_info | constrained | high_level | info_not_found | intra_document_reasoning | miscellaneous | project_related | semantic |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 4Minds (benchmark system prompt, local) | 0.15 (n=17) | 0.58 (n=2) | 0.22 (n=2) | 0.20 (n=3) | – | – | 0.11 (n=4) | 0.21 (n=2) | 0.24 (n=4) | 0.12 (n=12) |
 | GPT-OSS + LangChain | 0.16 (n=17) | 0.65 (n=2) | 0.17 (n=2) | 0.28 (n=3) | – | – | 0.14 (n=4) | 0.18 (n=2) | 0.40 (n=4) | 0.14 (n=12) |
 | GPT-OSS + RAGFlow | 0.30 (n=17) | 0.75 (n=2) | 0.50 (n=2) | 0.60 (n=3) | – | – | 0.30 (n=4) | 0.29 (n=2) | 0.69 (n=4) | 0.28 (n=12) |
 | 4Minds (Constellations) | 0.15 (n=17) | 0.65 (n=2) | 0.22 (n=2) | 0.19 (n=3) | – | – | 0.08 (n=4) | 0.10 (n=2) | 0.32 (n=4) | 0.08 (n=12) |
@@ -90,6 +96,7 @@ Judge: `anthropic-claude-haiku-5-5-nothink`. Scores are 0 to 1, higher is better
 
 | System | Answers | Items | Not scored | Judge calls | Not JSON | Fences removed | Truncated | Judge cost |
 |---|---|---|---|---|---|---|---|---|
+| 4Minds (benchmark system prompt, local) | 50 | 246 | 0 | 76 | 4 | 50 | 4 | $0.043 |
 | GPT-OSS + LangChain | 50 | 246 | 1 | 616 | 5 | 346 | 2 | $0.175 |
 | GPT-OSS + RAGFlow | 50 | 246 | 2 | 622 | 12 | 347 | 9 | $0.182 |
 | 4Minds (Constellations) | 50 | 246 | 0 | 617 | 3 | 355 | 3 | $0.202 |
@@ -115,6 +122,10 @@ Judge: `anthropic-claude-haiku-5-5-nothink`. Scores are 0 to 1, higher is better
 - Haiku judge: the Anthropic OpenAI-compatible endpoint rejects the RAGAS response_format {"type": "json_object"} (HTTP 400), so the scorer config removes that field (drop_params). The prompt with the JSON schema is the same; Haiku puts the JSON in a code fence, which the scorer removes before parsing (about 340 fences per system). gpt-4o-mini got the field.
 - Haiku judge: the first pass hit the rate limit of 80,000 output tokens per minute (HTTP 429) at 16 parallel requests; two retry passes, the same for every system, scored all such items. 4 items stay not scored, and they are not in the means: Summarization of qst_0454 for LangChain, RAGFlow and GraphRAG (the answer is only a date, and Haiku replied in prose that the text to extract claims from was empty; audit step diagnose_v2_qst_0454), and Factual Correctness of qst_0433 for RAGFlow (the claim list was longer than the 4,096-token limit). GraphRAG (standard) was scored later with one retry pass; all its items are scored, including Summarization of qst_0454.
 - 4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order.
+- 4Minds local: not the prod release. Local edit in constellations/assembler/prompts/preliminary_response_prompt.py: when the persona has behavioral guidelines, they replace PRELIMINARY_RESPONSE_SYSTEM (which asks for markdown and bold). The rest of the 4Minds prompt stays, including the DOCUMENT SUMMARIES section ('structure your coverage'); the stored document summaries are markdown. 26 of 50 answers have bold text (prod: 43 of 50).
+- 4Minds local: qst_0027 has no context. The Graph Engine timed out (15 s) on the local stack, and the system answered without chunks; prod had 10 chunks for this question. The answer is kept and scored.
+- 4Minds local, v2 run (Haiku): the first pass hit the rate limit (HTTP 429) on 17 items and then hung on its last request; it was stopped, and two retry passes (the same as for the other systems) scored all 246 items. The judge usage of the first pass was not saved, so the judge cost of this row in the v2 run is too low.
+- 4Minds local: the build status was still 'enhancing' during the answers (document summaries still being written), so the number of summaries in the prompt can differ between questions.
 - LangChain: always gives 10 documents, so its document precision is at most 0.1 for a question with one gold document.
 - GraphRAG: this row is not representative of GraphRAG. The fast method writes no entity descriptions, so local search compares the question only with entity names. On a 500-document test, the standard method found 52 of 74 gold documents and the fast method 17 of 74 (see the EnterpriseRAG-Bench run README). The row GPT-OSS + GraphRAG (standard) uses the standard method on the same slice.
 - GraphRAG (standard): 53 of 21,727 communities (0.24%) have no report because the reply stayed invalid JSON. The index, the answers and the scores were made on victormini1 with the same code, settings and scorer configs; its scoring environments use the package versions of envs/pip_freeze_extra.txt.

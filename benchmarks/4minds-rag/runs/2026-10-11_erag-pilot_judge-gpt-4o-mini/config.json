@@ -1,6 +1,6 @@
 {
   "source": "configs/comparisons/erag_pilot.json",
-  "sha256": "9237e77de7e0d16a050cce533a50bb35d226b0ec3808e9e158abb284950fbe92",
+  "sha256": "6e5249c0685553d35980df7baefe4ff27eb7f6184849162c3ea73fbd18ed9a7d",
   "config": {
     "name": "erag_pilot",
     "description": "The GPT-OSS-120B systems of the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), their saved answers scored with the 4Minds RAG metrics. The scorer config (configs/scorers/) gives the judge.",
@@ -42,6 +42,27 @@
         },
         "caveats": [
           "4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order."
+        ]
+      },
+      {
+        "key": "4minds_local_sysprompt",
+        "folder": "4minds_local_sysprompt",
+        "name": "4Minds (benchmark system prompt, local)",
+        "description": "4Minds on the operator's local stack (minikube, branch vb/evals at 51f9f51df plus one local edit), Constellations engine (WebSocket), the same GPT-OSS-120B endpoint as prod; the persona's behavioral guidelines (the official EnterpriseRAG-Bench prompt) replace the 4Minds response system prompt",
+        "short": "4Minds local, benchmark system prompt",
+        "color": "#a78bfa",
+        "ingestion": {
+          "file": "../enterpriserag-bench/shared/4minds_local/setup.json",
+          "seconds": "wait_wall_clock_s",
+          "cost_covers": "not known: the local stack runs the ETL and graph build and uses the shared 4Minds model endpoints, which report no cost",
+          "ran_on": "operator's Mac (minikube) with the shared 4Minds model endpoints",
+          "note": "The time is the whole setup step: upload, ingestion (13:04 to 14:05 UTC, about 61 minutes) and 15 minutes of stable wait. Final chunk count 27,901, the same as prod."
+        },
+        "caveats": [
+          "4Minds local: not the prod release. Local edit in constellations/assembler/prompts/preliminary_response_prompt.py: when the persona has behavioral guidelines, they replace PRELIMINARY_RESPONSE_SYSTEM (which asks for markdown and bold). The rest of the 4Minds prompt stays, including the DOCUMENT SUMMARIES section ('structure your coverage'); the stored document summaries are markdown. 26 of 50 answers have bold text (prod: 43 of 50).",
+          "4Minds local: qst_0027 has no context. The Graph Engine timed out (15 s) on the local stack, and the system answered without chunks; prod had 10 chunks for this question. The answer is kept and scored.",
+          "4Minds local, v2 run (Haiku): the first pass hit the rate limit (HTTP 429) on 17 items and then hung on its last request; it was stopped, and two retry passes (the same as for the other systems) scored all 246 items. The judge usage of the first pass was not saved, so the judge cost of this row in the v2 run is too low.",
+          "4Minds local: the build status was still 'enhancing' during the answers (document summaries still being written), so the number of summaries in the prompt can differ between questions."
         ]
       },
       {

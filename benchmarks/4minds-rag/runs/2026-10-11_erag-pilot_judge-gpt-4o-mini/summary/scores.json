@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-12T14:18:31+00:00",
+  "created": "2026-10-12T14:51:32+00:00",
   "label": "PILOT",
   "benchmark": "4minds-rag",
   "comparison": "erag_pilot",
@@ -1170,6 +1170,542 @@
       },
       "predictions_sha256": "dc17265ca53b831424b9cde949a7c2e6154c466aaf5954c15c021ad357ecacb1",
       "finished": "2026-10-11T18:22:42+00:00"
+    },
+    "4Minds (benchmark system prompt, local)": {
+      "key": "4minds_local_sysprompt",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-gpt-4o-mini/4minds_local_sysprompt/all",
+      "answers": 50,
+      "missing_answers": [],
+      "items": 246,
+      "not_scored": 0,
+      "not_scored_items": [],
+      "metrics": {
+        "ragas_answer_accuracy": {
+          "mean": 0.445,
+          "ci_low": 0.37,
+          "ci_high": 0.525,
+          "n": 50
+        },
+        "ragas_factual_correctness_precision": {
+          "mean": 0.5258,
+          "ci_low": 0.432,
+          "ci_high": 0.6148,
+          "n": 50
+        },
+        "ragas_factual_correctness_recall": {
+          "mean": 0.676,
+          "ci_low": 0.5726,
+          "ci_high": 0.772,
+          "n": 50
+        },
+        "ragas_factual_correctness_f1": {
+          "mean": 0.5654,
+          "ci_low": 0.4756,
+          "ci_high": 0.6526,
+          "n": 50
+        },
+        "deepeval_summarization": {
+          "mean": 0.5203,
+          "ci_low": 0.43,
+          "ci_high": 0.6106,
+          "n": 50
+        },
+        "deepeval_summarization_alignment": {
+          "mean": 0.5809,
+          "ci_low": 0.4815,
+          "ci_high": 0.6767,
+          "n": 50
+        },
+        "deepeval_summarization_coverage": {
+          "mean": 0.7067,
+          "ci_low": 0.6157,
+          "ci_high": 0.792,
+          "n": 50
+        },
+        "deepeval_hallucination": {
+          "mean": 0.721,
+          "ci_low": 0.6133,
+          "ci_high": 0.83,
+          "n": 50
+        },
+        "retrieval_documents_precision": {
+          "mean": 0.1051,
+          "ci_low": 0.0788,
+          "ci_high": 0.1383,
+          "n": 46
+        },
+        "retrieval_documents_recall": {
+          "mean": 0.8006,
+          "ci_low": 0.6821,
+          "ci_high": 0.9016,
+          "n": 46
+        },
+        "retrieval_documents_f1": {
+          "mean": 0.1721,
+          "ci_low": 0.1367,
+          "ci_high": 0.2146,
+          "n": 46
+        }
+      },
+      "by_type": {
+        "basic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5294,
+            "n": 17
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.5706,
+            "n": 17
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.8129,
+            "n": 17
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.6388,
+            "n": 17
+          },
+          "deepeval_summarization": {
+            "mean": 0.5794,
+            "n": 17
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5971,
+            "n": 17
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.8353,
+            "n": 17
+          },
+          "deepeval_hallucination": {
+            "mean": 0.7678,
+            "n": 17
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0814,
+            "n": 17
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.8235,
+            "n": 17
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1475,
+            "n": 17
+          }
+        },
+        "completeness": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.76,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.76,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.76,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.6822,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.6822,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.8,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.9,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.45,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.8167,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.5792,
+            "n": 2
+          }
+        },
+        "conflicting_info": {
+          "ragas_answer_accuracy": {
+            "mean": 0.375,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.65,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.465,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.51,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.7143,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.5333,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1429,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.2222,
+            "n": 2
+          }
+        },
+        "constrained": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 3
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.6633,
+            "n": 3
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.9467,
+            "n": 3
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.78,
+            "n": 3
+          },
+          "deepeval_summarization": {
+            "mean": 0.5317,
+            "n": 3
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.5734,
+            "n": 3
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.75,
+            "n": 3
+          },
+          "deepeval_hallucination": {
+            "mean": 0.6111,
+            "n": 3
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1114,
+            "n": 3
+          },
+          "retrieval_documents_recall": {
+            "mean": 1.0,
+            "n": 3
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1999,
+            "n": 3
+          }
+        },
+        "high_level": {
+          "ragas_answer_accuracy": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.06,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.165,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.09,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.4667,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.1667,
+            "n": 2
+          }
+        },
+        "info_not_found": {
+          "ragas_answer_accuracy": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.335,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.4,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.5,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 0.5,
+            "n": 2
+          }
+        },
+        "intra_document_reasoning": {
+          "ragas_answer_accuracy": {
+            "mean": 0.625,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.835,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.9175,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.85,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.775,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.875,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.9,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.0574,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 1.0,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1085,
+            "n": 4
+          }
+        },
+        "miscellaneous": {
+          "ragas_answer_accuracy": {
+            "mean": 0.625,
+            "n": 2
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.535,
+            "n": 2
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.75,
+            "n": 2
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.615,
+            "n": 2
+          },
+          "deepeval_summarization": {
+            "mean": 0.65,
+            "n": 2
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.65,
+            "n": 2
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.8,
+            "n": 2
+          },
+          "deepeval_hallucination": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1181,
+            "n": 2
+          },
+          "retrieval_documents_recall": {
+            "mean": 1.0,
+            "n": 2
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.2111,
+            "n": 2
+          }
+        },
+        "project_related": {
+          "ragas_answer_accuracy": {
+            "mean": 0.3125,
+            "n": 4
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.635,
+            "n": 4
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.9125,
+            "n": 4
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.745,
+            "n": 4
+          },
+          "deepeval_summarization": {
+            "mean": 0.4495,
+            "n": 4
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.4495,
+            "n": 4
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.6,
+            "n": 4
+          },
+          "deepeval_hallucination": {
+            "mean": 0.75,
+            "n": 4
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.1683,
+            "n": 4
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.7986,
+            "n": 4
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.239,
+            "n": 4
+          }
+        },
+        "semantic": {
+          "ragas_answer_accuracy": {
+            "mean": 0.3333,
+            "n": 12
+          },
+          "ragas_factual_correctness_precision": {
+            "mean": 0.3092,
+            "n": 12
+          },
+          "ragas_factual_correctness_recall": {
+            "mean": 0.4058,
+            "n": 12
+          },
+          "ragas_factual_correctness_f1": {
+            "mean": 0.3283,
+            "n": 12
+          },
+          "deepeval_summarization": {
+            "mean": 0.4173,
+            "n": 12
+          },
+          "deepeval_summarization_alignment": {
+            "mean": 0.4818,
+            "n": 12
+          },
+          "deepeval_summarization_coverage": {
+            "mean": 0.5625,
+            "n": 12
+          },
+          "deepeval_hallucination": {
+            "mean": 0.6637,
+            "n": 12
+          },
+          "retrieval_documents_precision": {
+            "mean": 0.066,
+            "n": 12
+          },
+          "retrieval_documents_recall": {
+            "mean": 0.6667,
+            "n": 12
+          },
+          "retrieval_documents_f1": {
+            "mean": 0.1161,
+            "n": 12
+          }
+        }
+      },
+      "judge": {
+        "cost_usd": 0.1391,
+        "invocations": 1,
+        "usage": {
+          "calls": 600,
+          "prompt_tokens": 510910,
+          "completion_tokens": 104157,
+          "total_tokens": 615067,
+          "fences_removed": 0,
+          "prose_dropped": 0,
+          "not_json_replies": 9,
+          "truncated_replies": 0
+        }
+      },
+      "versions": {
+        "ragas": "0.4.3",
+        "deepeval": "4.2.8",
+        "openai": "1.109.1"
+      },
+      "predictions_sha256": "22a1627ad50810d7b69a53f9a8402865a6c27a7af04445c0867706978a8ec7a6",
+      "finished": "2026-10-12T14:34:25+00:00"
     },
     "4Minds (Constellations)": {
       "key": "4minds",
@@ -3327,6 +3863,10 @@
     "Two kinds of precision, recall and F1: Factual Correctness counts claims (claims of the answer supported by the gold answer, and claims of the gold answer found in the answer; judge). Document retrieval counts document IDs (the documents the system gave against the gold documents; no judge, exact match).",
     "Document retrieval uses the original gold documents (no correction step, unlike the official EnterpriseRAG-Bench scorer) and only the 46 questions that have gold documents. Systems that give many documents get a lower precision.",
     "4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order.",
+    "4Minds local: not the prod release. Local edit in constellations/assembler/prompts/preliminary_response_prompt.py: when the persona has behavioral guidelines, they replace PRELIMINARY_RESPONSE_SYSTEM (which asks for markdown and bold). The rest of the 4Minds prompt stays, including the DOCUMENT SUMMARIES section ('structure your coverage'); the stored document summaries are markdown. 26 of 50 answers have bold text (prod: 43 of 50).",
+    "4Minds local: qst_0027 has no context. The Graph Engine timed out (15 s) on the local stack, and the system answered without chunks; prod had 10 chunks for this question. The answer is kept and scored.",
+    "4Minds local, v2 run (Haiku): the first pass hit the rate limit (HTTP 429) on 17 items and then hung on its last request; it was stopped, and two retry passes (the same as for the other systems) scored all 246 items. The judge usage of the first pass was not saved, so the judge cost of this row in the v2 run is too low.",
+    "4Minds local: the build status was still 'enhancing' during the answers (document summaries still being written), so the number of summaries in the prompt can differ between questions.",
     "LangChain: always gives 10 documents, so its document precision is at most 0.1 for a question with one gold document.",
     "GraphRAG: this row is not representative of GraphRAG. The fast method writes no entity descriptions, so local search compares the question only with entity names. On a 500-document test, the standard method found 52 of 74 gold documents and the fast method 17 of 74 (see the EnterpriseRAG-Bench run README). The row GPT-OSS + GraphRAG (standard) uses the standard method on the same slice.",
     "GraphRAG (standard): 53 of 21,727 communities (0.24%) have no report because the reply stayed invalid JSON. The index, the answers and the scores were made on victormini1 with the same code, settings and scorer configs; its scoring environments use the package versions of envs/pip_freeze_extra.txt.",
