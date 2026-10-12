@@ -1,9 +1,9 @@
 {
   "source": "configs/comparisons/gptoss_pilot.json",
-  "sha256": "e84638b4c2ed7a1de7476861b95e1a2390a7297ad8832d0015709acd4813e7a8",
+  "sha256": "461cf0b8efccb527df4778fb3c82bf211c8d3c14eb59299b98411337713971be",
   "config": {
     "name": "gptoss_pilot",
-    "description": "Five GPT-OSS-120B systems on the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), each scored alone with the official metrics-based evaluation (default settings: citation stripping and document correction on).",
+    "description": "GPT-OSS-120B systems on the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), each scored alone with the official metrics-based evaluation (default settings: citation stripping and document correction on).",
     "judge": {
       "judge": "gpt-5.4",
       "cheap_judge": "gpt-5-mini"
@@ -71,8 +71,30 @@
           "GraphRAG: the context is the output of the official local search context builder (reports, entities, relationships and source text units, at most 12,000 tokens), given as one context in the official answer prompt; GraphRAG's own answer prompt is not used. The document IDs are the documents of the text units in the 'sources' table.",
           "GraphRAG index: the community-report calls use GraphRAG's default call settings, not the Bedrock settings of the answer calls. Bedrock's JSON mode often puts a '{' in front of the reply; the hub repairs it in memory (audit/patches/graphrag-3.3.0-gptoss-json-repair.py). 117 of 16,179 communities (0.72%) have no report because the reply stayed invalid.",
           "GraphRAG latency: the search is single-threaded Python over 5.66 million relationships. With 8 parallel workers the questions wait for each other, so the recorded median latency (about 108 s) is mostly waiting; one search alone took 12 to 15 s.",
-          "GraphRAG method: this row is not representative of GraphRAG. The fast method writes no entity descriptions (all 73,507 are empty), so local search compares the question only with entity names and often picks generic phrases. A test on 500 documents (the 74 gold documents plus 426 others, same settings) found 17 of 74 gold documents with the fast method and 52 of 74 with the standard method (LLM entity extraction); see the check_graphrag_fast_goldplus and check_graphrag_standard_goldplus steps in audit/audit.log. A standard build of the slice would cost about USD 100 to 125 and is not done.",
+          "GraphRAG method: this row is not representative of GraphRAG. The fast method writes no entity descriptions (all 73,507 are empty), so local search compares the question only with entity names and often picks generic phrases. A test on 500 documents (the 74 gold documents plus 426 others, same settings) found 17 of 74 gold documents with the fast method and 52 of 74 with the standard method (LLM entity extraction); see the check_graphrag_fast_goldplus and check_graphrag_standard_goldplus steps in audit/audit.log. The row GPT-OSS + GraphRAG (standard) is a standard build of the same slice.",
           "GraphRAG ingestion: the build stopped once in its last step (the OpenAI account had no credits) and that step ran again from the GraphRAG cache. The time is the sum of the two runs, without the wait."
+        ]
+      },
+      {
+        "key": "gptoss_graphrag_standard",
+        "folder": "gptoss_graphrag_standard",
+        "name": "GPT-OSS + GraphRAG (standard)",
+        "leaderboard_name": "Microsoft GraphRAG 3.3.0 standard, local search (text-embedding-3-large) + GPT-OSS-120B",
+        "tags": [
+          "one_shot"
+        ],
+        "description": "Microsoft GraphRAG 3.3.0, standard indexing method with default settings (1,200-token chunks, LLM entity and relationship extraction, description summaries and community reports by GPT-OSS-120B), text-embedding-3-large; the local search context (community level 2) in the official answer prompt; GPT-OSS-120B on Amazon Bedrock",
+        "short": "Microsoft GraphRAG, standard method, local search",
+        "color": "#c2410c",
+        "ingestion": {
+          "file": "shared/graphrag/enterpriserag-bench-pilot_standard/index_manifest.json",
+          "seconds": "index_wall_clock_s",
+          "cost": "estimated_cost_usd"
+        },
+        "caveats": [
+          "GraphRAG (standard): the same answer path as the fast row (the official local search context builder, at most 12,000 tokens, as one context in the official answer prompt; document IDs from the 'sources' table). Only the index is different: 121,944 entities with descriptions and 256,481 relationships.",
+          "GraphRAG (standard) index: the same JSON repair of the Bedrock replies as the fast row (audit/patches/graphrag-3.3.0-gptoss-json-repair.py; 19,100 replies repaired). 53 of 21,727 communities (0.24%) have no report because the reply stayed invalid.",
+          "GraphRAG (standard): the index (16.6 h at 16 parallel LLM requests, about USD 102), the answers and the score were made on the operator's Linux machine (victormini1) with the same corpus slice (same corpus_sha256 as the fast index), code and scorer; the scoring environment uses the package versions of envs/pip_freeze_erag.txt. The answer latency (median 11 s, 8 parallel workers) is much lower than the fast row because the graph has fewer relationships."
         ]
       },
       {

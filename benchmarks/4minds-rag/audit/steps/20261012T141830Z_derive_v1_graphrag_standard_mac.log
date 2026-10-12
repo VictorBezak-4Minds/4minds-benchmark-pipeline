@@ -1,0 +1,7 @@
+# step: derive_v1_graphrag_standard_mac
+# start: 2026-10-12T14:18:30Z
+# command: /Users/victorbezak/Documents/Benchmark Datasets/envs/.venv-eval/bin/python /Users/victorbezak/Documents/Benchmark Datasets/pipeline/derive_run.py --from ../enterpriserag-bench/runs/2026-10-10_gptoss-pilot --to runs/2026-10-11_erag-pilot_judge-gpt-4o-mini --change 4Minds RAG metrics (configs/scorers/v1_gpt-4o-mini.json), judge gpt-4o-mini --title 4Minds RAG v1: EnterpriseRAG-Bench pilot answers, judge gpt-4o-mini --purpose Score the saved answers of the 5 systems with RAGAS Answer Accuracy and Factual Correctness, DeepEval Summarization and Hallucination, and document precision, recall and F1. --systems gptoss_graphrag_standard
+
+/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/4minds-rag/runs/2026-10-11_erag-pilot_judge-gpt-4o-mini: 0 links for ['gptoss_graphrag_standard']
+
+# end: 2026-10-12T14:18:30Z  exit: 0  duration_s: 0

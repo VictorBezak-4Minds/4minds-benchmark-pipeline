@@ -1,6 +1,6 @@
 {
   "name": "erag_pilot",
-  "description": "The five GPT-OSS-120B systems of the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), their saved answers scored with the 4Minds RAG metrics. The scorer config (configs/scorers/) gives the judge.",
+  "description": "The GPT-OSS-120B systems of the EnterpriseRAG-Bench pilot (50 questions, 10,000-document slice), their saved answers scored with the 4Minds RAG metrics. The scorer config (configs/scorers/) gives the judge.",
   "source_run": "../enterpriserag-bench/runs/2026-10-10_gptoss-pilot",
   "bootstrap": {
     "resamples": 2000,
@@ -19,7 +19,7 @@
   "judge_caveats": {
     "anthropic-claude-haiku-5-5-nothink": [
       "Haiku judge: the Anthropic OpenAI-compatible endpoint rejects the RAGAS response_format {\"type\": \"json_object\"} (HTTP 400), so the scorer config removes that field (drop_params). The prompt with the JSON schema is the same; Haiku puts the JSON in a code fence, which the scorer removes before parsing (about 340 fences per system). gpt-4o-mini got the field.",
-      "Haiku judge: the first pass hit the rate limit of 80,000 output tokens per minute (HTTP 429) at 16 parallel requests; two retry passes, the same for every system, scored all such items. 4 items stay not scored, and they are not in the means: Summarization of qst_0454 for LangChain, RAGFlow and GraphRAG (the answer is only a date, and Haiku replied in prose that the text to extract claims from was empty; audit step diagnose_v2_qst_0454), and Factual Correctness of qst_0433 for RAGFlow (the claim list was longer than the 4,096-token limit)."
+      "Haiku judge: the first pass hit the rate limit of 80,000 output tokens per minute (HTTP 429) at 16 parallel requests; two retry passes, the same for every system, scored all such items. 4 items stay not scored, and they are not in the means: Summarization of qst_0454 for LangChain, RAGFlow and GraphRAG (the answer is only a date, and Haiku replied in prose that the text to extract claims from was empty; audit step diagnose_v2_qst_0454), and Factual Correctness of qst_0433 for RAGFlow (the claim list was longer than the 4,096-token limit). GraphRAG (standard) was scored later with one retry pass; all its items are scored, including Summarization of qst_0454."
     ]
   },
   "systems": [
@@ -75,7 +75,26 @@
         "note": "The build stopped once in its last step (the OpenAI account had no credits); that step ran again from the GraphRAG cache. The time is the sum of the two runs, without the wait."
       },
       "caveats": [
-        "GraphRAG: this row is not representative of GraphRAG. The fast method writes no entity descriptions, so local search compares the question only with entity names. On a 500-document test, the standard method found 52 of 74 gold documents and the fast method 17 of 74 (see the EnterpriseRAG-Bench run README)."
+        "GraphRAG: this row is not representative of GraphRAG. The fast method writes no entity descriptions, so local search compares the question only with entity names. On a 500-document test, the standard method found 52 of 74 gold documents and the fast method 17 of 74 (see the EnterpriseRAG-Bench run README). The row GPT-OSS + GraphRAG (standard) uses the standard method on the same slice."
+      ]
+    },
+    {
+      "key": "gptoss_graphrag_standard",
+      "folder": "gptoss_graphrag_standard",
+      "name": "GPT-OSS + GraphRAG (standard)",
+      "description": "Microsoft GraphRAG 3.3.0, standard indexing method with default settings (LLM entity and relationship extraction and community reports by GPT-OSS-120B), local search (community level 2), text-embedding-3-large; GPT-OSS-120B on Amazon Bedrock",
+      "short": "Microsoft GraphRAG, standard method, local search",
+      "color": "#c2410c",
+      "ingestion": {
+        "file": "../enterpriserag-bench/shared/graphrag/enterpriserag-bench-pilot_standard/index_manifest.json",
+        "seconds": "index_wall_clock_s",
+        "cost": "estimated_cost_usd",
+        "cost_covers": "GPT-OSS-120B on Bedrock (82,740 calls) and embeddings (39.5 M tokens)",
+        "ran_on": "operator's Linux machine (victormini1), 16 parallel LLM requests"
+      },
+      "caveats": [
+        "GraphRAG (standard): 53 of 21,727 communities (0.24%) have no report because the reply stayed invalid JSON. The index, the answers and the scores were made on victormini1 with the same code, settings and scorer configs; its scoring environments use the package versions of envs/pip_freeze_extra.txt.",
+        "GraphRAG (standard), v1 run (gpt-4o-mini): the first scoring pass hung on one request (Summarization of qst_0007) and was stopped; a second pass scored that item. The judge usage of the first pass was not saved, so the judge cost of this row in the v1 run is too low."
       ]
     },
     {

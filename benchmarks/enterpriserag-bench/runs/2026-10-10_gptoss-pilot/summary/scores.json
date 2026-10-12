@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-11T17:23:00+00:00",
+  "created": "2026-10-12T14:18:31+00:00",
   "label": "PILOT",
   "benchmark": "enterpriserag-bench",
   "comparison": "gptoss_pilot",
@@ -481,6 +481,162 @@
         }
       }
     },
+    "GPT-OSS + GraphRAG (standard)": {
+      "key": "gptoss_graphrag_standard",
+      "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_graphrag_standard/all",
+      "run_started": "2026-10-12T13:48:11+00:00",
+      "official": {
+        "total_questions": 50,
+        "completed_questions": 50,
+        "skipped_rows": 0,
+        "num_corrected_questions": 2,
+        "average_correctness_pct": 38.0,
+        "average_completeness_pct": 28.27,
+        "combined_correctness_completeness_score": 20.84,
+        "average_recall_pct": 35.08,
+        "average_invalid_extra_docs": 5.3,
+        "overall_score": 20.84
+      },
+      "overall_ci95": [
+        11.2,
+        31.23
+      ],
+      "overall_missing_as_zero": 20.84,
+      "scored_questions": 50,
+      "run_questions": 50,
+      "not_scored": [],
+      "by_type": {
+        "basic": {
+          "count": 17,
+          "average_correctness_pct": 47.06,
+          "average_completeness_pct": 24.12,
+          "combined_correctness_completeness_score": 24.12,
+          "average_recall_pct": 47.06,
+          "average_invalid_extra_docs": 5.71
+        },
+        "semantic": {
+          "count": 12,
+          "average_correctness_pct": 16.67,
+          "average_completeness_pct": 11.49,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 5.33
+        },
+        "intra_document_reasoning": {
+          "count": 4,
+          "average_correctness_pct": 25.0,
+          "average_completeness_pct": 33.33,
+          "combined_correctness_completeness_score": 25.0,
+          "average_recall_pct": 50.0,
+          "average_invalid_extra_docs": 5.0
+        },
+        "project_related": {
+          "count": 4,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 35.3,
+          "combined_correctness_completeness_score": 15.11,
+          "average_recall_pct": 49.3,
+          "average_invalid_extra_docs": 3.0
+        },
+        "constrained": {
+          "count": 3,
+          "average_correctness_pct": 100.0,
+          "average_completeness_pct": 93.33,
+          "combined_correctness_completeness_score": 93.33,
+          "average_recall_pct": 83.33,
+          "average_invalid_extra_docs": 5.0
+        },
+        "conflicting_info": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 57.5,
+          "combined_correctness_completeness_score": 37.5,
+          "average_recall_pct": 50.0,
+          "average_invalid_extra_docs": 4.5
+        },
+        "completeness": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 14.59,
+          "combined_correctness_completeness_score": 8.34,
+          "average_recall_pct": 33.33,
+          "average_invalid_extra_docs": 5.5
+        },
+        "miscellaneous": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 0.0,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 8.0
+        },
+        "high_level": {
+          "count": 2,
+          "average_correctness_pct": 0.0,
+          "average_completeness_pct": 33.34,
+          "combined_correctness_completeness_score": 0.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        },
+        "info_not_found": {
+          "count": 2,
+          "average_correctness_pct": 50.0,
+          "average_completeness_pct": 50.0,
+          "combined_correctness_completeness_score": 50.0,
+          "average_recall_pct": 0.0,
+          "average_invalid_extra_docs": 0.0
+        }
+      },
+      "corrected": [
+        "qst_0421",
+        "qst_0443"
+      ],
+      "failed_judge_questions": {},
+      "documents_per_answer": {
+        "mean": 5.9,
+        "max": 10,
+        "answers_without_documents": 0
+      },
+      "judge": {
+        "models": {
+          "judge": "gpt-5.4",
+          "cheap_judge": "gpt-5-mini"
+        },
+        "cost_usd": 4.2733,
+        "usage": {
+          "gpt-5.4-2026-03-05": {
+            "calls": 407,
+            "input_tokens": 994632,
+            "cached_input_tokens": 149760,
+            "output_tokens": 141580,
+            "reasoning_tokens": 85564,
+            "not_completed": 0
+          }
+        }
+      },
+      "operations": {
+        "questions": 50,
+        "answered": 50,
+        "failed": 0,
+        "no_context": 0,
+        "dont_know": 0,
+        "workers": 8,
+        "latency": {
+          "n": 50,
+          "mean_s": 11.97,
+          "median_s": 10.94,
+          "p90_s": 21.37,
+          "max_s": 35.54
+        },
+        "estimated_cost_usd": 0.0959,
+        "tokens": {
+          "embedding_tokens": 1795,
+          "completion_tokens": 31822,
+          "prompt_tokens": 510763,
+          "total_tokens": 542585
+        }
+      }
+    },
     "GPT-OSS + RAGFlow": {
       "key": "gptoss_ragflow",
       "folder": "/Users/victorbezak/Documents/Benchmark Datasets/benchmarks/enterpriserag-bench/runs/2026-10-10_gptoss-pilot/gptoss_ragflow/all",
@@ -821,6 +977,15 @@
       "tags": "one_shot"
     },
     {
+      "model": "Microsoft GraphRAG 3.3.0 standard, local search (text-embedding-3-large) + GPT-OSS-120B",
+      "overall_score": "20.84",
+      "correctness": "38.0",
+      "completeness": "28.27",
+      "recall": "35.08",
+      "invalid_extra_docs": "5.3",
+      "tags": "one_shot"
+    },
+    {
       "model": "Microsoft GraphRAG 3.3.0 fast, local search (text-embedding-3-large) + GPT-OSS-120B",
       "overall_score": "5.49",
       "correctness": "14.0",
@@ -851,8 +1016,11 @@
     "GraphRAG: the context is the output of the official local search context builder (reports, entities, relationships and source text units, at most 12,000 tokens), given as one context in the official answer prompt; GraphRAG's own answer prompt is not used. The document IDs are the documents of the text units in the 'sources' table.",
     "GraphRAG index: the community-report calls use GraphRAG's default call settings, not the Bedrock settings of the answer calls. Bedrock's JSON mode often puts a '{' in front of the reply; the hub repairs it in memory (audit/patches/graphrag-3.3.0-gptoss-json-repair.py). 117 of 16,179 communities (0.72%) have no report because the reply stayed invalid.",
     "GraphRAG latency: the search is single-threaded Python over 5.66 million relationships. With 8 parallel workers the questions wait for each other, so the recorded median latency (about 108 s) is mostly waiting; one search alone took 12 to 15 s.",
-    "GraphRAG method: this row is not representative of GraphRAG. The fast method writes no entity descriptions (all 73,507 are empty), so local search compares the question only with entity names and often picks generic phrases. A test on 500 documents (the 74 gold documents plus 426 others, same settings) found 17 of 74 gold documents with the fast method and 52 of 74 with the standard method (LLM entity extraction); see the check_graphrag_fast_goldplus and check_graphrag_standard_goldplus steps in audit/audit.log. A standard build of the slice would cost about USD 100 to 125 and is not done.",
+    "GraphRAG method: this row is not representative of GraphRAG. The fast method writes no entity descriptions (all 73,507 are empty), so local search compares the question only with entity names and often picks generic phrases. A test on 500 documents (the 74 gold documents plus 426 others, same settings) found 17 of 74 gold documents with the fast method and 52 of 74 with the standard method (LLM entity extraction); see the check_graphrag_fast_goldplus and check_graphrag_standard_goldplus steps in audit/audit.log. The row GPT-OSS + GraphRAG (standard) is a standard build of the same slice.",
     "GraphRAG ingestion: the build stopped once in its last step (the OpenAI account had no credits) and that step ran again from the GraphRAG cache. The time is the sum of the two runs, without the wait.",
+    "GraphRAG (standard): the same answer path as the fast row (the official local search context builder, at most 12,000 tokens, as one context in the official answer prompt; document IDs from the 'sources' table). Only the index is different: 121,944 entities with descriptions and 256,481 relationships.",
+    "GraphRAG (standard) index: the same JSON repair of the Bedrock replies as the fast row (audit/patches/graphrag-3.3.0-gptoss-json-repair.py; 19,100 replies repaired). 53 of 21,727 communities (0.24%) have no report because the reply stayed invalid.",
+    "GraphRAG (standard): the index (16.6 h at 16 parallel LLM requests, about USD 102), the answers and the score were made on the operator's Linux machine (victormini1) with the same corpus slice (same corpus_sha256 as the fast index), code and scorer; the scoring environment uses the package versions of envs/pip_freeze_erag.txt. The answer latency (median 11 s, 8 parallel workers) is much lower than the fast row because the graph has fewer relationships.",
     "RAGFlow: the context is the 6 chunks of the RAGFlow retrieval API, in RAGFlow rank order, each chunk as one context document in the official answer prompt; RAGFlow's own chat prompt is not used. The document IDs are the documents of these chunks (documents.json maps the RAGFlow document IDs).",
     "RAGFlow ingestion: RAGFlow ran in Docker (WSL2) on a separate Windows PC; the Mac sent the searches over the local network. The time (upload 281 s + parse 8,385 s) depends on the CPU of that PC. The cost is only the embedding tokens that RAGFlow counted. setup.json on the Mac was restored from the step log of the setup run (same values), and documents.json was read again from the server.",
     "No RAG: the official prompt says to answer only from the documents, and the document section is empty. The company is synthetic, so world knowledge cannot answer most questions."

@@ -11,24 +11,25 @@ Judge: `openai-gpt-4o-mini`. Scores are 0 to 1, higher is better. 95% CI: 2000 b
 | GPT-OSS + RAGFlow | 0.460 (0.40–0.53) | 0.510 (0.42–0.60) | 0.407 (0.31–0.50) | 0.634 (0.53–0.74) | 0.377 (0.31–0.45) |
 | GPT-OSS + LangChain | 0.455 (0.37–0.55) | 0.503 (0.41–0.60) | 0.405 (0.32–0.50) | 0.666 (0.55–0.78) | 0.203 (0.16–0.25) |
 | 4Minds (Constellations) | 0.390 (0.32–0.47) | 0.472 (0.37–0.57) | 0.468 (0.37–0.57) | 0.655 (0.54–0.77) | 0.165 (0.12–0.21) |
+| GPT-OSS + GraphRAG (standard) | 0.245 (0.16–0.33) | 0.277 (0.19–0.37) | 0.227 (0.15–0.31) | 0.368 (0.26–0.48) | 0.140 (0.09–0.19) |
 | GPT-OSS + GraphRAG | 0.090 (0.04–0.15) | 0.170 (0.11–0.24) | 0.087 (0.04–0.13) | 0.284 (0.18–0.40) | 0.016 (0.00–0.04) |
 | GPT-OSS, no RAG | 0.061 (0.02–0.11) | 0.082 (0.04–0.13) | 0.041 (0.01–0.09) | 0.204 (0.11–0.31) | 0.000 (0.00–0.00) |
 
 ## All metric outputs
 
-| Metric | GPT-OSS + RAGFlow | GPT-OSS + LangChain | 4Minds (Constellations) | GPT-OSS + GraphRAG | GPT-OSS, no RAG |
-|---|---|---|---|---|---|
-| Answer Accuracy (RAGAS, NVIDIA) | 0.460 (n=50) | 0.455 (n=50) | 0.390 (n=50) | 0.090 (n=50) | 0.061 (n=49) |
-| Factual Correctness (RAGAS): precision | 0.582 (n=50) | 0.544 (n=50) | 0.439 (n=50) | 0.223 (n=50) | 0.150 (n=49) |
-| Factual Correctness (RAGAS): recall | 0.512 (n=50) | 0.527 (n=50) | 0.577 (n=50) | 0.156 (n=50) | 0.060 (n=49) |
-| Factual Correctness (RAGAS): f1 | 0.510 (n=50) | 0.503 (n=50) | 0.472 (n=50) | 0.170 (n=50) | 0.082 (n=49) |
-| Summarization (DeepEval) | 0.407 (n=50) | 0.405 (n=50) | 0.468 (n=50) | 0.087 (n=50) | 0.041 (n=49) |
-| Summarization (DeepEval): alignment | 0.594 (n=50) | 0.594 (n=50) | 0.531 (n=50) | 0.178 (n=50) | 0.085 (n=49) |
-| Summarization (DeepEval): coverage | 0.546 (n=50) | 0.559 (n=50) | 0.687 (n=50) | 0.163 (n=50) | 0.100 (n=49) |
-| Hallucination (DeepEval; higher is better) | 0.634 (n=50) | 0.666 (n=50) | 0.655 (n=50) | 0.284 (n=50) | 0.204 (n=49) |
-| Document retrieval (no judge): precision | 0.290 (n=46) | 0.126 (n=46) | 0.101 (n=46) | 0.018 (n=46) | 0.000 (n=45) |
-| Document retrieval (no judge): recall | 0.831 (n=46) | 0.821 (n=46) | 0.715 (n=46) | 0.032 (n=46) | 0.000 (n=45) |
-| Document retrieval (no judge): f1 | 0.377 (n=46) | 0.203 (n=46) | 0.165 (n=46) | 0.016 (n=46) | 0.000 (n=45) |
+| Metric | GPT-OSS + RAGFlow | GPT-OSS + LangChain | 4Minds (Constellations) | GPT-OSS + GraphRAG (standard) | GPT-OSS + GraphRAG | GPT-OSS, no RAG |
+|---|---|---|---|---|---|---|
+| Answer Accuracy (RAGAS, NVIDIA) | 0.460 (n=50) | 0.455 (n=50) | 0.390 (n=50) | 0.245 (n=50) | 0.090 (n=50) | 0.061 (n=49) |
+| Factual Correctness (RAGAS): precision | 0.582 (n=50) | 0.544 (n=50) | 0.439 (n=50) | 0.330 (n=50) | 0.223 (n=50) | 0.150 (n=49) |
+| Factual Correctness (RAGAS): recall | 0.512 (n=50) | 0.527 (n=50) | 0.577 (n=50) | 0.264 (n=50) | 0.156 (n=50) | 0.060 (n=49) |
+| Factual Correctness (RAGAS): f1 | 0.510 (n=50) | 0.503 (n=50) | 0.472 (n=50) | 0.277 (n=50) | 0.170 (n=50) | 0.082 (n=49) |
+| Summarization (DeepEval) | 0.407 (n=50) | 0.405 (n=50) | 0.468 (n=50) | 0.227 (n=50) | 0.087 (n=50) | 0.041 (n=49) |
+| Summarization (DeepEval): alignment | 0.594 (n=50) | 0.594 (n=50) | 0.531 (n=50) | 0.339 (n=50) | 0.178 (n=50) | 0.085 (n=49) |
+| Summarization (DeepEval): coverage | 0.546 (n=50) | 0.559 (n=50) | 0.687 (n=50) | 0.347 (n=50) | 0.163 (n=50) | 0.100 (n=49) |
+| Hallucination (DeepEval; higher is better) | 0.634 (n=50) | 0.666 (n=50) | 0.655 (n=50) | 0.368 (n=50) | 0.284 (n=50) | 0.204 (n=49) |
+| Document retrieval (no judge): precision | 0.290 (n=46) | 0.126 (n=46) | 0.101 (n=46) | 0.103 (n=46) | 0.018 (n=46) | 0.000 (n=45) |
+| Document retrieval (no judge): recall | 0.831 (n=46) | 0.821 (n=46) | 0.715 (n=46) | 0.348 (n=46) | 0.032 (n=46) | 0.000 (n=45) |
+| Document retrieval (no judge): f1 | 0.377 (n=46) | 0.203 (n=46) | 0.165 (n=46) | 0.140 (n=46) | 0.016 (n=46) | 0.000 (n=45) |
 
 ## Answer Accuracy (RAGAS, NVIDIA) by question type
 
@@ -37,6 +38,7 @@ Judge: `openai-gpt-4o-mini`. Scores are 0 to 1, higher is better. 95% CI: 2000 b
 | GPT-OSS + RAGFlow | 0.50 (n=17) | 0.50 (n=2) | 0.50 (n=2) | 0.50 (n=3) | 0.00 (n=2) | 0.50 (n=2) | 0.56 (n=4) | 0.62 (n=2) | 0.31 (n=4) | 0.44 (n=12) |
 | GPT-OSS + LangChain | 0.51 (n=17) | 0.38 (n=2) | 0.25 (n=2) | 0.67 (n=3) | 0.00 (n=2) | 0.50 (n=2) | 0.69 (n=4) | 0.62 (n=2) | 0.25 (n=4) | 0.40 (n=12) |
 | 4Minds (Constellations) | 0.53 (n=17) | 0.38 (n=2) | 0.25 (n=2) | 0.50 (n=3) | 0.00 (n=2) | 0.25 (n=2) | 0.62 (n=4) | 0.25 (n=2) | 0.25 (n=4) | 0.27 (n=12) |
+| GPT-OSS + GraphRAG (standard) | 0.35 (n=17) | 0.12 (n=2) | 0.25 (n=2) | 0.58 (n=3) | 0.12 (n=2) | 0.25 (n=2) | 0.25 (n=4) | 0.00 (n=2) | 0.25 (n=4) | 0.08 (n=12) |
 | GPT-OSS + GraphRAG | 0.06 (n=17) | 0.00 (n=2) | 0.00 (n=2) | 0.00 (n=3) | 0.00 (n=2) | 0.62 (n=2) | 0.00 (n=4) | 0.38 (n=2) | 0.12 (n=4) | 0.08 (n=12) |
 | GPT-OSS, no RAG | 0.06 (n=17) | 0.00 (n=1) | 0.00 (n=2) | 0.00 (n=3) | 0.00 (n=2) | 0.38 (n=2) | 0.00 (n=4) | 0.00 (n=2) | 0.00 (n=4) | 0.10 (n=12) |
 
@@ -47,6 +49,7 @@ Judge: `openai-gpt-4o-mini`. Scores are 0 to 1, higher is better. 95% CI: 2000 b
 | GPT-OSS + RAGFlow | 0.46 (n=17) | 0.56 (n=2) | 0.71 (n=2) | 0.72 (n=3) | 0.20 (n=2) | 0.34 (n=2) | 0.67 (n=4) | 0.58 (n=2) | 0.69 (n=4) | 0.45 (n=12) |
 | GPT-OSS + LangChain | 0.52 (n=17) | 0.34 (n=2) | 0.34 (n=2) | 0.83 (n=3) | 0.00 (n=2) | 0.40 (n=2) | 0.67 (n=4) | 0.77 (n=2) | 0.81 (n=4) | 0.36 (n=12) |
 | 4Minds (Constellations) | 0.51 (n=17) | 0.74 (n=2) | 0.34 (n=2) | 0.68 (n=3) | 0.00 (n=2) | 0.00 (n=2) | 0.70 (n=4) | 0.43 (n=2) | 0.63 (n=4) | 0.38 (n=12) |
+| GPT-OSS + GraphRAG (standard) | 0.31 (n=17) | 0.49 (n=2) | 0.50 (n=2) | 0.68 (n=3) | 0.22 (n=2) | 0.00 (n=2) | 0.32 (n=4) | 0.11 (n=2) | 0.30 (n=4) | 0.12 (n=12) |
 | GPT-OSS + GraphRAG | 0.16 (n=17) | 0.00 (n=2) | 0.00 (n=2) | 0.23 (n=3) | 0.00 (n=2) | 0.56 (n=2) | 0.00 (n=4) | 0.34 (n=2) | 0.41 (n=4) | 0.13 (n=12) |
 | GPT-OSS, no RAG | 0.05 (n=17) | 0.06 (n=1) | 0.12 (n=2) | 0.00 (n=3) | 0.20 (n=2) | 0.25 (n=2) | 0.00 (n=4) | 0.00 (n=2) | 0.00 (n=4) | 0.16 (n=12) |
 
@@ -57,6 +60,7 @@ Judge: `openai-gpt-4o-mini`. Scores are 0 to 1, higher is better. 95% CI: 2000 b
 | GPT-OSS + RAGFlow | 0.44 (n=17) | 0.65 (n=2) | 0.30 (n=2) | 0.62 (n=3) | 0.17 (n=2) | 0.30 (n=2) | 0.42 (n=4) | 0.25 (n=2) | 0.29 (n=4) | 0.40 (n=12) |
 | GPT-OSS + LangChain | 0.44 (n=17) | 0.60 (n=2) | 0.10 (n=2) | 0.46 (n=3) | 0.00 (n=2) | 0.50 (n=2) | 0.45 (n=4) | 0.40 (n=2) | 0.52 (n=4) | 0.36 (n=12) |
 | 4Minds (Constellations) | 0.59 (n=17) | 0.60 (n=2) | 0.30 (n=2) | 0.70 (n=3) | 0.00 (n=2) | 0.30 (n=2) | 0.75 (n=4) | 0.25 (n=2) | 0.35 (n=4) | 0.34 (n=12) |
+| GPT-OSS + GraphRAG (standard) | 0.28 (n=17) | 0.40 (n=2) | 0.20 (n=2) | 0.56 (n=3) | 0.00 (n=2) | 0.30 (n=2) | 0.20 (n=4) | 0.00 (n=2) | 0.32 (n=4) | 0.08 (n=12) |
 | GPT-OSS + GraphRAG | 0.06 (n=17) | 0.02 (n=2) | 0.00 (n=2) | 0.08 (n=3) | 0.00 (n=2) | 0.50 (n=2) | 0.00 (n=4) | 0.00 (n=2) | 0.11 (n=4) | 0.13 (n=12) |
 | GPT-OSS, no RAG | 0.00 (n=17) | 0.00 (n=1) | 0.00 (n=2) | 0.00 (n=3) | 0.00 (n=2) | 0.30 (n=2) | 0.00 (n=4) | 0.00 (n=2) | 0.00 (n=4) | 0.12 (n=12) |
 
@@ -67,6 +71,7 @@ Judge: `openai-gpt-4o-mini`. Scores are 0 to 1, higher is better. 95% CI: 2000 b
 | GPT-OSS + RAGFlow | 0.67 (n=17) | 1.00 (n=2) | 0.65 (n=2) | 0.50 (n=3) | 0.17 (n=2) | 0.50 (n=2) | 0.50 (n=4) | 0.90 (n=2) | 0.50 (n=4) | 0.70 (n=12) |
 | GPT-OSS + LangChain | 0.70 (n=17) | 0.96 (n=2) | 0.25 (n=2) | 0.72 (n=3) | 0.17 (n=2) | 0.50 (n=2) | 0.67 (n=4) | 1.00 (n=2) | 0.50 (n=4) | 0.74 (n=12) |
 | 4Minds (Constellations) | 0.85 (n=17) | 1.00 (n=2) | 0.70 (n=2) | 0.50 (n=3) | 0.00 (n=2) | 0.00 (n=2) | 0.75 (n=4) | 0.40 (n=2) | 0.40 (n=4) | 0.67 (n=12) |
+| GPT-OSS + GraphRAG (standard) | 0.55 (n=17) | 0.57 (n=2) | 0.35 (n=2) | 0.50 (n=3) | 0.17 (n=2) | 0.00 (n=2) | 0.33 (n=4) | 0.00 (n=2) | 0.38 (n=4) | 0.21 (n=12) |
 | GPT-OSS + GraphRAG | 0.33 (n=17) | 0.00 (n=2) | 0.20 (n=2) | 0.04 (n=3) | 0.17 (n=2) | 0.50 (n=2) | 0.25 (n=4) | 0.50 (n=2) | 0.25 (n=4) | 0.31 (n=12) |
 | GPT-OSS, no RAG | 0.18 (n=17) | 0.00 (n=1) | 0.20 (n=2) | 0.00 (n=3) | 0.00 (n=2) | 0.50 (n=2) | 0.00 (n=4) | 0.50 (n=2) | 0.00 (n=4) | 0.38 (n=12) |
 
@@ -77,6 +82,7 @@ Judge: `openai-gpt-4o-mini`. Scores are 0 to 1, higher is better. 95% CI: 2000 b
 | GPT-OSS + RAGFlow | 0.30 (n=17) | 0.75 (n=2) | 0.50 (n=2) | 0.60 (n=3) | – | – | 0.30 (n=4) | 0.29 (n=2) | 0.69 (n=4) | 0.28 (n=12) |
 | GPT-OSS + LangChain | 0.16 (n=17) | 0.65 (n=2) | 0.17 (n=2) | 0.28 (n=3) | – | – | 0.14 (n=4) | 0.18 (n=2) | 0.40 (n=4) | 0.14 (n=12) |
 | 4Minds (Constellations) | 0.15 (n=17) | 0.65 (n=2) | 0.22 (n=2) | 0.19 (n=3) | – | – | 0.08 (n=4) | 0.10 (n=2) | 0.32 (n=4) | 0.08 (n=12) |
+| GPT-OSS + GraphRAG (standard) | 0.14 (n=17) | 0.23 (n=2) | 0.25 (n=2) | 0.35 (n=3) | – | – | 0.15 (n=4) | 0.00 (n=2) | 0.38 (n=4) | 0.00 (n=12) |
 | GPT-OSS + GraphRAG | 0.00 (n=17) | 0.00 (n=2) | 0.00 (n=2) | 0.00 (n=3) | – | – | 0.00 (n=4) | 0.11 (n=2) | 0.13 (n=4) | 0.00 (n=12) |
 | GPT-OSS, no RAG | 0.00 (n=17) | 0.00 (n=1) | 0.00 (n=2) | 0.00 (n=3) | – | – | 0.00 (n=4) | 0.00 (n=2) | 0.00 (n=4) | 0.00 (n=12) |
 
@@ -87,6 +93,7 @@ Judge: `openai-gpt-4o-mini`. Scores are 0 to 1, higher is better. 95% CI: 2000 b
 | GPT-OSS + RAGFlow | 50 | 246 | 0 | 598 | 4 | 0 | 0 | $0.115 |
 | GPT-OSS + LangChain | 50 | 246 | 0 | 598 | 6 | 0 | 0 | $0.118 |
 | 4Minds (Constellations) | 50 | 246 | 0 | 600 | 9 | 0 | 0 | $0.136 |
+| GPT-OSS + GraphRAG (standard) | 50 | 246 | 0 | 5 | 0 | 0 | 0 | $0.001 |
 | GPT-OSS + GraphRAG | 50 | 246 | 0 | 599 | 4 | 0 | 0 | $0.111 |
 | GPT-OSS, no RAG | 49 | 241 | 0 | 585 | 0 | 0 | 0 | $0.091 |
 
@@ -104,5 +111,7 @@ Judge: `openai-gpt-4o-mini`. Scores are 0 to 1, higher is better. 95% CI: 2000 b
 - Document retrieval uses the original gold documents (no correction step, unlike the official EnterpriseRAG-Bench scorer) and only the 46 questions that have gold documents. Systems that give many documents get a lower precision.
 - 4Minds: the document IDs come from the chunk document_title (file name <dsid>_<title>.txt), in chunk score order.
 - LangChain: always gives 10 documents, so its document precision is at most 0.1 for a question with one gold document.
-- GraphRAG: this row is not representative of GraphRAG. The fast method writes no entity descriptions, so local search compares the question only with entity names. On a 500-document test, the standard method found 52 of 74 gold documents and the fast method 17 of 74 (see the EnterpriseRAG-Bench run README).
+- GraphRAG: this row is not representative of GraphRAG. The fast method writes no entity descriptions, so local search compares the question only with entity names. On a 500-document test, the standard method found 52 of 74 gold documents and the fast method 17 of 74 (see the EnterpriseRAG-Bench run README). The row GPT-OSS + GraphRAG (standard) uses the standard method on the same slice.
+- GraphRAG (standard): 53 of 21,727 communities (0.24%) have no report because the reply stayed invalid JSON. The index, the answers and the scores were made on victormini1 with the same code, settings and scorer configs; its scoring environments use the package versions of envs/pip_freeze_extra.txt.
+- GraphRAG (standard), v1 run (gpt-4o-mini): the first scoring pass hung on one request (Summarization of qst_0007) and was stopped; a second pass scored that item. The judge usage of the first pass was not saved, so the judge cost of this row in the v1 run is too low.
 - No RAG: the system gets no documents, so all its document scores are 0 by design. It has 49 answers; the question without an answer is not scored.
